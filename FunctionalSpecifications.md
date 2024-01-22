@@ -30,6 +30,7 @@
       - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
   - [3. Functional Requirements](#3-functional-requirements)
     - [3.1 Virtual Processor](#31-virtual-processor)
+      - [➭ 3.1.1 RISC-V Architecture](#-311-risc-v-architecture)
       - [➭ 3.1.1 Architecture](#-311-architecture)
     - [3.2 Assembly Language](#32-assembly-language)
       - [➭ 3.2.1 Comparison with x86 Assembly](#-321-comparison-with-x86-assembly)
@@ -41,12 +42,12 @@
 
 ## 1. Glossary
 
-| Term | Definition | Source/s |
-|---|---|---|
-| Assembly Language |  |  |
-| Virtual Processor |  |  |
-| Interpreter |  |  |
-| RISC |  |  |
+| Term              | Definition | Source/s |
+| ----------------- | ---------- | -------- |
+| Assembly Language |            |          |
+| Virtual Processor |            |          |
+| Interpreter       |            |          |
+| RISC              |            |          |
 
 ## 2. Introduction
 
@@ -99,29 +100,29 @@ We will also make an interpreter that will run the assembly language on the virt
 #### ➭ <ins>2.2.3 Scope</ins>
 
 | In Scope |
-|---|
+| -------- |
 
 | Out of Scope |
-|---|
+| ------------ |
 
 #### ➭ <ins>2.2.4 Deliverables</ins>
 
-| Name | Type | Deadline | Link |
-|---|---|---|---|
-| Functional Specifications Document | Document (markdown) | 30/01/2024 | [FunctionalSpecifications.md](./FunctionalSpecifications.md) |
-| Technical Specifications Document | Document (markdown) | 09/02/2024 | [Technical-Specifications.md](./technicalSpecifications.md)|
-| Weekly Reports | Document (markdown) | Every Friday | [Weekly-Reports/](./weeklyReports/)|
-| Test Plan | Document (markdown) | 16/02/2024 | [Test-Plan.md](./qualityAssurance/Test-Plan.md) |
-| Final Product | TODETERMINE | 23/02/2024 |  |
+| Name                               | Type                | Deadline     | Link                                                         |
+| ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
+| Functional Specifications Document | Document (markdown) | 30/01/2024   | [FunctionalSpecifications.md](./FunctionalSpecifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [Technical-Specifications.md](./technicalSpecifications.md)  |
+| Weekly Reports                     | Document (markdown) | Every Friday | [Weekly-Reports/](./weeklyReports/)                          |
+| Test Plan                          | Document (markdown) | 16/02/2024   | [Test-Plan.md](./qualityAssurance/Test-Plan.md)              |
+| Final Product                      | TODETERMINE         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
 
 #### ➭ <ins>2.3.1 Project Representatives</ins>
 
-|Project Owner|Represented by...|
-|---|---|
-|**ALGOSUP**|Represented by Franck JEANNIN|
-|Thibaud MARLIER|Represented by Quentin CLÉMENT (Program Manager)|
+| Project Owner   | Represented by...                                |
+| --------------- | ------------------------------------------------ |
+| **ALGOSUP**     | Represented by Franck JEANNIN                    |
+| Thibaud MARLIER | Represented by Quentin CLÉMENT (Program Manager) |
 
 The project sponsors (highlighted in **bold**) are expected to be in charge of:
 
@@ -150,14 +151,14 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.2 Milestones</ins>
 
-| Milestone | Deadline|
-|---|---|
-| Functional Specifications V1 | Tuesday, January 30th 2024 |
-| Technical Specifications V1 | Friday, February 9th 2024 |
-| POC (Pre-MVP) | TODEFINE |
-| MVP (Alpha release) | TODEFINE |
-| Final Product (Beta release) | Friday, February 23rd 2024 |
-| Oral Presentation (Beta Release) | Friday, March 1st 2024 |
+| Milestone                        | Deadline                   |
+| -------------------------------- | -------------------------- |
+| Functional Specifications V1     | Tuesday, January 30th 2024 |
+| Technical Specifications V1      | Friday, February 9th 2024  |
+| POC (Pre-MVP)                    | TODEFINE                   |
+| MVP (Alpha release)              | TODEFINE                   |
+| Final Product (Beta release)     | Friday, February 23rd 2024 |
+| Oral Presentation (Beta Release) | Friday, March 1st 2024     |
 
 #### ➭ <ins>2.4.3 Dependencies</ins>
 
@@ -183,22 +184,36 @@ The development phase requires the technical specifications to be finished.
 
 #### ➭ <ins>2.4.5 Assumptions/Constraints</ins>
 
-| Assumptions |
-|---|
+| Assumptions                                                       |
+| ----------------------------------------------------------------- |
 | We assume ALGOSUP will provide answers to our mails within a day. |
 
-| Constraints |
-|---|
-| We have to code in C. |
+| Constraints                                                    |
+| -------------------------------------------------------------- |
+| We have to code in C.                                          |
 | We can't use any external library beside C standard libraries. |
 
 ## 3. Functional Requirements
 
 ### 3.1 Virtual Processor
 
+#### ➭ <ins>3.1.1 RISC-V Architecture</ins>
+
+Our objective being to create an assembly for educational uses we chose to use an architecture similar to the RISC-V32's architecture. This choice was supported by multiple advantages of this architecture compared to the x86 architecture:
+
+- Instructions are present in smaller member, thus new developers are not drown into a torrent of information from the manual.
+- The complexity of the architecture is reduced in front of the x86 architecture.
+- The RISC-V architecture is build for scalability and is energy efficient. 
+- The instruction set has lower latency than the x86 architecture. 
+  
 #### ➭ <ins>3.1.1 Architecture</ins>
 
-RISC-V architecture
+Our architecture will be similar to the RISC-V32 architecture, yet we will not have the same. Here is a list of the changes of our own architecture:
+
+ - We will use 16 registers, 8 of them will be used for integers and the last 8 will be used for float values.
+ - Our instructions set will be renamed to increase the overall readability.
+ - The instruction set will be reduced to the most basic ones.
+ - A few instructions will be modified to allow uses that weren't possible in other archtecture.
 
 ### 3.2 Assembly Language
 
