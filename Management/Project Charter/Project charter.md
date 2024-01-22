@@ -52,7 +52,7 @@ The objective of handling a product that contains all these requirements in due 
 | Client | Mr. JEANNIN Franck | The final product must comply to the requirements given by Mr. JEANNIN. Any major decision made by the team should be accepted by the client. The most importante intance in decision making.| The client expects a processor with an assembly language that does all the instructions that he asked us to provide. All while complying to the deadlines |
 
 Client ALGOSUP
-Representative Ranck 
+Representative Franck 
 
 ## Milestones
 
