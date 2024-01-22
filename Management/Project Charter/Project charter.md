@@ -107,7 +107,6 @@ Having no budget could be a constraint if we find out that we have to buy any re
 
 ## Risks And Assumptions
 
-
 ## Quality Standards
 
 In this table, you will find the Minimum Viable Product (MVP).
@@ -139,5 +138,9 @@ Moreover, we have weekly meetings set, to discuss about the project's advancemen
 In addition, communication between the team and the stakeholder will be handled mostly by the Program manager and the Project manager.  
 Our team will contact the client whenever it is needed and our team is always available to answer the client's question and consolate them if they have any worries.
 
-## Success Criterias
+## Success Criterias  
+
+The success criterias are defined by the client.
+
+The project will be considered as a success when all the requirements will be met, and when the client will have received the full product and approved it. Our team engages itself to full commitment to this project in order to hand out the product at an advanced stage of development. Our goal is to fulfill the client expectations, while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled. 
 
