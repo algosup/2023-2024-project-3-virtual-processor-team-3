@@ -10,18 +10,18 @@ This week was once more ruled by leaning the C language which is necessary for t
 
 |           Task            |   Member Assigned   |   Progression   |   End Of Week objective   |   Start Date  |
 |:-------------------------:|:-------------------:|:---------------:|:-------------------------:|:-------------:|
-|Development WBS   |Mathis  |Pending review |  Pending review    | 17/01/2024 
-|Technical specification  |Aurélien       |10%  |10%     |17/01/2024      |
-|Functional specification  |Quentin        |    25%            |25%                       |11/01/2024      |
-|Test Plan  |Arthur        |    No Progression             | \                     |11/01/2024      |
+|Development WBS   |Mathis  |Pending review |  Pending review    | 01/17/2024 
+|Technical specification  |Aurélien       |10%  |10%     |01/17/2024      |
+|Functional specification  |Quentin        |    25%            |25%                       |01/17/2024      |
+|Test Plan  |Arthur        |    No Progression             | \                     |01/11/2024      |
 
 
 ### <u>Finished Tasks</u>
 
 |           Task            |   Member(s) Assigned     |  Start Date   |   End Date  |
 |:-------------------------:|:---------------------:|:-------------:|:-----------:|
-|Learning C Language   | Whole team             |11/01/2024      |19/01/2024    |
-|Project Charter         |Thibaud                 |12/01/2024      |21/01/2024   |
+|Learning C Language   | Whole team             |01/11/2024      |01/19/2024    |
+|Project Charter         |Thibaud                 |12/01/2024      |01/21/2024   |
 
 
 

@@ -10,17 +10,17 @@ This week starts off the beginning of the Virtual Processor project, we've recei
 
 |           Task            |   Member Assigned   |   Progression   |   End Of Week objective   |   Start Date  |
 |:-------------------------:|:-------------------:|:---------------:|:-------------------------:|:-------------:|
-|Learning C   |All team members  |40% |  50%    | 8/01/2024 
-|Project Charter  |Thibaud       |10%  |60%     |12/01/2024      |
-|Functional specification  |Quentin        |    20%            |20%                       |11/01/2024      |
-|Test Plan  |Arthur        |    10%            |10%                       |11/01/2024      |
+|Learning C   |All team members  |40% |  50%    | 01/08/2024 
+|Project Charter  |Thibaud       |10%  |60%     |01/12/2024      |
+|Functional specification  |Quentin        |    20%            |20%                       |01/11/2024      |
+|Test Plan  |Arthur        |    10%            |10%                       |01/11/2024      |
 
 ### <u>Finished Tasks</u>
 
 |           Task            |   Member Assigned     |  Start Date   |   End Date  |
 |:-------------------------:|:---------------------:|:-------------:|:-----------:|
-|Github Repository setup   |Aurélien                |11/01/2024      |11/01/2024    |
-|1st Meeting report          |Thibaud                 |10/01/2024      |10/01/2024   |
+|Github Repository setup   |Aurélien                |01/11/2024      |01/11/2024    |
+|1st Meeting report          |Thibaud                 | 01/10/2024      |01/10/2024   |
 
 
 ### <u>Team meeting</u>

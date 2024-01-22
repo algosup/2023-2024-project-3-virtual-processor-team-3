@@ -3,7 +3,7 @@
 | **Document Name**  | Project Charter           |
 |--------------------|---------------------------|
 | **Document Owner** | MARLIER Thibaud           |
-|**Last Modification (Date)**| 01/17/2024        |
+|**Last Modification (Date)**| 01/22/2024        |
 
 <details>
 
