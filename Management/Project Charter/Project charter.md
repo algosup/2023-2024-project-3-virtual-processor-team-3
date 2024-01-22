@@ -6,7 +6,6 @@
 |**Last Modification (Date)**| 01/22/2024        |
 
 <details>
-
 <summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
 
 - [Project Charter - Virtual Processor - Team 3](#project-charter---virtual-processor---team-3)
@@ -142,5 +141,4 @@ Our team will contact the client whenever it is needed and our team is always av
 
 The success criterias are defined by the client.
 
-The project will be considered as a success when all the requirements will be met, and when the client will have received the full product and approved it. Our team engages itself to full commitment to this project in order to hand out the product at an advanced stage of development. Our goal is to fulfill the client expectations, while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled. 
-
+The project will be considered as a success when all the requirements will be met, and when the client will have received the full product and approved it. Our team engages itself to full commitment to this project in order to hand out the product at an advanced stage of development. Our goal is to fulfill the client expectations, while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled.
