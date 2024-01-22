@@ -5,18 +5,34 @@
 | **Document Owner** | MARLIER Thibaud           |
 |**Last Modification (Date)**| 01/17/2024        |
 
-## Table of content
+<details>
 
-__insert table of content cauz why not__ 
+<summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
 
-## Project overview
+- [Project Charter - Virtual Processor - Team 3](#project-charter---virtual-processor---team-3)
+  - [Project Overview](#project-overview)
+  - [Project Scope](#project-scope)
+  - [Team Members](#team-members)
+  - [Stakeholders](#stakeholders)
+  - [Milestones](#milestones)
+  - [Deliverables](#deliverables)
+  - [Budget](#budget)
+  - [Risks And Assumptions](#risks-and-assumptions)
+  - [Quality Standards](#quality-standards)
+  - [Communication Plans](#communication-plans)
+  - [Success Criterias](#success-criterias)
+
+</details>
+
+## Project Overview
 
 This project aims to design and create a **virtual processor** and an **interpreter** that will run our **own Assembly language** on that same processor. All developed by **our team**.
 Our product will be developed using the **C language**, relying only on the **C standard library**, no other libraries should be used by our team.  
 The project officialy started (for the team), the 17th of January. The final product has to be received by the client the 23rd of February.
-In short terms, we have to come with an original and new processor and Assembly language. We have to make our dream processor.
+In short terms, we have to come with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you in the process of learning how a CPU works.  
+We will take inspiration of the architecture of the RSIK-V CPU architecture.
 
-## Project scope
+## Project Scope
 
 The scope of the **Virtual Processor project** is to create along with a working processor our own minimal Assembly Language. With such requirements given by the client:
 
@@ -34,7 +50,7 @@ The scope of the **Virtual Processor project** is to create along with a working
 
 The objective of handling a product that contains all these requirements in due time is achievable.
 
-## Team members
+## Team Members
 
 | **Photo** | **Name** | **Role** | **GitHub/LinkedIn** |
 |---|---|---|---|
@@ -47,12 +63,9 @@ The objective of handling a product that contains all these requirements in due 
 
 ## Stakeholders
 
-| Role | Representative | Influence  | Expectations |
-| :-: | :-: | :-: | :-:|
-| Client | Mr. JEANNIN Franck | The final product must comply to the requirements given by Mr. JEANNIN. Any major decision made by the team should be accepted by the client. The most importante intance in decision making.| The client expects a processor with an assembly language that does all the instructions that he asked us to provide. All while complying to the deadlines |
-
-Client ALGOSUP
-Representative Franck 
+| Role | Name |  Representative | Influence  | Expectations |
+| :-: | :-: | :-: | :-:|  :-:|
+| Client | ALGOSUP | Mr. JEANNIN Franck|The final product must comply to the requirements given by Mr. JEANNIN. Any major decision made by the team should be accepted by the client. The most importante intance in decision making. |The client expects a processor with an assembly language that does all the instructions that he asked us to provide. All while complying to the deadlines. |  
 
 ## Milestones
 
@@ -92,9 +105,10 @@ Based on the precedent tables here are what needs to be delivered to the client:
 There's no budget given by the client, nor set. This project will rely on the necessary free resources and software that are available to us. However, if a budget is necessary for the project, this will be discussed among with the stakeholders.
 Having no budget could be a constraint if we find out that we have to buy any resource or software. This needs to be taken into account by our team.
 
-## Risks and Assumptions
+## Risks And Assumptions
 
-## Quality standards
+
+## Quality Standards
 
 In this table, you will find the Minimum Viable Product (MVP).
 
@@ -118,11 +132,12 @@ In this table, you will find the Minimum Viable Product (MVP).
 
 These are the basic requirements that we given to us by the client in the Call For Tender, our team engages to fullfill these requirements in order to satisfy the client's expectation, if the final product doesn't meet these requirements, the contract with the client won't be fullfilled.
 
-## Communication plans
+## Communication Plans
 
 Communication in the team is handled via the platform Slack.  
 Moreover, we have weekly meetings set, to discuss about the project's advancement. Get new ideas and improvde the overall quality of the final product.  
 In addition, communication between the team and the stakeholder will be handled mostly by the Program manager and the Project manager.  
 Our team will contact the client whenever it is needed and our team is always available to answer the client's question and consolate them if they have any worries.
 
-## Success criterias
+## Success Criterias
+
