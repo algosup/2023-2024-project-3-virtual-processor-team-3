@@ -93,7 +93,6 @@ According to the Call For Tender given by the client, here are the milestones:
 | Final Product | 23 February 2024, 5 pm |
 | Final Presentation | 1 March 2024 |
 
-
 ## Deliverables
 
 Based on the precedent tables here is what needs to be delivered to the client:  
