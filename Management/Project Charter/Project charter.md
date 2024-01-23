@@ -28,7 +28,7 @@ This project aims to design and create a **virtual processor** and an **interpre
 Our product will be developed using the **C language**, relying only on the **C standard library**, no other libraries should be used by our team.  
 The project officially started (for the team), on the 17th of January. The final product has to be received by the client on the 23rd of February.
 In the short term, we have to come up with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you in the process of learning how a CPU works.  
-We will draw inspiration from the architecture of the RISC-V 32 bits CPU architecture.
+We will draw inspiration from the architecture of the RISC-V 32-bits CPU architecture.
 Our Assembly language will be minimalist, to make each instruction as understandable and as clear as possible for the user.
 We will lessen the abstraction of multiple instructions, everything that demands too much knowledge or too much experience to be understood will be made easier to understand.
 
@@ -49,7 +49,7 @@ The scope of the **Virtual Processor project** is to create along with a working
 - The 4 basic logical operations: OR, AND, XOR, and NOT.
 
 The objective of handling a product that contains all these requirements in due time is achievable.
-Our processor will be a 32-bit processor.
+In addition, our final product will be a 32-bits processor.
 Moreover, we will be implementing machine code, meaning that our Assembly code will be interpreted by our CPU via machine code.
 
 ## Team Members
