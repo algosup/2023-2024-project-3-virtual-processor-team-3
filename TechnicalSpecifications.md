@@ -59,7 +59,7 @@ As for the IDE, out of the 6 members of our team, 5 uses Visual Studio Code and 
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in term of conventions, such as the naming conventions for functions,variable or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
 
 ## 4. Conventions
 
@@ -82,13 +82,13 @@ It has to begin with one of the following:
 - "fix:" if the commit fixes a bug encountered after an implementation.
 - "chore:" if the commit is about a routine task, for example refactoring, it is mostly used to tasks that are neither features or fixes.
 - "docs:" if the commit is about changes to a document or adding documents.
-- "perf:" if the commit is to optimise of performances.
+- "perf:" if the commit is about optimising of performances.
 
 Furthermore a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb and the name of the implementation or the name of the file involved.
 
 #### 4.1.2 Body:
 
-The body describe the commit with more details, as titles it has to follow certain rules:
+The body describe the commit with more details, and as titles it has to follow certain rules:
   - Provide context: explain why this change is needed.
   - If possible summarise how changes were applied, notably for implementations, fixes, refactoring or optimisation.
   - Reference issues if needed.
@@ -97,7 +97,7 @@ The body describe the commit with more details, as titles it has to follow certa
 
 #### 4.1.3 Additional keywords:
 
-These keywords are not absolutely needed is one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone is multiple cases. 
+These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone in multiple cases. 
 
 Git/Github desktop:
 
@@ -142,7 +142,7 @@ fix an issue where the multiplication may create an overflow if the inputs are h
 
 see commit: 1a2b3c
 
-- If one a value is higher than the limit, divide it into two separate value.
+- If one of the value is higher than the limit, divide it into two separate value.
 - If a value is too high, represent it with exponent (1e10 is equal to 1x(10x10))
 
 This fix allows users to apply multiplications to higher numbers without being subject to an overflow.
@@ -173,7 +173,7 @@ For this project this set of naming conventions has been chosen:
 
 ### 4.4 Comments
 
-Using standards do increase the readability of a code, but without comments reading a code can take a lot of time. Even to comprehend a single function!
+Using standards to increase the readability of a code, but without comments reading a code can take a lot of time. Even to comprehend a single function!
 
 To be able to hand our code to other collaborator during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules were made:
 
