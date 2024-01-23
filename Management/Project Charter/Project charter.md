@@ -16,7 +16,6 @@
   - [Milestones](#milestones)
   - [Deliverables](#deliverables)
   - [Budget](#budget)
-  - [Risks And Assumptions](#risks-and-assumptions)
   - [Quality Standards](#quality-standards)
   - [Communication Plans](#communication-plans)
   - [Success Criterias](#success-criterias)
@@ -27,9 +26,11 @@
 
 This project aims to design and create a **virtual processor** and an **interpreter** that will run our **own Assembly language** on that same processor. All developed by **our team**.
 Our product will be developed using the **C language**, relying only on the **C standard library**, no other libraries should be used by our team.  
-The project officialy started (for the team), the 17th of January. The final product has to be received by the client the 23rd of February.
-In short terms, we have to come with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you in the process of learning how a CPU works.  
-We will take inspiration of the architecture of the RSIK-V CPU architecture.
+The project officially started (for the team), on the 17th of January. The final product has to be received by the client on the 23rd of February.
+In the short term, we have to come up with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you in the process of learning how a CPU works.  
+We will take inspiration from the architecture of the RISC-V CPU architecture.
+Our Assembly language will be minimalist, to make each instruction as understandable and as clear as possible for the user.
+We will lessen the abstraction of multiple instructions, everything that demands too much knowledge or too much experience to be understood will be made easier to understand.
 
 ## Project Scope
 
@@ -37,7 +38,7 @@ The scope of the **Virtual Processor project** is to create along with a working
 
 - Storing an immediate value into a register.
 - Copying the value of a register into another register.
-- Reading the value of the memory at the address contained by a register and storing it into another register.
+- Reading the value of the memory at the address contained by a register and storing it in another register.
 - Storing the value of a register into memory at the address contained by another register.
 - Comparing the content of registers.
 - Jumping unconditionally to a label.
@@ -64,7 +65,7 @@ The objective of handling a product that contains all these requirements in due 
 
 | Role | Name |  Representative | Influence  | Expectations |
 | :-: | :-: | :-: | :-:|  :-:|
-| Client | ALGOSUP | Mr. JEANNIN Franck|The final product must comply to the requirements given by Mr. JEANNIN. Any major decision made by the team should be accepted by the client. The most importante intance in decision making. |The client expects a processor with an assembly language that does all the instructions that he asked us to provide. All while complying to the deadlines. |  
+| Client | ALGOSUP | Mr. JEANNIN Franck|The final product must comply with the requirements given by Mr. JEANNIN. Any major decision made by the team should be accepted by the client. The most important instance in decision making. |The client expects a processor with an assembly language that does all the instructions that he asked us to provide. All while complying with the deadlines.|  
 
 ## Milestones
 
@@ -72,25 +73,26 @@ According to the Call For Tender given by the client, here are the milestones:
 
 | Milestone | Due Date |
 | :-: | :-: |
-| Functional Specifications | 30 January 2024, 5pm |
-| Technical Specifications | 9 February 2024, 5pm |
-| Test Plan | 16 February 2024, 5pm |
-| Final Product | 23 February 2024, 5pm |
+| Functional Specifications | 30 January 2024, 5 pm |
+| Technical Specifications | 9 February 2024, 5 pm |
+| Test Plan | 16 February 2024, 5 pm |
+| Final Product | 23 February 2024, 5 pm |
 | Final Presentation | 1 March 2024 |
 
 **Expected milestones**:
 | Milestone | Due Date |
 | :-: | :-: |
-| Project Charter | 22 January 2024, 5pm |
-| Functional Specifications | 30 January 2024, 5pm |
-| Technical Specifications | 9 February 2024, 5pm |
-| Test Plan | 16 February 2024, 5pm |
-| Final Product | 23 February 2024, 5pm |
+| Project Charter | 22 January 2024, 5 pm |
+| Functional Specifications | 30 January 2024, 5 pm |
+| Technical Specifications | 9 February 2024, 5 pm |
+| Test Plan | 16 February 2024, 5 pm |
+| Final Product | 23 February 2024, 5 pm |
 | Final Presentation | 1 March 2024 |
+
 
 ## Deliverables
 
-Based on the precedent tables here are what needs to be delivered to the client:  
+Based on the precedent tables here is what needs to be delivered to the client:  
 
 - Project Charter,
 - Functional specifications,
@@ -101,10 +103,8 @@ Based on the precedent tables here are what needs to be delivered to the client:
 
 ## Budget
 
-There's no budget given by the client, nor set. This project will rely on the necessary free resources and software that are available to us. However, if a budget is necessary for the project, this will be discussed among with the stakeholders.
-Having no budget could be a constraint if we find out that we have to buy any resource or software. This needs to be taken into account by our team.
-
-## Risks And Assumptions
+There's no budget given by the client, or set. This project will rely on the necessary free resources and software that are available to us. However, if a budget is necessary for the project, this will be discussed among with the stakeholders.
+Having no budget could be a constraint if we find out that we have to buy any resources or software. This needs to be taken into account by our team.
 
 ## Quality Standards
 
@@ -112,33 +112,33 @@ In this table, you will find the Minimum Viable Product (MVP).
 
 | Aspect | Description|
 | :-: | :-: |
-| Storing an immediate value into  a register. | The user must be able to store a value into the memory of the CPU |
-| Copying the value of a register into another register | The user should be able to sotre the value of a register into another register by making a copy of it.
-| Reading the value of the memory at the address contained by a register and storing it into another register. | The processor should be able to handle reading value of the memory at a given address in a register and then store it into another register. |
-| Storing the value of a register into memory at the address contained by another register. | The processor should handle the instruction to store the content of a register giving the address where the data will be stored.  |
+| Storing an immediate value into a register. | The user must be able to store a value in the memory of the CPU |
+| Copying the value of a register into another register | The user should be able to store the value of a register in another register by making a copy of it.
+| Reading the value of the memory at the address contained by a register and storing it in another register. | The processor should be able to handle the reading value of the memory at a given address in a register and then store it in another register. |
+| Storing the value of a register into memory at the address contained by another register. | The processor should handle the instruction to store the content of a register giving the address where data will be stored.  |
 | Comparing the content of registers. | Basic comparison of the value contained in a register. |
-| Jumping unconditionally to a label. | Our processor should be able to jump without any condition to the beginning of a code block or to a specific instruction or function without taking into consideration the rest of the code. |
+| Jumping unconditionally to a label. | Our processor should be able to jump without any condition to the beginning of a code block or a specific instruction or function without taking into consideration the rest of the code. |
 | Jumping conditionally to a label. | If a condition is met, our processor should be able to jump to a specific code block or instruction. Without taking into consideration the following of the code.|
-| Calling a subroutine. | Our processor should be able to call a function when instructed to in order to satisfy the client's expectations. |
-| Returning from a subroutine. | Once a subroutine is completed, our processor has to go back to the caller of the subroutine in order to continue the instructions that were given to it. |
-| The 4 basic arithmetic operations: addition, subtraction, multiplication, and division. | Our processor and our   ssembly language should contain the four basic arithmetics operations, in order to make basic calculus. |
-| The 4 basic logical operations: OR, AND, XOR, and NOT.| We have to be able to make binaries logical operation with our processor and our Assembly language.|
-| Invent a minimal Asssembly language. |  We should create our own Assembly language which is compatible with our processor, which should give the instructions that our processor has to handle.|
-| Create an interpreter for running Assembly code on that processor.  | We have to come up with our own interpreter that will directly interpret or execut the source code of our Assembly language.|
-| The C program needs to check that the Assembly program is semantically valid and detects syntetical errors. | Before run time, our C program has to detect any errors that might interfer with the well-being of the hardware or that might make the program misbehave. |
+| Calling a subroutine. | Our processor should be able to call a function when instructed to satisfy the client's expectations. |
+| Returning from a subroutine. | Once a subroutine is completed, our processor has to go back to the caller of the subroutine to continue the instructions that were given to it. |
+| The 4 basic arithmetic operations: addition, subtraction, multiplication, and division. | Our processor and our Assembly language should contain the four basic arithmetics operations, to make basic calculus. |
+| The 4 basic logical operations: OR, AND, XOR, and NOT.| We have to be able to make binaries logical operations with our processor and our Assembly language.|
+| Invent a minimal assembly language. |  We should create our own Assembly language that is compatible with our processor, which should give the instructions that our processor has to handle.|
+| Create an interpreter for running Assembly code on that processor.  | We have to come up with an interpreter that will directly interpret or execute the source code of our Assembly language.|
+| The C program needs to check that the Assembly program is semantically valid and detects syntactical errors. | Before run time, our C program has to detect any errors that might interfere with the well-being of the hardware or that might make the program misbehave. |
 | Create small "unit tests". | We have to create small programs using small assembly programs, that is similar to unit tests to prove that our program is working the way it is expected. |
 
-These are the basic requirements that we given to us by the client in the Call For Tender, our team engages to fullfill these requirements in order to satisfy the client's expectation, if the final product doesn't meet these requirements, the contract with the client won't be fullfilled.
+These are the basic requirements that were given to us by the client in the Call For Tender, our team engages to fulfill these requirements to satisfy the client's expectations, if the final product doesn't meet these requirements, the contract with the client won't be fulfilled.
 
 ## Communication Plans
 
 Communication in the team is handled via the platform Slack.  
-Moreover, we have weekly meetings set, to discuss about the project's advancement. Get new ideas and improvde the overall quality of the final product.  
-In addition, communication between the team and the stakeholder will be handled mostly by the Program manager and the Project manager.  
-Our team will contact the client whenever it is needed and our team is always available to answer the client's question and consolate them if they have any worries.
+Moreover, we have weekly meetings set, to discuss the project's advancement. Get new ideas and improve the overall quality of the final product.  
+In addition, communication between the team and the stakeholders will be handled mostly by the Program Manager and the Project manager.  
+Our team will contact the client whenever it is needed and our team is always available to answer the client's questions and consolate them if they have any worries.
 
 ## Success Criterias  
 
-The success criterias are defined by the client.
+The success criteria are defined by the client.
 
-The project will be considered as a success when all the requirements will be met, and when the client will have received the full product and approved it. Our team engages itself to full commitment to this project in order to hand out the product at an advanced stage of development. Our goal is to fulfill the client expectations, while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled.
+The project will be considered a success when all the requirements are met, and when the client has received the full product and approved it. Our team engages itself to full commitment to this project to hand out the product at an advanced stage of development. Our goal is to fulfill the client's expectations while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled.
