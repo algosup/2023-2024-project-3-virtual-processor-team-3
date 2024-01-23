@@ -32,7 +32,7 @@ We will draw inspiration from the architecture of the RISC-V 32-bits CPU archite
 Our Assembly language will be minimalist, to make each instruction as understandable and as clear as possible for the user.
 We will lessen the abstraction of multiple instructions, everything that demands too much knowledge or too much experience to be understood will be made easier to understand.
 Processor name: ALGORisk
-Assembly name: ALGORisk Assembly
+Assembly name: ALGORisk assembly
 
 ## Project Scope
 
