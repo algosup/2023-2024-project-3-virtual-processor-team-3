@@ -14,9 +14,8 @@
     - [2.1 Overview](#21-overview)
     - [2.2 Project Definition](#22-project-definition)
       - [➭ 2.2.1 Vision](#-221-vision)
-      - [➭ 2.2.2 Objectives](#-222-objectives)
-      - [➭ 2.2.3 Scope](#-223-scope)
-      - [➭ 2.2.4 Deliverables](#-224-deliverables)
+      - [➭ 2.2.2 Scope](#-222-scope)
+      - [➭ 2.2.3 Deliverables](#-223-deliverables)
     - [2.3 Project Organisation](#23-project-organisation)
       - [➭ 2.3.1 Project Representatives](#-231-project-representatives)
       - [➭ 2.3.2 Stakeholders](#-232-stakeholders)
@@ -35,7 +34,10 @@
     - [3.2 Assembly Language](#32-assembly-language)
       - [➭ 3.2.1 Comparison with x86 Assembly](#-321-comparison-with-x86-assembly)
       - [➭ 3.2.2 Instructions Set](#-322-instructions-set)
+      - [Registers](#registers)
+      - [Instructions](#instructions)
     - [3.3 Interpreter](#33-interpreter)
+    - [3.4 Debugger](#34-debugger)
   - [4. Conclusion](#4-conclusion)
 
 </details>
@@ -53,59 +55,42 @@
 
 ### 2.1 Overview
 
-<!-- TODO: 
-The goal of the project is to create a virtual processor and an interpreter for running assembly code on 
-that processor. 
-The project will be developed in plain, portable, C language without the use of any external library beside 
-C standard libraries. We recommend you use gcc as a compiler and Visual Studio Code as IDE. 
- 
-First, you need to invent a minimal assembly language for your processor. Your instruction set will 
-contain at least the following instructions: 
-- Storing an immediate value into a register. 
-- Copying the value of a register into another register. 
-- Reading the value of the memory at the address contained by a register and storing it into another register. 
-- Storing the value of a register into memory at the address contained by another register. 
-- Comparing the content of registers. 
-- Jumping unconditionally to a label. 
-- Jumping conditionally to a label. 
-- Calling a subroutine. 
-- Returning from a subroutine. 
-- The 4 basic arithmetic operations: addition, subtraction, multiplication, and division. 
-- The 4 basic logical operations: OR, AND, XOR, and NOT. 
- 
-Your assembly language should be fully described in your functional specification. 
- 
-Then you need to write a C program that can read a text file containing a program written in your 
-assembly dialect and run it. The C program also needs to check that the assembly program is 
-semantically valid and detect syntactical errors. 
-In order to see that the assembly program is actually running, implement a virtual system call for 
-displaying text in a virtual terminal, that can be accessed from the assembly code. You could also display 
-the content of registers and have a built-in debugger. 
-The way the C program is intended to work should be described in your technical specification. 
- 
-Finally, you need to write small assembly programs conceptually similar to unit tests to prove that 
-everything is working as expected. -->
+This project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter. 
+
+In short, let's create our perfect processor!
 
 ### 2.2 Project Definition
 
 #### ➭ <ins>2.2.1 Vision</ins>
 
-<!-- We are making our own virtual processor that will run our own assembly language.
-We will also make an interpreter that will run the assembly language on the virtual processor. -->
+We will create a virtual processor in C named NAME, and an easy to use assembly language to run on it. \
+The goal is to make programming and computer science more accessible to everyone. \
+We want beginners to learn how a computer works at a low level, without being disgusted with too complex and specific instructions. 
 
-#### ➭ <ins>2.2.2 Objectives</ins>
+#### ➭ <ins>2.2.2 Scope</ins>
 
-
-
-#### ➭ <ins>2.2.3 Scope</ins>
+<!-- - Create a fast and efficient virtual processor
+- Invent a painless assembly language with all the essential instructions
+- Create a debugger to analyse ALGORisk assembly programs in real time -->
 
 | In Scope |
 | -------- |
+| Create a 32-bit virtual processor with 32 registers |
+| Invent an assembly language with an explicit instruction set and a clear syntax |
+| Execute programs written in ALGORisk assembly on a ALGORisk virtual processor |
+| Transform the program's instructions into machine code before executing it | 
+| Be able to debug programs written in ALGORisk assembly |
+| Develop exclusively in C without the use of any external library |
+
 
 | Out of Scope |
-| ------------ |
+|---|
+| Implement interrupts |
+| Implement multi-threading |
+| Implement atomic instructions |
 
-#### ➭ <ins>2.2.4 Deliverables</ins>
+
+#### ➭ <ins>2.2.3 Deliverables</ins>
 
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
@@ -195,6 +180,11 @@ The development phase requires the technical specifications to be finished.
 
 ## 3. Functional Requirements
 
+<!-- When the user will be willing to execute his program, the following steps will be executed:
+- preprocessing
+- assembling
+- executing -->
+
 ### 3.1 Virtual Processor
 
 #### ➭ <ins>3.1.1 RISC-V Architecture</ins>
@@ -246,6 +236,68 @@ Note: Replace placeholders such as `reg`, `immediate`, `destination_reg`, `sourc
 
 #### ➭ <ins>3.2.2 Instructions Set</ins>
 
+#### Registers
+
+r0: a constant zero that can't be changed
+r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15: general purpose registers
+
+#### Instructions
+
+| Category | Instruction | Description | Syntax |
+|---|---|---|---|
+| **Arithmetic Operations** | Add | Adds the contents of two registers and stores the | result in a register | `add r3, r1, r2` |
+| | Add immediate | Adds a value to a register and stores the | result in a register | `addi r2, r1, immediate` |
+| | Sub | Subtracts the contents of two registers and stores | the result in a register | `sub r3, r1, r2` |
+| | Multiply | Multiplies the contents of two registers and | stores the result in a register | `mul r3, r1, r2` |
+| | Multiply immediate | Multiplies a value with a register | and stores the result in a register | `muli r2, r1, | immediate` |
+| | Divide | Divides the contents of two registers and stores the result in a register | `div r3, r1, r2` |
+| | Divide immediate | Divides a value with a register and stores the result in a register | `divi r2, r1, immediate` |
+| **Memory Management** | Load word | Loads a word from memory into a register | `lw r1, memory` |
+| | Store word | Stores a word from a register into memory | `sw r1, memory` |
+| | Load byte | Loads a byte from memory into a register | `lb r1, memory` |
+| | Store byte | Reads a byte from memory and stores it in a register | `sb r1, memory` |
+| **Conditions Statements** | 
+<!-- | add | Adds two values and stores the result in a register | `add r3, reg1, ` |
+| addi | Adds a value to a register and stores the result in a register | `addi reg1, reg2, immediate` |
+| sub | Subtracts two values and stores the result in a register | `sub reg1, reg2` |
+| mul | Multiplies two values and stores the result in a register | `mul reg1, reg2` |
+| muli | Multiplies a value with a register and stores the result in a register | `muli reg1, reg2, immediate` |
+| div | Divides two values and stores the result in a register | `div reg1, reg2` |
+| divi | Divides a value with a register and stores the result in a register | `divi reg1, reg2, immediate` |
+| lw | Loads a word from memory into a register | `lw reg1, reg2` |
+| sw | Stores a word from a register into memory | `sw reg1, reg2` |
+| lb | Loads a byte from memory into a register | `lb reg1, reg2` |
+| sb | Reads a byte from memory and stores it in a register | `sb reg1, reg2` |
+| beq | Branches to a label if two registers are equal | `beq reg1, reg2, label` |
+| bne | Branches to a label if two registers are not equal | `bne reg1, reg2, label` |
+| blt | Branches to a label if the first register is less than the second register | `blt reg1, reg2, label` |
+| bgt | Branches to a label if the first register is greater than the second register | `bgt reg1, reg2, label` |
+| ble | Branches to a label if the first register is less than or equal to the second register | `ble reg1, reg2, label` |
+| bge | Branches to a label if the first register is greater than or equal to the second register | `bge reg1, reg2, label` |
+| j | Jumps to a label | `j label` |
+| jal | Jumps to a label and stores the return address in register 31 | `jal label` |
+| jr | Jumps to the address stored in a register | `jr reg` | -->
+
+add sub and or xor sll srl sra slt sltu addi andi ori xori slli srli srai slti sltiu beq bne bge bgeu blt bltu jal jalr ecall ebreak lb lbu lh lhu lw lui auipc fence sb sh sw
+mulh div mul rem remu mulhu divu mulhsu
+
+Order of execution
+  open asm file
+  read preprocessor directives
+    single line comments
+    sections
+    see if theres more
+  read instructions
+  output binary file
+  open binary with our processor .out
+
+
+`addi r2, r1, 0`
+
+This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, ghe content of r1 will be copied in r2.
+
 ### 3.3 Interpreter
+
+### 3.4 Debugger
 
 ## 4. Conclusion
