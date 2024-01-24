@@ -1,11 +1,8 @@
-<center> 
+<h1 style="text-align: center;"> Technical specification </h1>
 
-# Technical specification 
-
-</center>
-
-<center>
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 24/01/2024</center>
+<p style="text-align: center;"> 
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 24/01/2024
+</p>
 
 ___
 
@@ -13,26 +10,25 @@ ___
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
 
-- [Technical specification](#technical-specification)
-  - [0. Last reviewer](#0-last-reviewer)
-  - [1. Introduction](#1-introduction)
-    - [1.1 Project goal](#11-project-goal)
-  - [2. File architecture](#2-file-architecture)
-  - [3. The CPU](#3-the-cpu)
-  - [3.1 The architecture](#31-the-architecture)
-  - [4.Developmnent environment](#4developmnent-environment)
-  - [5. Conventions](#5-conventions)
-    - [5.1 Commits](#51-commits)
-      - [5.1.1 Title:](#511-title)
-      - [5.1.2 Body:](#512-body)
-      - [5.1.3 Additional keywords:](#513-additional-keywords)
-      - [5.1.4 Examples:](#514-examples)
-    - [5.2 Files](#52-files)
-    - [5.3 Names](#53-names)
-    - [5.4 Comments](#54-comments)
-      - [5.5.1 Example:](#551-example)
-  - [6 Risks](#6-risks)
-  - [7. Footnotes](#7-footnotes)
+- [0. Last reviewer](#0-last-reviewer)
+- [1. Introduction](#1-introduction)
+  - [1.1 Project goal](#11-project-goal)
+- [2. File architecture](#2-file-architecture)
+- [3. The CPU](#3-the-cpu)
+- [3.1 The architecture](#31-the-architecture)
+- [4.Developmnent environment](#4developmnent-environment)
+- [5. Conventions](#5-conventions)
+  - [5.1 Commits](#51-commits)
+    - [5.1.1 Title:](#511-title)
+    - [5.1.2 Body:](#512-body)
+    - [5.1.3 Additional keywords:](#513-additional-keywords)
+    - [5.1.4 Examples:](#514-examples)
+  - [5.2 Files](#52-files)
+  - [5.3 Names](#53-names)
+  - [5.4 Comments](#54-comments)
+    - [5.5.1 Example:](#551-example)
+- [6 Risks](#6-risks)
+- [7. Footnotes](#7-footnotes)
   
 </details>
 
