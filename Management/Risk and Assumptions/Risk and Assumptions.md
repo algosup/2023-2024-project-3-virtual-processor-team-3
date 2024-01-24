@@ -32,4 +32,8 @@
     - **Risk(s):** Maintaining our hardware and software is crucial. If we have a poor documentation on our processor architecture and assembly language, ourselves and the user, might just get lost while using or maintaining the product, leading to an unstable and flowfull product.
     - **Mitigation:** Documentation will be done on our Processor architecture, our Assembly language, moreover these documents have to be as detailed and as clear as possible. Moreover, our developers will follow coding conventions that will be set and charted among us, so that the code is readable, maintainable and leading to a higher product quality, making it easier to implement new functionnality if needed, and making sure that everything is smooth and connected.
 
-7. 
+7. **Debugging and Testing:**
+    - **Risk(s):** Debugging low level programming languages can become a challenge. Moreover, we have to come up with our own debugger built-in debugger. This task will be time consuming for the software engineers as well as for the quality assurance. Morevoer, we have to be sure that everything works as intended so testing everything will take lots of time to be done effectively.
+    - **Mitigation:** Testing has to be done gradually, according to the project's development, starting to test early on is necessary to remove problems as early as possible. Flattening the exhaustion of the necessary work needed to be done here on a longer period of time is also necessary. 
+
+
