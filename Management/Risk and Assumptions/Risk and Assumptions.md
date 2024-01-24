@@ -36,4 +36,4 @@
     - **Risk(s):** Debugging low level programming languages can become a challenge. Moreover, we have to come up with our own debugger built-in debugger. This task will be time consuming for the software engineers as well as for the quality assurance. Morevoer, we have to be sure that everything works as intended so testing everything will take lots of time to be done effectively.
     - **Mitigation:** Testing has to be done gradually, according to the project's development, starting to test early on is necessary to remove problems as early as possible. Flattening the exhaustion of the necessary work needed to be done here on a longer period of time is also necessary. 
 
-
+8. **Time:**
