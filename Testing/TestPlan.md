@@ -1,6 +1,6 @@
 # <h1 align="center">Test Plan</h1>
 
-<p align="right">created : 17/01/2024<br>last modified : 17/01/2024</p>
+<p align="right">created : 17/01/2024<br>last modified : 24/01/2024</p>
 
 # 0. Document Review
 
@@ -20,12 +20,12 @@ This project has for objective to recreate a virtual processor and a correspondi
 
 All the feature of the project defined in the [Functional Specification]() are in need to be tested
 
-[insert_table_of_features]
+[insert_table_of_features/Functional_Specification]
 
 ### 1.1.2 Out-Of-Scope
 
 These feature are not to be tested as they are not included in the requirement specifications
-- [insert_features_not_to_be_tested]
+- [insert_features_not_to_be_tested/Functional_Specification]
 - ...
 
 ## 1.2 Quality Objective
@@ -38,9 +38,22 @@ Any changes, additions, or deletion to the requirements document, Functional Spe
 
 ### 1.2.2 Secondary Objective
 
+The secondary objective will be to identify and expose all issues and the associated risks, communicate all known issues to the project team and ensure that all these issues are addressed before release.
 
+## 1.3 Roles & Responsibilities
 
-## Roles & Responsibilities
+### 1.3.1 Developer(-s)
+
+The team member or members that undertake solution development activities. Responsible for:
+1. Developing the solution
+2. Conduct Unit testing
+
+### 1.3.2 Tester(-s)
+The team member or members that undertake testing, and quality management activities. Responsible for:
+1. Writing the test plan
+2. Monitoring and managing testing integrity
+3. Support and conduct testing activities
+4. Communicate to the project team on the current issues in the project
 
 # Test Methodology
 
@@ -55,6 +68,7 @@ Any changes, additions, or deletion to the requirements document, Functional Spe
 ## Test Completeness
 
 # Test Deliverables
+
 # Resource & Environment Needs
 
 ## Testing Tools
