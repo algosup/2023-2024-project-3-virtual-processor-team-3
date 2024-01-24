@@ -55,9 +55,33 @@ The team member or members that undertake testing, and quality management activi
 3. Support and conduct testing activities
 4. Communicate to the project team on the current issues in the project
 
-# Test Methodology
+# 2 Test Methodology
 
-## Overview
+## 2.1 Overview
+
+For this project, we will follow an iterative testing strategy, as it will allow us to have testing feedback rapidely and on a regular basis (at each Milestone/Release). It will also allow us to save time on testing after multiple iterations based on experience from past iterations.
+
+We will use usability testing to ensure complience with the user's needs and Unit testing to verify functionality and code coverage.
+
+## 2.2 Usability Testing
+
+The purpose of usability testing is to ensure that the new components and/or features will function in a proper manner that is acceptable to the user.
+
+Usability testing can be coordinated by Tester(-s), but actual testing must be performed by non-testers (**as close to end-users as possible**). Tester(-s) will then review the findings and provide the project team with their evaluation of the impact these changes will have on the testing process and to the project as a whole.
+
+We will use some help from other teams and enrole their QAs or Developers as our users for testing sessions. 
+
+As we know those sessions are time consuming we will also propose that our QAs or Developer help other teams as users.
+
+## 2.3 Unit testing (Multiple)
+
+Unit testing will be conducted by the Developer during code development process to ensure that proper functionality and code coverage have been acheived.
+
+Each function, whatever its porpuse, shall have at least one coresponding unit test that will verify its functionalty with multiple parameters to ensure flawless running of the solution.
+
+## 2.4 Iteration Testing
+
+
 
 ## Test Levels
 
