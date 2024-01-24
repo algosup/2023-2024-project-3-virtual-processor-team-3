@@ -1,6 +1,6 @@
-<h1 style="text-align: center;"> Technical specification </h1>
+<h1 align="center"> Technical specification </h1>
 
-<p style="text-align: center;"> 
+<p align="center"> 
 Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 24/01/2024
 </p>
 
