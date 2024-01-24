@@ -5,7 +5,7 @@
 </center>
 
 <center>
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 17/01/2024</center>
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 24/01/2024</center>
 
 ___
 
@@ -18,26 +18,28 @@ ___
   - [1. Introduction](#1-introduction)
     - [1.1 Project goal](#11-project-goal)
   - [2. File architecture](#2-file-architecture)
-  - [3. Developmnent environment](#3-developmnent-environment)
-  - [4. Conventions](#4-conventions)
-    - [4.1 Commits](#41-commits)
-      - [4.1.1 Title:](#411-title)
-      - [4.1.2 Body:](#412-body)
-      - [4.1.3 Additional keywords:](#413-additional-keywords)
-      - [4.1.4 Examples:](#414-examples)
-    - [4.2 Files](#42-files)
-    - [4.3 Names](#43-names)
-    - [4.4 Comments](#44-comments)
-      - [4.4.1 Example:](#441-example)
-  - [5. Risks](#5-risks)
-  - [6. Footnotes](#6-footnotes)
+  - [3. The CPU](#3-the-cpu)
+  - [3.1 The architecture](#31-the-architecture)
+  - [4.Developmnent environment](#4developmnent-environment)
+  - [5. Conventions](#5-conventions)
+    - [5.1 Commits](#51-commits)
+      - [5.1.1 Title:](#511-title)
+      - [5.1.2 Body:](#512-body)
+      - [5.1.3 Additional keywords:](#513-additional-keywords)
+      - [5.1.4 Examples:](#514-examples)
+    - [5.2 Files](#52-files)
+    - [5.3 Names](#53-names)
+    - [5.4 Comments](#54-comments)
+      - [5.5.1 Example:](#551-example)
+  - [6 Risks](#6-risks)
+  - [7. Footnotes](#7-footnotes)
   
 </details>
 
 ## 0. Last reviewer
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 18/01/2024 |
+| Aurélien Fernandez | 24/01/2024 |
 
 
 ## 1. Introduction
@@ -48,7 +50,17 @@ The goal of this project is to create our own virtual processor. Our processor s
 
 ## 2. File architecture
 
-## 3. Developmnent environment
+## 3. The CPU
+
+## 3.1 The architecture
+
+For this project we will follow the Von Neumann architecture, this architecture defines how a computer system works. It can be represented as the following:
+
+<img src="./img/Von_Neumann_architecture.png" height="300px">
+
+Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
+
+## 4.Developmnent environment
 
 Our team uses multiple machines to work on this project such as:
   - 3 Windows operating on Windows 11.
@@ -61,7 +73,7 @@ To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/"
 
 Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
 
-## 4. Conventions
+## 5. Conventions
 
 The project's repository have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
 - Having trouble to find a specific file.
@@ -69,11 +81,11 @@ The project's repository have to be organised to allow contributors and potentia
 - Different naming standards between contributors.
 - etc.
   
-### 4.1 Commits
+### 5.1 Commits
 
 Commits must be written following these specific rules:
 
-#### 4.1.1 Title:
+#### 5.1.1 Title:
 
 The title is one of the most important thing is a commit, it serves to describe what the commit is about, and provide a quick summary of what is implemented/fixed/removed. As such it has to follow few rules.
 
@@ -86,7 +98,7 @@ It has to begin with one of the following:
 
 Furthermore a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb and the name of the implementation or the name of the file involved.
 
-#### 4.1.2 Body:
+#### 5.1.2 Body:
 
 The body describe the commit with more details, and as titles it has to follow certain rules:
   - Provide context: explain why this change is needed.
@@ -95,7 +107,7 @@ The body describe the commit with more details, and as titles it has to follow c
   - Avoid long paragraphs, list what has been done.
   - No jargon without explanations, other contributors must understand the commit.
 
-#### 4.1.3 Additional keywords:
+#### 5.1.3 Additional keywords:
 
 These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone in multiple cases. 
 
@@ -120,7 +132,7 @@ These lines are to be added at the end of the body of a commit.
    ```
    It is a link to a past commit.
 
-#### 4.1.4 Examples:
+#### 5.1.4 Examples:
 
 For a feature:
 ```
@@ -150,7 +162,7 @@ This fix allows users to apply multiplications to higher numbers without being s
 Closes: #324
 ``` 
 
-### 4.2 Files
+### 5.2 Files
 
 Files, and more precisely header files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
 
@@ -162,7 +174,7 @@ For example in a calculator project, there should be a structure similar to this
   - Display.h
   - Input.h
 
-### 4.3 Names
+### 5.3 Names
 
 Names are extremely important to a project's readability, not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
 
@@ -171,7 +183,7 @@ For this project this set of naming conventions has been chosen:
 - Branches: PascalCases, appart of the Main,PreMain,Documents, the branch is named after the name of the feature or after the name/id of the fix.
 - Document/Folder/Files: PascalCases.
 
-### 4.4 Comments
+### 5.4 Comments
 
 Using standards to increase the readability of a code, but without comments reading a code can take a lot of time. Even to comprehend a single function!
 
@@ -190,7 +202,7 @@ If the IDE allows it, the function header can be read by hovering the mouse on t
 
 **Beware, do not abuse of comments. A function shouldn't have a comment on every lines!**  
 
-#### 4.4.1 Example:
+#### 5.5.1 Example:
 
 ```c
 /* Filename.c
@@ -236,6 +248,6 @@ float floatMultiplication(float x,float y)
 }
 ```
 
-## 5. Risks 
+## 6 Risks 
 
-## 6. Footnotes
+## 7. Footnotes
