@@ -72,7 +72,7 @@ As for the IDE, out of the 6 members of our team, 5 uses Visual Studio Code and 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
 Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
-
+We choose these standards because it covers almost every aspect of c.
 ## 5. Conventions
 
 The project's repository have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
