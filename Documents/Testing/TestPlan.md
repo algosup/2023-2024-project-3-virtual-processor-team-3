@@ -18,7 +18,7 @@ This project has for objective to recreate a virtual processor and a correspondi
 
 ### 1.1.1 In Scope
 
-All the feature of the project defined in the [Functional Specification]() are in need to be tested
+All the feature of the project defined in the [Functional Specification](../TechnicalSpecifications.md) are in need to be tested
 
 [insert_table_of_features/Functional_Specification]
 
@@ -81,15 +81,27 @@ Each function, whatever its porpuse, shall have at least one coresponding unit t
 
 ## 2.4 Iteration Testing
 
+Iterative development refers to the method which consist in dividing a project into smaller parts, when one is finish, we either iterate over it to enhanced it or implement it and pass to the next one.
+
+The purpose of iterative testing is to complete iterative development by testing at the end of each "Iteration".
+
+In our case, we will run test sessions at each merge in the main branch on the github repository.
+
+## 2.5 Test Levels
 
 
-## Test Levels
 
-## Bug Triage
+## 2.6 Bug Triage
+
+
 
 ## Suspension Criteria & Resumption Requirement
 
+
+
 ## Test Completeness
+
+
 
 # Test Deliverables
 
