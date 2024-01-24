@@ -72,7 +72,7 @@ Where * means files and folders that may appear in the future.
 
 For this project we will follow the Von Neumann architecture, this architecture defines how a computer system works. It can be represented as the following:
 
-<img src="./img/Von_Neumann_architecture.png" height="300px">
+<img src="./Img/Von_Neumann_architecture.png" height="300px">
 
 Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
 
@@ -141,7 +141,7 @@ These lines are to be added at the end of the body of a commit.
 
    For Github dekstop, the co author can be added by using this:
 
-   <img src="./img/co-authors-demo-hq.gif" height="200vh">
+   <img src="./Img/co-authors-demo-hq.gif" height="200vh">
 
    ```
    commit(:) [*commit hashcode*]
