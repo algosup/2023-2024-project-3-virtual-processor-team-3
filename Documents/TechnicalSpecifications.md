@@ -50,6 +50,26 @@ The goal of this project is to create our own virtual processor. Our processor s
 
 ## 2. File architecture
 
+```
+Project
+├── Documents
+│  ├── Img
+|  |   └──image.png*
+│  ├── Management
+|  |   └──Files/folders*
+│  ├── Testing
+|  |   └──Files/folders*
+│  ├── TechnicalSpecifications.md
+│  └── FunctionalSpecifications.md
+└── Code
+    ├──Headers
+    |  └──name.h*
+    ├── Main.h
+    └── UnitTests.c
+```
+
+Where * means files and folders that may appear in the future.
+
 ## 3. The CPU
 
 ## 3.1 The architecture
