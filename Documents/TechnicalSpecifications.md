@@ -62,10 +62,10 @@ Project
 │  ├── TechnicalSpecifications.md
 │  └── FunctionalSpecifications.md
 └── Code
-    ├──Headers
-    |  └──name.h*
-    ├── Main.h
-    └── UnitTests.c
+   ├──Headers
+   |  └──name.h*
+   ├── Main.h
+   └── UnitTests.c
 ```
 
 Where * means files and folders that may appear in the future.
