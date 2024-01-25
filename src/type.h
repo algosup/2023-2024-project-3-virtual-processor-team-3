@@ -17,9 +17,14 @@ enum registers
 enum opcode
 {
     LII, LIF,
+    STI, STF, LDI, LDF,
+    MOV, MOVF,
     ADD, SUB, MUL, DIV,
     ADDF, SUBF, MULF, DIVF,
-    PRT, PRTF
+    PRT, PRTF,
+    PUSH, POP,
+    PUSHF, POPF,
+    STOP
 };
 
 typedef struct
@@ -28,6 +33,7 @@ typedef struct
     i64 max_mem;
 
     i64 pc;
+    i64 sp;
     i64 r[16];
     f64 fr[16];
 

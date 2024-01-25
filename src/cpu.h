@@ -9,6 +9,7 @@ cpu_t* new_cpu(f64* memory, i64 mem_size)
     cpu->mem = memory;
     cpu->max_mem = mem_size;
     cpu->pc = -1;
+    cpu->sp = mem_size - 1;
     cpu->inst = 0;
     for (int i = 0; i < 16; i++)
     {
@@ -25,7 +26,7 @@ void cpu_free(cpu_t* cpu)
 
 void run_cpu(cpu_t* cpu)
 {
-    while (cpu->pc < cpu->max_mem)
+    while (cpu->inst != STOP)
     {
         fetch(cpu);
         execute(cpu);
@@ -45,6 +46,38 @@ void execute(cpu_t* cpu)
 {
     switch (cpu->inst)
     {
+        case LII:
+			cpu->r[cpu->dest] = cpu->arg1;
+			cpu->pc += 2;
+			break;
+        case LIF:
+			cpu->fr[cpu->dest - 16] = cpu->arg1;
+			cpu->pc += 2;
+			break;
+        case STI:
+            cpu->mem[cpu->dest] = cpu->r[(i64)cpu->arg1];
+            cpu->pc += 2;
+            break;
+        case STF:
+            cpu->mem[cpu->dest] = cpu->fr[(i64)cpu->arg1-16];
+            cpu->pc += 2;
+            break;
+        case LDI:
+            cpu->r[cpu->dest] = cpu->mem[(i64)cpu->arg1];
+            cpu->pc += 2;
+            break;
+        case LDF:
+            cpu->fr[cpu->dest-16] = cpu->mem[(i64)cpu->arg1];
+            cpu->pc += 2;
+            break;
+        case MOV:
+            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1];
+            cpu->pc += 2;
+            break;
+        case MOVF:
+            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16];
+            cpu->pc += 2;
+            break;
         case ADD:
             cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1] + cpu->r[cpu->arg2];
             cpu->pc += 3;
@@ -77,14 +110,6 @@ void execute(cpu_t* cpu)
             cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16] / cpu->fr[cpu->arg2-16];
             cpu->pc += 3;
             break;
-        case LII:
-			cpu->r[cpu->dest] = cpu->arg1;
-			cpu->pc += 2;
-			break;
-        case LIF:
-			cpu->fr[cpu->dest - 16] = cpu->arg1;
-			cpu->pc += 2;
-			break;
         case PRT:
             printf("%ld\n", cpu->r[cpu->dest]);
             cpu->pc += 1;
@@ -92,6 +117,21 @@ void execute(cpu_t* cpu)
         case PRTF:
             printf("%f\n", cpu->fr[cpu->dest-16]);
             cpu->pc += 1;
+            break;
+        case PUSH:
+			cpu->mem[--cpu->sp] = cpu->r[(i64)cpu->mem[++cpu->pc]];
+			break;
+        case POP:
+			cpu->r[(i64)cpu->mem[++cpu->pc]] = cpu->mem[cpu->sp++];
+			break;
+        case PUSHF:
+            cpu->mem[--cpu->sp] = cpu->fr[(i64)cpu->mem[++cpu->pc]-16];
+            break;
+        case POPF:
+            cpu->fr[(i64)cpu->mem[++cpu->pc]-16] = cpu->mem[cpu->sp++];
+            break;
+        case STOP:
+            cpu->pc = cpu->max_mem;
             break;
         default:
             printf("Unknown instruction: %d\n", cpu->inst);

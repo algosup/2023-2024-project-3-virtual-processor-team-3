@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv) 
 {
-    f64 mem[]=
+    f64 memint[]=
     {
         LII, R0, 3,
         LII, R1, 4,
@@ -14,6 +14,15 @@ int main(int argc, char **argv)
         PRT, R3,
         PRT, R4,
         PRT, R5,
+        STI, 40, R5,
+        LDI, R6, 40,
+        PRT, R6,
+        STOP,
+        0, 0, 0
+    };
+
+    f64 memflt[]=
+    {
         LIF, F0, 4.25,
         LIF, F1, 5.33,
         ADDF, F2, F1, F0,
@@ -24,11 +33,17 @@ int main(int argc, char **argv)
         PRTF, F3,
         PRTF, F4,
         PRTF, F5,
+        STF, 40, F5,
+        LDF, F6, 40,
+        PRTF, F6,
+        STOP,
+        0, 0, 0
     };
 
-    int mem_size = sizeof(mem) / sizeof(f64) - 1;
+    int memint_size = sizeof(memint) / sizeof(f64);
+    int memflt_size = sizeof(memflt) / sizeof(f64);
 
-    cpu_t *cpu = new_cpu(mem, mem_size);
+    cpu_t *cpu = new_cpu(memint, memint_size);
 
     run_cpu(cpu);
 
