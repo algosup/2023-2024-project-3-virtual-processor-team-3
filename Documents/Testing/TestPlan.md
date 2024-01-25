@@ -124,11 +124,56 @@ Bellow is the list of artefacts that should be produced during testing.
 
 ## 4.1 Testing Tools
 
+Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and test cases.
 
+whever test case and bug report with issues
+test cases with project and bug report with issues
+test cases and bug report with project
 
-## Testing Tools
+## 4.2 Test Environment
 
-## Test Environment
+Since there is multiple working environment within the project team. It will allow us to test our solution in different contexts which are defined bellow.
 
-# Terms / Acronyms
+### 4.2.1 Hardware
 
+|Processor|RAM|
+|-|-|
+|Apple M1|8Gb|
+|||
+
+### 4.2.2 Software
+
+|OS|Version|
+|-|-|
+|MacOS|14.3|
+|Windows|11|
+
+## 4.3 Bug Severity & Priority Definition
+
+Bug Severity and Priority fields are both very important for categorizing bugs and prioritizing if and when the bugs will be fixed. The bug Severity and Priority levels will be defined in the tables below. Each Bug will be assigned a severity and priority level.
+
+### 4.3.1 Severity List
+
+|Severity ID|Severity Level|Severity Description|
+|:-:|:-:|:-:|
+|1|Critical|The solution crashes or the bug causes non-recoverable conditions. System crashes, file corruption, or potential data loss, program hangs requiring reboot are all examples of a Severity 1 bug|
+|2|High|Major solution component unusable due to failure or incorrect functionality.  Severity 2 bugs cause serious problems such as a lack of functionality, or insufficient or unclear error messages that can have a major impact to the user, prevents other areas of the solution from being tested, etc|
+|3|Medium|Incorrect functionality of component or process|
+|4|Minor|Incorrect functionality of component or process.  There is a simple work around for the bug if it is Severity 3|
+
+### 4.3.2 Priotity List
+
+|Priority ID|Priority Level|Priority Description|
+|:-:|:-:|:-:|
+|5|Must Fix|This bug must be fixed immediately; the solution cannot ship with this bug|
+|4|Should Fix|These are important problems that should be fixed as soon as possible|
+|3|Fix When Have Time|The problem should be fixed within the time available. If the bug does not delay shipping date, then fix it|
+|2|Low Priority|It is not important (at this time) that these bugs be addressed.  Fix these bugs after all other bugs have been fixed|
+|1|Trivial|Enhancements/ Good to have features incorporated; just are out of the current scope|
+
+# 5 Terms / Acronyms
+
+|Term / Acronym|Definition|
+|:-:|:-:|
+|BUG|Any error or defect that cause the solution or hardware to malfunction|
+|...|/|
