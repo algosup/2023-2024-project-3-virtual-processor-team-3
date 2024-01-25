@@ -27,7 +27,7 @@ ___
     - [4.4.1 Example:](#441-example)
 - [6. Components of the project](#6-components-of-the-project)
 - [6.1 CPU architecture](#61-cpu-architecture)
-- [6.2 Parser\[^7\]](#62-parser7)
+- [6.2 Parser\[^6\]](#62-parser6)
 - [7. Footnotes](#7-footnotes)
   
 </details>
@@ -115,7 +115,7 @@ The body describes the commit with more details, and as titles it has to follow 
 
 #### 4.1.3 Additional keywords:
 
-These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators[^3] to hit two birds with one stone in multiple cases. 
+These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone in multiple cases. 
 
 Git/Github desktop:
 
@@ -170,7 +170,7 @@ Closes: #324
 
 ### 4.2 Files
 
-Files, and more precisely header[^4] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
+Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
 
 Furthermore, header files should not depend on other header files. This will make maintenance more difficult than expected at first. This rule does not include standards headers. 
 
@@ -204,7 +204,7 @@ Then functions and defined elements must have a "function header". It is a multi
   
 Finally the components of a function must have a comment to explain in few words what it does.
 
-If the IDE allows it[^6], the function header can be read by hovering the mouse on the name of the function.
+If the IDE allows it[^5], the function header can be read by hovering the mouse on the name of the function.
 
 **Beware, do not abuse of comments. A function shouldn't have a comment on every lines!**  
 
@@ -265,13 +265,13 @@ For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Archi
 Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
 
 
-## 6.2 Parser[^7]
+## 6.2 Parser[^6]
 
-To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
+To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
 
 <img src="./Img/Parser.png" height="900px">
 
-To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
+To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
 For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
 
@@ -324,11 +324,10 @@ Finally our program parse a final time the binary file to execute it and output 
 
 [^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or to write a computer program.
 [^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify and delete a repository freely.
-[^3]: olaborator: A collaborator is a person working on a repository.
-[^4]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
-[^5]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
-[^6]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
-[^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
-[^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
-[^9]: String: A chain of character contained in one variable.
-[^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
+[^3]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
+[^4]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
+[^5]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
+[^6]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
+[^7]: Machine code: Machine code is the name given to the language of the computer, also named binary.
+[^8]: String: A chain of character contained in one variable.
+[^9]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
