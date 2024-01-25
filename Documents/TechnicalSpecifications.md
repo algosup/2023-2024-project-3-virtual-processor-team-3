@@ -25,9 +25,10 @@ ___
   - [4.3 Names](#43-names)
   - [4.4 Comments](#44-comments)
     - [4.4.1 Example:](#441-example)
-- [5. The CPU](#5-the-cpu)
-- [5.1 The architecture](#51-the-architecture)
-- [6. Risks](#6-risks)
+- [6. Components of the project](#6-components-of-the-project)
+- [6.1 CPU architecture](#61-cpu-architecture)
+- [6.2 Parser\[^7\]](#62-parser7)
+- [6.2 PR](#62-pr)
 - [7. Footnotes](#7-footnotes)
   
 </details>
@@ -254,17 +255,24 @@ float floatMultiplication(float x,float y)
 }
 ```
 
+## 6. Components of the project
 
-## 5. The CPU
-
-## 5.1 The architecture
+## 6.1 CPU architecture
 
 For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
 
 <img src="./Img/Von_Neumann_architecture.png" height="300px">
 
 Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
-## 6. Risks 
+
+
+## 6.2 Parser[^7]
+
+To translate from Assembly to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
+
+<img src="./Img/Parser.png" height="900px">
+
+## 6.2 PR 
 
 ## 7. Footnotes
 
@@ -274,3 +282,6 @@ Our CPU's architecture, the control unit in the previous image, will be differen
 [^4]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
 [^5]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
 [^6]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
+[^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
+[^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
+[^9]: String: A chain of character contained in one variable.
