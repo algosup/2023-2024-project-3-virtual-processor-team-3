@@ -1,7 +1,7 @@
 <h1 align="center"> Technical specification </h1>
 
 <p align="center"> 
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 24/01/2024
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 25/01/2024
 </p>
 
 ___
@@ -14,20 +14,20 @@ ___
 - [1. Introduction](#1-introduction)
   - [1.1 Project goal](#11-project-goal)
 - [2. File architecture](#2-file-architecture)
-- [3. The CPU](#3-the-cpu)
-- [3.1 The architecture](#31-the-architecture)
-- [4.Developmnent environment](#4developmnent-environment)
-- [5. Conventions](#5-conventions)
-  - [5.1 Commits](#51-commits)
-    - [5.1.1 Title:](#511-title)
-    - [5.1.2 Body:](#512-body)
-    - [5.1.3 Additional keywords:](#513-additional-keywords)
-    - [5.1.4 Examples:](#514-examples)
-  - [5.2 Files](#52-files)
-  - [5.3 Names](#53-names)
-  - [5.4 Comments](#54-comments)
-    - [5.5.1 Example:](#551-example)
-- [6. Risks](#6-risks)
+- [3.Developmnent environment](#3developmnent-environment)
+- [4. Conventions](#4-conventions)
+  - [4.1 Commits](#41-commits)
+    - [4.1.1 Title:](#411-title)
+    - [4.1.2 Body:](#412-body)
+    - [4.1.3 Additional keywords:](#413-additional-keywords)
+    - [4.1.4 Examples:](#414-examples)
+  - [4.2 Files](#42-files)
+  - [4.3 Names](#43-names)
+  - [4.4 Comments](#44-comments)
+    - [4.4.1 Example:](#441-example)
+- [6. Components of the project](#6-components-of-the-project)
+- [6.1 CPU architecture](#61-cpu-architecture)
+- [6.2 Parser\[^7\]](#62-parser7)
 - [7. Footnotes](#7-footnotes)
   
 </details>
@@ -35,7 +35,7 @@ ___
 ## 0. Last reviewer
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 24/01/2024 |
+| Aurélien Fernandez | 25/01/2024 |
 
 
 ## 1. Introduction
@@ -66,17 +66,7 @@ Project
 
 Where * means files and folders that may appear in the future.
 
-## 3. The CPU
-
-## 3.1 The architecture
-
-For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
-
-<img src="./Img/Von_Neumann_architecture.png" height="300px">
-
-Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
-
-## 4.Developmnent environment
+## 3.Developmnent environment
 
 Our team uses multiple machines to work on this project such as:
   - 3 Windows operating on Windows 11.
@@ -89,7 +79,7 @@ To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/"
 
 Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
 We choose these standards because it covers almost every aspect of c.
-## 5. Conventions
+## 4. Conventions
 
 The project's repository[^2] have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
 - Having trouble to find a specific file.
@@ -97,11 +87,11 @@ The project's repository[^2] have to be organised to allow contributors and pote
 - Different naming standards between contributors.
 - etc.
   
-### 5.1 Commits
+### 4.1 Commits
 
 Commits must be written following these specific rules:
 
-#### 5.1.1 Title:
+#### 4.1.1 Title:
 
 The title is one of the most important thing is a commit, it serves to describe what the commit is about, and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow few rules.
 
@@ -114,7 +104,7 @@ It has to begin with one of the following:
 
 Furthermore a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb and the name of the implementation or the name of the file involved.
 
-#### 5.1.2 Body:
+#### 4.1.2 Body:
 
 The body describes the commit with more details, and as titles it has to follow certain rules:
   - Provide context: explain why this change is needed.
@@ -123,7 +113,7 @@ The body describes the commit with more details, and as titles it has to follow 
   - Avoid long paragraphs, list what has been done.
   - No jargon without explanations, other contributors must understand the commit.
 
-#### 5.1.3 Additional keywords:
+#### 4.1.3 Additional keywords:
 
 These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators[^3] to hit two birds with one stone in multiple cases. 
 
@@ -148,7 +138,7 @@ These lines are to be added at the end of the body of a commit.
    ```
    It is a link to a past commit.
 
-#### 5.1.4 Examples:
+#### 4.1.4 Examples:
 
 For a feature:
 ```
@@ -178,7 +168,7 @@ This fix allows users to apply multiplications to higher numbers without being s
 Closes: #324
 ``` 
 
-### 5.2 Files
+### 4.2 Files
 
 Files, and more precisely header[^4] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
 
@@ -190,7 +180,7 @@ For example in a calculator project, there should be a structure similar to this
   - Display.h
   - Input.h
 
-### 5.3 Names
+### 4.3 Names
 
 Names are extremely important to a project's readability[^5], not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
 
@@ -199,7 +189,7 @@ For this project this set of naming conventions has been chosen:
 - Branches: PascalCases, appart of the Main,PreMain,Documents, the branch is named after the name of the feature or after the name/id of the fix.
 - Document/Folder/Files: PascalCases.
 
-### 5.4 Comments
+### 4.4 Comments
 
 We are using standards to increase the readability of a code, but without comments reading a code can take a more time than expected and desired.
 
@@ -218,7 +208,7 @@ If the IDE allows it[^6], the function header can be read by hovering the mouse 
 
 **Beware, do not abuse of comments. A function shouldn't have a comment on every lines!**  
 
-#### 5.5.1 Example:
+#### 4.4.1 Example:
 
 ```c
 /* Filename.c
@@ -264,7 +254,71 @@ float floatMultiplication(float x,float y)
 }
 ```
 
-## 6. Risks 
+## 6. Components of the project
+
+## 6.1 CPU architecture
+
+For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
+
+<img src="./Img/Von_Neumann_architecture.png" height="300px">
+
+Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
+
+
+## 6.2 Parser[^7]
+
+To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
+
+<img src="./Img/Parser.png" height="900px">
+
+To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
+
+For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
+
+```c
+//This is an enumerator containing all of the instructions.
+enum instructions
+{
+    CLF,
+    CMP, CMPI, CMPF, CMPFI,
+    MOV, MOVF,
+    STI, STF, LDI, LDF,
+    LII, LIF,
+    PSH, POP,
+    PSHF, POPF,
+    INC, DEC,
+    ADD, SUB, MUL, DIV,
+    ADDF, SUBF, MULF, DIVF,
+    JLZ, JGZ, JEZ, JNZ, JMP,
+    SHL, SHR,
+    BAND, BOR, BNOT, BXOR,
+    LAND, LOR, LNOT,
+    HLT,
+};
+
+//This is an array of 44 characters containing all instructions.
+const char *instruction_strings[] = {
+    "CLF",
+    "CMP", "CMPI", "CMPF", "CMPFI",
+    "MOV", "MOVF",
+    "STI", "STF", "LDI", "LDF",
+    "LII", "LIF",
+    "PSH", "POP",
+    "PSHF", "POPF",
+    "INC", "DEC",
+    "ADD", "SUB", "MUL", "DIV",
+    "ADDF", "SUBF", "MULF", "DIVF",
+    "JLZ", "JGZ", "JEZ", "JNZ", "JMP",
+    "SHL", "SHR",
+    "BAND", "BOR", "BNOT", "BXOR",
+    "LAND", "LOR", "LNOT",
+    "HLT"
+    };
+```
+
+Then we are creating a new file with the translated assembly into machine code into it. It is an unreadable sequence of 0 and 1 gathered on a single line.
+
+Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
 
 ## 7. Footnotes
 
@@ -274,3 +328,7 @@ float floatMultiplication(float x,float y)
 [^4]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
 [^5]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
 [^6]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
+[^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
+[^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
+[^9]: String: A chain of character contained in one variable.
+[^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
