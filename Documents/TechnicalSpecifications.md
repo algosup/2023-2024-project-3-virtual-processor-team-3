@@ -28,7 +28,6 @@ ___
 - [6. Components of the project](#6-components-of-the-project)
 - [6.1 CPU architecture](#61-cpu-architecture)
 - [6.2 Parser\[^7\]](#62-parser7)
-- [6.2 PR](#62-pr)
 - [7. Footnotes](#7-footnotes)
   
 </details>
@@ -268,11 +267,58 @@ Our CPU's architecture, the control unit in the previous image, will be differen
 
 ## 6.2 Parser[^7]
 
-To translate from Assembly to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
+To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
 
 <img src="./Img/Parser.png" height="900px">
 
-## 6.2 PR 
+To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
+
+For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
+
+```c
+//This is an enumerator containing all of the instructions.
+enum instructions
+{
+    CLF,
+    CMP, CMPI, CMPF, CMPFI,
+    MOV, MOVF,
+    STI, STF, LDI, LDF,
+    LII, LIF,
+    PSH, POP,
+    PSHF, POPF,
+    INC, DEC,
+    ADD, SUB, MUL, DIV,
+    ADDF, SUBF, MULF, DIVF,
+    JLZ, JGZ, JEZ, JNZ, JMP,
+    SHL, SHR,
+    BAND, BOR, BNOT, BXOR,
+    LAND, LOR, LNOT,
+    HLT,
+};
+
+//This is an array of 44 characters containing all instructions.
+const char *instruction_strings[] = {
+    "CLF",
+    "CMP", "CMPI", "CMPF", "CMPFI",
+    "MOV", "MOVF",
+    "STI", "STF", "LDI", "LDF",
+    "LII", "LIF",
+    "PSH", "POP",
+    "PSHF", "POPF",
+    "INC", "DEC",
+    "ADD", "SUB", "MUL", "DIV",
+    "ADDF", "SUBF", "MULF", "DIVF",
+    "JLZ", "JGZ", "JEZ", "JNZ", "JMP",
+    "SHL", "SHR",
+    "BAND", "BOR", "BNOT", "BXOR",
+    "LAND", "LOR", "LNOT",
+    "HLT"
+    };
+```
+
+Then we are creating a new file with the translated assembly into machine code into it. It is an unreadable sequence of 0 and 1 gathered on a single line.
+
+Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
 
 ## 7. Footnotes
 
@@ -285,3 +331,4 @@ To translate from Assembly to machine code[^8] and compile the resulting machine
 [^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
 [^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
 [^9]: String: A chain of character contained in one variable.
+[^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
