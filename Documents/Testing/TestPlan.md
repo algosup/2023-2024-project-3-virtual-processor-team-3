@@ -87,25 +87,44 @@ The purpose of iterative testing is to complete iterative development by testing
 
 In our case, we will run test sessions at each merge in the main branch on the github repository.
 
-## 2.5 Test Levels
+## 2.5 Bug Triage
+
+The purpose of the triage is to determine the type of resolution for each bug and to prioritize and determine a schedule for all “To Be Fixed Bugs’. Bug triages will be held throughout all phases of the development cycle and regularly with the time frame being determined by the bug find rate and project schedules.
+
+All members of the team should be involved in these triage meetings to ensure good communication on the matter.
+
+## 2.6 Suspension Criteria & Resumption Requirement
+
+Testing will be suspended if any of the following conditions are met and until they are resolved:
+- There is a critical change in the scope of the project which has an impact on the critical path.
+- A bug of critical severity on a major feature is discovered.
+
+If one of those conditions is ever met, the Quality Assurance will help the development team resolve the corresponding issue(-s) and/or bug(-s).
+
+## 2.7 Test Completeness
+
+Testing will be considered complete when the following criteria have been met:
+- When all team members agree that testing is complete, the solution is stable, and agree that the solution meets functional requirements.
+- All test cases have passed.
+- All priority 1 & 2 bugs have been resolved and closed.
+- Each test case has been signed off as completed by the Quality Assurance.
+
+# 3 Test Deliverables
+
+Bellow is the list of artefacts that should be produced during testing.
+
+|Name|Purpose|Link|
+|:-:|:-:|:-:|
+|Test Plan||[X](../Testing/TestPlan.md)|
+|Test Cases||[X](../Testing/TestPlan.md)|
+|Bug Reports||[X](../Testing/TestPlan.md)|
+|Bugs Data Report||[X](../Testing/TestPlan.md)|
+
+# 4 Resource & Environment Needs
+
+## 4.1 Testing Tools
 
 
-
-## 2.6 Bug Triage
-
-
-
-## Suspension Criteria & Resumption Requirement
-
-
-
-## Test Completeness
-
-
-
-# Test Deliverables
-
-# Resource & Environment Needs
 
 ## Testing Tools
 
