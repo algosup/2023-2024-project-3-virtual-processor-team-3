@@ -27,7 +27,7 @@ ___
   - [5.3 Names](#53-names)
   - [5.4 Comments](#54-comments)
     - [5.5.1 Example:](#551-example)
-- [6 Risks](#6-risks)
+- [6. Risks](#6-risks)
 - [7. Footnotes](#7-footnotes)
   
 </details>
@@ -70,7 +70,7 @@ Where * means files and folders that may appear in the future.
 
 ## 3.1 The architecture
 
-For this project we will follow the Von Neumann architecture, this architecture defines how a computer system works. It can be represented as the following:
+For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
 
 <img src="./Img/Von_Neumann_architecture.png" height="300px">
 
@@ -82,7 +82,7 @@ Our team uses multiple machines to work on this project such as:
   - 3 Windows operating on Windows 11.
   - 3 MacBooks operating on MacOS Sonoma 14.
 
-As for the IDE, out of the 6 members of our team, 5 uses Visual Studio Code and 1 uses Visual Studio Codium. As they are extremely similar, we all uses the same extensions to run and debug C. All of these extensions are packed into one called
+As for the IDE[^1], out of the 6 members of our team, 5 uses Visual Studio Code and 1 uses Visual Studio Codium. As they are extremely similar, we all uses the same extensions to run and debug C. All of these extensions are packed into one called
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C/C++ Extension Pack</a> .
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
@@ -91,7 +91,7 @@ Finally, to avoid conflicts in terms of conventions, such as the naming conventi
 We choose these standards because it covers almost every aspect of c.
 ## 5. Conventions
 
-The project's repository have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
+The project's repository[^2] have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
 - Having trouble to find a specific file.
 - Creating conflicts with pushes.
 - Different naming standards between contributors.
@@ -103,7 +103,7 @@ Commits must be written following these specific rules:
 
 #### 5.1.1 Title:
 
-The title is one of the most important thing is a commit, it serves to describe what the commit is about, and provide a quick summary of what is implemented/fixed/removed. As such it has to follow few rules.
+The title is one of the most important thing is a commit, it serves to describe what the commit is about, and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow few rules.
 
 It has to begin with one of the following: 
 - "feat:" if the commit implement a feature to the project.
@@ -116,7 +116,7 @@ Furthermore a title shouldn't be more than 50 characters long and must describe 
 
 #### 5.1.2 Body:
 
-The body describe the commit with more details, and as titles it has to follow certain rules:
+The body describes the commit with more details, and as titles it has to follow certain rules:
   - Provide context: explain why this change is needed.
   - If possible summarise how changes were applied, notably for implementations, fixes, refactoring or optimisation.
   - Reference issues if needed.
@@ -125,7 +125,7 @@ The body describe the commit with more details, and as titles it has to follow c
 
 #### 5.1.3 Additional keywords:
 
-These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone in multiple cases. 
+These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators[^3] to hit two birds with one stone in multiple cases. 
 
 Git/Github desktop:
 
@@ -133,7 +133,7 @@ These lines are to be added at the end of the body of a commit.
   ```
   Close(s/d)/Fix(es/ed)/resolve(s/d) (:) #[*issue id*]
   ```
-  It closes the issue with this id, only one of those words is necessary.
+  It closes the issue with this id, only one of the precedent words is necessary.
   ```
   Co-authored-by(:) [*Name*] [*colleague@example.com*]
   ``` 
@@ -180,7 +180,7 @@ Closes: #324
 
 ### 5.2 Files
 
-Files, and more precisely header files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
+Files, and more precisely header[^4] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
 
 Furthermore, header files should not depend on other header files. This will make maintenance more difficult than expected at first. This rule does not include standards headers. 
 
@@ -192,7 +192,7 @@ For example in a calculator project, there should be a structure similar to this
 
 ### 5.3 Names
 
-Names are extremely important to a project's readability, not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
+Names are extremely important to a project's readability[^5], not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
 
 For this project this set of naming conventions has been chosen:
 
@@ -201,20 +201,20 @@ For this project this set of naming conventions has been chosen:
 
 ### 5.4 Comments
 
-Using standards to increase the readability of a code, but without comments reading a code can take a lot of time. Even to comprehend a single function!
+We are using standards to increase the readability of a code, but without comments reading a code can take a more time than expected and desired.
 
 To be able to hand our code to other collaborator during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules were made:
 
 Every .c and .h files must have a "header comment". This comment will describe what does this file contains in a quick summary. We do not need to go too much into the details in this comment.
 
-Then functions and defined elements must have a a "function header". It is a multiline comment containing: 
+Then functions and defined elements must have a "function header". It is a multiline comment containing: 
   - A short description of the function.
   - Parameters needed to call the function, with their type and a short explanation of the variable.
   - The result of the function, it may be a sucess/failure output or describing what does the function do being (example: the function create/modify/remove a file).
   
-Finally the components of a function must have a comment to shortly explain what it does.
+Finally the components of a function must have a comment to explain in few words what it does.
 
-If the IDE allows it, the function header can be read by hovering the mouse on the name of the function.
+If the IDE allows it[^6], the function header can be read by hovering the mouse on the name of the function.
 
 **Beware, do not abuse of comments. A function shouldn't have a comment on every lines!**  
 
@@ -264,6 +264,13 @@ float floatMultiplication(float x,float y)
 }
 ```
 
-## 6 Risks 
+## 6. Risks 
 
 ## 7. Footnotes
+
+[^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or to write a computer program.
+[^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify and delete a repository freely.
+[^3]: olaborator: A collaborator is a person working on a repository.
+[^4]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
+[^5]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
+[^6]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
