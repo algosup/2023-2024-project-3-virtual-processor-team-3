@@ -1,4 +1,12 @@
-# Functional Specifications
+<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="Documents/Img/FunctionalSpecifications/back2.png" width="35px"></a></div>
+
+<br>
+
+<h1 align="center"> Functional specification </h1>
+
+<p align="center"> 
+Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26/01/2024
+</p>
 
 <details>
 <summary>
@@ -7,37 +15,39 @@
 
 </summary>
 
-- [Functional Specifications](#functional-specifications)
-  - [Table of Contents](#table-of-contents)
-  - [1. Glossary](#1-glossary)
-  - [2. Introduction](#2-introduction)
-    - [2.1 Overview](#21-overview)
-    - [2.2 Project Definition](#22-project-definition)
-      - [➭ 2.2.1 Vision](#-221-vision)
-      - [➭ 2.2.2 Scope](#-222-scope)
-      - [➭ 2.2.3 Deliverables](#-223-deliverables)
-    - [2.3 Project Organisation](#23-project-organisation)
-      - [➭ 2.3.1 Project Representatives](#-231-project-representatives)
-      - [➭ 2.3.2 Stakeholders](#-232-stakeholders)
-      - [➭ 2.3.3 Project Roles](#-233-project-roles)
-      - [➭ 2.3.4 Project Reviewers](#-234-project-reviewers)
-    - [2.4 Project Plan](#24-project-plan)
-      - [➭ 2.4.1 Retroplanning](#-241-retroplanning)
-      - [➭ 2.4.2 Milestones](#-242-milestones)
-      - [➭ 2.4.3 Dependencies](#-243-dependencies)
-      - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
-      - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
-  - [3.1 Virtual Processor](#31-virtual-processor)
-    - [3.1.1 Architecture](#311-architecture)
-  - [3.2 Assembly Language](#32-assembly-language)
-      - [➭ 3.2.1 Sections](#-321-sections)
-      - [➭ 3.2.2 Instructions Set Architecture](#-322-instructions-set-architecture)
-    - [3.2 Instruction types](#32-instruction-types)
-  - [4. From ALGORisk assembly to executable](#4-from-algorisk-assembly-to-executable)
-    - [4.1 Preprocessor](#41-preprocessor)
-    - [4.2 Interpreter](#42-interpreter)
-    - [3.4 Debugger](#34-debugger)
-  - [4. Conclusion](#4-conclusion)
+- [Table of Contents](#table-of-contents)
+- [1. Glossary](#1-glossary)
+- [2. Introduction](#2-introduction)
+  - [2.1 Overview](#21-overview)
+  - [2.2 Project Definition](#22-project-definition)
+    - [➭ 2.2.1 Vision](#-221-vision)
+    - [➭ 2.2.2 Scope](#-222-scope)
+    - [➭ 2.2.3 Deliverables](#-223-deliverables)
+  - [2.3 Project Organisation](#23-project-organisation)
+    - [➭ 2.3.1 Project Representatives](#-231-project-representatives)
+    - [➭ 2.3.2 Stakeholders](#-232-stakeholders)
+    - [➭ 2.3.3 Project Roles](#-233-project-roles)
+    - [➭ 2.3.4 Project Reviewers](#-234-project-reviewers)
+  - [2.4 Project Plan](#24-project-plan)
+    - [➭ 2.4.1 Retroplanning](#-241-retroplanning)
+    - [➭ 2.4.2 Milestones](#-242-milestones)
+    - [➭ 2.4.3 Dependencies](#-243-dependencies)
+    - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
+    - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
+- [3. Virtual Processor](#3-virtual-processor)
+  - [3.1 Architecture](#31-architecture)
+- [4. Assembly Language](#4-assembly-language)
+  - [4.1 Sections](#41-sections)
+  - [4.2 Instructions Set Architecture](#42-instructions-set-architecture)
+  - [4.3 Instruction types and binary formats](#43-instruction-types-and-binary-formats)
+- [5. From ALGORisk assembly to executable](#5-from-algorisk-assembly-to-executable)
+  - [5.1 Preprocessor](#51-preprocessor)
+  - [5.2 Interpreter](#52-interpreter)
+    - [➭ 4.2.1 Instruction error](#-421-instruction-error)
+    - [➭ 4.2.2 Operand error](#-422-operand-error)
+  - [3.4 Debugger](#34-debugger)
+  - [3.5 Plugin](#35-plugin)
+- [4. Conclusion](#4-conclusion)
 
 </details>
 
@@ -143,7 +153,7 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.1 Retroplanning</ins>
 
-<!-- TODO: -->
+![Retroplanning.png](/Documents/Img/FunctionalSpecifications/Retroplanning.png)
 
 #### ➭ <ins>2.4.2 Milestones</ins>
 
@@ -188,7 +198,7 @@ The development phase requires some prior understanding of the target technologi
 | We have to code in C. |
 | We can't use any external library beside C standard libraries. |
 
-## 3.1 Virtual Processor
+## 3. Virtual Processor
 
 <!-- When the user will be willing to execute his program, the following steps will be executed:
 - preprocessing
@@ -205,7 +215,7 @@ Order of execution
   output binary file
   open binary with our processor .out-->
   
-### 3.1.1 Architecture
+### 3.1 Architecture
 
 Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
 
@@ -228,9 +238,9 @@ Our CSRs are:
 | mcause | Machine cause: It holds the cause of the most recent exception.|
 | uepc | User exception program counter: It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.|
 
-## 3.2 Assembly Language
+## 4. Assembly Language
 
-#### ➭ <ins>3.2.1 Sections</ins>
+### 4.1 Sections
 
 A typical ALGORisk assembly program will be divided into two sections:
 - **Data section**: Contains the program's data, such as variables and constants.
@@ -278,7 +288,7 @@ Always consider the context and the specific requirements of the instruction whe
 
 The code section is delimited by the `.code` directive and the declaration of a constant or a variable will be done like that:
 
-#### ➭ <ins>3.2.2 Instructions Set Architecture</ins>
+### 4.2 Instructions Set Architecture
 
 | Category | Instruction | Expanding | Description | Syntax | Type |
 | --- | --- | --- | --- | --- | --- |
@@ -338,14 +348,67 @@ The code section is delimited by the `.code` directive and the declaration of a 
 
 This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, ghe content of r1 will be copied in r2.
 
-### 3.2 Instruction types
+### 4.3 Instruction types and binary formats
 
-Instructions are divided into 3 types:
+Instructions are divided into 6 types: \
+R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type.
 
+Here are how they are encoded in 32-bits binary:
 
-## 4. From ALGORisk assembly to executable
+![InstructionFormats.png](/Documents/Img/FunctionalSpecifications/InstructionFormats.png)
 
-### 4.1 Preprocessor
+**1. Opcode (opcode):**
+- Purpose: The opcode field specifies the general category or class of the instruction.
+- Function: It distinguishes between different instruction types, such as R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type. It is crucial for the processor to identify the broad class of operation the instruction belongs to.
+- Length: 7 bits
+- Example: In the R-Type instruction add, the opcode specifies that it is an arithmetic addition operation.
+
+**2. Funct3 (funct3):**
+- Purpose: The funct3 field is used to provide additional information about the operation within a specific instruction type.
+- Function: It refines the instruction classification by indicating the exact operation or variant within a group of instructions.
+- Length: 3 bits
+- Example: In the I-Type instruction addi (add immediate), funct3 specifies the specific arithmetic operation, like addition, subtraction, logical operations, etc.
+
+**3. Funct7 (funct7):**
+- Purpose: The funct7 field is typically found in R-Type instructions and is used for extended functionality or to provide additional information.
+- Function: It refines the operation specified by the opcode and funct3 fields. It allows for more detailed control or differentiation between certain instructions of the same type.
+- Length: 7 bits
+- Example: In the R-Type instruction add, funct7 might be used to distinguish between different types of addition operations, such as signed or unsigned addition.
+
+**4. Destination Register (rd):**
+- Purpose: The rd field designates the destination register where the result of the operation is stored.
+- Function: It specifies the register address where the result will be written, and it is crucial for identifying the target location for the operation's output.
+- Length: 5 bits
+- Example: In the R-Type instruction add, rd determines the register where the sum will be stored.
+
+**5. Source Register 1 (rs1):**
+- Purpose: The rs1 field identifies the first source register, providing one of the operands for the operation.
+- Function: It specifies the register number from which data is fetched, serving as a source for the arithmetic or logical operation.
+- Length: 5 bits
+- Example: In the R-Type instruction add, rs1 is the register supplying one of the numbers to be added.
+
+**6. Source Register 2 (rs2):**
+- Purpose: The rs2 field identifies the second source register, providing another operand for the operation.
+- Function: It specifies the register number from which additional data is fetched, playing a role similar to rs1.
+- Length: 5 bits
+- Example: In the R-Type instruction add, rs2 is the register supplying the second number to be added.
+
+**7. Immediate Value (imm[]):**
+- Purpose: The immediate value represents a constant or an offset used in the instruction.
+- Function: It is a binary value that provides additional data for certain types of instructions, such as I-Type, S-Type, B-Type, U-Type, and J-Type. It complements registers in defining operands or offsets.
+- Length: 
+  - I-Type: 12 bits
+  - S-Type: Immediate is split into two parts: imm[11:5] and imm[4:0]
+  - B-Type: Immediate is split into four parts: imm[12] and imm[10:5] and imm[4:1] and imm[11]
+  - U-Type: 20 bits
+  - J-Type: 20 bits
+- Example: In the I-Type instruction addi (add immediate), imm[] specifies the constant value to be added to the register.
+
+These fields collectively define the operands, destinations, and additional information needed for each instruction in ALGORisk assembly language.
+
+## 5. From ALGORisk assembly to executable
+
+### 5.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
 Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`, the preprocessor will break down the assembly and separe both sections. Meaning, everything which is in `.data` will be kept in memory but not executed as there's no instructions given into this section, except for data initialisation.
@@ -365,21 +428,23 @@ Once the preprocessing process has went through the the data section and once va
 This is the part where all the code is put, where instructions that the user wants to pass to the processing unit is. As variables have previously been initialised and kept in memory, we can reuse them in the code section.
 During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignore during all the remaining processes.
 ```
-'code'
 \\ This a comment
-'code'
 ```
 
 TODO:
 
-### 4.2 Interpreter
+### 5.2 Interpreter
 
-The interpreter reads the assembly file and verify if the syntax is correct. 
+The interpreter reads the assembly file and verify if the syntax is correct. When it has read the whole file, it will print the number of errors and each error with the line number and the error message. If there is no error, it will translate the assembly code into binary code and write it into a file.
+
+![InterpreterDiagram.png](/Documents/Img/FunctionalSpecifications/InterpreterDiagram.png)
+
+#### ➭ <ins>4.2.1 Instruction error</ins>
 
 It first verifies if the name of the instruction corresponds to one of the instructions in the instruction set. \
 If not it throws an error in the containing the line number and the incorrect instruction. 
 
-Example:
+**<ins>Example:</ins>**
 
 Here is an example of an incorrect instruction declared at line 10:
 
@@ -392,8 +457,39 @@ The interpreter will throw the following error:
 Error at line 10: unknown instruction "ad"
 ```
 
-Each instruction is associated with a instruction type (as defined in the instruction set). 
+#### ➭ <ins>4.2.2 Operand error</ins>
+
+Every instruction is categorized under an instruction type (as defined in the instruction set), which outlines the expected number of operands and their respective types (such as registers, immediates, labels, etc.). The interpreter is responsible for validating the correctness of the operand count and their types. If an error is found, the interpreter will throw an error containing the line number and why the instruction is incorrect.
+
+**<ins>Example:</ins>**
+
+Here is an example of an instruction with too many operands declared at line 10:
+
+```
+add r1, r2, r3, r4
+```
+
+The interpreter will throw the following error:
+```
+Error at line 10: instruction "add" expects 3 operands, received other than 3
+```
+It will work the same if the instruction has too few operands.
+
+Here is an example of an instruction with an incorrect operand type declared at line 10:
+
+```
+add r1, r2, rr3
+```
+
+The interpreter will throw the following error:
+```
+Error at line 10: instruction "add" expects operand 3 to be a register, received "rr3"
+```
 
 ### 3.4 Debugger
 
+### 3.5 Plugin
+
 ## 4. Conclusion
+
+<div align="right"><a href="#table-of-contents"><img src="Documents/Img/FunctionalSpecifications/back.png" width="35px"></a></div>
