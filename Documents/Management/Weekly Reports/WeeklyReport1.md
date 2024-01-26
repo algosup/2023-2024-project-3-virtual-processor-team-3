@@ -33,7 +33,7 @@ During this meeting, we agreed on holding at least two weekly meetings according
 
 The first tasks have been attributed as shown before.
 
-### <u>Week feedback</u>
+### <u> Week feedback</u>
 
 This week, we decided to focus on learning the C language, however, it's clear that we are behind in terms of management documents. We need to finish the creation of various documents and get the planning of most tasks done.
 

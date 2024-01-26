@@ -31,6 +31,7 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 | Risk Mitigation Document  |  Thibaud              |   01/24/2024  | 01/25/2024  |
 | KPI Initialization        |  Thibaud              |   01/24/2024  | 01/26/2024  |
 | 1st assembly files        |  Malo & Mathis        |   01/25/2024  | 01/25/2024  |
+ Creation of personas - Func|  Mathis               |   01/26/2024  | 01/26/2024  |
 
 ### <u>Team meeting</u>
 
