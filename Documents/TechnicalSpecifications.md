@@ -315,7 +315,7 @@ const char *instruction_strings[] = {
     "HLT"
     };
 ```
-Has to how to detect instructions we are using this function:
+As to how to detect instructions we are using this function:
 
 ```c
 /**
