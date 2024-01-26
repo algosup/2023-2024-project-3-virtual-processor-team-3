@@ -28,7 +28,8 @@ ___
 - [6. Components of the project](#6-components-of-the-project)
 - [6.1 CPU architecture](#61-cpu-architecture)
 - [6.2 Parser\[^6\]](#62-parser6)
-- [7. Footnotes](#7-footnotes)
+- [7. Maintenance](#7-maintenance)
+- [8. Footnotes](#8-footnotes)
   
 </details>
 
@@ -267,7 +268,9 @@ Since are aiming for an educational purpose, our CPU's architecture, the control
 
 ## 6.2 Parser[^6]
 
-To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a flowhchart of the parser used for our project.
+To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create two different parsers. 
+
+This is a flowhchart of the two parsers used for our project:
 
 <img src="./Img/ParserFC.png" height="900px">
 
@@ -340,7 +343,12 @@ Then we are creating a new file with the translated assembly into machine code i
 
 Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
 
-## 7. Footnotes
+
+## 7. Maintenance
+
+The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
+
+## 8. Footnotes
 
 [^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or to write a computer program.
 [^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify and delete a repository freely.
