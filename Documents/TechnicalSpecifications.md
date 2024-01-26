@@ -270,11 +270,13 @@ Since are aiming for an educational purpose, our CPU's architecture, the control
 
 To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create two different parsers. 
 
-This is a flowhchart of the two parsers used for our project:
+This is the flowcharts of the two parsers used for our project:
 
 <img src="./Img/ParserFC.png" height="900px">
 
+<img src="./Img/Parser2FC.png" height="790px">
 To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
+
 
 For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
 
