@@ -1,7 +1,7 @@
 <h1 align="center"> Technical specification </h1>
 
 <p align="center"> 
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 25/01/2024
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 26/01/2024
 </p>
 
 ___
@@ -35,7 +35,7 @@ ___
 ## 0. Last reviewer
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 25/01/2024 |
+| Aurélien Fernandez | 26/01/2024 |
 
 
 ## 1. Introduction
@@ -269,7 +269,7 @@ Since are aiming for an educational purpose, our CPU's architecture, the control
 
 To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a flowhchart of the parser used for our project.
 
-<img src="./Img/ParserFC.png" height="700px">
+<img src="./Img/ParserFC.png" height="900px">
 
 To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
