@@ -1,4 +1,4 @@
-<h1 align="center"> Technical specification </h1>
+<h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
 Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 26/01/2024
