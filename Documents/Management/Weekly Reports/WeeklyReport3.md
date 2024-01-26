@@ -4,7 +4,7 @@
 
 ### <u> Introduction </u>
 
-Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by a great progress made on the project, Functional Specification document is due next week so most of the work have to be done on the document, moreover, various other tasks have been done during the week, let's deal with that.
+Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by great progress made on the project. The Functional Specification document is due next week so most of the work has to be done on the document, moreover, various other tasks have been done during the week, so let's deal with that.
 
 ### <u> Ongoing Tasks</u>
 
@@ -19,7 +19,7 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 | Percentage | 0%                       | 0% < 10% | 10% < 75% | 75% < 90% | 90% < 99% | 100% |
 |------------|--------------------------|--------------------------|-----------|-----------|-----------|------|
-| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic informations |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task done and included.|
+| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic information |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task is done and included.|
 
 ### <u>Finished Tasks</u>
 
@@ -34,10 +34,10 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 ### <u>Team meeting</u>
 
-During the week, we've done one meeting on Monday the 22nd of January, during this meeting, we've discussed about the last details to decide on concerning our assembly language.  
-We've discussed the oncoming tasks and how we would dispatch them amongst the team.
-Many technical decisions have been took amongts the team, which will be described in the functional  and technical specifications.  
-Moreover, we've discussed the various KPIs that would be set, here's a link toward the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)
+During the week, we had one meeting on Monday the 22nd of January, during this meeting, we discussed the last details to decide on concerning our assembly language.  
+We've discussed the upcoming tasks and how we would dispatch them to the team.
+Many technical decisions have been made amongst the team, which will be described in the functional and technical specifications.  
+Moreover, we've discussed the various KPIs that would be set, here's a link to the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)
 
 ### <u>Week feedback</u>
 
