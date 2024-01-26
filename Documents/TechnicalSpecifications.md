@@ -77,7 +77,7 @@ As for the IDE[^1], out of the 6 members of our team, 5 uses Visual Studio Code 
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we will use camelCase.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we are using camelCase.
 We choose these standards because it covers almost every aspect of c.
 ## 4. Conventions
 
@@ -172,7 +172,7 @@ Closes: #324
 
 Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
 
-Furthermore, header files should not depend on other header files. This will make maintenance more difficult than expected at first. This rule does not include standards headers. 
+Furthermore, header files should not depend on other header files. This is only making maintenance more difficult than expected at first. This rule does not include standards headers. 
 
 For example in a calculator project, there should be a structure similar to this one:
   - Calculator.c
@@ -195,7 +195,7 @@ We are using standards to increase the readability of a code, but without commen
 
 To be able to hand our code to other collaborator during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules were made:
 
-Every .c and .h files must have a "header comment". This comment will describe what does this file contains in a quick summary. We do not need to go too much into the details in this comment.
+Every .c and .h files must have a "header comment". This comment describes what does this file contains in a quick summary. We do not need to go too much into the details in this comment.
 
 Then functions and defined elements must have a "function header". It is a multiline comment containing: 
   - A short description of the function.
@@ -258,16 +258,16 @@ float floatMultiplication(float x,float y)
 
 ## 6.1 CPU architecture
 
-For this project we will follow the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
+For this project we are following the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
 
 <img src="./Img/Von_Neumann_architecture.png" height="300px">
 
-Our CPU's architecture, the control unit in the previous image, will be different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc). We are aiming for an educational purpose, thus we are aiming for simplicity.
+Since are aiming for an educational purpose, our CPU's architecture, the control unit in the previous image, is different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc).
 
 
 ## 6.2 Parser[^6]
 
-To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
+To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a flowhchart of the parser used for our project.
 
 <img src="./Img/ParserFC.png" height="700px">
 
@@ -314,6 +314,26 @@ const char *instruction_strings[] = {
     "LAND", "LOR", "LNOT",
     "HLT"
     };
+```
+Has to how to detect instructions we are using this function:
+
+```c
+/**
+ * This function detects if a string contains one of the instructions present in the enumeration named "instructions".
+ * @param str (char pointer): this is the string in which an instruction should be present.
+ * @result (int): The position in the enumerator of the instruction, returns -1 if there is no instructions.
+*/
+int detect_instruction(const char *str)
+{
+    for (int i = 0; i < 44; i++)
+    {
+        if (strstr(str, instruction_strings[i]) != NULL)
+        {
+            return i;
+        }
+    }
+    return -1; // Not found
+}
 ```
 
 Then we are creating a new file with the translated assembly into machine code into it. It is an unreadable sequence of 0 and 1 gathered on a single line.
