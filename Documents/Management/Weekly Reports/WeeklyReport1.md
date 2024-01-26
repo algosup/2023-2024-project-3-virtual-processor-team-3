@@ -15,6 +15,10 @@ This week starts off the beginning of the Virtual Processor project, we've recei
 |Functional specification  |Quentin        |    20%            |20%                       |01/11/2024      |
 |Test Plan  |Arthur        |    10%            |10%                       |01/11/2024      |
 
+| Percentage | 0%                       | 0% < 10% | 10% < 75% | 75% < 90% | 90% < 99% | 100% |
+|------------|--------------------------|--------------------------|-----------|-----------|-----------|------|
+| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic informations |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task done and included.|
+
 ### <u>Finished Tasks</u>
 
 |           Task            |   Member Assigned     |  Start Date   |   End Date  |

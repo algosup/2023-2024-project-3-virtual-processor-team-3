@@ -10,11 +10,14 @@ This week was once more ruled by leaning the C language which is necessary for t
 
 |           Task            |   Member Assigned   |   Progression   |   End Of Week objective   |   Start Date  |
 |:-------------------------:|:-------------------:|:---------------:|:-------------------------:|:-------------:|
-|Development WBS   |Mathis  |Pending review |  Pending review    | 01/17/2024 
-|Technical specification  |Aurélien       |10%  |10%     |01/17/2024      |
-|Functional specification  |Quentin        |    25%            |25%                       |01/17/2024      |
-|Test Plan  |Arthur        |    No Progression             | \                     |01/11/2024      |
+|Development WBS            |Mathis               |Pending review   |  Pending review           | 01/17/2024    |
+|Technical specification    |Aurélien             |10%              |10%                        |01/17/2024     |
+|Functional specification   |Quentin              |25%              |25%                        |01/17/2024     |
+|Test Plan                  |Arthur               | No Progression  | \                         |01/11/2024     |
 
+| Percentage | 0%                       | 0% < 10% | 10% < 75% | 75% < 90% | 90% < 99% | 100% |
+|------------|--------------------------|--------------------------|-----------|-----------|-----------|------|
+| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic informations |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task done and included.|
 
 ### <u>Finished Tasks</u>
 
@@ -46,10 +49,9 @@ This week didn't mark any great advancement document writing wise, but gathering
 ### <u>Next week planning </u>
 
 - Initial meeting on monday the 22nd.
-- Functional specification finalization. 
-- Functional specification review.
-- Functional specification publishing.
-- Project Charter publishing 
+- Functional specification near finalization
+- Functional specification review, if finished.
+- Project Charter publishing. 
 - Advencing on Technical specifications. (25% of completion)
 - Advencing on Test plan. (20% completion)
 - Discuss the last details.
