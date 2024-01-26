@@ -69,7 +69,7 @@ Moreover,our team will implement machine code, meaning that our Assembly code wi
 
 | Role | Name |  Representative | Influence  | Expectations |
 | :-: | :-: | :-: | :-:|  :-:|
-| Client | ALGOSUP | Mr. JEANNIN Franck|The final product must comply with the requirements given by Mr. JEANNIN. Any major decision made by the team bahe to be accepted by the client. The most important instance in decision making. |The client expects a processor with an assembly language that does all the instructions the client asked us to provide. All while complying with the deadlines.|  
+| Client | ALGOSUP | Mr. JEANNIN Franck |The final product must comply with the requirements given by Mr. JEANNIN. Any major decision made by the team bahe to be accepted by the client. The most important instance in decision making. |The client expects a processor with an assembly language that does all the instructions the client asked us to provide. All while complying with the deadlines.|  
 
 ## Milestones
 
