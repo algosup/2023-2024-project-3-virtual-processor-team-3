@@ -88,13 +88,14 @@ Here are some of the various risks that our team might encounter during the proj
 
 | Risk                                                          | [Likeliness](#level-of-likelihood) / [Impact](#impact) |
 |----------------------------------------------------------------------------------------------------|-------------------|
-| **[Complexity](#complexity)**                                                                      |       2 / C       |
-| **[Resource Management](#resource-management-inside-our-processor)**                               |       1 / C       |
-| **[Sudden Changes In Requirements](#sudden-changes)**                                              |       2 / D       |
-| **[Not Meeting Project Requirements](#not-meeting-project-requirements)**                          |       3 / E       |
-| **[Limited Hardware Knowledge](#limited-hardware-knowledge)**                                      |       2 / D       |
-| **[Poor Documentation and Code Maintenance](#poor-documentation-and-code-maintenance)**            |       3 / C       |
-| **[Tough Debugging and Testing](#tough-debugging-and-testing)**                                    |       2 / C       |
-| **[Time Constraints](#time-constraint)**                                                           |       2 / D       |
-| **[Loss Of Human Resources](#loss-of-human-resources)**                                            |       1 / C       |
-| **[Assembly Too Demanding For User](#assembly-too-demanding-for-user)**                            |       2 / D       |
+| **[Complexity](#complexity)**                                                                      |<center> 2 / C </center>     |
+| **[Resource Management](#resource-management-inside-our-processor)**                               |<center> 1 / C </center>     |
+| **[Sudden Changes In Requirements](#sudden-changes)**                                              |<center> 2 / D </center>     |
+| **[Not Meeting Project Requirements](#not-meeting-project-requirements)**                          |<center> 3 / E </center>     |
+| **[Limited Hardware Knowledge](#limited-hardware-knowledge)**                                      |<center> 2 / D </center>     |
+| **[Poor Documentation and Code Maintenance](#poor-documentation-and-code-maintenance)**            |<center> 3 / C </center>     |
+| **[Tough Debugging and Testing](#tough-debugging-and-testing)**                                    |<center> 2 / C </center>     |
+| **[Time Constraints](#time-constraint)**                                                           |<center> 2 / D </center>     |
+| **[Loss Of Human Resources](#loss-of-human-resources)**                                            |<center> 1 / C </center>     |
+| **[Assembly Too Demanding For User](#assembly-too-demanding-for-user)**                            |<center> 2 / D  </center>    |
+
