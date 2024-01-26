@@ -219,7 +219,14 @@ The first 16 registers will handle integer values and the next 16 will handle fl
 Three more registers will be used for specific purposes:
 - `pc` (program counter): Holds the address in memory of the next instruction to be fetched.
 - `ir` (instruction register): Holds the current instruction being executed.
-- `csr` TODO:
+- `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the informations of the constructor, of the architecture, and of the implementation. Currently 3 csr are present in our processor.
+
+Our CSRs are:
+| Name | Description|
+|---|---|
+| mepc | Machine exception program counter: When an exception occurs, the program counter (PC) value at the time of the exception is saved in the MEPC register.|
+| mcause | Machine cause: It holds the cause of the most recent exception.|
+| uepc | User exception program counter: It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.|
 
 ## 3.2 Assembly Language
 
