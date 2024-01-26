@@ -2,7 +2,7 @@
 
 <br>
 
-<h1 align="center"> Functional specification </h1>
+<h1 align="center"> Functional Specifications </h1>
 
 <p align="center"> 
 Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26/01/2024
