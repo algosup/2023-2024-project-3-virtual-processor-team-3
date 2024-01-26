@@ -275,8 +275,15 @@ This is the flowcharts of the two parsers used for our project:
 <img src="./Img/ParserFC.png" height="900px">
 
 <img src="./Img/Parser2FC.png" height="790px">
-To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
+
+Finally the whole parsering flowchart should ressemble to this process:
+
+
+<img src="./Img/CompleteParserFC.png" height="1150px">
+
+
+To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
 For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
 
