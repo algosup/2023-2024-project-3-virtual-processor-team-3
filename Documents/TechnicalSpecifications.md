@@ -1,4 +1,4 @@
-<h1 align="center"> Technical specification </h1>
+<h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
 Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 26/01/2024
@@ -28,6 +28,7 @@ ___
 - [6. Components of the project](#6-components-of-the-project)
 - [6.1 CPU architecture](#61-cpu-architecture)
 - [6.2 Parser\[^6\]](#62-parser6)
+- [6.3 Execution](#63-execution)
 - [7. Maintenance](#7-maintenance)
 - [8. Footnotes](#8-footnotes)
   
@@ -285,7 +286,7 @@ Finally the whole parsering flowchart should ressemble to this process:
 
 To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
-For parsing from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
+To parse from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
 
 ```c
 //This is an enumerator containing all of the instructions.
@@ -352,6 +353,51 @@ Then we are creating a new file with the translated assembly into machine code i
 
 Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
 
+## 6.3 Execution
+
+To execute each lines of the binary file we are comparing the retrieved 8 bytes to:
+
+- An instruction, 7 bit
+- The destination register, 5 bit
+- An indicator to identify which operation is required, 3 bit
+- The first source register, 5 bit
+- The second source register, 5 bit
+- A second indicator to encode additional informations about the operation, 7 bits
+
+The indicators are not necessary for every intruction, in this case they are filled with 0.
+
+Here is an example with a multiplication:
+
+<img src="./Img/Multiplication.png">
+
+In case of overflow[^10] or underflow[^11] we are detecting the error before executing it.
+
+To detect an overflow or an underflow we are using these comparisons:
+
+```c
+  int max=pow(2,32) // calculate the power of 32, our maximum
+
+  //additions
+  if(a>max-b)
+  {
+    return 1; //return an error
+  }
+  //substractions
+  if(a<0+b)
+  {
+    return 1;
+  }
+  //multiplications
+  if (a > max / b || a < 0 / b)
+  {
+    return 1;
+  }
+  //divisions
+  if ((a == -max ) && (b == -1) || b==0) 
+  {
+    return 1;
+  }
+```
 
 ## 7. Maintenance
 
@@ -368,3 +414,5 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^7]: Machine code: Machine code is the name given to the language of the computer, also named binary.
 [^8]: String: A chain of character contained in one variable.
 [^9]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
+[^10]: An overflow is when a value exceed the maximum.
+[^10]: An underflow is when a value falls below the minimum.
