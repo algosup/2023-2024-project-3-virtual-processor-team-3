@@ -17,7 +17,7 @@ This week starts off the beginning of the Virtual Processor project, we've recei
 
 | Percentage | 0%                       | 0% < 10% | 10% < 75% | 75% < 90% | 90% < 99% | 100% |
 |------------|--------------------------|--------------------------|-----------|-----------|-----------|------|
-| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic informations |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task done and included.|
+| Meaning    | Task hasn't been started | Basics of the task have been started, no details, can be templates, or basic information |Task being developed, steady progress flow   | Task is nearly done for review. |  Task pending for review. |Task is done and included.|
 
 ### <u>Finished Tasks</u>
 
