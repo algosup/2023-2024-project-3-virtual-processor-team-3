@@ -269,7 +269,7 @@ Our CPU's architecture, the control unit in the previous image, will be differen
 
 To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create three different parsers. This is a schema of the parsers for our project.
 
-<img src="./Img/Parser.png" height="900px">
+<img src="./Img/ParserFC.png" height="700px">
 
 To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
 
