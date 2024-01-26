@@ -5,6 +5,13 @@
 | **Document Owner**           | MARLIER Thibaud            |
 | **Last Modification (Date)** | 01/25/2024                 |
 
+# Introduction
+This document will go through some of the risks that our team might encounter during the Virtual Processor Project.  
+This project aims to design and create a virtual processor and an interpreter running our own Assembly language on that same processor. All developed by our team. Our product will be developed using the C language, relying only on the C standard library, no other libraries should be used by our team.
+The project officially started (for the team) on the 17th of January. The final product will be given to the client the 23rd of February. In the short term, we have to come up with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you during the process of learning how a CPU works.
+We will draw inspiration from the architecture of the RISC-V 32-bit CPU architecture. Our Assembly language will be minimalistic, making each instruction as understandable and as clear as possible for the user. We will lessen the abstraction of multiple instructions, everything that demands too much knowledge or experience will be made easier to understand.  
+
+
 ## Risks and Mitigation
 
 1. **Complexity:**
@@ -16,7 +23,7 @@
    - **Mitigation:** We have to thoroughly plan the architecture of our processor and make sure that everything works effectively, memory management has to be as efficient as possible. This will be handled during the development process, checked by developers, then checked during quality assurance, to make sure that everything runs smoothly and as expected.
 
 3. **Sudden Changes:**
-    - **Risk(s):** Indeed, the client could change requirements at any time during the project. If the client wants to change anything, from the requirements to a specific architecture, whatever that has been specified or not in the Call For Tender or anything succeeding it. 
+    - **Risk(s):** Indeed, the client could change requirements at any time during the project. If the client wants to change anything, from the requirements to a specific architecture, whatever that has been specified or not in the Call For Tender or anything succeeding it.
     - **Mitigation:** We will comply with the client's expectations and requirements, so if needed after a change, we reserve ourselves the right to contact the client for any further information. Every consequence will be mitigated, changing the Work Breakdown Structure, management strategies, development strategies, and testing strategies, and documents will be reworked to comply with the client's needs. Our team will do everything possible to overcome sudden changes.
 
 4. **Meeting Project Requirements:**
@@ -42,6 +49,10 @@
 9. **Loss Of Human Resources:**
     - **Risk(s):** Team members may face setbacks, such as illness or transportation challenges, that hinder their ability to work effectively. Instances where team members are unable to work due to sickness or limited transportation options, such as unreliable train services, exemplify the difficulties in maintaining consistent presence and optimal productivity. These situations highlight the potential loss of work hours when a team member is unavailable due to unforeseen circumstances. Addressing these challenges requires implementing strategies to mitigate the impact of such disruptions and ensuring continuity in team collaboration and productivity.
     - **Mitigation:** Tasks could be attributed to another team member if needed so that we do not lose too much time and keep up to the pace that we desire.
+  
+10. **Hard Assembly**
+    - **Risk(s):** Assembly being a low-level language is sometimes complicated to understand as there's some level of abstraction in the instructions names and what happens then in the bare metal level. Leading to a challenge to comprehend when you are relatively new to computer science and programming.
+    - **Mitigation:** We want our product to be understandable by everyone. An 8-year-old kid, you, and even your grand parents have to be able to comprehend how the language works but also understand what's going on. To mitigate the risk of something being too hard to comprehend for newbies, we could test our product on a wide audience to be sure everything is clear and make changes if needed.
 
 <br>
 <br>
