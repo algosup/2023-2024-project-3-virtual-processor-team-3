@@ -340,8 +340,28 @@ Instructions are divided into 3 types:
 
 ### 4.1 Preprocessor
 
-The preprocessor is a quick step where a C program will divide the assembly into two parts: the data section and the code section. \
-When it encounters a line starting with a dot, and either followed by the keyword `data` or `code`, it will...
+The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
+Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`, the preprocessor will break down the assembly and separe both sections. Meaning, everything which is in `.data` will be kept in memory but not executed as there's no instructions given into this section, except for data initialisation.
+<!-- Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
+The preprocessor will throw the following error:
+```
+Error at line 5: Initialised variable is over 32-bit.
+```
+Furthermore, if the data is initialised as an unsigned value, the preprocessor, will break down the program and throw an error, as it is necessary to initialise data as unsigned as instructions specify whether an integer or a float is signed or unsigned.
+The interpreter will throw the following error:
+```
+Error at line 5: Syntax error.
+``` -->
+<!-- Moreover, during the preprocessing process, the preprocessor will check if a label is never used during execution time, to optimize the program and gain space in memory. If it is unused, the label will be ignored by the program and then go on to the next label. -->
+
+Once the preprocessing process has went through the the data section and once variables have been initialised, the preprocessing process will then go through the `.code` section.
+This is the part where all the code is put, where instructions that the user wants to pass to the processing unit is. As variables have previously been initialised and kept in memory, we can reuse them in the code section.
+During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignore during all the remaining processes.
+```
+'code'
+\\ This a comment
+'code'
+```
 
 TODO:
 
