@@ -10,12 +10,12 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 |           Task            |   Member Assigned   |   Progression   |   End Of Week objective   |   Start Date  |
 |:-------------------------:|:-------------------:|:---------------:|:-------------------------:|:-------------:|
-|Technical specification    |Aurélien             |                 |                           |01/17/2024     |
-|Functional specification   |Quentin              |                 |                           |01/17/2024     |
-|Test Plan                  |Arthur               |                 |                           |01/11/2024     |
-|Creation of the processor  |Malo                 |                 |                           |01/24/2024     |
-|Creation of the assembler  |Mathis               |                 |                           |01/24/2024     |
-|Update of weekly KPIs      |Thibaud              | 80%             |                           |01/26/2024     |
+|Technical specification    |Aurélien             |50%              |25%                        |01/17/2024     |
+|Functional specification   |Quentin              |70%              |80%                        |01/17/2024     |
+|Test Plan                  |Arthur               |25%              |20%                        |01/11/2024     |
+|Creation of the processor  |Malo                 |40%              |30%                        |01/24/2024     |
+|Creation of the assembler  |Mathis               |50%              |30%                        |01/24/2024     |
+|Update of weekly KPIs      |Thibaud              |80%              |90%                        |01/26/2024     |
 
 ### Cheat Sheet
 
@@ -42,9 +42,13 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 During the week, we had one meeting on Monday the 22nd of January, during this meeting, we discussed the last details to decide on concerning our assembly language.  
 We've discussed the upcoming tasks and how we would dispatch them to the team.
 Many technical decisions have been made amongst the team, which will be described in the functional and technical specifications.  
-Moreover, we've discussed the various KPIs that would be set, here's a link to the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)
+Moreover, we've discussed the various KPIs that would be set, here's a link to the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)  
+On Friday the 26th, we made a meeting to debrief the whole week, we have determined the tasks that need to be done urgently for next week. Some members have to be working on the weekend to finalize the function specifications document. Meaning that a meeting is necessary on Monday the 29th to discuss the progress made on the document.
 
 ### <u>Week feedback</u>
+
+This week marks huge progress document-wise, however, we didn't reach the expectations on the Functional Specifications document, meaning that we will have to work thoroughly on it on Monday and Tuesday.
+Despite that, the team is content with the current state of the project, they like the way the team is managed, the ambiance is joyful and we are determined to keep on going on the project to handle a great product at the end of the project. Everything is going smoothly, even if we have to speed up on some tasks.
 
 ### <u>Next week planning </u>
 
