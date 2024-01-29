@@ -76,7 +76,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
 
 ### 2.1 Overview
 
-This project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter. 
+This project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter.
 
 In short, let's create our perfect processor!
 
@@ -84,28 +84,26 @@ In short, let's create our perfect processor!
 
 #### ➭ <ins>2.2.1 Vision</ins>
 
-We will create a virtual processor in C named ALGORISK, and an easy to use assembly language to run on it. \
+We will create a virtual processor in C named ALGORISK, and an easy-to-use assembly language to run on it. \
 The goal is to make programming and computer science more accessible to everyone. \
-We want beginners to learn how a computer works at a low level, without being disgusted with too complex and specific instructions. 
+We want beginners to learn how a computer works at a low level, without being disgusted with too complex and specific instructions.
 
 #### ➭ <ins>2.2.2 Scope</ins>
 
 | In Scope |
 | -------- |
-| Create an optimizesd 32-bit virtual processor with 32 registers |
+| Create an optimized 32-bit virtual processor with 32 registers |
 | Invent an assembly language with an explicit instruction set and a clear syntax |
-| Execute programs written in ALGORISK assembly on a ALGORISK virtual processor |
-| Transform the program's instructions into machine code before executing it | 
+| Execute programs written in ALGORISK assembly on an ALGORISK virtual processor |
+| Transform the program's instructions into machine code before executing it |
 | Be able to debug programs written in ALGORISK assembly |
 | Develop exclusively in C without the use of any external library |
-
 
 | Out of Scope |
 |---|
 | Implement interrupts |
 | Implement multi-threading |
 | Implement atomic instructions |
-
 
 #### ➭ <ins>2.2.3 Deliverables</ins>
 
@@ -129,32 +127,32 @@ We want beginners to learn how a computer works at a low level, without being di
 The project sponsors (highlighted in **bold**) are expected to be in charge of:
 
 - Defining the vision and high-level objectives for the project.
-- Approving the requirements, timetable, resources and budget (if necessary).
+- Approving the requirements, timetable, resources, and budget (if necessary).
 - Authorising the provision of funds/resources (internal or external) (if necessary).
 - Approving the functional and technical specifications written by the team.
-- Ensuring that major business risks are identified and managed by the team.
-- Approving any major changes in scope.
-- Received Project Weekly Reports and take action accordingly to resolve issues escalated by the Project Manager.
+- Ensuring that vital business risks are identified and managed by the team.
+- Approving any significant changes in scope.
+- Received Project Weekly Reports and took action accordingly to resolve issues escalated by the Project Manager.
 - Ensuring business/operational support arrangements are put in place.
 - Ensuring the participation of a business resource (if required).
 - Providing final acceptance of the solution upon project completion.
 
 #### ➭ <ins>2.3.2 Stakeholders</ins>
 
-| Stakeholder | Might have/find an interest in... |
+| Stakeholder | Might have/find an interest in... |
 | ----------- | --------------------------------- |
-| ALGOSUP | Having students learning: C language, how a processor work, project development, team work... |
-| Students | Learning new knowledge by enjoying working on an unique project |
+| ALGOSUP | Having students learning: C language, how a processor works, project development, teamwork... |
+| Students | Learning new knowledge by enjoying working on a unique project |
 
 #### ➭ <ins>2.3.3 Project Roles</ins>
 
 | Role | Description | Name |
 |---|---|---|
-| Project Manager | Is in charge of organization, planing and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
-| Program Manager | Makes sure the project meets client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
+| Project Manager | In charge of the organization, planning, and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
+| Program Manager | Makes sure the project meets the client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
 | Tech Lead | Makes the technical decision in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
 | Software Engineer | Writes the code. <br> Writes documentation. <br> Participate in the technical choices. | Malo ARCHIMBAUD <br> <br> Mathis KAKAL|
-| Quality Assurance |  Tests all the functionalities of a product to find bugs and issues. <br> Document bugs and issues. <br> Defines the test strategy and write the test plan. <br> Checks that issues have been fixed. | Arthur LEMOINE |
+| Quality Assurance |  Tests all the functionalities of the product to find bugs and issues. <br> Document bugs and issues. <br> Defines the test strategy and writes the test plan. <br> Checks that issues are fixed. | Arthur LEMOINE |
 
 #### ➭ <ins>2.3.4 Project Reviewers</ins>
 
@@ -181,7 +179,7 @@ Functional Specifications require the call for tender and a clear understanding 
 
 Technical Specifications require the Functional Specifications to be validated by the client.
 
-The development phase requires some prior understanding of the target technologies defined in the technical specifications before being begun.
+The development phase requires prior understanding of the target technologies defined in the technical specifications before being begun.
 
 #### ➭ <ins>2.4.4 Resources/Help/Financial plan</ins>
 
@@ -201,38 +199,38 @@ The development phase requires some prior understanding of the target technologi
 
 | Assumptions |
 |---|
-| We assume ALGOSUP will provide answers to our mails within a day. |
+| We assume ALGOSUP will provide answers to our emails within a day. |
 | We assume team members will be working the number of hours they are supposed to. |
 
 | Constraints |
 |---|
 | We have to code in C. |
-| We can't use any external library beside C standard libraries. |
+| We can't use any external library besides C standard libraries. |
 
 ## 3. Virtual Processor Architecture
   
-Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
+Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
 
 The RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions. This alignment led us to choose the RISC-V architecture as the inspiration for our project.
 
 ### 3.1 Registers
 
-The ALGORISK processor use an architecture able to read 32-bit instructions and data. \
-It has 31 mutable registers, each 32-bit wide and one constant register (named `r0`) containing the value 0.
+The ALGORISK processor uses an architecture able to read 32-bit instructions and data. \
+It has 31 mutable registers, each 32-bit wide, and one constant register (named `r0`) containing the value 0.
 Those registers are named from `r0` to `r31`. \
-The first 16 registers handle integer values and the next 16 handle floating-point values.
+The first 16 registers handle integer values and the following 16 handle floating-point values.
 
 Three more register types are used for specific purposes:
 - `pc` (program counter): Holds the address in memory of the next instruction to be fetched.
 - `ir` (instruction register): Holds the current instruction being executed.
-- `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the informations of the constructor, of the architecture, and of the implementation. Currently 3 csr are present in our processor.
+- `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. Currently, 3 csr are present in our processor.
 
 Our CSRs are:
 | Name | Description|
 |---|---|
 | mepc | Machine exception program counter: When an exception occurs, the program counter (PC) value at the time of the exception is saved in the MEPC register.|
 | mcause | Machine cause: It holds the cause of the most recent exception.|
-| uepc | User exception program counter: It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.|
+| uepc | User exception program counter: It is similar to the two precedent registers. It stores the value of the program counter after an exception has occurred.|
 
 ### 3.2 ALU
 
@@ -248,7 +246,7 @@ A typical ALGORISK assembly program will be divided into two sections:
 
 <ins>Data section:</ins>
 
-The data section is delimited by the `.data` directive and the declaration of a constant or a variable will be done like that:
+The data section is determined by the `.data` directive and the declaration of a constant or a variable will be done like this:
 
 ```
 .data
@@ -263,7 +261,7 @@ The different types of data will be:
 - `.string`: null-terminated string
 - `.alloc`: allocate the number of bytes specified by the following integer in memory.
 
-To declare arrays, you have to specify both the data type and the values for each element.
+To declare arrays, you need to specify both the data type and the values for each element.
 
 Examples:
 ```
@@ -284,20 +282,20 @@ Always consider the context and the specific requirements of the instruction whe
 
 <ins>Code section:</ins>
 
-The code section is delimited by the `.code` directive and the declaration of a constant or a variable will be done like that:
+The code section is delimited by the `.code` directive. The declaration of a constant or a variable will be done like this:
 
 ### 4.2 Instruction types and binary formats
 
 Instructions are divided into 6 types: \
 R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type.
 
-Here are how they are encoded in 32-bits binary:
+Here is how they are encoded in 32-bit binary:
 
 ![InstructionFormats.png](/Documents/Img/FunctionalSpecifications/InstructionFormats.png)
 
 **1. Opcode (opcode):**
 - Purpose: The opcode field specifies the general category or class of the instruction.
-- Function: It distinguishes between different instruction types, such as R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type. It is crucial for the processor to identify the broad class of operation the instruction belongs to.
+- Function: It distinguishes between different instruction types, such as R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type. The processor must identify the broad class of operation the instruction belongs to.
 - Length: 7 bits
 - Example: In the R-Type instruction add, the opcode specifies that it is an arithmetic addition operation.
 
@@ -305,7 +303,7 @@ Here are how they are encoded in 32-bits binary:
 - Purpose: The funct3 field is used to provide additional information about the operation within a specific instruction type.
 - Function: It refines the instruction classification by indicating the exact operation or variant within a group of instructions.
 - Length: 3 bits
-- Example: In the I-Type instruction addi (add immediate), funct3 specifies the specific arithmetic operation, like addition, subtraction, logical operations, etc.
+- Example: In the I-Type instruction addi (add immediately), funct3 specifies the specific arithmetic operation, like addition, subtraction, logical operations, etc.
 
 **3. Funct7 (funct7):**
 - Purpose: The funct7 field is typically found in R-Type instructions and is used for extended functionality or to provide additional information.
@@ -409,11 +407,11 @@ This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 
 ### 5.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
-Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`, the preprocessor will break down the assembly and separe both sections. Meaning, everything which is in `.data` will be kept in memory but not executed as there's no instructions given into this section, except for data initialisation.
+Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. Meaning, everything in `.data` will be kept in memory but not executed as there are no instructions given in this section, except for data initialization.
 
-Once the preprocessing process has went through the the data section and once variables have been initialised, the preprocessing process will then go through the `.code` section.
-This is the part where all the code is put, where instructions that the user wants to pass to the processing unit is. As variables have previously been initialised and kept in memory, we can reuse them in the code section.
-During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignore during all the remaining processes.
+Once the preprocessing process has gone through the data section and once the variables have been initialized, the preprocessing process will then go through the `.code` section.
+This is the part where all the code is, where instructions the user wants to pass to the processing unit are. As variables have previously been initialized and kept in memory, we can reuse them in the code section.
+During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignored during all the remaining processes.
 
 ```
 \\ This a comment
@@ -425,14 +423,14 @@ TODO:
 
 The role of the interpreter is to verify line by line if the program is convertible into machine code. \
 If it is, it will launch the assembling process. \
-If not, it means there are errors and so the interpreter will print the number of errors followed by the line number and the corresponding error message.
+If not, it means there are errors so the interpreter will print the number of errors followed by the line number and the corresponding error message.
 
 ![InterpreterDiagram.png](/Documents/Img/FunctionalSpecifications/InterpreterDiagram.png)
 
 #### ➭ <ins>5.2.1 Instruction error</ins>
 
 It first verifies if the name of the instruction corresponds to one of the instructions in the instruction set. \
-If not it throws an error in the containing the line number and the incorrect instruction. 
+If not, it throws an error containing the line number and the incorrect instruction.
 
 **<ins>Example:</ins>**
 
@@ -461,7 +459,7 @@ add r1, r2, r3, r4
 
 The interpreter will throw the following error:
 ```
-Error at line 10: instruction "add" expects 3 operands, received other than 3
+Error at line 10: instruction "add" expects 3 operands, received less or more than 3
 ```
 It will work the same if the instruction has too few operands.
 
@@ -478,12 +476,12 @@ Error at line 10: instruction "add" expects operand 3 to be a register, received
 
 #### ➭ <ins>5.2.3 Variable declaration error</ins>
 
-Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
+Moreover, the preprocessor checks if the initialized data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
 The preprocessor will throw the following error:
 ```
 Error at line 10: Initialised variable is over 32-bit.
 ```
-Furthermore, if the data is initialised as an unsigned value, the preprocessor, will break down the program and throw an error, as it is necessary to initialise data as unsigned as instructions specify whether an integer or a float is signed or unsigned.
+Furthermore, if the data is initialized as an unsigned value, the preprocessor, will break down the program and throw an error, as it is necessary to initialize data as unsigned as instructions specify whether an integer or a float is signed or unsigned.
 The interpreter will throw the following error:
 ```
 Error at line 5: Syntax error.
@@ -492,7 +490,7 @@ Moreover, during the preprocessing process, the preprocessor will check if a lab
 
 ### 5.3 Assembler
 
-When the interpreter has verified that the program is correct, the assembling process begins.
+When the interpreter verified that the program is correct, the assembling process begins.
 
 A binary file is created and the assembler transforms each instruction into a 32-bit binary code as defined [previously](#42-instruction-types-and-binary-formats). They will be stored in the binary file in the same order as they are in the assembly file.
 
@@ -501,7 +499,7 @@ A binary file is created and the assembler transforms each instruction into a 32
 Let's perform three operations in RISC-V assembly: load a value from memory into a register, put an immediate value into another register, and finally, add the two registers and store the result in a third register.
 
 **ALGORISK Assembly Code:**
-```assembly
+``` assembly
 lw x1, 0(x2)       # Load the value from memory at address 0 into register x1
 li x3, 10          # Load immediate value 10 into register x3
 add x4, x1, x3     # Add the values in x1 and x3, store the result in x4
@@ -529,7 +527,7 @@ add x4, x1, x3     # Add the values in x1 and x3, store the result in x4
 000000000010000010000000000110000000000000001100000000001100000000001100100000010110011
 ```
 
-It seems totally abstract for human eyes, but this is how the processor will read the program.
+It seems abstract for human eyes, but this is how the processor will read the program.
 
 These binary representations follow the RISC-V instruction format for the given instruction types (I-Type for `lw` and `li`, R-Type for `add`). The opcode, funct3, funct7, and immediate fields are populated based on the specific instructions and their operands.
 
@@ -570,7 +568,7 @@ Exception handling involves transferring control to specific exception handlers,
 | Invalid Instruction | Triggered when encountering an undefined or invalid instruction. | The processor recognizes and manages invalid instructions by raising an exception and taking corrective actions. |
 | Division by Zero | Raised when attempting to divide a number by zero. | The processor detects division by zero conditions and handles them by raising an exception. |
 | Page Fault | Pertains to virtual memory systems and occurs when a requested page is not present in physical memory. | The processor, in collaboration with the operating system, manages page faults by loading the required page into memory. |
-| Illegal Instruction | Occurs when attempting to execute an instruction not allowed in the current context or privilege level. | The processor detects and manages illegal instructions by raising an exception, often leading to a trap into the operating system. |
+| Illegal Instruction | Occurs when attempting to execute an instruction not allowed in the current context or privilege level. | The processor detects and manages illegal instructions by raising an exception, often leading to a trap in the operating system. |
 | System Call | Invoked when a software interrupt, often initiated by a system call instruction, occurs to transfer control to the operating system. | The processor recognizes system call instructions, triggers a switch to privileged mode, and executes the corresponding kernel routine. |
 | Alignment Check | Raised when a memory access operation is attempted on an address that does not satisfy the required alignment. | The processor detects misaligned memory accesses and raises an exception or performs corrective actions. |
 | Floating-Point | Related to floating-point arithmetic operations, includes conditions like overflow, underflow, and invalid operations. | The processor monitors floating-point operations and raises exceptions when exceptional conditions occur. |
@@ -606,7 +604,7 @@ This is what the debugger displays in the terminal.
 txt
 r3 = 7, r1 = 3, r2 =4
 r4 = 7, r3 = 7
-As what is presented above is a very minimal debugger, the next step is to create a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also displayed. This makes it easier for the user to track where he is in the program.
+As what is presented above is a very minimal debugger, the next step is to create a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also display. This makes it easier for the user to track where he is in the program.
 |Memory|registers or memory adress|value|
 |---|---|---|
 |add r3, r1, r2|r1|3|
@@ -616,7 +614,7 @@ The registers or the memory addresses that are displayed change depending on whi
 
 ## 7. Plugin
 
-To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented. 
+To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
 #### ➭ <ins>3.5.1 Color highlighting</ins>
 
