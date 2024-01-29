@@ -227,3 +227,8 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 ## Week 8
 
 </details>
+
+<br>
+<br>
+
+<img src="https://www.jeanphilippegrasse.com/wp-content/uploads/2023/04/ALGOSUP.png" width="300">
