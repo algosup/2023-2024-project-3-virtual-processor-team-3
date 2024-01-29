@@ -34,20 +34,30 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
     - [➭ 2.4.3 Dependencies](#-243-dependencies)
     - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
-- [3. Virtual Processor](#3-virtual-processor)
-  - [3.1 Architecture](#31-architecture)
+- [3. Virtual Processor Architecture](#3-virtual-processor-architecture)
+  - [3.1 Registers](#31-registers)
+  - [3.2 ALU](#32-alu)
 - [4. Assembly Language](#4-assembly-language)
   - [4.1 Sections](#41-sections)
-  - [4.2 Instructions Set Architecture](#42-instructions-set-architecture)
-  - [4.3 Instruction types and binary formats](#43-instruction-types-and-binary-formats)
-- [5. From ALGORisk assembly to executable](#5-from-algorisk-assembly-to-executable)
+  - [4.2 Instruction types and binary formats](#42-instruction-types-and-binary-formats)
+  - [4.3 Instructions Set Architecture](#43-instructions-set-architecture)
+- [5. From ALGORISK assembly to executable](#5-from-algorisk-assembly-to-executable)
   - [5.1 Preprocessor](#51-preprocessor)
   - [5.2 Interpreter](#52-interpreter)
-    - [➭ 4.2.1 Instruction error](#-421-instruction-error)
-    - [➭ 4.2.2 Operand error](#-422-operand-error)
-  - [3.4 Debugger](#34-debugger)
-  - [3.5 Plugin](#35-plugin)
-- [4. Conclusion](#4-conclusion)
+    - [➭ 5.2.1 Instruction error](#-521-instruction-error)
+    - [➭ 5.2.2 Operand error](#-522-operand-error)
+    - [➭ 5.2.3 Variable declaration error](#-523-variable-declaration-error)
+  - [5.3 Assembler](#53-assembler)
+  - [5.4 Execution](#54-execution)
+    - [➭ 5.4.1 Loader](#-541-loader)
+    - [➭ 5.4.2 Execution Unit](#-542-execution-unit)
+    - [➭ 5.4.3 Exception handling](#-543-exception-handling)
+    - [➭ 5.4.4 System calls](#-544-system-calls)
+- [6. Debugger](#6-debugger)
+- [7. Plugin](#7-plugin)
+    - [➭ 3.5.1 Color highlighting](#-351-color-highlighting)
+    - [➭ 3.5.2 Snippets](#-352-snippets)
+- [8. Conclusion](#8-conclusion)
 
 </details>
 
@@ -61,6 +71,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
 | RISC              |            |          |
 | RISC-V            |            |          |
 
+
 ## 2. Introduction
 
 ### 2.1 Overview
@@ -73,7 +84,7 @@ In short, let's create our perfect processor!
 
 #### ➭ <ins>2.2.1 Vision</ins>
 
-We will create a virtual processor in C named NAME, and an easy to use assembly language to run on it. \
+We will create a virtual processor in C named ALGORISK, and an easy to use assembly language to run on it. \
 The goal is to make programming and computer science more accessible to everyone. \
 We want beginners to learn how a computer works at a low level, without being disgusted with too complex and specific instructions. 
 
@@ -83,9 +94,9 @@ We want beginners to learn how a computer works at a low level, without being di
 | -------- |
 | Create an optimizesd 32-bit virtual processor with 32 registers |
 | Invent an assembly language with an explicit instruction set and a clear syntax |
-| Execute programs written in ALGORisk assembly on a ALGORisk virtual processor |
+| Execute programs written in ALGORISK assembly on a ALGORISK virtual processor |
 | Transform the program's instructions into machine code before executing it | 
-| Be able to debug programs written in ALGORisk assembly |
+| Be able to debug programs written in ALGORISK assembly |
 | Develop exclusively in C without the use of any external library |
 
 
@@ -176,7 +187,7 @@ The development phase requires some prior understanding of the target technologi
 
 => The team (6 people)
 
-=> X working hours: 3 hours of work in a half day, 6 team members, X half days until the release of the final product (working hours on personal time not included)
+=> TODO: X working hours: 3 hours of work in a half day, 6 team members, X half days until the release of the final product (working hours on personal time not included)
 
 => 1 computer per team member
 
@@ -184,7 +195,7 @@ The development phase requires some prior understanding of the target technologi
 
 => ALGOSUP's library
 
-=> Similiars projects on the internet
+=> Similars projects on the internet
 
 #### ➭ <ins>2.4.5 Assumptions/Constraints</ins>
 
@@ -198,35 +209,20 @@ The development phase requires some prior understanding of the target technologi
 | We have to code in C. |
 | We can't use any external library beside C standard libraries. |
 
-## 3. Virtual Processor
-
-<!-- When the user will be willing to execute his program, the following steps will be executed:
-- preprocessing
-- assembling
-- executing 
-
-Order of execution
-  open asm file
-  read preprocessor directives
-    single line comments
-    sections
-    see if theres more
-  read instructions
-  output binary file
-  open binary with our processor .out-->
+## 3. Virtual Processor Architecture
   
-### 3.1 Architecture
-
 Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
 
 The RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions. This alignment led us to choose the RISC-V architecture as the inspiration for our project.
 
-The ALGORisk processor will use an architecture able to read 32-bit instructions and data. \
-It will have 31 mutable registers, each 32-bit wide and one constant register (named `r0`) containing the value 0.
-Those registers will be named from `r0` to `r31`. \
-The first 16 registers will handle integer values and the next 16 will handle floating-point values.
+### 3.1 Registers
 
-Three more registers will be used for specific purposes:
+The ALGORISK processor use an architecture able to read 32-bit instructions and data. \
+It has 31 mutable registers, each 32-bit wide and one constant register (named `r0`) containing the value 0.
+Those registers are named from `r0` to `r31`. \
+The first 16 registers handle integer values and the next 16 handle floating-point values.
+
+Three more register types are used for specific purposes:
 - `pc` (program counter): Holds the address in memory of the next instruction to be fetched.
 - `ir` (instruction register): Holds the current instruction being executed.
 - `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the informations of the constructor, of the architecture, and of the implementation. Currently 3 csr are present in our processor.
@@ -238,11 +234,15 @@ Our CSRs are:
 | mcause | Machine cause: It holds the cause of the most recent exception.|
 | uepc | User exception program counter: It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.|
 
+### 3.2 ALU
+
+This processor also contains an ALU (Arithmetic Logic Unit) which will be a versatile unit performing all the operations. It plays a central role in executing assembly instructions, ensuring flexibility and efficiency across diverse tasks.
+
 ## 4. Assembly Language
 
 ### 4.1 Sections
 
-A typical ALGORisk assembly program will be divided into two sections:
+A typical ALGORISK assembly program will be divided into two sections:
 - **Data section**: Contains the program's data, such as variables and constants.
 - **Code section**: Contains the program's instructions.
 
@@ -260,7 +260,6 @@ The different types of data will be:
 - `.half`: 16-bit signed integer
 - `.word`: 32-bit signed integer
 - `.float`: 32-bit floating-point number
-- `.double`: 64-bit floating-point number
 - `.string`: null-terminated string
 - `.alloc`: allocate the number of bytes specified by the following integer in memory.
 
@@ -273,8 +272,7 @@ Examples:
     myHalf: .half 32767 // max value for a half
     myWord: .word 2147483647 // max value for a word
     myFloat: .float 3.402823466e+38 // max value for a float
-    myDouble: .double 1.7976931348623158e+308 // max value for a double
-    myString: .string "Hello, ALGORisk users!" // the max length depends on the available space in memory
+    myString: .string "Hello, ALGORISK users!" // the max length depends on the available space in memory
     myAlloc: .alloc // the max length depends on the maximum contiguous free space in memory
 
     myArray: .word 1, 2, 3, 4, 5 // an array of 5 words
@@ -288,67 +286,7 @@ Always consider the context and the specific requirements of the instruction whe
 
 The code section is delimited by the `.code` directive and the declaration of a constant or a variable will be done like that:
 
-### 4.2 Instructions Set Architecture
-
-| Category | Instruction | Expanding | Description | Syntax | Type |
-| --- | --- | --- | --- | --- | --- |
-| **Base Integer** | `add` | | Adds the contents of two registers and stores the result in a register | `add rd, r1, r2` | R-Type |
-| | `addi` | **Add Immediate** | Adds an immediate value to a register and stores the result in a register | `addi rd, r1, immediate` | I-Type |
-| | `sub` | **Subtract** | Subtracts the contents of two registers and stores the result in a register | `sub rd, r1, r2` | R-Type |
-| | `and` | | Performs a bitwise AND operation on the values of two registers and stores the result in a register | `and rd, r1, r2` | R-Type |
-| | `andi` | **And Immediate** | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | `andi rd, r1, immediate` | I-Type |
-| | `or` | | Performs a bitwise OR operation on the values of two registers and stores the result in a register | `or rd, r1, r2` | R-Type |
-| | `ori` | **Or Immediate** | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register | `ori rd, r1, immediate` | I-Type |
-| | `xor` | **Exclusive Or** | Performs a bitwise XOR operation on the values of two registers and stores the result in a register | `xor rd, r1, r2` | R-Type |
-| | `xori` | **Exclusive Or Immediate** | Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | `xori rd, r1, immediate` | I-Type |
-| | `sll` | **Shift Left Logical** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `sll rd, r1, r2` | R-Type |
-| | `slli` | **Shift Left Logical Immediate** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `slli rd, r1, immediate` | I-Type | 
-| | `srl` | **Shift Right Logical** | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `srl rd, r1, r2` | R-Type |
-| | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type |
-| | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type |
-| | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type |
-| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt rd, r1, r2` | I-Type |
-| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti rd, r1, immediate` | I-Type |
-| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu rd, r1, r2` | I-Type |
-| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui rd, r1, immediate` | I-Type |
-| | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type |
-| | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type |
-| | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type |
-| | `jigeu` | **Jump If Greater or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | `jigeu r1, r2, label` | B-Type |
-| | `jile` | **Jump If Less or Equal** | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | `jile r1, r2, label` | B-Type |
-| | `jileu` | **Jump If Less or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | `jileu r1, r2, label` | B-Type |
-| | `jal` | **Jump And Link** | Jumps to a label and stores the return address in a register | `jal rd, label` | J-Type |
-| | `jalr` | **Jump And Link Register** | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register | `jalr rd, r1, offset` | J-Type |
-| | `syscall` | **System Call** | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands) | `syscall` | Special |
-| | `break` | | Generates a breakpoint exception, which can be used for debugging | `break` | Special |
-| | `lb` | **Load Byte**<sup>1</sup> | Loads a signed byte from memory into a register, the address in memory must be specified as an operand | `lb rd, address` | I-Type |
-| | `lbu` | **Load Byte**<sup>1</sup> **Unsigned** | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand | `lbu rd, address` | I-Type |
-| | `lh` | **Load Halfword**<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type |
-| | `lhu` | **Load Halfword**<sup>2</sup> **Unsigned** | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | `lhu rd, address` | I-Type |
-| | `lw` | **Load Word**<sup>3</sup> | Loads a word from memory into a register, the address in memory must be specified as an operand | `lw rd, address` | I-Type |
-| | `lui` | **Load Upper Immediate** | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | `lui rd, immediate` | U-Type |
-| | `auipc` | **Add Upper Immediate to PC** | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0 | `auipc rd, immediate` | U-Type |
-| | `sb` | **Store Byte**<sup>1</sup> | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | `sb rd, address` | S-Type |
-| | `sh` | **Store Halfword**<sup>2</sup> | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | `sh rd, address` | S-Type |
-| | `sw` | **Store Word**<sup>3</sup> | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | `sw rd, address` | S-Type |
-| **Integer Multiplication and Division** | `mul` | | Multiplies the contents of two registers and stores the result in a register | `mul rd, r1, r2` | R-Type |
-| | `mulh` | **Multiply High** | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register | `mulh rd, r1, r2` | R-Type |
-| | `mulhu` | **Multiply High Unsigned** | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | `mulhu rd, r1, r2` | R-Type |
-| | `mulhsu` | **Multiply High Signed Unsigned** | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register | `mulhsu rd, r1, r2` | R-Type |
-| | `div` | **Divide** | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `div rd, r1, r2` | R-Type |
-| | `divu` | **Divide Unsigned** | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `divu rd, r1, r2` | R-Type |
-| | `rem` | **Remainder** | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `rem rd, r1, r2` | R-Type |
-| | `remu` | **Remainder Unsigned** | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `remu rd, r1, r2` | R-Type |
-
-<sup>1</sup> a byte is 8 bits \
-<sup>2</sup> a halfword is 2 bytes, so 16 bits \
-<sup>3</sup> a word is 2 halfwords, so 4 bytes, so 32 bits
-
-`addi r2, r1, 0`
-
-This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, ghe content of r1 will be copied in r2.
-
-### 4.3 Instruction types and binary formats
+### 4.2 Instruction types and binary formats
 
 Instructions are divided into 6 types: \
 R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type.
@@ -404,29 +342,79 @@ Here are how they are encoded in 32-bits binary:
   - J-Type: 20 bits
 - Example: In the I-Type instruction addi (add immediate), imm[] specifies the constant value to be added to the register.
 
-These fields collectively define the operands, destinations, and additional information needed for each instruction in ALGORisk assembly language.
+These fields collectively define the operands, destinations, and additional information needed for each instruction in ALGORISK assembly language.
 
-## 5. From ALGORisk assembly to executable
+### 4.3 Instructions Set Architecture
+
+| Category | Instruction | Expanding | Description | Syntax | Type | Func3 | Func7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **Base Integer** | `add` | | Adds the contents of two registers and stores the result in a register | `add rd, r1, r2` | R-Type | 000 | 0000000 |
+| | `addi` | **Add Immediate** | Adds an immediate value to a register and stores the result in a register | `addi rd, r1, immediate` | I-Type | 000 | |
+| | `sub` | **Subtract** | Subtracts the contents of two registers and stores the result in a register | `sub rd, r1, r2` | R-Type | 000 | 0100000 |
+| | `and` | | Performs a bitwise AND operation on the values of two registers and stores the result in a register | `and rd, r1, r2` | R-Type | 111 | 0000000 | 
+| | `andi` | **And Immediate** | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | `andi rd, r1, immediate` | I-Type | 111 | |
+| | `or` | | Performs a bitwise OR operation on the values of two registers and stores the result in a register | `or rd, r1, r2` | R-Type | 110 | 0000000 |
+| | `ori` | **Or Immediate** | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register | `ori rd, r1, immediate` | I-Type | 110 | |
+| | `xor` | **Exclusive Or** | Performs a bitwise XOR operation on the values of two registers and stores the result in a register | `xor rd, r1, r2` | R-Type | 100 | 0000000 |
+| | `xori` | **Exclusive Or Immediate** | Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | `xori rd, r1, immediate` | I-Type | 100 | |
+| | `sll` | **Shift Left Logical** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `sll rd, r1, r2` | R-Type | 001 | 0000000 |
+| | `slli` | **Shift Left Logical Immediate** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `slli rd, r1, immediate` | I-Type | 001 | |
+| | `srl` | **Shift Right Logical** | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `srl rd, r1, r2` | R-Type | 101 | 0000000 |
+| | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type | 101 | |
+| | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type | 101 | 0100000 |
+| | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type | 101 | |
+| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt rd, r1, r2` | I-Type | 010 | |
+| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti rd, r1, immediate` | I-Type | 010 | |
+| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu rd, r1, r2` | I-Type | 011 | |
+| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui rd, r1, immediate` | I-Type | 011 | |
+| | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type | 001 | |
+| | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type | 101 | |
+| | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type | 011 | |
+| | `jigeu` | **Jump If Greater or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | `jigeu r1, r2, label` | B-Type | 111 | |
+| | `jile` | **Jump If Less or Equal** | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | `jile r1, r2, label` | B-Type | 010 | |
+| | `jileu` | **Jump If Less or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | `jileu r1, r2, label` | B-Type | 110 | |
+| | `jal` | **Jump And Link** | Jumps to a label and stores the return address in a register | `jal rd, label` | J-Type | | |
+| | `jalr` | **Jump And Link Register** | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register | `jalr rd, r1, offset` | J-Type | | |
+| | `syscall` | **System Call** | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands) | `syscall` | Special | | |
+| | `break` | | Generates a breakpoint exception, which can be used for debugging | `break` | Special | | |
+| | `lb` | **Load Byte**<sup>1</sup> | Loads a signed byte from memory into a register, the address in memory must be specified as an operand | `lb rd, address` | I-Type | | |
+| | `lbu` | **Load Byte**<sup>1</sup> **Unsigned** | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand | `lbu rd, address` | I-Type | | |
+| | `lh` | Load Halfword<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type | | |
+| | `lhu` | **Load Halfword**<sup>2</sup> **Unsigned** | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | `lhu rd, address` | I-Type | | |
+| | `lw` | **Load Word**<sup>3</sup> | Loads a word from memory into a register, the address in memory must be specified as an operand | `lw rd, address` | I-Type | | |
+| | `lui` | **Load Upper Immediate** | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | `lui rd, immediate` | U-Type | | |
+| | `auipc` | **Add Upper Immediate to PC** | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0 | `auipc rd, immediate` | U-Type | | |
+| | `sb` | **Store Byte**<sup>1</sup> | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | `sb rd, address` | S-Type | | |
+| | `sh` | **Store Halfword**<sup>2</sup> | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | `sh rd, address` | S-Type | | |
+| | `sw` | **Store Word**<sup>3</sup> | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | `sw rd, address` | S-Type | | |
+| **Integer Multiplication and Division** | `mul` | | Multiplies the contents of two registers and stores the result in a register | `mul rd, r1, r2` | R-Type | 000 | 0000001 |
+| | `mulh` | **Multiply High** | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register | `mulh rd, r1, r2` | R-Type | 001 | 0000001 |
+| | `mulhu` | **Multiply High Unsigned** | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | `mulhu rd, r1, r2` | R-Type | 011 | 0000001 |
+| | `mulhsu` | **Multiply High Signed Unsigned** | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register | `mulhsu rd, r1, r2` | R-Type | 010 | 0000001 |
+| | `div` | **Divide** | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `div rd, r1, r2` | R-Type | 100 | 0000001 |
+| | `divu` | **Divide Unsigned** | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `divu rd, r1, r2` | R-Type | 101 | 0000001 |
+| | `rem` | **Remainder** | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `rem rd, r1, r2` | R-Type | 110 | 0000001 |
+| | `remu` | **Remainder Unsigned** | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `remu rd, r1, r2` | R-Type | 111 | 0000001 |
+
+<sup>1</sup> a byte is 8 bits \
+<sup>2</sup> a halfword is 2 bytes, so 16 bits \
+<sup>3</sup> a word is 2 halfwords, so 4 bytes, so 32 bits
+
+`addi r2, r1, 0`
+
+This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, the content of r1 will be copied in r2.
+
+## 5. From ALGORISK assembly to executable
 
 ### 5.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
 Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`, the preprocessor will break down the assembly and separe both sections. Meaning, everything which is in `.data` will be kept in memory but not executed as there's no instructions given into this section, except for data initialisation.
-<!-- Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
-The preprocessor will throw the following error:
-```
-Error at line 5: Initialised variable is over 32-bit.
-```
-Furthermore, if the data is initialised as an unsigned value, the preprocessor, will break down the program and throw an error, as it is necessary to initialise data as unsigned as instructions specify whether an integer or a float is signed or unsigned.
-The interpreter will throw the following error:
-```
-Error at line 5: Syntax error.
-``` -->
-<!-- Moreover, during the preprocessing process, the preprocessor will check if a label is never used during execution time, to optimize the program and gain space in memory. If it is unused, the label will be ignored by the program and then go on to the next label. -->
 
 Once the preprocessing process has went through the the data section and once variables have been initialised, the preprocessing process will then go through the `.code` section.
 This is the part where all the code is put, where instructions that the user wants to pass to the processing unit is. As variables have previously been initialised and kept in memory, we can reuse them in the code section.
 During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignore during all the remaining processes.
+
 ```
 \\ This a comment
 ```
@@ -435,11 +423,13 @@ TODO:
 
 ### 5.2 Interpreter
 
-The interpreter reads the assembly file and verify if the syntax is correct. When it has read the whole file, it will print the number of errors and each error with the line number and the error message. If there is no error, it will translate the assembly code into binary code and write it into a file.
+The role of the interpreter is to verify line by line if the program is convertible into machine code. \
+If it is, it will launch the assembling process. \
+If not, it means there are errors and so the interpreter will print the number of errors followed by the line number and the corresponding error message.
 
 ![InterpreterDiagram.png](/Documents/Img/FunctionalSpecifications/InterpreterDiagram.png)
 
-#### ➭ <ins>4.2.1 Instruction error</ins>
+#### ➭ <ins>5.2.1 Instruction error</ins>
 
 It first verifies if the name of the instruction corresponds to one of the instructions in the instruction set. \
 If not it throws an error in the containing the line number and the incorrect instruction. 
@@ -457,7 +447,7 @@ The interpreter will throw the following error:
 Error at line 10: unknown instruction "ad"
 ```
 
-#### ➭ <ins>4.2.2 Operand error</ins>
+#### ➭ <ins>5.2.2 Operand error</ins>
 
 Every instruction is categorized under an instruction type (as defined in the instruction set), which outlines the expected number of operands and their respective types (such as registers, immediates, labels, etc.). The interpreter is responsible for validating the correctness of the operand count and their types. If an error is found, the interpreter will throw an error containing the line number and why the instruction is incorrect.
 
@@ -486,10 +476,164 @@ The interpreter will throw the following error:
 Error at line 10: instruction "add" expects operand 3 to be a register, received "rr3"
 ```
 
-### 3.4 Debugger
+#### ➭ <ins>5.2.3 Variable declaration error</ins>
 
-### 3.5 Plugin
+Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
+The preprocessor will throw the following error:
+```
+Error at line 10: Initialised variable is over 32-bit.
+```
+Furthermore, if the data is initialised as an unsigned value, the preprocessor, will break down the program and throw an error, as it is necessary to initialise data as unsigned as instructions specify whether an integer or a float is signed or unsigned.
+The interpreter will throw the following error:
+```
+Error at line 5: Syntax error.
+``` 
+Moreover, during the preprocessing process, the preprocessor will check if a label is never used during execution time, to optimize the program and gain space in memory. If it is unused, the label will be ignored by the program and then go on to the next label.
 
-## 4. Conclusion
+### 5.3 Assembler
+
+When the interpreter has verified that the program is correct, the assembling process begins.
+
+A binary file is created and the assembler transforms each instruction into a 32-bit binary code as defined [previously](#42-instruction-types-and-binary-formats). They will be stored in the binary file in the same order as they are in the assembly file.
+
+**Example:**
+
+Let's perform three operations in RISC-V assembly: load a value from memory into a register, put an immediate value into another register, and finally, add the two registers and store the result in a third register.
+
+**ALGORISK Assembly Code:**
+```assembly
+lw x1, 0(x2)       # Load the value from memory at address 0 into register x1
+li x3, 10          # Load immediate value 10 into register x3
+add x4, x1, x3     # Add the values in x1 and x3, store the result in x4
+```
+
+**Binary Representation:**
+- Load Word (lw):
+  ```
+  Assembly: lw x1, 0(x2)
+  Binary:  0000000 00010 00001 00000 0000011
+  ```
+- Load Immediate (li):
+  ```
+  Assembly: li x3, 10
+  Binary:  0000000 00000 00011 00000 0000011
+  ```
+- Addition (add):
+  ```
+  Assembly: add x4, x1, x3
+  Binary:  0000000 00011 00100 00001 0110011
+  ```
+
+**Binary File:**
+```
+000000000010000010000000000110000000000000001100000000001100000000001100100000010110011
+```
+
+It seems totally abstract for human eyes, but this is how the processor will read the program.
+
+These binary representations follow the RISC-V instruction format for the given instruction types (I-Type for `lw` and `li`, R-Type for `add`). The opcode, funct3, funct7, and immediate fields are populated based on the specific instructions and their operands.
+
+### 5.4 Execution
+
+#### ➭ <ins>5.4.1 Loader</ins>
+
+The loader takes the binary file generated by the assembler and loads it into memory. It interprets the binary instructions and stores them at the specified memory addresses. The program counter (pc) is initialized to the starting address of the code section, and the loader iterates through the binary instructions, placing them in memory as it advances the program counter.
+
+If there are data sections, the loader also allocates space in memory for variables and initializes them with the specified values.
+
+The loader ensures that the program counter is appropriately updated after each instruction is loaded, allowing for sequential execution of the program. Additionally, it sets up the stack and other necessary components of memory management.
+
+#### ➭ <ins>5.4.2 Execution Unit</ins>
+
+The execution unit is responsible for fetching instructions from memory, decoding them, and executing the corresponding operations. It includes the Arithmetic Logic Unit (ALU) for arithmetic and logical operations, as well as other functional units for tasks such as memory access and control flow handling.
+
+During the execution phase, the processor reads the binary instructions from memory, decodes the opcode and operand fields, and performs the specified operations. The program counter is updated to point to the next instruction in memory.
+
+Control and status registers (csr), such as pc, ir, mepc, mcause, and uepc, play crucial roles in managing program flow, handling exceptions, and maintaining the state of the processor.
+
+The execution unit interprets instructions based on the opcode and operands, directing the flow of the program through branches, jumps, and other control flow mechanisms.
+
+#### ➭ <ins>5.4.3 Exception handling</ins>
+
+Exception handling is an integral aspect of the ALGORISK processor's execution unit. The processor actively monitors for various exceptional conditions that may arise during program execution, such as arithmetic overflow, memory access violation, invalid instructions, division by zero, page faults, illegal instructions, system calls, alignment check issues, floating-point errors, and machine check exceptions.
+
+Upon detecting an exception, the processor initiates a series of actions. It saves the current state, including the program counter, in the appropriate control and status register (CSR). For instance, the mepc (Machine Exception Program Counter) stores the program counter value at the time of the exception, while the mcause (Machine Cause) register holds information about the cause of the exception.
+
+Exception handling involves transferring control to specific exception handlers, each tailored to address particular types of exceptions. These handlers are designed to carry out tasks such as error logging, recovery procedures, or program termination based on the nature of the exception encountered.
+
+**Specific Exception Details:**
+
+| Exception | Description | Handling |
+|---|---|---|
+| Arithmetic Overflow | Raised when an arithmetic operation results in a value exceeding the representable range. | The processor detects overflow conditions and responds by triggering an exception and updating status flags. |
+| Memory Access Violation | Occurs when attempting to access memory outside the allowed range. | The processor identifies out-of-bounds memory access, triggering an exception and involving memory protection mechanisms. |
+| Invalid Instruction | Triggered when encountering an undefined or invalid instruction. | The processor recognizes and manages invalid instructions by raising an exception and taking corrective actions. |
+| Division by Zero | Raised when attempting to divide a number by zero. | The processor detects division by zero conditions and handles them by raising an exception. |
+| Page Fault | Pertains to virtual memory systems and occurs when a requested page is not present in physical memory. | The processor, in collaboration with the operating system, manages page faults by loading the required page into memory. |
+| Illegal Instruction | Occurs when attempting to execute an instruction not allowed in the current context or privilege level. | The processor detects and manages illegal instructions by raising an exception, often leading to a trap into the operating system. |
+| System Call | Invoked when a software interrupt, often initiated by a system call instruction, occurs to transfer control to the operating system. | The processor recognizes system call instructions, triggers a switch to privileged mode, and executes the corresponding kernel routine. |
+| Alignment Check | Raised when a memory access operation is attempted on an address that does not satisfy the required alignment. | The processor detects misaligned memory accesses and raises an exception or performs corrective actions. |
+| Floating-Point | Related to floating-point arithmetic operations, includes conditions like overflow, underflow, and invalid operations. | The processor monitors floating-point operations and raises exceptions when exceptional conditions occur. |
+| Machine Check | Indicates a hardware error or malfunction detected by the processor. | The processor responds to machine check exceptions by triggering error handling mechanisms and halting or signaling the system. |
+
+
+#### ➭ <ins>5.4.4 System calls</ins>
+
+System calls (syscall) allow the ALGORISK program to interact with the underlying operating system. When a syscall instruction is encountered, the processor transfers control to the operating system, which then executes the necessary system call routine. This enables tasks such as file I/O, network communication, or other interactions with the environment.
+
+## 6. Debugger
+
+To spot unintentional behavior of the code, a debugger is implemented.
+
+During debugger execution, it processes the code until it encounters a breakpoint, which, in our language, is set using the break instruction. Starting from the breakpoint up to the program's end or until the user manually halts the program, the debugger showcases the contents stored in the registers and the segment of memory used at the current line both before and after the instruction at that line.
+
+To proceed to the next line, the user must press a key, such as Enter or the Spacebar. The displayed information is limited to the state of registers and memory, intentionally avoiding overwhelming the user with excessive details.
+
+```
+// code
+
+line 1    addi, r1, r0, 3
+line 2    addi, r2, r0, 4
+line 3    break
+line 4    add r3, r1, r2
+line 5    addi r4, r3, 0
+
+// code
+```
+
+The example above is how the break instruction should be used. In this scenario, the user wants to verify what is happening from the line with the add instruction. He puts a break before the line and launches the debugger. The debugger then displays the state of the registers and what they contain, instruction per instruction.
+This is what the debugger displays in the terminal.
+txt
+r3 = 7, r1 = 3, r2 =4
+r4 = 7, r3 = 7
+As what is presented above is a very minimal debugger, the next step is to create a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also displayed. This makes it easier for the user to track where he is in the program.
+|Memory|registers or memory adress|value|
+|---|---|---|
+|add r3, r1, r2|r1|3|
+|addi r4, r3, 0|r2|4|
+|...|r3|7|
+The registers or the memory addresses that are displayed change depending on which one is being used.
+
+## 7. Plugin
+
+To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented. 
+
+#### ➭ <ins>3.5.1 Color highlighting</ins>
+
+The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
+
+**Sections**: #006EB3 \
+**Instructions**: #4EC3E0 \
+**Labels**: #FF6720 \
+**Destination register**: #250E62 \
+**Immediates**: #E0004D \
+**Memory adresses**: #FCE300 \
+**Register operands**: #FFFFFF or #000000 (depending on the background color)
+
+#### ➭ <ins>3.5.2 Snippets</ins>
+
+TODO:
+
+## 8. Conclusion
 
 <div align="right"><a href="#table-of-contents"><img src="Documents/Img/FunctionalSpecifications/back.png" width="35px"></a></div>
