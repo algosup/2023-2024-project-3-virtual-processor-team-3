@@ -14,7 +14,7 @@ ___
 - [1. Introduction](#1-introduction)
   - [1.1 Project goal](#11-project-goal)
 - [2. File architecture](#2-file-architecture)
-- [3.Developmnent environment](#3developmnent-environment)
+- [3.Development environment](#3development-environment)
 - [4. Conventions](#4-conventions)
   - [4.1 Commits](#41-commits)
     - [4.1.1 Title:](#411-title)
@@ -102,7 +102,7 @@ Legend:
 
 The architecture of the project is subject to modification.
 
-## 3.Developmnent environment
+## 3.Development environment
 
 Our team uses multiple machines to work on this project such as:
   - 3 Windows operating on Windows 11.
