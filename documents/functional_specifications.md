@@ -33,7 +33,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
     - [➭ 2.4.3 Dependencies](#-243-dependencies)
     - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
-- [3. Personas]()
+- [3. Personas](#3-personas)
 - [4. Virtual Processor Architecture](#3-virtual-processor-architecture)
   - [4.1 Registers](#31-registers)
   - [4.2 ALU](#32-alu)
@@ -212,6 +212,7 @@ P.S.: The school might give us more/less time to work on the project.
 | We can't use any external library besides C standard libraries. |
 
 ## 3. Personas
+
 
 ## 4. Virtual Processor Architecture
   
