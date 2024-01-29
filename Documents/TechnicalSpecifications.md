@@ -8,7 +8,7 @@ ___
 
 
 <details>
-<summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
+<summary style="font-size:1.2em; font-weight:bold;">Table Of Content</summary>
 
 - [0. Last reviewer](#0-last-reviewer)
 - [1. Introduction](#1-introduction)
