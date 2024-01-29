@@ -20,13 +20,75 @@ This project has for objective to recreate a virtual processor and a correspondi
 
 All the feature of the project defined in the [Functional Specification](../TechnicalSpecifications.md) are in need to be tested
 
-[insert_table_of_features/Functional_Specification]
+| Feature | Full Name | Type | Description |
+| :--: | :--: | :--: | :--: |
+|`mepc`|Machine Execution Program Counter|Control And Status Register|When an exception occurs, the program counter (PC) value at the time of the exception is saved in the MEPC register|
+|`mcause`|Machine Cause|Control And Status Register|It holds the cause of the most recent exception|
+|`uepc`|User Exception Program Counter|Control And Status Register|It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred|
+|`pc`|Program Counter|Specific Register|Holds the address in memory of the next instruction to be fetched|
+|`ir`|Instruction Register|Specific Register|Holds the current instruction being executed|
+| `add` | Addition | Assembler Instruction | Adds the contents of two registers and stores the result in a register |
+| `addi` | Immediate Addition | Assembler Instruction | Adds an immediate value to a register and stores the result in a register |
+| `sub` | Substraction | Assembler Instruction | Subtracts the contents of two registers and stores the result in a register |
+| `and` | Logical AND | Assembler Instruction | Performs a bitwise AND operation on the values of two registers and stores the result in a register |
+| `andi` | Immediate Logical AND | Assembler Instruction | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register |
+| `or` | Logical OR | Assembler Instruction | Performs a bitwise OR operation on the values of two registers and stores the result in a register |
+| `ori` | Immediate Logical OR | Assembler Instruction | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register |
+| `xor` | Logical Exlusive OR | Assembler Instruction | Performs a bitwise XOR operation on the values of two registers and stores the result in a register |
+| `xori` | Immediate Logical Exclusive OR | Assembler Instruction | Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register |
+| `sll` | Shift Left Logical | Assembler Instruction | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register |
+| `slli` | Immediate Shift Left Logical | Assembler Instruction | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register |
+| `srl` | Shift Right Logical | Assembler Instruction | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register |
+| `srli` | Immediate Shift Right Logical | Assembler Instruction | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register |
+| `sra` | Shift Right Arithmetic | Assembler Instruction | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register |
+| `srai` | Immediate Shift Right Arithmetic | Assembler Instruction | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register |
+| `ilt?` | Is Less Than | Assembler Instruction | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 |
+| `ilti?` | Immediate Is Less Than | Assembler Instruction | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 |
+| `iltu?` | Is Less Than Unsigned | Assembler Instruction | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 |
+| `iltui?` | Immediate Is Less Than Unsigned | Assembler Instruction | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 |
+| `jie` | Jump If Equal | Assembler Instruction | Jumps to a label if two registers are equal |
+| `jine` | Jump If Not Equal | Assembler Instruction | Jumps to a label if two registers are not equal |
+| `jige` | Jump If Greater or Equal | Assembler Instruction | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register |
+| `jigeu` | Jump If Greater or Equal Unsigned | Assembler Instruction | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register |
+| `jile` | Jump If Less or Equal | Assembler Instruction | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register |
+| `jileu` | Jump If Less or Equal Unsigned | Assembler Instruction | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register |
+| `jal` | Jump And Link | Assembler Instruction | Jumps to a label and stores the return address in a register |
+| `jalr` | Jump And Link Register | Assembler Instruction | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register |
+| `syscall` | System Call | Assembler Instruction | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands) |
+| `break` | Break | Assembler Instruction | Generates a breakpoint exception, which can be used for debugging |
+| `lb` | Load Byte | Assembler Instruction | Loads a signed byte from memory into a register, the address in memory must be specified as an operand |
+| `lbu` | Load Byte Unsigned | Assembler Instruction | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand |
+| `lh` | Load Halfword | Assembler Instruction | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand |
+| `lhu` | Load Halfword Unsigned | Assembler Instruction | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand |
+| `lw` | Load Word | Assembler Instruction | Loads a word from memory into a register, the address in memory must be specified as an operand |
+| `lui` | Load Upper Immediate | Assembler Instruction | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 |
+| `auipc` | Add Upper Immediate to PC | Assembler Instruction | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0 |
+| `sb` | Store Byte | Assembler Instruction | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand |
+| `sh` | Store Halfword | Assembler Instruction | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand |
+| `sw` | Store Word | Assembler Instruction | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand |
+| `mul` | Multiply | Assembler Instruction | Multiplies the contents of two registers and stores the result in a register |
+| `mulh` | Multiply High | Assembler Instruction | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register |
+| `mulhu` | Multiply High Unsigned | Assembler Instruction | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register |
+| `mulhsu` | Multiply High Signed Unsigned | Assembler Instruction | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register |
+| `div` | Divide | Assembler Instruction | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) |
+| `divu` | Divide Unsigned | Assembler Instruction | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) |
+| `rem` | Remainder | Assembler Instruction | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) |
+| `remu` | Remainder Unsigned | Assembler Instruction | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) |
+
+#### Definition
+
+|Name|Number if Bit|Comparison|
+|:-:|:-:|:-:|
+|Byte|8|-|
+|Halfword|16|2 Byte|
+|Word|32|2 Halfword / 4 Byte|
 
 ### 1.1.2 Out-Of-Scope
 
 These feature are not to be tested as they are not included in the requirement specifications
-- [insert_features_not_to_be_tested/Functional_Specification]
-- ...
+- Multy-Threading
+- Interrupts
+- Atomic Instructions
 
 ## 1.2 Quality Objective
 
@@ -126,9 +188,10 @@ Bellow is the list of artefacts that should be produced during testing.
 
 Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and test cases.
 
-whever test case and bug report with issues
-test cases with project and bug report with issues
-test cases and bug report with project
+whever:
+- test case and bug report with issues
+- test cases with project and bug report with issues
+- test cases and bug report with project
 
 ## 4.2 Test Environment
 
