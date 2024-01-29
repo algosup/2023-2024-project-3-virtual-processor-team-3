@@ -1,4 +1,4 @@
-<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="Documents/Img/FunctionalSpecifications/back2.png" width="35px"></a></div>
+<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="documents/img/functional_specifications/back2.png" width="35px"></a></div>
 
 <br>
 
@@ -59,7 +59,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
     - [➭ 3.5.2 Snippets](#-352-snippets)
 - [8. Conclusion](#8-conclusion)
 - [9. Appendix](#9-appendix)
-  - [9. Processor Architecture Benchmark](#91-architecture-benchmark)
+  - [9.1 Architecture Benchmark](#91-architecture-benchmark)
+    - [Sources](#sources)
 
 </details>
 
@@ -94,7 +95,7 @@ We want beginners to learn how a computer works at a low level, without being di
 
 | In Scope |
 | -------- |
-| Create an optimized 32-bit virtual processor with 32 registers |
+| Create an optimised 32-bit virtual processor with 32 registers |
 | Invent an assembly language with an explicit instruction set and a clear syntax |
 | Execute programs written in ALGORISK assembly on an ALGORISK virtual processor |
 | Transform the program's instructions into machine code before executing it |
@@ -111,10 +112,10 @@ We want beginners to learn how a computer works at a low level, without being di
 
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| Functional Specifications Document | Document (markdown) | 30/01/2024   | [FunctionalSpecifications.md](./FunctionalSpecifications.md) |
-| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [Technical-Specifications.md](./technicalSpecifications.md)  |
-| Weekly Reports                     | Document (markdown) | Every Friday | [Weekly-Reports/](./weeklyReports/)                          |
-| Test Plan                          | Document (markdown) | 16/02/2024   | [Test-Plan.md](./qualityAssurance/Test-Plan.md)              |
+| Functional Specifications Document | Document (markdown) | 30/01/2024   | [functional_specifications.md](./functional_specifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./technical_specifications.md)  |
+| Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports/](./weekly_reports/)                          |
+| Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./quality_assurance/test_plan.md)              |
 | Final Product                      | TODETERMINE         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
@@ -141,7 +142,7 @@ The project sponsors (highlighted in **bold**) are expected to be in charge of:
 
 #### ➭ <ins>2.3.2 Stakeholders</ins>
 
-| Stakeholder | Might have/find an interest in... |
+| Stakeholder | Might have/find an interest in... |
 | ----------- | --------------------------------- |
 | ALGOSUP | Having students learning: C language, how a processor works, project development, teamwork... |
 | Students | Learning new knowledge by enjoying working on a unique project |
@@ -150,7 +151,7 @@ The project sponsors (highlighted in **bold**) are expected to be in charge of:
 
 | Role | Description | Name |
 |---|---|---|
-| Project Manager | In charge of the organization, planning, and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
+| Project Manager | In charge of organisation, planning and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
 | Program Manager | Makes sure the project meets the client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
 | Tech Lead | Makes the technical decision in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
 | Software Engineer | Writes the code. <br> Writes documentation. <br> Participate in the technical choices. | Malo ARCHIMBAUD <br> <br> Mathis KAKAL|
@@ -164,7 +165,7 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.1 Retroplanning</ins>
 
-![Retroplanning.png](/Documents/Img/FunctionalSpecifications/Retroplanning.png)
+![retroplanning.png](/documents/img/functional_specifications/retroplanning.png)
 
 #### ➭ <ins>2.4.2 Milestones</ins>
 
@@ -187,7 +188,8 @@ The development phase requires prior understanding of the target technologies de
 
 => The team (6 people)
 
-=> TODO: X working hours: 3 hours of work in a half day, 6 team members, X half days until the release of the final product (working hours on personal time not included)
+=> 414 working hours: 3 hours of work in a half day, 6 team members, 23 half days until the release of the final product (working hours on personal time not included) \
+P.S.: The school might give us more/less time to work on the project.
 
 => 1 computer per team member
 
@@ -228,11 +230,10 @@ Three more register types are used for specific purposes:
 - `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. Currently, 3 csr are present in our processor.
 
 Our CSRs are:
-| Name | Description|
-|---|---|
-| mepc | Machine exception program counter: When an exception occurs, the program counter (PC) value at the time of the exception is saved in the MEPC register.|
-| mcause | Machine cause: It holds the cause of the most recent exception.|
-| uepc | User exception program counter: It is similar to the two precedent registers. It stores the value of the program counter after an exception has occurred.|
+
+- `mepc` (machine exception program counter): When an exception occurs, the program counter (PC) value at the time of the exception is saved in the MEPC register.
+- `mcause` (machine cause): It holds the cause of the most recent exception.
+- `uepc` (user exception program counter): It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.
 
 ### 3.2 ALU
 
@@ -293,7 +294,7 @@ R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type.
 
 Here is how they are encoded in 32-bit binary:
 
-![InstructionFormats.png](/Documents/Img/FunctionalSpecifications/InstructionFormats.png)
+![instruction_formats.png](/documents/img/functional_specifications/instruction_formats.png)
 
 **1. Opcode (opcode):**
 - Purpose: The opcode field specifies the general category or class of the instruction.
@@ -305,7 +306,7 @@ Here is how they are encoded in 32-bit binary:
 - Purpose: The funct3 field is used to provide additional information about the operation within a specific instruction type.
 - Function: It refines the instruction classification by indicating the exact operation or variant within a group of instructions.
 - Length: 3 bits
-- Example: In the I-Type instruction addi (add immediately), funct3 specifies the specific arithmetic operation, like addition, subtraction, logical operations, etc.
+- Example: In the I-Type instruction addi (add immediate), funct3 specifies the specific arithmetic operation, like addition, subtraction, logical operations, etc.
 
 **3. Funct7 (funct7):**
 - Purpose: The funct7 field is typically found in R-Type instructions and is used for extended functionality or to provide additional information.
@@ -379,7 +380,7 @@ These fields collectively define the operands, destinations, and additional info
 | | `break` | | Generates a breakpoint exception, which can be used for debugging | `break` | Special | | |
 | | `lb` | **Load Byte**<sup>1</sup> | Loads a signed byte from memory into a register, the address in memory must be specified as an operand | `lb rd, address` | I-Type | | |
 | | `lbu` | **Load Byte**<sup>1</sup> **Unsigned** | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand | `lbu rd, address` | I-Type | | |
-| | `lh` | Load Halfword<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type | | |
+| | `lh` | **Load Halfword**<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type | | |
 | | `lhu` | **Load Halfword**<sup>2</sup> **Unsigned** | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | `lhu rd, address` | I-Type | | |
 | | `lw` | **Load Word**<sup>3</sup> | Loads a word from memory into a register, the address in memory must be specified as an operand | `lw rd, address` | I-Type | | |
 | | `lui` | **Load Upper Immediate** | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | `lui rd, immediate` | U-Type | | |
@@ -409,11 +410,11 @@ This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 
 ### 5.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
-Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. Meaning, everything in `.data` will be kept in memory but not executed as there are no instructions given in this section, except for data initialization.
+Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. Meaning, everything in `.data` will be kept in memory but not executed as there are no instructions given in this section, except for data initialisation.
 
-Once the preprocessing process has gone through the data section and once the variables have been initialized, the preprocessing process will then go through the `.code` section.
-This is the part where all the code is, where instructions the user wants to pass to the processing unit are. As variables have previously been initialized and kept in memory, we can reuse them in the code section.
-During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignored during all the remaining processes.
+Once the preprocessing process has gone through the data section and once the variables have been initialised, the preprocessing process will then go through the `.code` section. \
+This is the part where all the code is, where instructions the user wants to pass to the processing unit are. As variables have previously been initialized and kept in memory, we can reuse them in the code section. \
+During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will be then ignore during all the remaining processes.
 
 ```
 \\ This a comment
@@ -427,7 +428,7 @@ The role of the interpreter is to verify line by line if the program is converti
 If it is, it will launch the assembling process. \
 If not, it means there are errors so the interpreter will print the number of errors followed by the line number and the corresponding error message.
 
-![InterpreterDiagram.png](/Documents/Img/FunctionalSpecifications/InterpreterDiagram.png)
+![interpreter_diagram.png](/documents/img/functional_specifications/interpreter_diagram.png)
 
 #### ➭ <ins>5.2.1 Instruction error</ins>
 
@@ -461,7 +462,7 @@ add r1, r2, r3, r4
 
 The interpreter will throw the following error:
 ```
-Error at line 10: instruction "add" expects 3 operands, received less or more than 3
+Error at line 10: instruction "add" expects 3 operands, received other than 3
 ```
 It will work the same if the instruction has too few operands.
 
@@ -478,7 +479,7 @@ Error at line 10: instruction "add" expects operand 3 to be a register, received
 
 #### ➭ <ins>5.2.3 Variable declaration error</ins>
 
-Moreover, the preprocessor checks if the initialized data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
+Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
 The preprocessor will throw the following error:
 ```
 Error at line 10: Initialised variable is over 32-bit.
@@ -496,12 +497,14 @@ When the interpreter verified that the program is correct, the assembling proces
 
 A binary file is created and the assembler transforms each instruction into a 32-bit binary code as defined [previously](#42-instruction-types-and-binary-formats). They will be stored in the binary file in the same order as they are in the assembly file.
 
+![assembler_diagram.png](/documents/img/functional_specifications/assembler_diagram.png)
+
 **Example:**
 
 Let's perform three operations in RISC-V assembly: load a value from memory into a register, put an immediate value into another register, and finally, add the two registers and store the result in a third register.
 
 **ALGORISK Assembly Code:**
-``` assembly
+```
 lw x1, 0(x2)       # Load the value from memory at address 0 into register x1
 li x3, 10          # Load immediate value 10 into register x3
 add x4, x1, x3     # Add the values in x1 and x3, store the result in x4
@@ -622,21 +625,20 @@ To continue in this willingness to make programming and computer science more ac
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
-**Sections**: #006EB3 \
-**Instructions**: #4EC3E0 \
-**Labels**: #FF6720 \
-**Destination register**: #250E62 \
-**Immediates**: #E0004D \
-**Memory adresses**: #FCE300 \
-**Register operands**: #FFFFFF or #000000 (depending on the background color)
+<span style="color:#006EB3">**Sections**: #006EB3</span>  \
+<span style="color:#4EC3E0">**Instructions**: #4EC3E0</span> \
+<span style="color:#FF6720">**Labels**: #FF6720</span> \
+<span style="color:#250E62">**Destination register**: #250E62</span> \
+<span style="color:#E0004D">**Immediates**: #E0004D</span> \
+<span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
+<span style="color:#FFFFFF">**Register operands**: #FFFFFF</span> or <span style="color:#000000">**#000000 (depending on the background color)**</span>
+
 
 #### ➭ <ins>3.5.2 Snippets</ins>
 
 TODO:
 
 ## 8. Conclusion
-
-<div align="right"><a href="#table-of-contents"><img src="Documents/Img/FunctionalSpecifications/back.png" width="35px"></a></div>
 
 ## 9. Appendix
 
@@ -692,3 +694,5 @@ For 8080:
 https://www.elprocus.com/know-about-architecture-of-the-intel-8080-microprocessor/
 
 </details>
+
+<div align="right"><a href="#table-of-contents"><img src="/documents/img/functional_specifications/back.png" width="35px"></a></div>
