@@ -1,20 +1,15 @@
-<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Functional Specifications </h1>
 
 <p align="center"> 
-Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26/01/2024
+Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29/01/2024
 </p>
 
 <details>
-<summary>
+<summary style="font-size:1.2em; font-weight:bold;">Table of content</summary>
 
-## Table of Contents
-
-</summary>
-
-- [Table of Contents](#table-of-contents)
 - [1. Glossary](#1-glossary)
 - [2. Introduction](#2-introduction)
   - [2.1 Overview](#21-overview)
@@ -34,32 +29,32 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
     - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
 - [3. Personas](#3-personas)
-- [4. Virtual Processor Architecture](#3-virtual-processor-architecture)
-  - [4.1 Registers](#31-registers)
-  - [4.2 ALU](#32-alu)
-- [5. Assembly Language](#4-assembly-language)
-  - [5.1 Sections](#41-sections)
-  - [5.2 Instruction types and binary formats](#42-instruction-types-and-binary-formats)
-  - [5.3 Instructions Set Architecture](#43-instructions-set-architecture)
-- [6. From ALGORISK assembly to executable](#5-from-algorisk-assembly-to-executable)
-  - [6.1 Preprocessor](#51-preprocessor)
-  - [6.2 Interpreter](#52-interpreter)
-    - [➭ 6.2.1 Instruction error](#-521-instruction-error)
-    - [➭ 6.2.2 Operand error](#-522-operand-error)
-    - [➭ 6.2.3 Variable declaration error](#-523-variable-declaration-error)
-  - [6.3 Assembler](#53-assembler)
-  - [6.4 Execution](#54-execution)
-    - [➭ 6.4.1 Loader](#-541-loader)
-    - [➭ 6.4.2 Execution Unit](#-542-execution-unit)
-    - [➭ 6.4.3 Exception handling](#-543-exception-handling)
-    - [➭ 6.4.4 System calls](#-544-system-calls)
-- [7. Debugger](#6-debugger)
-- [8. Plugin](#7-plugin)
-    - [➭ 8.5.1 Color highlighting](#-351-color-highlighting)
-    - [➭ 8.5.2 Snippets](#-352-snippets)
-- [9. Conclusion](#8-conclusion)
-- [10. Appendix](#9-appendix)
-  - [10.1 Architecture Benchmark](#91-architecture-benchmark)
+- [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
+  - [4.1 Registers](#41-registers)
+  - [4.2 ALU](#42-alu)
+- [5. Assembly Language](#5-assembly-language)
+  - [5.1 Sections](#51-sections)
+  - [5.2 Instruction types and binary formats](#52-instruction-types-and-binary-formats)
+  - [5.3 Instructions Set Architecture](#53-instructions-set-architecture)
+- [6. From ALGORISK assembly to executable](#6-from-algorisk-assembly-to-executable)
+  - [6.1 Preprocessor](#61-preprocessor)
+  - [6.2 Interpreter](#62-interpreter)
+    - [➭ 6.2.1 Instruction error](#-621-instruction-error)
+    - [➭ 6.2.2 Operand error](#-622-operand-error)
+    - [➭ 6.2.3 Variable declaration error](#-623-variable-declaration-error)
+  - [6.3 Assembler](#63-assembler)
+  - [6.4 Execution](#64-execution)
+    - [➭ 6.4.1 Loader](#-641-loader)
+    - [➭ 6.4.2 Execution Unit](#-642-execution-unit)
+    - [➭ 6.4.3 Exception handling](#-643-exception-handling)
+    - [➭ 6.4.4 System calls](#-644-system-calls)
+- [7. Debugger](#7-debugger)
+- [8. Plugin](#8-plugin)
+    - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
+    - [➭ 8.5.2 Snippets](#-852-snippets)
+- [9. Conclusion](#9-conclusion)
+- [10. Appendix](#10-appendix)
+  - [10.1 Architecture Benchmark](#101-architecture-benchmark)
     - [Sources](#sources)
 
 </details>
@@ -634,7 +629,7 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#250E62">**Destination register**: #250E62</span> \
 <span style="color:#E0004D">**Immediates**: #E0004D</span> \
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
-<span style="color:#FFFFFF">**Register operands**: #FFFFFF</span> or <span style="color:#000000">**#000000 (depending on the background color)**</span>
+<span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
 
 #### ➭ <ins>8.5.2 Snippets</ins>
@@ -698,4 +693,4 @@ https://www.elprocus.com/know-about-architecture-of-the-intel-8080-microprocesso
 
 </details>
 
-<div align="right"><a href="#table-of-contents"><img src="img/functional_specifications/back.png" width="35px"></a></div>
+<div align="right"><a href="#top"><img src="img/functional_specifications/back.png" width="35px"></a></div>
