@@ -231,4 +231,4 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 <br>
 <br>
 
-<img src="https://www.jeanphilippegrasse.com/wp-content/uploads/2023/04/ALGOSUP.png" width="900">
+<img src="https://www.jeanphilippegrasse.com/wp-content/uploads/2023/04/ALGOSUP.png" width="700">
