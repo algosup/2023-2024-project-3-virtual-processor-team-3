@@ -1,5 +1,8 @@
 # Team 3 - Cumulative Weekly Reports
 
+**<u>Note:</u>** If you wish to access the weekly report, kindly click on its name and it will appear. If you want to close the document, do the same.  
+Thank you!
+
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 1</summary>
 
