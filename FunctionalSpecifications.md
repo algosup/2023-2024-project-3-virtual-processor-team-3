@@ -58,6 +58,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 26
     - [➭ 3.5.1 Color highlighting](#-351-color-highlighting)
     - [➭ 3.5.2 Snippets](#-352-snippets)
 - [8. Conclusion](#8-conclusion)
+- [9. Appendix](#9-appendix)
+  - [9. Processor Architecture Benchmark](#9-architecture-benchmark)
 
 </details>
 
