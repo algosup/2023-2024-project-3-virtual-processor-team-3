@@ -1,5 +1,4 @@
-<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="documents/img/functional_specifications/back2.png" width="35px"></a></div>
-
+<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Functional Specifications </h1>
@@ -695,4 +694,4 @@ https://www.elprocus.com/know-about-architecture-of-the-intel-8080-microprocesso
 
 </details>
 
-<div align="right"><a href="#table-of-contents"><img src="/documents/img/functional_specifications/back.png" width="35px"></a></div>
+<div align="right"><a href="#table-of-contents"><img src="img/functional_specifications/back.png" width="35px"></a></div>
