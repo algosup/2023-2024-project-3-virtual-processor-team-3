@@ -211,13 +211,15 @@ P.S.: The school might give us more/less time to work on the project.
 | We have to code in C. |
 | We can't use any external library besides C standard libraries. |
 
-## 3. Virtual Processor Architecture
+## 3. Personas
+
+## 4. Virtual Processor Architecture
   
 Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
 
 The RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions. This alignment led us to choose the RISC-V architecture as the inspiration for our project.
 
-### 3.1 Registers
+### 4.1 Registers
 
 The ALGORISK processor uses an architecture able to read 32-bit instructions and data. \
 It has 31 mutable registers, each 32-bit wide, and one constant register (named `r0`) containing the value 0.
@@ -235,13 +237,13 @@ Our CSRs are:
 - `mcause` (machine cause): It holds the cause of the most recent exception.
 - `uepc` (user exception program counter): It is similar to the two precedent registers, it stores the value of the program counter after an exception has occurred.
 
-### 3.2 ALU
+### 4.2 ALU
 
 This processor also contains an ALU (Arithmetic Logic Unit) which will be a versatile unit performing all the operations. It plays a central role in executing assembly instructions, ensuring flexibility and efficiency across diverse tasks.
 
-## 4. Assembly Language
+## 5. Assembly Language
 
-### 4.1 Sections
+### 5.1 Sections
 
 A typical ALGORISK assembly program will be divided into two sections:
 - **Data section**: Contains the program's data, such as variables and constants.
@@ -287,7 +289,7 @@ Always consider the context and the specific requirements of the instruction whe
 
 The code section is delimited by the `.code` directive. The declaration of a constant or a variable will be done like this:
 
-### 4.2 Instruction types and binary formats
+### 5.2 Instruction types and binary formats
 
 Instructions are divided into 6 types: \
 R-Type, I-Type, S-Type, B-Type, U-Type, and J-Type.
@@ -345,7 +347,7 @@ Here is how they are encoded in 32-bit binary:
 
 These fields collectively define the operands, destinations, and additional information needed for each instruction in ALGORISK assembly language.
 
-### 4.3 Instructions Set Architecture
+### 5.3 Instructions Set Architecture
 
 | Category | Instruction | Expanding | Description | Syntax | Type | Func3 | Func7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -405,9 +407,9 @@ These fields collectively define the operands, destinations, and additional info
 
 This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, the content of r1 will be copied in r2.
 
-## 5. From ALGORISK assembly to executable
+## 6. From ALGORISK assembly to executable
 
-### 5.1 Preprocessor
+### 6.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
 Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. Meaning, everything in `.data` will be kept in memory but not executed as there are no instructions given in this section, except for data initialisation.
@@ -422,7 +424,7 @@ During the whole process, if the preprocessor encounters a comment `\\`, the pre
 
 TODO:
 
-### 5.2 Interpreter
+### 6.2 Interpreter
 
 The role of the interpreter is to verify line by line if the program is convertible into machine code. \
 If it is, it will launch the assembling process. \
@@ -430,7 +432,7 @@ If not, it means there are errors so the interpreter will print the number of er
 
 ![interpreter_diagram.png](/documents/img/functional_specifications/interpreter_diagram.png)
 
-#### ➭ <ins>5.2.1 Instruction error</ins>
+#### ➭ <ins>6.2.1 Instruction error</ins>
 
 It first verifies if the name of the instruction corresponds to one of the instructions in the instruction set. \
 If not, it throws an error containing the line number and the incorrect instruction.
@@ -448,7 +450,7 @@ The interpreter will throw the following error:
 Error at line 10: unknown instruction "ad"
 ```
 
-#### ➭ <ins>5.2.2 Operand error</ins>
+#### ➭ <ins>6.2.2 Operand error</ins>
 
 Every instruction is categorized under an instruction type (as defined in the instruction set), which outlines the expected number of operands and their respective types (such as registers, immediates, labels, etc.). The interpreter is responsible for validating the correctness of the operand count and their types. If an error is found, the interpreter will throw an error containing the line number and why the instruction is incorrect.
 
@@ -477,7 +479,7 @@ The interpreter will throw the following error:
 Error at line 10: instruction "add" expects operand 3 to be a register, received "rr3"
 ```
 
-#### ➭ <ins>5.2.3 Variable declaration error</ins>
+#### ➭ <ins>6.2.3 Variable declaration error</ins>
 
 Moreover, the preprocessor checks if the initialised data are well within the maximum range of 32-bit. If the data is over 32 bits, the preprocessor will break the program and print an error.  
 The preprocessor will throw the following error:
@@ -491,7 +493,7 @@ Error at line 5: Syntax error.
 ``` 
 Moreover, during the preprocessing process, the preprocessor will check if a label is never used during execution time, to optimize the program and gain space in memory. If it is unused, the label will be ignored by the program and then go on to the next label.
 
-### 5.3 Assembler
+### 6.3 Assembler
 
 When the interpreter verified that the program is correct, the assembling process begins.
 
@@ -536,9 +538,9 @@ It seems abstract for human eyes, but this is how the processor will read the pr
 
 These binary representations follow the RISC-V instruction format for the given instruction types (I-Type for `lw` and `li`, R-Type for `add`). The opcode, funct3, funct7, and immediate fields are populated based on the specific instructions and their operands.
 
-### 5.4 Execution
+### 6.4 Execution
 
-#### ➭ <ins>5.4.1 Loader</ins>
+#### ➭ <ins>6.4.1 Loader</ins>
 
 The loader takes the binary file generated by the assembler and loads it into memory. It interprets the binary instructions and stores them at the specified memory addresses. The program counter (pc) is initialized to the starting address of the code section, and the loader iterates through the binary instructions, placing them in memory as it advances the program counter.
 
@@ -546,7 +548,7 @@ If there are data sections, the loader also allocates space in memory for variab
 
 The loader ensures that the program counter is appropriately updated after each instruction is loaded, allowing for sequential execution of the program. Additionally, it sets up the stack and other necessary components of memory management.
 
-#### ➭ <ins>5.4.2 Execution Unit</ins>
+#### ➭ <ins>6.4.2 Execution Unit</ins>
 
 The execution unit is responsible for fetching instructions from memory, decoding them, and executing the corresponding operations. It includes the Arithmetic Logic Unit (ALU) for arithmetic and logical operations, as well as other functional units for tasks such as memory access and control flow handling.
 
@@ -556,7 +558,7 @@ Control and status registers (csr), such as pc, ir, mepc, mcause, and uepc, play
 
 The execution unit interprets instructions based on the opcode and operands, directing the flow of the program through branches, jumps, and other control flow mechanisms.
 
-#### ➭ <ins>5.4.3 Exception handling</ins>
+#### ➭ <ins>6.4.3 Exception handling</ins>
 
 Exception handling is an integral aspect of the ALGORISK processor's execution unit. The processor actively monitors for various exceptional conditions that may arise during program execution, such as arithmetic overflow, memory access violation, invalid instructions, division by zero, page faults, illegal instructions, system calls, alignment check issues, floating-point errors, and machine check exceptions.
 
@@ -580,11 +582,11 @@ Exception handling involves transferring control to specific exception handlers,
 | Machine Check | Indicates a hardware error or malfunction detected by the processor. | The processor responds to machine check exceptions by triggering error handling mechanisms and halting or signaling the system. |
 
 
-#### ➭ <ins>5.4.4 System calls</ins>
+#### ➭ <ins>6.4.4 System calls</ins>
 
 System calls (syscall) allow the ALGORISK program to interact with the underlying operating system. When a syscall instruction is encountered, the processor transfers control to the operating system, which then executes the necessary system call routine. This enables tasks such as file I/O, network communication, or other interactions with the environment.
 
-## 6. Debugger
+## 7. Debugger
 
 To spot unintentional behavior of the code, a debugger is implemented.
 
@@ -617,11 +619,11 @@ As what is presented above is a very minimal debugger, the next step is to creat
 |...|r3|7|
 The registers or the memory addresses that are displayed change depending on which one is being used.
 
-## 7. Plugin
+## 8. Plugin
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-#### ➭ <ins>3.5.1 Color highlighting</ins>
+#### ➭ <ins>8.5.1 Color highlighting</ins>
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
@@ -634,15 +636,15 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FFFFFF">**Register operands**: #FFFFFF</span> or <span style="color:#000000">**#000000 (depending on the background color)**</span>
 
 
-#### ➭ <ins>3.5.2 Snippets</ins>
+#### ➭ <ins>8.5.2 Snippets</ins>
 
 TODO:
 
-## 8. Conclusion
+## 9. Conclusion
 
-## 9. Appendix
+## 10. Appendix
 
-### 9.1 Architecture Benchmark
+### 10.1 Architecture Benchmark
 
 |   Architecture  |   Licensing  |   Design  |   Type  |   Bits  |   Registers (Excluding FP/Vector)  |   Endianness  |   Pipelining and execution Strategy  |   Micro-Code (aka firmware - induces variable length instructions)  |   Branch Evaluation  |   Instruction Encoding  |   Market Segment/Application  |   Typical Applications  |   Ecosystem Support  |   ISA Extensibility  |   Supports SIMD  |   Concurrency and Parallelism features  |   Fault Tolerance and error correction Features  |   Hardware Acceleration Capabilities  |   Support for Virtualization and security features  |   Scalability  |   Extensions  |   Power Efficiency Strategy  |   Memory Model  |   Max # Operands  |   Version  |   Introduced  |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
