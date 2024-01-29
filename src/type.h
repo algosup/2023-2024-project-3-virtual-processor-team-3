@@ -3,6 +3,9 @@
 #include <string.h>
 #include <stdint.h>
 
+#ifndef TYPE_H
+#define TYPE_H
+
 #define byte unsigned char
 #define u64 unsigned long long
 #define i64 long long
@@ -42,3 +45,5 @@ typedef struct
     f64 arg1;
     i64 arg2;
 } cpu_t;
+
+#endif

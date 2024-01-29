@@ -1,3 +1,6 @@
+#ifndef CPU_H
+#define CPU_H
+
 #include "type.h"
 
 void execute(cpu_t *c);
@@ -138,3 +141,5 @@ void execute(cpu_t* cpu)
             exit(1);
     }
 }
+
+#endif
