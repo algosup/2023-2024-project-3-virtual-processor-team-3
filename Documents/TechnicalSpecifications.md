@@ -1,3 +1,6 @@
+<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<br>
+
 <h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
@@ -30,7 +33,6 @@ ___
 - [6.2 Parser\[^7\]](#62-parser7)
 - [6.3 Execution](#63-execution)
 - [7. Maintenance](#7-maintenance)
-- [8. Footnotes](#8-footnotes)
   
 </details>
 
@@ -437,8 +439,6 @@ To detect an overflow or an underflow we are using these comparisons:
 
 The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
 
-## 8. Footnotes
-
 [^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or to write a computer program.
 [^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify and delete a repository freely.
 [^3]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
@@ -451,3 +451,5 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
 [^11]: An overflow is when a value exceed the maximum.
 [^12]: An underflow is when a value falls below the minimum.
+
+<div align="right"><a href="#table-of-contents"><img src="img/functional_specifications/back.png" width="35px"></a></div>
