@@ -27,7 +27,7 @@ ___
     - [4.4.1 Example:](#441-example)
 - [6. Components of the project](#6-components-of-the-project)
 - [6.1 CPU architecture](#61-cpu-architecture)
-- [6.2 Parser\[^6\]](#62-parser6)
+- [6.2 Parser\[^7\]](#62-parser7)
 - [6.3 Execution](#63-execution)
 - [7. Maintenance](#7-maintenance)
 - [8. Footnotes](#8-footnotes)
@@ -50,23 +50,50 @@ The goal of this project is to create our own virtual processor. Our processor s
 
 ```
 Project
-├── Documents
-│  ├── Img
-|  |   └──image.png*
-│  ├── Management
-|  |   └──Files/folders*
-│  ├── Testing
-|  |   └──Files/folders*
-│  ├── TechnicalSpecifications.md
-│  └── FunctionalSpecifications.md
-└── Code
-   ├──Headers
-   |  └──name.h*
-   ├── Main.h
-   └── UnitTests.c
+├── 📁documents
+│  ├── 📁img
+|  |   ├── co-authors-demo-hq.png
+|  |   ├── complete_Parser.png
+|  |   ├── multiplication.png
+|  |   ├── parser2FC.png
+|  |   ├── parser.png
+|  |   ├── von_neumann_architecture.png
+|  |   └── workflow.png
+│  ├── 📁management
+|  |   ├── 📁project_charter
+|  |   |    └── project_charter.md
+|  |   ├── 📁RACI_chart
+|  |   |    └── RACI.md
+|  |   ├── 📁risk_mitigation
+|  |   |    └── risk_mitigation.md
+|  |   └── 📁weekly_report
+|  |   |    ├── Cumulative.md 
+|  |   |    ├── weekly_report1.md 
+|  |   |    ├── weekly_report2.md 
+|  |   |    ├── weekly_report3.md 
+|  |   |    ├── weekly_report4.md 
+|  |   |    ├── weekly_report5.md 
+|  |   |    ├── weekly_report6.md 
+|  |   |    ├── weekly_report7.md 
+|  |   |    ├── weekly_report8.md 
+|  |   |    └──weekly_report_template.md
+|  |   └── management_artifact.md
+│  ├── 📁testing
+|  |   └──test_plan.md
+│  ├── technical_specifications.md
+│  └── functional_specifications.md
+└── 📁code
+   ├── 📁headers
+   |  ├── cpu.h
+   |  ├── preprocessor.h
+   |  ├── assembler.h
+   |  ├── lexer.h
+   |  └── parser.h
+   ├── main.h
+   └── unit_tests.c
 ```
 
-Where * means files and folders that may appear in the future.
+The architecture of the project is subject to modification.
 
 ## 3.Developmnent environment
 
@@ -184,12 +211,12 @@ For example in a calculator project, there should be a structure similar to this
 
 ### 4.3 Names
 
-Names are extremely important to a project's readability[^5], not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
+Names are extremely important to a project's readability[^4], not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
 
 For this project this set of naming conventions has been chosen:
 
 - Branches: PascalCases, appart of the Main,PreMain,Documents, the branch is named after the name of the feature or after the name/id of the fix.
-- Document/Folder/Files: PascalCases.
+- Folder/Files: snake_case.
 
 ### 4.4 Comments
 
@@ -260,31 +287,31 @@ float floatMultiplication(float x,float y)
 
 ## 6.1 CPU architecture
 
-For this project we are following the <a href="https://fr.wikipedia.org/wiki/Architecture_de_von_Neumann">Von Neumann architecture</a>, this architecture defines how a computer system works. It can be represented as the following:
+For this project we are following the Von Neumann architecture[^6], this architecture defines how a computer system works. It can be represented as the following:
 
-<img src="./Img/Von_Neumann_architecture.png" height="300px">
+<img src="./Img/von_neumann_architecture.png" height="300px">
 
 Since are aiming for an educational purpose, our CPU's architecture, the control unit in the previous image, is different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc).
 
 
-## 6.2 Parser[^6]
+## 6.2 Parser[^7]
 
-To translate from Assembly language to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create two different parsers. 
+To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers. 
 
 This is the flowcharts of the two parsers used for our project:
 
-<img src="./Img/ParserFC.png" height="900px">
+<img src="./Img/parserFC.png" height="900px">
 
-<img src="./Img/Parser2FC.png" height="790px">
+<img src="./Img/parser2FC.png" height="790px">
 
 
 Finally the whole parsering flowchart should ressemble to this process:
 
 
-<img src="./Img/CompleteParserFC.png" height="1150px">
+<img src="./Img/complete_parserFC.png" height="1150px">
 
 
-To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^9].
+To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
 
 To parse from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
 
@@ -368,9 +395,9 @@ The indicators are not necessary for every intruction, in this case they are fil
 
 Here is an example with a multiplication:
 
-<img src="./Img/Multiplication.png">
+<img src="./Img/multiplication.png">
 
-In case of overflow[^10] or underflow[^11] we are detecting the error before executing it.
+In case of overflow[^11] or underflow[^12] we are detecting the error before executing it.
 
 To detect an overflow or an underflow we are using these comparisons:
 
@@ -410,9 +437,10 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^3]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
 [^4]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
 [^5]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
-[^6]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
-[^7]: Machine code: Machine code is the name given to the language of the computer, also named binary.
-[^8]: String: A chain of character contained in one variable.
-[^9]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
-[^10]: An overflow is when a value exceed the maximum.
-[^10]: An underflow is when a value falls below the minimum.
+[^6]: Von Neumann architecture: The Von Neumann architecture is one of the earliest computer architecture.
+[^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
+[^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
+[^9]: String: A chain of character contained in one variable.
+[^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
+[^11]: An overflow is when a value exceed the maximum.
+[^12]: An underflow is when a value falls below the minimum.
