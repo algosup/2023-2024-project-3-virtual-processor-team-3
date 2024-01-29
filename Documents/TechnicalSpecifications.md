@@ -52,36 +52,37 @@ The goal of this project is to create our own virtual processor. Our processor s
 Project
 ├── 📁documents
 │  ├── 📁img
-|  |   ├── 📄co-authors-demo-hq.png
-|  |   ├── 📄complete_Parser.png
-|  |   ├── 📄multiplication.png
-|  |   ├── 📄parser2FC.png
-|  |   ├── 📄parser.png
-|  |   ├── 📄von_neumann_architecture.png
-|  |   └── 📄workflow.png
+|  |   ├── 🖼️co-authors-demo-hq.png
+|  |   ├── 🖼️complete_Parser.png
+|  |   ├── 🖼️multiplication.png
+|  |   ├── 🖼️parser2FC.png
+|  |   ├── 🖼️parser.png
+|  |   ├── 🖼️von_neumann_architecture.png
+|  |   └── 🖼️workflow.png
 │  ├── 📁management
 |  |   ├── 📁project_charter
-|  |   |    └── 📄project_charter.md
+|  |   |    └── 📖project_charter.md
 |  |   ├── 📁RACI_chart
-|  |   |    └── 📄RACI.md
+|  |   |    └── 📖RACI.md
 |  |   ├── 📁risk_mitigation
-|  |   |    └── 📄risk_mitigation.md
+|  |   |    └── 📖risk_mitigation.md
 |  |   └── 📁weekly_report
-|  |   |    ├── 📄Cumulative.md 
-|  |   |    ├── 📄weekly_report1.md 
-|  |   |    ├── 📄weekly_report2.md 
-|  |   |    ├── 📄weekly_report3.md 
-|  |   |    ├── 📄weekly_report4.md 
-|  |   |    ├── 📄weekly_report5.md 
-|  |   |    ├── 📄weekly_report6.md 
-|  |   |    ├── 📄weekly_report7.md 
-|  |   |    ├── 📄weekly_report8.md 
-|  |   |    └── 📄weekly_report_template.md
+|  |   |    ├── 📖Cumulative.md 
+|  |   |    ├── 📖weekly_report1.md 
+|  |   |    ├── 📖weekly_report2.md 
+|  |   |    ├── 📖weekly_report3.md 
+|  |   |    ├── 📖weekly_report4.md 
+|  |   |    ├── 📖weekly_report5.md 
+|  |   |    ├── 📖weekly_report6.md 
+|  |   |    ├── 📖weekly_report7.md 
+|  |   |    ├── 📖weekly_report8.md 
+|  |   |    └── 📖weekly_report_template.md
 |  |   └── management_artifact.md
 │  ├── 📁testing
-|  |   └── 📄test_plan.md
-│  ├── 📄technical_specifications.md
-│  └── 📄functional_specifications.md
+|  |   └── 📖test_plan.md
+│  ├── 📕manual.pdf
+│  ├── 📖technical_specifications.md
+│  └── 📖functional_specifications.md
 └── 📁code
    ├── 📁headers
    |  ├── 📄cpu.h
@@ -89,9 +90,15 @@ Project
    |  ├── 📄assembler.h
    |  ├── 📄lexer.h
    |  └── 📄parser.h
-   ├── 📄main.h
-   └── 📄unit_tests.c
+   ├── 📃main.c
+   └── 📃unit_tests.c
 ```
+Legend:
+- 🖼️Images
+- 📖Documents
+- 📕The assembly manual
+- 📄Header file
+- 📃C files
 
 The architecture of the project is subject to modification.
 
