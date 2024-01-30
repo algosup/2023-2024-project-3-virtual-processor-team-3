@@ -33,6 +33,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29
 - [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
   - [4.1 Registers](#41-registers)
   - [4.2 ALU](#42-alu)
+  - [4.3 Memory](#43-memory)
 - [5. Assembly Language](#5-assembly-language)
   - [5.1 Sections](#51-sections)
   - [5.2 Instruction types and binary formats](#52-instruction-types-and-binary-formats)
@@ -250,6 +251,7 @@ Our CSRs are:
 
 This processor also contains an ALU (Arithmetic Logic Unit) which will be a versatile unit performing all the operations. It plays a central role in executing assembly instructions, ensuring flexibility and efficiency across diverse tasks.
 
+### 4.3 Memory
 ## 5. Assembly Language
 
 ### 5.1 Sections
