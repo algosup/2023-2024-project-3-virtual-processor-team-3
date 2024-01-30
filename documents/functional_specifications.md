@@ -292,8 +292,8 @@ In pursuit of this commitment to innovation, we opted for a trade-off among mult
 
 > [!NOTE]
 > Other than the traditional–slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.
-> The aforementioned paradigms, in fact, only usually reflect the number of ^^instructions^^ used by the processor among other things such as : the sequence for execution (also known as ^^pipeline^^) or ^^register^^ usage.
-> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.
+> The aforementioned paradigms, in fact, only usually reflect the number of instructions used by the processor among other things such as : the sequence for execution (also known as pipeline) or register usage.<br>
+> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.<br>
 > This is why we decided to widen our research field to pick from a large range of features and architectural decisions, which are presented in the benchmark (see appendix or link above)
 
 ### 4.1 Registers
