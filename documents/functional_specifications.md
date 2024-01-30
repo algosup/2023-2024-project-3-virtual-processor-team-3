@@ -210,7 +210,13 @@ P.S.: The school might give us more/less time to work on the project.
 
 ### 3.1 Novice Programmers
 
-As we aim to be an educational project, novice programmers are our main focus.
+As our aim is for the project to be educational, novice programmers are our main focus.
+
+They are separated as followed:
+|The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
+|<img src="/documents/img/functional_specifications/promising_kid.png"></>|<img src="/documents/img/functional_specifications/student1.png"></>|<img src=""></>|
+|Age up to 17|Age 18-30|Age 30+|
+||||
 
 ## 4. Virtual Processor Architecture
   
