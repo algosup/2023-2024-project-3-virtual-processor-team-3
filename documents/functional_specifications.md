@@ -79,6 +79,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
 | 32-bit Virtual Processor with 32 Registers | A virtual processor with a 32-bit architecture and 32 registers for storing data during program execution. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
+| Instruction| |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
 | RISC Approach and RISC-V Architecture    | Reduced Instruction Set Computing (RISC) is an architecture that uses a small, highly optimized set of instructions. RISC-V is an open-source RISC architecture. |
@@ -92,6 +93,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | Loader, Execution Unit                    | Components of a virtual machine or processor responsible for loading programs and executing instructions.   |
 | Plugin for Visual Studio Code             | An extension or add-on software module designed to enhance functionality in the Visual Studio Code editor. |
 | Color Highlighting, Snippets              | Features related to programming and code editing, providing visual enhancements and code shortcuts.        |
+| Ahead of Time Compilation| It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
+| Pipeline| An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
+| ISA| ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
 
 
 
@@ -495,6 +499,10 @@ This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 
 
 ## 6. From ALGORISK assembly to executable
 
+Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that  our code must be fully optimized before assembly into machine code.
+
+It makes sense for us to use an ahead of time compilation strategy which usually means more complex compilation/assembly of the program, but faster runtime execution.
+
 ### 6.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
@@ -729,9 +737,6 @@ The displayed registers or memory addresses are updated after each instruction.
 *The graphical debugger is a nice to have feature that will be implemented if time allows it. This also means that this section of the document specifying what it will contain will be clarified in the coming weeks according to what is and isn't feasible.*
 
 The graphical debugger as its name suggests is a debugger with a graphical interface. It is a more user-friendly version of the console debugger and aims to beginners. It shows step by step how the virtual processor handles each instruction by showing how the registers and memory are used and updated after each instruction. 
-
-Currently, we have identified an existing graphical debugger for a virtual processor that could serve as a foundation or, at the very least, inspiration for our own. \
-It is named [emulsiV](https://eseo-tech.github.io/emulsiV/) and is intended to be used as a tool for teaching the basics of computer architecture .
 
 ## 8. Plugin
 
