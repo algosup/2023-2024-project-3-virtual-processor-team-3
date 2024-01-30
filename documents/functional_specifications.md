@@ -223,6 +223,14 @@ They are separated as followed:
 |Age up to 17|Age 18-30|Age 30+|
 |Debugger/Visual Processor is crucial for them since they have less capacity for abstraction<br>The Language reference/doc must be printable, or accessible from the debugger<br>Having a one click install and example programs, and recommend them a development environment and our own toolchain if they don't code in the debugger or if the debugger doesn't support coding inline|The Documentation must be easy to browse and extensive, for frequent reference.<br>A manual installation should be available as well.<br>Should have a high level overview of how a processor works and how our architecture differs from other architectures.|Reads all the documentation so it must be clear and concise<br>Generally the same as Student but will likely use more documentation too.|
 
+### 3.2 The Enthusiasts 
+
+|<p align="center">The RISC-V Script Kiddie</p>|<p align="center">The Level 2 Student</p>|<p align="center">The Open Source Enthusiast</p>|
+|---|---|---|
+|<p align="center"><img width="150px" src="/documents/img/functional_specifications/script_kiddie.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student2.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/company_instructor.png"></p>|
+|Age 11 to 18|Age 18 to 35|Age 35+|
+|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures<br>Will master the language and specs faster<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications<br>Needs developmental features (Debugger, State of Pipeline, Register)|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix)|
+
 ## 4. Virtual Processor Architecture
   
 Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
