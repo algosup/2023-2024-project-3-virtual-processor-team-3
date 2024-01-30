@@ -747,13 +747,13 @@ To continue in this willingness to make programming and computer science more ac
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
-$\color{006EB3}{\textsf{Sections: \#006EB3}}$ \
-$\color{4EC3E0}{\textsf{Instructions: \#4EC3E0}}$ \
-$\color{FF6720}{\textsf{Labels: \#FF6720}}$ \
-$\color{250E62}{\textsf{Destination register: \#250E62}}$ \
-$\color{E0004D}{\textsf{Immediates: \#E0004D}}$ \
-$\color{FCE300}{\textsf{Memory addresses: \#FCE300}}$ \
-$\color{7f7f7f}{\textsf{Register operands: \#FFFFFF or \#000000 (depending on the background color)}}$
+$\color{006EB3}{\textsf{Sections: 006EB3}}$ \
+$\color{4EC3E0}{\textsf{Instructions: 4EC3E0}}$ \
+$\color{FF6720}{\textsf{Labels: FF6720}}$ \
+$\color{250E62}{\textsf{Destination register: 250E62}}$ \
+$\color{E0004D}{\textsf{Immediates: E0004D}}$ \
+$\color{FCE300}{\textsf{Memory addresses: FCE300}}$ \
+$\color{7f7f7f}{\textsf{Register operands: FFFFFF or 000000 (depending on the background color)}}$
 
 ### 8.2 Auto-completion
 
