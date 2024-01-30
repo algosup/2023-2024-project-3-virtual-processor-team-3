@@ -208,6 +208,9 @@ P.S.: The school might give us more/less time to work on the project.
 
 ## 3. Personas
 
+### 3.1 Novice Programmers
+
+As we aim to be an educational project, novice programmers are our main focus.
 
 ## 4. Virtual Processor Architecture
   
