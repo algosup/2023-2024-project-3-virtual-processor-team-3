@@ -66,7 +66,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
   - [8.3 Snippets](#83-snippets)
 - [9. Conclusion](#9-conclusion)
     - [Authors](#authors)
-    - [Aknowledgements](#aknowledgements)
+    - [Acknowledgements](#acknowledgements)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
     - [Sources](#sources)
@@ -145,7 +145,7 @@ We want beginners to learn how a computer works at a low level, without being di
 | Technical Specifications Document  | Document (markdown) | 09/02/2024   | [TechnicalSpecifications.md](./TechnicalSpecifications.md) |
 | Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports](./Management/weekly_report/)                          |
 | Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./Testing/test_plan.md)              |
-| Final Product                      | C file         | 23/02/2024   |                                                              |
+| Final Product                      | Executable and/or a C file         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
 
@@ -810,7 +810,7 @@ Contributors: [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa
 <details>
 <summary>
 
-#### Aknowledgements
+#### Acknowledgements
 
 </summary>
 
