@@ -270,9 +270,9 @@ The primary concern for choosing and designing our processor architecture were:
 - An architecture in line with the current state of the market.
 - An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spending too much time learning about it.
   
-Since most of our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
+Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
 
-We have gathered information on many known computer architectures, from the 60's until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
+After gathering information on many known computer architectures, from the 60's until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), we found that the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
 
 This benchmark has been made considering numerous factors (more or less ordered from most important to least important). Those factors are (but not limited to):
 
