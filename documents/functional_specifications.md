@@ -36,6 +36,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 - [3. Personas](#3-personas)
   - [3.1 Novice Programmers](#31-novice-programmers)
   - [3.2 The Enthusiasts](#32-the-enthusiasts)
+  - [3.3 The Professional](#33-the-professional)
 - [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
   - [4.1 Registers](#41-registers)
   - [4.2 ALU](#42-alu)
@@ -75,9 +76,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | Term                                     | Definition                                                                                                    |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | Virtual Processor                       | A virtual processor is a software-based emulation of a physical processor.                                     |
-| lexer                              | A program that verifies 
+| Lexer                              | A program that performs lexical analysis, converting a sequence of characters into a sequence of tokens.      |
 | Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
-| 32-bit Virtual Processor with 32 Registers | A virtual processor with a 32-bit architecture and 32 registers for storing data during program execution. |
+| 32-bit Virtual Processor | A virtual processor that uses 32-bit instructions and data. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
@@ -751,7 +752,8 @@ The plugin highlights each type of keyword with a different color. This allows t
 
 #### ➭ <ins>8.5.2 Auto-completion</ins>
 
-Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
+Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code) to try and guess what the user is typing. \
+The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
 For instance:
 
 ```
@@ -763,7 +765,9 @@ addi
 
 #### ➭ <ins>8.5.3 Snippets</ins>
 
-Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. The user only needs to fill out the blanks afterward to parse the required parameters.
+Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. \
+Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. \
+The user only needs to fill out the blanks afterward to parse the required parameters.
 
 ```
 add -> *user presses tab*
@@ -772,7 +776,11 @@ add [rd], [r1], [r2]
 
 ## 9. Conclusion
 
-It's always important to remember that this document is not immutable. It will undergo changes and evolve based on the client's requirements and the project's own development.
+To conclude, this document is a first draft of the functional specifications of the ALGORISK processor. It's always important to remember that this is a living document. It will undergo changes and evolve based on the client's requirements and the project's own development.
+
+Providing our perfect architecture means for us to make it as accessible as possible to everyone. Vulgarizing by visual means is a great way to make people understand complex concepts such as how a processor work. \
+External tools such as the debugger and the plugin are paramount in order to achieve this goal. 
+
 
 ## 10. Appendix
 
