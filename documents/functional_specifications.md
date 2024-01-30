@@ -252,6 +252,9 @@ Our CSRs are:
 This processor also contains an ALU (Arithmetic Logic Unit) which will be a versatile unit performing all the operations. It plays a central role in executing assembly instructions, ensuring flexibility and efficiency across diverse tasks.
 
 ### 4.3 Memory
+
+Every processor needs a certain amount of memory to operate. Thus we chose to allow up to 2 megabyte. We chose this number to allow users to use the memory freely and to not overload the computer our virtual cpu is running on.
+
 ## 5. Assembly Language
 
 ### 5.1 Sections
