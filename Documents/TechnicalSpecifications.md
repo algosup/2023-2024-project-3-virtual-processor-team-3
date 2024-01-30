@@ -11,8 +11,14 @@ ___
 
 
 <details>
-<summary style="font-size:1.2em; font-weight:bold;">Table of content</summary>
 
+<summary>
+
+## Table of content
+
+</summary>
+
+- [Table of content](#table-of-content)
 - [0. Last reviewer](#0-last-reviewer)
 - [1. Introduction](#1-introduction)
   - [1.1 Project goal](#11-project-goal)
