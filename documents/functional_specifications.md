@@ -262,11 +262,39 @@ Our tertiary focus, since our project doesn't adhere to all the specifications o
 |Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Difference from what they know need to be clear from the get go.<br> Dependencies of the program have to be very clear.|
 
 ## 4. Virtual Processor Architecture
-  
-Our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
 
-After comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions. \
+The primary concern for choosing and designing our processor architecture were:
+
+- An open architecture that we could use and implement without asking for permission.
+- A simple and regular instruction set, yet complete enough to serve as a target for a C compiler.
+- An architecture in line with the current state of the market.
+- An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spending too much time learning about it.
+  
+Since most of our intended audience consists of beginners without expertise in intricate operations and instructions. Hence, we embrace the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
+
+We have gathered information on many known computer architectures, from the 60's until today.
+
+After comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
+
+This aforementioned benchmark has been made considering numerous factors (more or less ordered from most important to least important).
+
+The factors that were taken into consideration are (but not limited to):
+- Licensing
+- Design
+- Type
+- Bits
+- Registers (Excluding FP/Vector)
+- Endianness
+- Pipelining and execution Strategy
+- Micro-Code (aka firmware - induces variable length instructions)
+
 In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive, primarily drawing inspiration from RISC-V.
+
+> [!NOTE]
+> Other than the traditional–slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.
+> The aforementioned paradigms, in fact, only usually reflect the number of ^^instructions^^ used by the processor among other things such as : the sequence for execution (also known as ^^pipeline^^) or ^^register^^ usage.
+> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.
+> This is why we decided to widen our research field to pick from a large range of features and architectural decisions, which are presented in the benchmark (see appendix or link above)
 
 ### 4.1 Registers
 
