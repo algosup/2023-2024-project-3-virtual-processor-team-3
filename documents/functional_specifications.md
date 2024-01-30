@@ -52,9 +52,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29
     - [➭ 6.4.4 System calls](#-644-system-calls)
 - [7. Debugger](#7-debugger)
 - [8. Plugin](#8-plugin)
-    - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
-    - [➭ 8.5.2 Auto-completion](#-852-auto-completion)
-    - [➭ 8.5.3 Snippets](#-853-snippets)
+    - [➭ 8.1 Color highlighting](#-81-color-highlighting)
+    - [➭ 8.2 Auto-completion](#-82-auto-completion)
+    - [➭ 8.3 Snippets](#-83-snippets)
 - [9. Conclusion](#9-conclusion)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
@@ -218,10 +218,10 @@ As our aim is for the project to be educational, novice programmers are our main
 They are separated as followed:
 
 |The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
-|---|---|---|
-|<p><img width="20px" src="/documents/img/functional_specifications/promising_kid.png"></p>|<p><img width="20px" src="/documents/img/functional_specifications/student1.png"></p>|<p><img  width="20px" src="/documents/img/functional_specifications/code_daddy.png"></p>|
+|:---|:---|:---|
+|<p align="center"><img width="150px" src="/documents/img/functional_specifications/promising_kid.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student1.png"></p>|<p align="center"><img  width="150px" src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
-|KID|STUD|DADDY|
+|Debugger/Visual Processor is crucial for them since they have less capacity for abstraction<br>The Language reference/doc must be printable, or accessible from the debugger<br>Having a one click install and example programs, and recommend them a development environment and our own toolchain if they don't code in the debugger or if the debugger doesn't support coding inline|The Documentation must be easy to browse and extensive, for frequent reference.<br>A manual installation should be available as well.<br>Should have a high level overview of how a processor works and how our architecture differs from other architectures.|Reads all the documentation so it must be clear and concise<br>Generally the same as Student but will likely use more documentation too.|
 
 ## 4. Virtual Processor Architecture
   
@@ -642,7 +642,7 @@ The registers or the memory addresses that are displayed change depending on whi
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-#### ➭ <ins>8.5.1 Color highlighting</ins>
+#### ➭ <ins>8.1 Color highlighting</ins>
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
@@ -654,9 +654,9 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
-#### ➭ <ins>8.5.2 Auto-completion</ins>
+#### ➭ <ins>8.2 Auto-completion</ins>
 
-Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
+Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. To apply what he wishes, the user needs to press the key "tab", and fill out the blank in the instructions. The user is now free to continue to code. \
 For instance:
 
 ```
@@ -666,7 +666,7 @@ ad -> proposes: add, addi
 addi
 ```
 
-#### ➭ <ins>8.5.3 Snippets</ins>
+#### ➭ <ins>8.3 Snippets</ins>
 
 Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. The user only needs to fill out the blanks afterward to parse the required parameters.
 
