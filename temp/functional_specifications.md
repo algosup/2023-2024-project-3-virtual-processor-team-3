@@ -141,7 +141,7 @@ We want beginners to learn how a computer works at a low level, without being di
 | Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./technical_specifications.md)  |
 | Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports/](./weekly_reports/)                          |
 | Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./quality_assurance/test_plan.md)              |
-| Final Product                      | TODETERMINE         | 23/02/2024   |                                                              |
+| Final Product                      | C file         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
 
@@ -455,10 +455,10 @@ By providing too few instructions, it would mean that some operations would not 
 | | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type | 101 | |
 | | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type | 101 | 0100000 |
 | | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type | 101 | |
-| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt rd, r1, r2` | I-Type | 010 | |
-| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti rd, r1, immediate` | I-Type | 010 | |
-| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu rd, r1, r2` | I-Type | 011 | |
-| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui rd, r1, immediate` | I-Type | 011 | |
+| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt? rd, r1, r2` | I-Type | 010 | |
+| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti? rd, r1, immediate` | I-Type | 010 | |
+| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu? rd, r1, r2` | I-Type | 011 | |
+| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui? rd, r1, immediate` | I-Type | 011 | |
 | | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type | 001 | |
 | | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type | 101 | |
 | | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type | 011 | |
