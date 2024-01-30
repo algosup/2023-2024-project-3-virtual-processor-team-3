@@ -35,6 +35,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
 - [3. Personas](#3-personas)
   - [3.1 Novice Programmers](#31-novice-programmers)
+  - [3.2 The Enthusiasts](#32-the-enthusiasts)
 - [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
   - [4.1 Registers](#41-registers)
   - [4.2 ALU](#42-alu)
@@ -56,6 +57,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
     - [➭ 6.4.3 Exception handling](#-643-exception-handling)
     - [➭ 6.4.4 System calls](#-644-system-calls)
 - [7. Debugger](#7-debugger)
+  - [7.1 Console Debugger](#71-console-debugger)
+  - [7.2 Graphical Debugger](#72-graphical-debugger)
 - [8. Plugin](#8-plugin)
     - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
     - [➭ 8.5.2 Auto-completion](#-852-auto-completion)
@@ -203,18 +206,18 @@ The development phase requires prior understanding of the target technologies de
 
 #### ➭ <ins>2.4.4 Resources/Help/Financial plan</ins>
 
-=> The team (6 people)
+- The team (6 people)
 
-=> 414 working hours: 3 hours of work in a half day, 6 team members, 23 half days until the release of the final product (working hours on personal time not included) \
-P.S.: The school might give us more/less time to work on the project.
+- 414 working hours: 3 hours of work in a half day, 6 team members, 23 half days until the release of the final product (working hours on personal time not included) \
+P.S. The school might give us more/less time to work on the project.
 
-=> 1 computer per team member
+- 1 computer per team member
 
-=> Teachers
+- Teachers
 
-=> ALGOSUP's library
+- ALGOSUP's library
 
-=> Similars projects on the internet
+- Similars projects on the internet
 
 #### ➭ <ins>2.4.5 Assumptions/Constraints</ins>
 
@@ -644,6 +647,8 @@ System calls (syscall) allow the ALGORISK program to interact with the underlyin
 
 ## 7. Debugger
 
+### 7.1 Console Debugger
+
 To detect unintended behavior in the code, a debugger is incorporated.
 
 During debugger execution, it processes the code until it encounters a breakpoint, set in our language using the break instruction. \
@@ -666,9 +671,8 @@ line 5    add r4, r3, r0
 
 In this example, the break instruction is used to verify what is happening from line 4. The user puts a break before the line and launches the debugger.
 
-The debugger then displays the state and content of the registers and the memory before the instruction at line 4 is executed. This makes it easier for the user to track where they are in the program.
-
-The next step involves creating a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also displayed. This makes it easier for the user to track where they are in the program.
+The debugger showcases the contents stored in the registers and the segment of memory at the current line, both before and after the instruction at that line, from the breakpoint to the program's end or until the user manually halts the program. \
+This makes it easier for the user to track where they are in the program.
 
 **Memory**
 
@@ -683,10 +687,17 @@ The next step involves creating a more complete graphical interface. In this int
 |---------|---------|
 | r1      | 3       |
 | r2      | 4       |
-| r3      | 7       |
-| r4      | 7       |
 
-The displayed registers or memory addresses change depending on which one is being used.
+The displayed registers or memory addresses are updated after each instruction. 
+
+### 7.2 Graphical Debugger
+
+*The graphical debugger is a nice to have feature that will be implemented if time allows it. This also means that this section of the document specifying what it will contain will be clarified in the coming weeks according to what is and isn't feasible.*
+
+The graphical debugger as its name suggests is a debugger with a graphical interface. It is a more user-friendly version of the console debugger and aims to beginners. It shows step by step how the virtual processor handles each instruction by showing how the registers and memory are used and updated after each instruction. 
+
+Currently, we have identified an existing graphical debugger for a virtual processor that could serve as a foundation or, at the very least, inspiration for our own. \
+It is named [emulsiV](https://eseo-tech.github.io/emulsiV/) and is intended to be used as a tool for teaching the basics of computer architecture .
 
 ## 8. Plugin
 
