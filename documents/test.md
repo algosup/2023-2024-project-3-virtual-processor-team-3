@@ -4,7 +4,7 @@
 <h1 align="center"> Functional Specifications </h1>
 
 <p align="center"> 
-Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30/01/2024
+Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29/01/2024
 </p>
 
 <details>
@@ -38,7 +38,6 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 - [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
   - [4.1 Registers](#41-registers)
   - [4.2 ALU](#42-alu)
-  - [4.3 Memory](#43-memory)
 - [5. Assembly Language](#5-assembly-language)
   - [5.1 Sections](#51-sections)
   - [5.2 Instruction types and binary formats](#52-instruction-types-and-binary-formats)
@@ -236,21 +235,10 @@ As our aim is for the project to be educational, novice programmers are our main
 
 They are separated as followed:
 
-|<p width="20px" align="center">The Promising Kid</p>|<p align="center">The Computer Science Student</p>|<p align="center">Never-too-late-for-taking-RISCS</p>|
-|---|---|---|
-|<p align="center"><img width="150px" src="/documents/img/functional_specifications/promising_kid.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student1.png"></p>|<p align="center"><img  width="150px" src="/documents/img/functional_specifications/code_daddy.png"></p>|
+|The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
+|<p><img width="20px" src="/documents/img/functional_specifications/promising_kid.png"></p>|<p><img width="20px" src="/documents/img/functional_specifications/student1.png"></p>|<p><img  width="20px" src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
-|Debugger/Visual Processor is crucial for them since they have less capacity for abstraction<br>The Language reference/doc must be printable, or accessible from the debugger<br>Having a one click install and example programs, and recommend them a development environment and our own toolchain if they don't code in the debugger or if the debugger doesn't support coding inline|The Documentation must be easy to browse and extensive, for frequent reference.<br>A manual installation should be available as well.<br>Should have a high level overview of how a processor works and how our architecture differs from other architectures.|Reads all the documentation so it must be clear and concise<br>Generally the same as Student but will likely use more documentation too.|
-
-### 3.2 The Enthusiasts 
-
-Our second focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
-
-|<p align="center">The RISC-Y Script Kiddie</p>|<p align="center">The Level 2 Student</p>|<p align="center">The Open Source Enthusiast</p>|
-|---|---|---|
-|<p align="center"><img width="150px" src="/documents/img/functional_specifications/script_kiddie.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student2.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/open_source_guy.png"></p>|
-|Age 11 to 18|Age 18 to 35|Age 35+|
-|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures<br>Will master the language and specs faster<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications<br>Needs developmental features (Debugger, State of Pipeline, Register)|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix<br>They are a vector for promoting the project<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing|
+|KID|STUD|DADDY|
 
 ## 4. Virtual Processor Architecture
   
@@ -280,10 +268,6 @@ Our CSRs are:
 ### 4.2 ALU
 
 This processor also contains an ALU (Arithmetic Logic Unit) which will be a versatile unit performing all the operations. It plays a central role in executing assembly instructions, ensuring flexibility and efficiency across diverse tasks.
-
-### 4.3 Memory
-
-Every processor needs a certain amount of memory to operate. Thus we chose to allow up to 2 megabyte. We chose this number to allow users to use the memory freely and to not overload the computer our virtual cpu is running on.
 
 ## 5. Assembly Language
 
@@ -464,7 +448,7 @@ The preprocessor is a quick step where the C program will divide the assembly co
 Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. \
 Meaning, everything declared in `.data` (usually variables) will be allocated in memory to be used later in the code section. \
 
-After completing the preprocessing of the data section and initialising variables, the next step involves preprocessing the `.code` section. This section contains all the instructions where user-defined operations are conveyed to the processing unit. Since variables have already been initialised and stored in memory, they can be reused within the code section. \
+After completing the preprocessing of the data section and initialising variables, the next step involves preprocessing the `.code` section. This section contains all the instructions where user-defined operations are conveyed to the processing unit. Since variables have already been initialised and stored in memory, they can be reused within the code section.
 During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will then be ignored throughout all the remaining processes.
 
 ```
@@ -644,15 +628,13 @@ System calls (syscall) allow the ALGORISK program to interact with the underlyin
 
 ## 7. Debugger
 
-To detect unintended behavior in the code, a debugger is incorporated.
+To spot unintentional behavior of the code, a debugger is implemented.
 
-During debugger execution, it processes the code until it encounters a breakpoint, set in our language using the break instruction. \
-From the breakpoint up to the program's end or until the user manually halts the program, the debugger displays the contents stored in the registers and the segment of memory used at the current line both before and after the instruction at that line. \
-To proceed to the next line, the user must press a key, such as Enter or the Spacebar. The displayed information is intentionally limited to the state of registers and memory, avoiding overwhelming the user with excessive details.
+During debugger execution, it processes the code until it encounters a breakpoint, which, in our language, is set using the break instruction. Starting from the breakpoint up to the program's end or until the user manually halts the program, the debugger showcases the contents stored in the registers and the segment of memory used at the current line both before and after the instruction at that line.
 
-**Example:**
+To proceed to the next line, the user must press a key, such as Enter or the Spacebar. The displayed information is limited to the state of registers and memory, intentionally avoiding overwhelming the user with excessive details.
 
-```assembly
+```
 // code
 
 line 1    addi, r1, r0, 3
@@ -664,29 +646,40 @@ line 5    add r4, r3, r0
 // code
 ```
 
-In this example, the break instruction is used to verify what is happening from line 4. The user puts a break before the line and launches the debugger.
+The example above is how the break instruction should be used. In this scenario, the user wants to verify what is happening from the line 4. \
+They put a break before the line and launch the debugger. The debugger then displays the state of the registers and what they contain, instruction per instruction. \
+This is what the debugger displays in the terminal.
 
-The debugger then displays the state and content of the registers and the memory before the instruction at line 4 is executed. This makes it easier for the user to track where they are in the program.
+```
+r3 = 7, r1 = 3, r2 =4
+r4 = 7, r3 = 7
+```
 
-The next step involves creating a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also displayed. This makes it easier for the user to track where they are in the program.
+As what is presented above is a very minimal debugger, the next step is to create a more complete graphical interface. In this interface, in addition to the state of the registers, the memory is also display. This makes it easier for the user to track where he is in the program.
 
 **Memory**
 
-| Address | Content          |
-|---------|------------------|
-| 1       | add r3, r1, r2   |
-| 2       | add r4, r3, r0   |
+| Address | Content |
+|---|---|
+| 1 | add r3, r1, r2 |
+| 2 | add r4, r3, r0 |
+| 3 | null |
+| ... | ... |
+| 65,536 | null 
 
 **Registers**
 
-| Address | Content |
-|---------|---------|
-| r1      | 3       |
-| r2      | 4       |
-| r3      | 7       |
-| r4      | 7       |
+| Address | Content |
+|---|---|
+| r1 | 3 |
+| r2 | 4 |
+| r3 | 7 |
+| r4 | 7 |
+| r5 | null |
+| ... | ... |
+| r31 | null |
 
-The displayed registers or memory addresses change depending on which one is being used.
+The registers or the memory addresses that are displayed change depending on which one is being used.
 
 ## 8. Plugin
 
