@@ -252,13 +252,13 @@ They are separated as followed:
 
 ### 3.2 The Enthusiasts 
 
-Our second focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
+Our secondary focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
 
 |<p align="center">The RISC-Y Script Kiddie</p>|<p align="center">The Level 2 Student</p>|<p align="center">The Open Source Enthusiast</p>|
 |---|---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/script_kiddie.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student2.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/open_source_guy.png"></p>|
 |Age 11 to 18|Age 18 to 35|Age 35+|
-|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix.<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
+|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix.)<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
 
 ### 3.3 The Professional
 
@@ -267,7 +267,7 @@ Our tertiary focus, since our project doesn't adhere to all the specifications o
 |The Company Instructor|The IOT Nerd|
 |---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/company_instructor.png"><p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/iot_woman.png"><p>|
-|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Difference from what they know need to be clear from the get go.<br> Dependencies of the program have to be very clear.|
+|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Differences from what they know need to be clear from the get go.<br> Project dependencies must be very clear.|
 
 ## 4. Virtual Processor Architecture
 
@@ -278,7 +278,7 @@ The primary concern for choosing and designing our processor architecture were:
 - An architecture in line with the current state of the market.
 - An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spending too much time learning about it.
   
-Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
+Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
 
 After gathering information on many known computer architectures, from the 60's until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), we found that the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
 
@@ -293,12 +293,12 @@ This benchmark has been made considering numerous factors (more or less ordered 
 - Pipelining and execution Strategy
 - Micro-Code (aka firmware - induces variable length instructions)
 
-In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive, primarily drawing inspiration from RISC-V.
+In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive and custom-made one, primarily drawing inspiration from RISC-V.
 
 > [!NOTE]
-> Other than the traditional–slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
+> Other than the traditional–and slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
 > The aforementioned paradigms, in fact, only usually reflect the number of instructions used by the processor among other things such as : the sequence for execution (also known as pipeline) or register usage.<br><br>
-> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.<br><br>
+> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding us.<br><br>
 > This is why we decided to widen our research field to pick from a large range of features and architectural decisions, which are presented in the benchmark (see appendix or link above)
 
 ### 4.1 Registers
