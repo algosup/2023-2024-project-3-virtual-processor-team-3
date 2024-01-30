@@ -52,7 +52,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29
 - [7. Debugger](#7-debugger)
 - [8. Plugin](#8-plugin)
     - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
-    - [➭ 8.5.2 Snippets](#-852-snippets)
+    - [➭ 8.5.2 Auto-completion](#-852-auto-completion)
+    - [➭ 8.5.3 Snippets](#-853-snippets)
 - [9. Conclusion](#9-conclusion)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
@@ -215,9 +216,9 @@ As our aim is for the project to be educational, novice programmers are our main
 
 They are separated as followed:
 |The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
-|<img src="/documents/img/functional_specifications/promising_kid.png"></>|<img src="/documents/img/functional_specifications/student1.png"></>|<img src=""></>|
+|<p><img src="/documents/img/functional_specifications/promising_kid.png"></></p>|<p><img src="/documents/img/functional_specifications/student1.png"></p>|<p><img src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
-||||
+|KID|STUD|DADDY|
 
 ## 4. Virtual Processor Architecture
   
@@ -595,7 +596,6 @@ Exception handling involves transferring control to specific exception handlers,
 | Floating-Point | Related to floating-point arithmetic operations, includes conditions like overflow, underflow, and invalid operations. | The processor monitors floating-point operations and raises exceptions when exceptional conditions occur. |
 | Machine Check | Indicates a hardware error or malfunction detected by the processor. | The processor responds to machine check exceptions by triggering error handling mechanisms and halting or signaling the system. |
 
-
 #### ➭ <ins>6.4.4 System calls</ins>
 
 System calls (syscall) allow the ALGORISK program to interact with the underlying operating system. When a syscall instruction is encountered, the processor transfers control to the operating system, which then executes the necessary system call routine. This enables tasks such as file I/O, network communication, or other interactions with the environment.
@@ -631,6 +631,7 @@ As what is presented above is a very minimal debugger, the next step is to creat
 |add r3, r1, r2|r1|3|
 |addi r4, r3, 0|r2|4|
 |...|r3|7|
+
 The registers or the memory addresses that are displayed change depending on which one is being used.
 
 ## 8. Plugin
@@ -649,10 +650,26 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
+#### ➭ <ins>8.5.2 Auto-completion</ins>
 
-#### ➭ <ins>8.5.2 Snippets</ins>
+Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
+For instance:
 
-TODO:
+```
+ad -> proposes: add, addi
+-> *user presses tab on the desired proposition*
+
+addi
+```
+
+#### ➭ <ins>8.5.3 Snippets</ins>
+
+Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. The user only needs to fill out the blanks afterward to parse the required parameters.
+
+```
+add -> *user presses tab*
+add [rd], [r1], [r2]
+```
 
 ## 9. Conclusion
 
