@@ -61,9 +61,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
   - [7.1 Console Debugger](#71-console-debugger)
   - [7.2 Graphical Debugger](#72-graphical-debugger)
 - [8. Plugin](#8-plugin)
-    - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
-    - [➭ 8.5.2 Auto-completion](#-852-auto-completion)
-    - [➭ 8.5.3 Snippets](#-853-snippets)
+  - [8.1 Color Higlighting](#81-color-higlighting)
+  - [8.2 Auto-completion](#82-auto-completion)
+  - [8.3 Snippets](#83-snippets)
 - [9. Conclusion](#9-conclusion)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
@@ -75,30 +75,30 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 
 | Term                                     | Definition                                                                                                    |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Processor                              | A processor is the logic circuitry that responds to and processes the basic instructions that drive a computer. |
 | Virtual Processor                       | A virtual processor is a software-based emulation of a physical processor.                                     |
-| Lexer                              | A program that performs lexical analysis, converting a sequence of characters into a sequence of tokens.      |
-| Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
+| ALU (Arithmetic Logic Unit)               | A component of a computer processor responsible for performing arithmetic and logic operations.             |
 | 32-bit Virtual Processor | A virtual processor that uses 32-bit instructions and data. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
-| Instruction| |
+| Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
+| Instruction| A single operation performed by a processor, expressed as a binary code. |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
 | RISC Approach and RISC-V Architecture    | Reduced Instruction Set Computing (RISC) is an architecture that uses a small, highly optimized set of instructions. RISC-V is an open-source RISC architecture. |
-| ALU (Arithmetic Logic Unit)               | A component of a computer processor responsible for performing arithmetic and logic operations.             |
-| Registers (`pc`, `ir`, `csr`)             | Processor registers, including `pc` (program counter), `ir` (instruction register), and `csr` (control and status register). |
 | Opcode, Funct3, Funct7, Immediate Value   | Terms related to assembly language instruction sets, specifying operations and values for execution.        |
 | Binary Representation                     | The representation of data and instructions using binary code, consisting of 0s and 1s.                      |
-| Preprocessor, lexer, Assembler      | Stages in the programming or compilation process: preprocessing, interpreting, and assembling code.        |
-| Syntax Error, Operand Error               | Programming errors related to incorrect code structure or invalid data for an operation.                    |
-| System Calls, Exception Handling          | Advanced programming concepts involving interactions with the operating system and handling unexpected errors. |
-| Loader, Execution Unit                    | Components of a virtual machine or processor responsible for loading programs and executing instructions.   |
-| Plugin for Visual Studio Code             | An extension or add-on software module designed to enhance functionality in the Visual Studio Code editor. |
+| Preprocessor, Lexer, Assembler, Loader      | Stages in the programming or compilation process: preprocessing, interpreting, and assembling code.        |
+| Preprocessor | A program that processes its input data to produce output that is used as input to another program. |
+| Lexer | A program that performs lexical analysis, converting a sequence of characters into a sequence of tokens. |
+| Assembler | A program that converts assembly language into machine code. |
+| Loader | A program that loads executable programs into memory and prepares them for execution. |
+| System Calls | A programmatic way in which a computer program requests a service from the kernel of the operating system it is executed on. |
+| Exception Handling | The process of responding to the occurrence of exceptions – anomalous or exceptional conditions requiring special processing. |
+| Plugin             | A software component that adds a specific feature to an existing computer program.                           |
 | Color Highlighting, Snippets              | Features related to programming and code editing, providing visual enhancements and code shortcuts.        |
 | Ahead of Time Compilation| It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
 | Pipeline| An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
 | ISA| ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
-
-
 
 ## 2. Introduction
 
@@ -743,7 +743,7 @@ The graphical debugger as its name suggests is a debugger with a graphical inter
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-#### ➭ <ins>8.1 Color highlighting</ins>
+### 8.1 Color Higlighting
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
@@ -755,7 +755,7 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
-#### ➭ <ins>8.2 Auto-completion</ins>
+### 8.2 Auto-completion
 
 Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code) to try and guess what the user is typing. \
 The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
@@ -768,7 +768,7 @@ ad -> proposes: add, addi
 addi
 ```
 
-#### ➭ <ins>8.3 Snippets</ins>
+### 8.3 Snippets
 
 Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. \
 Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. \
