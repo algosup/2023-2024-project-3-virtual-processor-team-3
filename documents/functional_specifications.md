@@ -743,7 +743,7 @@ The graphical debugger as its name suggests is a debugger with a graphical inter
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-#### ➭ <ins>8.5.1 Color highlighting</ins>
+#### ➭ <ins>8.1 Color highlighting</ins>
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
@@ -755,7 +755,7 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
-#### ➭ <ins>8.5.2 Auto-completion</ins>
+#### ➭ <ins>8.2 Auto-completion</ins>
 
 Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code) to try and guess what the user is typing. \
 The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
@@ -768,7 +768,7 @@ ad -> proposes: add, addi
 addi
 ```
 
-#### ➭ <ins>8.5.3 Snippets</ins>
+#### ➭ <ins>8.3 Snippets</ins>
 
 Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. \
 Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. \
