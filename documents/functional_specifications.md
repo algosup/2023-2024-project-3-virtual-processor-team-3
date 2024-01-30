@@ -51,9 +51,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29
     - [➭ 6.4.4 System calls](#-644-system-calls)
 - [7. Debugger](#7-debugger)
 - [8. Plugin](#8-plugin)
-    - [➭ 8.5.1 Color highlighting](#-851-color-highlighting)
-    - [➭ 8.5.2 Auto-completion](#-852-auto-completion)
-    - [➭ 8.5.3 Snippets](#-853-snippets)
+    - [➭ 8.1 Color highlighting](#-81-color-highlighting)
+    - [➭ 8.2 Auto-completion](#-82-auto-completion)
+    - [➭ 8.3 Snippets](#-83-snippets)
 - [9. Conclusion](#9-conclusion)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
@@ -640,7 +640,7 @@ The registers or the memory addresses that are displayed change depending on whi
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-#### ➭ <ins>8.5.1 Color highlighting</ins>
+#### ➭ <ins>8.1 Color highlighting</ins>
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
@@ -652,9 +652,9 @@ The plugin highlights each type of keyword with a different color. This allows t
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
 
-#### ➭ <ins>8.5.2 Auto-completion</ins>
+#### ➭ <ins>8.2 Auto-completion</ins>
 
-Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
+Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code.) to try and guess what the user is typing. The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. To apply what he wishes, the user needs to press the key "tab", and fill out the blank in the instructions. The user is now free to continue to code. \
 For instance:
 
 ```
@@ -664,7 +664,7 @@ ad -> proposes: add, addi
 addi
 ```
 
-#### ➭ <ins>8.5.3 Snippets</ins>
+#### ➭ <ins>8.3 Snippets</ins>
 
 Additionally, to emphasize that we are beginner-friendly and make our assembly simpler to use and learn. Our Visual Studio Code extension will come with the functionality to create snippets for the user. Whenever the user writes an instruction, by simply pressing the "tab" key, our program will create the snippet for the user. The user only needs to fill out the blanks afterward to parse the required parameters.
 
