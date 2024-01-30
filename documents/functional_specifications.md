@@ -214,6 +214,7 @@ P.S.: The school might give us more/less time to work on the project.
 As our aim is for the project to be educational, novice programmers are our main focus.
 
 They are separated as followed:
+
 |The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
 |<p><img src="/documents/img/functional_specifications/promising_kid.png"></></p>|<p><img src="/documents/img/functional_specifications/student1.png"></p>|<p><img src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
