@@ -217,7 +217,7 @@ As our aim is for the project to be educational, novice programmers are our main
 
 They are separated as followed:
 
-|<p align="center">The Promising Kid</p>|<p align="center">The Computer Science Student</p>|<p align="center">Never-too-late-for-taking-RISCS</p>|
+|<p max-width="30px" align="center">The Promising Kid</p>|<p align="center">The Computer Science Student</p>|<p align="center">Never-too-late-for-taking-RISCS</p>|
 |---|---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/promising_kid.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student1.png"></p>|<p align="center"><img  width="150px" src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
