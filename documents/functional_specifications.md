@@ -257,6 +257,7 @@ Our second focus is enthusiasts. People who are more knowledgeable about process
 Our tertiary focus, since our project doesn't adhere to all the specifications of the RISC-V standard, but might be helpful for teaching, even in enterprise grounds.
 
 |The Company Instructor|The IOT Nerd|
+|---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/company_instructor.png"><p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/iot_woman.png"><p>|
 |Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Difference from what they know need to be clear from the get go.<br> Dependencies of the program have to be very clear.|
 
