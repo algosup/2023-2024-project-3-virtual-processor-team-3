@@ -29,6 +29,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 29
     - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
 - [3. Personas](#3-personas)
+  - [3.1 Novice Programmers](#31-novice-programmers)
 - [4. Virtual Processor Architecture](#4-virtual-processor-architecture)
   - [4.1 Registers](#41-registers)
   - [4.2 ALU](#42-alu)
@@ -427,7 +428,15 @@ During the whole process, if the preprocessor encounters a comment `\\`, the pre
 \\ This a comment
 ```
 
-TODO:
+Furthermore, if the preprocessor encounters a label, it will save it. When finishing the reading, every jumps leading to a label will be replaced by the label's position.
+
+```
+\\code
+jal r1,MyLabel
+
+MyLabel:
+\\ code
+```
 
 ### 6.2 Interpreter
 
