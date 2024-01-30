@@ -65,6 +65,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
   - [8.2 Auto-completion](#82-auto-completion)
   - [8.3 Snippets](#83-snippets)
 - [9. Conclusion](#9-conclusion)
+    - [Authors](#authors)
+    - [Aknowledgements](#aknowledgements)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
     - [Sources](#sources)
@@ -102,9 +104,11 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 
 ## 2. Introduction
 
+This document defines the functional specifications of the ALGORISK project. Be sure to consult its [updated version](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/functional_specifications.md).
+
 ### 2.1 Overview
 
-This project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter.
+The ALGORISK project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter.
 
 In short, let's create our perfect processor!
 
@@ -138,8 +142,8 @@ We want beginners to learn how a computer works at a low level, without being di
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
 | Functional Specifications Document | Document (markdown) | 30/01/2024   | [functional_specifications.md](./functional_specifications.md) |
-| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./technical_specifications.md)  |
-| Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports/](./weekly_reports/)                          |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [TechnicalSpecifications.md](./TechnicalSpecifications.md) |
+| Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports](./Management/weekly_report/)                          |
 | Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./quality_assurance/test_plan.md)              |
 | Final Product                      | C file         | 23/02/2024   |                                                              |
 
@@ -500,9 +504,11 @@ This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 
 
 ## 6. From ALGORISK assembly to executable
 
-Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that  our code must be fully optimized before assembly into machine code.
+Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that our code must be fully optimized before assembly into machine code.
 
 It makes sense for us to use an ahead of time compilation strategy which usually means more complex compilation/assembly of the program, but faster runtime execution.
+
+It's crucial to clarify that, instead of employing an interpreter for translating our assembly code into machine code, we will break the process down into three steps: preprocessing, lexing, and ultimately assembling.
 
 ### 6.1 Preprocessor
 
@@ -781,11 +787,37 @@ add [rd], [r1], [r2]
 
 ## 9. Conclusion
 
-To conclude, this document is a first draft of the functional specifications of the ALGORISK processor. It's always important to remember that this is a living document. It will undergo changes and evolve based on the client's requirements and the project's own development.
+In conclusion, the ALGORISK project aims to simplify computer science, specifically the inner workings of a processor. It provides an innovative environment for this purpose, including a new processor architecture with a new assembly language, but also external tools.
 
-Providing our perfect architecture means for us to make it as accessible as possible to everyone. Vulgarizing by visual means is a great way to make people understand complex concepts such as how a processor work. \
-External tools such as the debugger and the plugin are paramount in order to achieve this goal. 
+This document is the first version of the functional specifications of the ALGORISK project. It's always important to remember that this is a living document. It will undergo changes and evolve based on the client's requirements and the project's own development.
 
+The project will continue on this repository until February 23, 2024, but may be extended for maintenance or updating purposes.
+
+We welcome contributions, so please feel free to open issues, fork this repository, and submit pull requests.
+
+<details>
+<summary>
+
+#### Authors
+
+</summary>
+
+Main author: [Quentin CLÉMENT](https://www.linkedin.com/in/quentin-cl%C3%A9ment-939110221/) \
+Contributors: [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa12232/), [Aurélien FERNANDEZ](https://www.linkedin.com/in/aur%C3%A9lien-fernandez-4971201b8/), [Mathis KAKAL](https://www.linkedin.com/in/mathis-k-a239ba10a/), [Thibaud MARLIER](https://www.linkedin.com/in/thibaud-marlier/)
+
+</details>
+
+<details>
+<summary>
+
+#### Aknowledgements
+
+</summary>
+
+[ALGOSUP](https://www.algosup.com/) for providing the opportunity to work on this project.
+[Georgios TSATIRIS](https://www.linkedin.com/in/georgios-tsatiris-07286035/) for the C classes and the help he provided.
+
+</details>
 
 ## 10. Appendix
 
@@ -832,11 +864,9 @@ External tools such as the debugger and the plugin are paramount in order to ach
 </summary>
 
 For almost all Architectures:
-https://www.wikipedia.org/
-
+https://www.wikipedia.org/ \
 For Crusoe:
-https://www.pctechguide.com/cpu-technology/crusoe-transmeta-corps-x86-compatible-vliw-mobile-cpu
-
+https://www.pctechguide.com/cpu-technology/crusoe-transmeta-corps-x86-compatible-vliw-mobile-cpu \
 For 8080:
 https://www.elprocus.com/know-about-architecture-of-the-intel-8080-microprocessor/
 
