@@ -214,9 +214,9 @@ As our aim is for the project to be educational, novice programmers are our main
 
 They are separated as followed:
 |The Promising Kid|The Computer Science Student|Never-too-late-for-taking-RISCS|
-|<p><img src="/documents/img/functional_specifications/promising_kid.png"></></p>|<img src="/documents/img/functional_specifications/student1.png"></>|<img src=""></>|
+|<p><img src="/documents/img/functional_specifications/promising_kid.png"></></p>|<p><img src="/documents/img/functional_specifications/student1.png"></p>|<p><img src="/documents/img/functional_specifications/code_daddy.png"></p>|
 |Age up to 17|Age 18-30|Age 30+|
-||||
+|KID|STUD|DADDY|
 
 ## 4. Virtual Processor Architecture
   
