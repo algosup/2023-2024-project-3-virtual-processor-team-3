@@ -169,7 +169,7 @@ These lines are to be added at the end of the body of a commit.
 
    For Github dekstop, the co author can be added by using this:
 
-   <img src="./img/co-authors-demo-hq.gif" height="200vh">
+   <img src="./Img/co-authors-demo-hq.gif" height="200vh">
 
    ```
    commit(:) [*commit hashcode*]
@@ -298,7 +298,7 @@ float floatMultiplication(float x,float y)
 
 For this project we are following the Von Neumann architecture[^6], this architecture defines how a computer system works. It can be represented as the following:
 
-<img src="./img/von_neumann_architecture.png" height="300px">
+<img src="./Img/von_neumann_architecture.png" height="300px">
 
 Since are aiming for an educational purpose, our CPU's architecture, the control unit in the previous image, is different than the most popular architecture (x86, ARM,RISC-V,MIPS,etc).
 
@@ -309,15 +309,15 @@ To translate from Assembly language to machine code[^8] and compile the resultin
 
 This is the flowcharts of the two parsers used for our project:
 
-<img src="./img/parserFC.png" height="900px">
+<img src="./Img/parserFC.png" height="900px">
 
-<img src="./img/parser2FC.png" height="790px">
+<img src="./Img/parser2FC.png" height="790px">
 
 
 Finally the whole parsering flowchart should ressemble to this process:
 
 
-<img src="./img/complete_parserFC.png" height="1150px">
+<img src="./Img/complete_parserFC.png" height="1150px">
 
 
 To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
@@ -404,7 +404,7 @@ The indicators are not necessary for every intruction, in this case they are fil
 
 Here is an example with a multiplication:
 
-<img src="./img/multiplication.png">
+<img src="./Img/multiplication.png">
 
 In case of overflow[^11] or underflow[^12] we are detecting the error before executing it.
 
