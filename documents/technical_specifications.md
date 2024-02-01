@@ -1,4 +1,4 @@
-<div align="left"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left"><a href="../"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Technical specifications </h1>
@@ -450,4 +450,4 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^12]: An underflow is when a value falls below the minimum.
 [^13]: The little endian is the format commonly used by processors to read binary, this format stores the least significant byte at the start, as the contrary of the big endian.
 
-<div align="right"><a href="#table-of-contents"><img src="img/functional_specifications/back.png" width="35px"></a></div>
+<div align="right"><a href="#table-of-content"><img src="img/functional_specifications/back.png" width="35px"></a></div>
