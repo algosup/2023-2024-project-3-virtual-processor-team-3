@@ -41,7 +41,9 @@ ___
   - [5.4 Parsers\[^7\]](#54-parsers7)
   - [5.5 Error handling](#55-error-handling)
   - [5.6 Execution](#56-execution)
-- [6. Maintenance](#6-maintenance)
+- [6. Technical limitations](#6-technical-limitations)
+- [7. risks](#7-risks)
+- [8. Maintenance](#8-maintenance)
   
 </details>
 
@@ -473,7 +475,22 @@ A broader explanation of the different types of instructions is available in the
 
 After the completion of the execution, a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
 
-## 6. Maintenance
+## 6. Technical limitations
+
+We have few limitations for this project, which can be listed as:
+- The exclusive use of <a href="https://en.cppreference.com/w/c/header">standard libraries</a>.
+- The memory available for our virtual CPU and user's program.
+- Performance limitation.
+
+## 7. risks
+
+Along with limitations comes risks which are:
+
+- The limitation in memory may result in higher latency or crashes in worst case scenarios.
+- The use of memory allocation might result in memory leaks if not managed properly.
+- There is a risk our CPU might perform slowly or even crash with enormous assembly programs.
+
+## 8. Maintenance
 
 The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
 
