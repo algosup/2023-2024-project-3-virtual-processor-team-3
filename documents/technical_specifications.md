@@ -23,7 +23,7 @@ ___
 - [1. Introduction](#1-introduction)
   - [1.2 Prior knowledge](#12-prior-knowledge)
 - [2. File architecture](#2-file-architecture)
-- [3.Development environment](#3development-environment)
+- [3. Development environment](#3-development-environment)
 - [4. Conventions](#4-conventions)
   - [4.1 Commits](#41-commits)
     - [4.1.1 Title](#411-title)
@@ -123,7 +123,7 @@ Legend:
 
 The architecture of the project is subject to modification.
 
-## 3.Development environment
+## 3. Development environment
 
 Our team uses multiple machines to work on this project such as:
 
@@ -135,8 +135,7 @@ As for the IDE[^1], out of the six members of our team, five use Visual Studio C
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>, except for names which we are using camelCase.
-We chose these standards because they cover almost every aspect of c.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html"> Mellon University's standards</a>, except for names for which we use camelCase. We chose these standards because they cover almost every aspect of c.
 
 ## 4. Conventions
 
@@ -153,7 +152,7 @@ Commits must be written following these specific rules, most of the rules can be
 
 #### 4.1.1 Title
 
-The title is one of the most important things is a commit, it serves to describe what the commit is about and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
+The title is one of the most important things in a commit, it serves to describe what the commit is about and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
 
 It has to begin with one of the following:
 
@@ -161,7 +160,7 @@ It has to begin with one of the following:
 - "fix:" if the commit fixes a bug encountered after an implementation.
 - "chore:" If the commit is about a routine task, for example, refactoring, it is mostly used for tasks that are neither features nor fixes.
 - "docs:" if the commit is about changes to a document or adding documents.
-- "perf:" if the commit is about optimizing of performances.
+- "perf:" if the commit is about optimizing the performances.
 - "remove:" if the commit removes a feature.
 
 Furthermore, a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb, and the name of the implementation or the name of the file involved.
@@ -173,10 +172,10 @@ The body describes the commit with more details, and as titles, it has to follow
 - Provide context: explain why this change is needed.
 - If possible summarise how changes were applied, notably for implementations, fixes, refactoring, or optimization.
 - Reference issues if needed.
-- Avoid long paragraphs, list what has been done.
-- No jargon without explanations, other contributors must understand the commit.
+- Avoid long paragraphs. Make a list of what has been done.
+- No jargon without explanations. Other contributors must understand commits.
   
-  The body can also contain a few keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the footer section.
+  The body can also contain specific keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the footer section.
 
 #### 4.1.3 Examples
 
@@ -199,7 +198,7 @@ For a fix committed after the previous example:
 ```
 Fix:  overflow with multiplication
 
-fix an issue where the multiplication may create an overflow if the inputs are higher than expected (over a trillion).
+Fix an issue where the multiplication may create an overflow if the inputs are higher than expected (over a trillion).
 
 see commit: 1a2b3c
 
@@ -303,7 +302,7 @@ float floatMultiplication(float x,float y)
 
 ### 5.1 CPU architecture
 
-For this project we are following the Von Neumann architecture[^6], this architecture defines how a computer system works. It can be represented as the following:
+For this project, we are following the Von Neumann architecture[^6]. This architecture defines how a computer system works. It can be represented as the following:
 
 <img src="./img/von_neumann_architecture.png" height="300px">
 
@@ -313,11 +312,11 @@ Our CPU can be used on any system that can use a program using at least 5 Megaby
 
 ### 5.3 Preprocessing
 
-Before going from ALGORISK assembly to machine code we need to use a crucial step, the preprocessing. This step manages core parts of a programming language. The prepocessor has multiple uses in our project:
+Before going from ALGORISK assembly to machine code we need to use a crucial step, the preprocessing. This step manages the core parts of a programming language. The preprocessor  has multiple uses in our project:
 
 - Removing comments from the code.
 - Replacing labels and jumps by positions of the memory.
-- Defining variables set by the user and changes the calls of said variable by it's position in the memory.
+- Defining variables set by the user and changing the calls of said variable by its position in the memory.
   
 Note: The preprocessor does not remove or modify the user's original code.
 
@@ -407,7 +406,7 @@ int detect_instruction(const char *str)
 }
 ```
 
-In case of overflow[^11] or underflow[^12] we are detecting the error before executing it.
+In case of overflow[^11] or underflow[^12], the program detects the error before executing it.
 
 To detect an overflow or an underflow we are using these comparisons:
 
@@ -454,7 +453,7 @@ typedef struct {
 } Error_t;
 ```
 
-For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#-622-operand-error"> functional specifications</a>.
+For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#-622-operand-error">functional specifications</a>.
 
 ### 5.6 Execution
 
@@ -465,7 +464,7 @@ To execute each line of the binary file we are comparing the retrieved 4 bytes t
 - An indicator to identify which operation is required, 3-bit
 - The first source register, 5-bit
 - The second source register, 5-bit
-- A second indicator to encode additional information about the operation, 7 bits
+- A second indicator to encode additional information about the operation, 7-bits
 
 The indicators are not necessarily used in every instruction, in this case, they are filled with 0.
 
@@ -475,16 +474,16 @@ After the completion of the execution, a console will appear, if the user's prog
 
 ## 6. Technical limitations
 
-We have few limitations for this project, which can be listed as:
+We have a few limitations for this project, which can be listed as:
 - The exclusive use of <a href="https://en.cppreference.com/w/c/header">standard libraries</a>.
-- The memory available for our virtual CPU and user's program.
+- The lack of memory available for our virtual CPU and user's program.
 - Performance limitation.
 
 ## 7. risks
 
-Along with limitations comes risks which are:
+Along with limitations come risks which are:
 
-- The limitation in memory may result in higher latency or crashes in worst case scenarios.
+- The limitation in memory may result in higher latency or crashes in worst-case scenarios.
 - The use of memory allocation might result in memory leaks if not managed properly.
 - There is a risk our CPU might perform slowly or even crash with enormous assembly programs.
 
@@ -496,8 +495,8 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify, and delete a repository freely.
 [^3]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
 [^4]: Readability: The ability to read a program without having problems understanding its use or the goal of the functions/variables used.
-[^5]: IDEs that allow this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE, and multiple others.
-[^6]: Von Neumann architecture: The Von Neumann architecture is one of the earliest computer architecture.
+[^5]: IDEs that allow this feature are VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE, and multiple others.
+[^6]: Von Neumann architecture: The Von Neumann architecture is one of the earliest computer architectures.
 [^7]: Parser: A Parser is a program that can split a chain of characters to identify a specific syntax or specific keywords.
 [^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
 [^9]: String: A chain of characters contained in one variable.
