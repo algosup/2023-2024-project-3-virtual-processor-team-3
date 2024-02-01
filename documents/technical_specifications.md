@@ -454,7 +454,7 @@ typedef struct {
 } Error_t;
 ```
 
-For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#-621-instruction-error"> functional specifications</a>.
+For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#➭-622-operand-error"> functional specifications</a>.
 
 ### 5.6 Execution
 
