@@ -4,7 +4,7 @@
 <h1 align="center"> Functional Specifications </h1>
 
 <p align="center"> 
-Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30/01/2024
+Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01/02/2024
 </p>
 
 <details>
@@ -142,7 +142,7 @@ We want beginners to learn how a computer works at a low level, without being di
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
 | Functional Specifications Document | Document (markdown) | 30/01/2024   | [functional_specifications.md](./functional_specifications.md) |
-| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [TechnicalSpecifications.md](./TechnicalSpecifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./TechnicalSpecifications.md) |
 | Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports](./Management/weekly_report/)                          |
 | Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./Testing/test_plan.md)              |
 | Final Product                      | Executable and/or a C file         | 23/02/2024   |                                                              |
