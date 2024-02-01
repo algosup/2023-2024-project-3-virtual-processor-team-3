@@ -1,4 +1,4 @@
-<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left" id="top"><a href="./"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Functional Specifications </h1>
@@ -65,6 +65,8 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
   - [8.2 Auto-completion](#82-auto-completion)
   - [8.3 Snippets](#83-snippets)
 - [9. Conclusion](#9-conclusion)
+    - [Authors](#authors)
+    - [Acknowledgements](#acknowledgements)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
     - [Sources](#sources)
@@ -81,7 +83,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | 32-bit Virtual Processor | A virtual processor that uses 32-bit instructions and data. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
 | Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
-| Instruction| A single operation performed by a processor, expressed as a binary code. |
+| Instruction | A single operation performed by a processor, expressed as a binary code. |
+| Atomic Instruction | An instruction that cannot be interrupted by other instructions. |
+| Interrupt | An asynchronous event or signal that temporarily diverts the processor's normal execution flow to handle a specific task or event, often requiring the processor to save its current state and transfer control to an interrupt service routine. |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
 | RISC Approach and RISC-V Architecture    | Reduced Instruction Set Computing (RISC) is an architecture that uses a small, highly optimized set of instructions. RISC-V is an open-source RISC architecture. |
@@ -96,15 +100,18 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | Exception Handling | The process of responding to the occurrence of exceptions – anomalous or exceptional conditions requiring special processing. |
 | Plugin             | A software component that adds a specific feature to an existing computer program.                           |
 | Color Highlighting, Snippets              | Features related to programming and code editing, providing visual enhancements and code shortcuts.        |
-| Ahead of Time Compilation| It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
-| Pipeline| An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
-| ISA| ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
+| Ahead of Time Compilation | It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
+| Pipeline | An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
+| Multi-threading | A technique in which a single process can have multiple code segments (threads) running concurrently.|
+| ISA | ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
 
 ## 2. Introduction
 
+This document defines the functional specifications of the ALGORISK project. Be sure to consult its [updated version](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/functional_specifications.md).
+
 ### 2.1 Overview
 
-This project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter.
+The ALGORISK project aims to build an original virtual processor and interpreter in plain C language. We have to invent a new assembly including essential instructions to run on this interpreter.
 
 In short, let's create our perfect processor!
 
@@ -132,16 +139,17 @@ We want beginners to learn how a computer works at a low level, without being di
 | Implement interrupts |
 | Implement multi-threading |
 | Implement atomic instructions |
+| Implement complex pipelining |
 
 #### ➭ <ins>2.2.3 Deliverables</ins>
 
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| Functional Specifications Document | Document (markdown) | 30/01/2024   | [functional_specifications.md](./functional_specifications.md) |
-| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./technical_specifications.md)  |
-| Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports/](./weekly_reports/)                          |
-| Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./quality_assurance/test_plan.md)              |
-| Final Product                      | TODETERMINE         | 23/02/2024   |                                                              |
+| Functional Specifications Document | Document (markdown) | 30/01/2024   | [Functional Specifications](./functional_specifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [Technical Specifications](./TechnicalSpecifications.md) |
+| Weekly Reports                     | Document (markdown) | Every Friday | [Weekly Reports](./Management/weekly_report/)                          |
+| Test Plan                          | Document (markdown) | 16/02/2024   | [Test Plan](./Testing/test_plan.md)              |
+| Final Product                      | Executable and/or a C file         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
 
@@ -178,7 +186,7 @@ The project sponsors (highlighted in **bold**) are expected to be in charge of:
 |---|---|---|
 | Project Manager | In charge of organisation, planning and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
 | Program Manager | Makes sure the project meets the client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
-| Tech Lead | Makes the technical decision in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
+| Tech Lead | Makes the technical decisions in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
 | Software Engineer | Writes the code. <br> Writes documentation. <br> Participate in the technical choices. | Malo ARCHIMBAUD <br> <br> Mathis KAKAL|
 | Quality Assurance |  Tests all the functionalities of the product to find bugs and issues. <br> Document bugs and issues. <br> Defines the test strategy and writes the test plan. <br> Checks that issues are fixed. | Arthur LEMOINE |
 
@@ -190,6 +198,8 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.1 Retroplanning</ins>
 
+The project will last for 8 weeks, from January 8th 2024 to March 1st 2024.
+
 ![retroplanning.png](/documents/img/functional_specifications/retroplanning.png)
 
 #### ➭ <ins>2.4.2 Milestones</ins>
@@ -198,6 +208,7 @@ External project reviewers have been appointed by the project owner to review ou
 | -------------------------------- | -------------------------- |
 | Functional Specifications V1     | Tuesday, January 30th 2024 |
 | Technical Specifications V1      | Friday, February 9th 2024  |
+| Test Plan | Friday, February 16th 2024 |
 | Final Product | Friday, February 23rd 2024 |
 | Oral Presentation | Friday, March 1st 2024     |
 
@@ -252,13 +263,13 @@ They are separated as followed:
 
 ### 3.2 The Enthusiasts 
 
-Our second focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
+Our secondary focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
 
 |<p align="center">The RISC-Y Script Kiddie</p>|<p align="center">The Level 2 Student</p>|<p align="center">The Open Source Enthusiast</p>|
 |---|---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/script_kiddie.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student2.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/open_source_guy.png"></p>|
 |Age 11 to 18|Age 18 to 35|Age 35+|
-|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix.<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
+|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix.)<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
 
 ### 3.3 The Professional
 
@@ -267,7 +278,7 @@ Our tertiary focus, since our project doesn't adhere to all the specifications o
 |The Company Instructor|The IOT Nerd|
 |---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/company_instructor.png"><p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/iot_woman.png"><p>|
-|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Difference from what they know need to be clear from the get go.<br> Dependencies of the program have to be very clear.|
+|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Differences from what they know need to be clear from the get go.<br> Project dependencies must be very clear.|
 
 ## 4. Virtual Processor Architecture
 
@@ -278,7 +289,7 @@ The primary concern for choosing and designing our processor architecture were:
 - An architecture in line with the current state of the market.
 - An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spending too much time learning about it.
   
-Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
+Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
 
 After gathering information on many known computer architectures, from the 60's until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), we found that the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
 
@@ -293,12 +304,12 @@ This benchmark has been made considering numerous factors (more or less ordered 
 - Pipelining and execution Strategy
 - Micro-Code (aka firmware - induces variable length instructions)
 
-In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive, primarily drawing inspiration from RISC-V.
+In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive and custom-made one, primarily drawing inspiration from RISC-V.
 
 > [!NOTE]
-> Other than the traditional–slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
+> Other than the traditional–and slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
 > The aforementioned paradigms, in fact, only usually reflect the number of instructions used by the processor among other things such as : the sequence for execution (also known as pipeline) or register usage.<br><br>
-> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.<br><br>
+> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding us.<br><br>
 > This is why we decided to widen our research field to pick from a large range of features and architectural decisions, which are presented in the benchmark (see appendix or link above)
 
 ### 4.1 Registers
@@ -455,10 +466,10 @@ By providing too few instructions, it would mean that some operations would not 
 | | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type | 101 | |
 | | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type | 101 | 0100000 |
 | | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type | 101 | |
-| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt rd, r1, r2` | I-Type | 010 | |
-| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti rd, r1, immediate` | I-Type | 010 | |
-| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu rd, r1, r2` | I-Type | 011 | |
-| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui rd, r1, immediate` | I-Type | 011 | |
+| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt? rd, r1, r2` | I-Type | 010 | |
+| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti? rd, r1, immediate` | I-Type | 010 | |
+| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu? rd, r1, r2` | I-Type | 011 | |
+| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui? rd, r1, immediate` | I-Type | 011 | |
 | | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type | 001 | |
 | | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type | 101 | |
 | | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type | 011 | |
@@ -500,9 +511,11 @@ This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 
 
 ## 6. From ALGORISK assembly to executable
 
-Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that  our code must be fully optimized before assembly into machine code.
+Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that our code must be fully optimized before assembly into machine code.
 
 It makes sense for us to use an ahead of time compilation strategy which usually means more complex compilation/assembly of the program, but faster runtime execution.
+
+It's crucial to clarify that, instead of employing an interpreter for translating our assembly code into machine code, we will break the process down into three steps: preprocessing, lexing, and ultimately assembling.
 
 ### 6.1 Preprocessor
 
@@ -781,11 +794,37 @@ add [rd], [r1], [r2]
 
 ## 9. Conclusion
 
-To conclude, this document is a first draft of the functional specifications of the ALGORISK processor. It's always important to remember that this is a living document. It will undergo changes and evolve based on the client's requirements and the project's own development.
+In conclusion, the ALGORISK project aims to simplify computer science, specifically the inner workings of a processor. It provides an innovative environment for this purpose, including a new processor architecture with a new assembly language, but also external tools.
 
-Providing our perfect architecture means for us to make it as accessible as possible to everyone. Vulgarizing by visual means is a great way to make people understand complex concepts such as how a processor work. \
-External tools such as the debugger and the plugin are paramount in order to achieve this goal. 
+This document is the first version of the functional specifications of the ALGORISK project. It's always important to remember that this is a living document. It will undergo changes and evolve based on the client's requirements and the project's own development.
 
+The project will continue on this repository until February 23, 2024, but may be extended for maintenance or updating purposes.
+
+We welcome contributions, so please feel free to open issues, fork this repository, and submit pull requests.
+
+<details>
+<summary>
+
+#### Authors
+
+</summary>
+
+Main author: [Quentin CLÉMENT](https://www.linkedin.com/in/quentin-cl%C3%A9ment-939110221/) \
+Contributors: [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa12232/), [Aurélien FERNANDEZ](https://www.linkedin.com/in/aur%C3%A9lien-fernandez-4971201b8/), [Mathis KAKAL](https://www.linkedin.com/in/mathis-k-a239ba10a/), [Thibaud MARLIER](https://www.linkedin.com/in/thibaud-marlier/)
+
+</details>
+
+<details>
+<summary>
+
+#### Acknowledgements
+
+</summary>
+
+[ALGOSUP](https://www.algosup.com/) for providing the opportunity to work on this project.
+[Georgios TSATIRIS](https://www.linkedin.com/in/georgios-tsatiris-07286035/) for the C classes and the help he provided.
+
+</details>
 
 ## 10. Appendix
 
@@ -832,11 +871,9 @@ External tools such as the debugger and the plugin are paramount in order to ach
 </summary>
 
 For almost all Architectures:
-https://www.wikipedia.org/
-
+https://www.wikipedia.org/ \
 For Crusoe:
-https://www.pctechguide.com/cpu-technology/crusoe-transmeta-corps-x86-compatible-vliw-mobile-cpu
-
+https://www.pctechguide.com/cpu-technology/crusoe-transmeta-corps-x86-compatible-vliw-mobile-cpu \
 For 8080:
 https://www.elprocus.com/know-about-architecture-of-the-intel-8080-microprocessor/
 
