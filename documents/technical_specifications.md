@@ -306,48 +306,54 @@ Finally the whole parsering flowchart should ressemble to this process:
 <img src="./Img/complete_parserFC.png" height="1150px">
 
 
-To identify Assembly keywords and their equivalents we are using a mix of arrays and enumerators[^10].
-
-To parse from Assembly language to machine code we are using an array of characters to identify the instructions and registers/values:
+To parse ALGORISK we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instructions and arguments provided by the user.
 
 ```c
 //This is an enumerator containing all of the instructions.
 enum instructions
 {
-    CLF,
-    CMP, CMPI, CMPF, CMPFI,
-    MOV, MOVF,
-    STI, STF, LDI, LDF,
-    LII, LIF,
-    PSH, POP,
-    PSHF, POPF,
-    INC, DEC,
-    ADD, SUB, MUL, DIV,
-    ADDF, SUBF, MULF, DIVF,
-    JLZ, JGZ, JEZ, JNZ, JMP,
-    SHL, SHR,
-    BAND, BOR, BNOT, BXOR,
-    LAND, LOR, LNOT,
-    HLT,
+    ADD, SUB, MUL, MULH, DIV, REM,
+    AND, OR, XOR,
+    MOV,
+    SLL, SRL, SRA,
+    ILT?,
+    JIE, JINE, JIGE, JILE, JAL, JALR,
+    SYSCALL, BREAK, LB, LH, LW, SB, SH, SW,
+
+    //Immediates
+    ADDI, MULI, DIVI,
+    ANDI, ORI, XORI,
+    SLLI, SRLI, SRAI,
+    ILTI?,
+    LUI,AUIPC,
+    //Unsigned
+    MULHU, MULHSU, DIVU, REMU
+    ILTU?, ILTUI?,
+    JIGEU, JILEU,
+    LBU, LHU
 };
 
 //This is an array of 44 characters containing all instructions.
 const char *instruction_strings[] = {
-    "CLF",
-    "CMP", "CMPI", "CMPF", "CMPFI",
-    "MOV", "MOVF",
-    "STI", "STF", "LDI", "LDF",
-    "LII", "LIF",
-    "PSH", "POP",
-    "PSHF", "POPF",
-    "INC", "DEC",
-    "ADD", "SUB", "MUL", "DIV",
-    "ADDF", "SUBF", "MULF", "DIVF",
-    "JLZ", "JGZ", "JEZ", "JNZ", "JMP",
-    "SHL", "SHR",
-    "BAND", "BOR", "BNOT", "BXOR",
-    "LAND", "LOR", "LNOT",
-    "HLT"
+    "ADD", "SUB", "MUL", "MULH", "DIV", "REM",
+    "AND", "OR", "XOR",
+    "MOV",
+    "SLL", "SRL", "SRA",
+    "ILT?",
+    "JIE", "JINE", "JIGE", "JILE", "JAL", "JALR",
+    "SYSCALL", "BREAK", "LB", "LH", "LW", "SB", "SH", "SW",
+
+    //Immediates
+    "ADDI", "MULI", "DIVI",
+    "ANDI", "ORI", "XORI",
+    "SLLI", "SRLI", "SRAI",
+    "ILTI?",
+    "LUI","AUIPC",
+    //Unsigned
+    "MULHU", "MULHSU", "DIVU", "REMU"
+    "ILTU?", "ILTUI?",
+    "JIGEU", "JILEU",
+    "LBU", "LHU"
     };
 ```
 As to how to detect instructions we are using this function:
