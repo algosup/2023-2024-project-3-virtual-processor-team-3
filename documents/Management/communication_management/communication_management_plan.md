@@ -38,6 +38,7 @@ Table Of Content
   - [4. Stakeholders](#4-stakeholders)
     - [4.1 Target Audience](#41-target-audience)
     - [4.2 Stakeholders Requirements](#42-stakeholders-requirements)
+- [Conclusion](#conclusion)
 
 </details>
 
@@ -214,44 +215,101 @@ Communication is handled by the Project Manager in this case.
 
 #### 3.2.3 Communication among the team
 
+As previously shown, our team holds two meetings a week. This meeting is made to keep track of the progress. This is a professional meeting that must follow basic guidelines, such as: listening to others, respecting others. Moreover, we have to keep formal. We are obviously allowed to have fun but it has to be kept within a respectful range and shouldn't alter the flow of development of the project.
+
+Outside of school, communication is made on Slack on a specific channel. We have to follow the school's guideline when communicating, between each other, and online. \
+We share knowledge, ideas, progress on the project. In a nutshell, everything related to the project and that could help the project's progress. \
+Go back to [1.2.1 Amongst the team](#121-amongst-the-team) for more details about how the information flow flows troughout the team.
+
 ### 4. Stakeholders
+
+| Writes Formal Messages | Mr. Jeannin Franck (Client) | Mr. MARLIER Thibaud (Project Manager) | Mr. CLEMENT Quentin (Program Manager) |
+|------------------------|-----------------------------|---------------------------------------|---------------------------------------|
+| Receives from          | Mr. Marlier, Mr. Clement    | Mr. Jeannin                           | Mr. Jeannin                           |
+| Sends out              | To Mr. Marlier, Mr. Clement | To Mr. Jeannin                        | To Mr. Jeannin                        |
+| Creates                | X                           | X                                     | X                                     |
+
+**X**: Is concerned
 
 #### 4.1 Target Audience
 
+**Client:**  
+
+- Reads documents concerning his interest
+- Answers our inquiry
+- Contacts the team when needed
+
+**Communication Team:**
+
+- Responsible for the communication with the stakeholders (client, public, team)
+- Responsible for the management of the communication among the team
+- Receive and answer inquiries from external sources
+- Ensure the communication integrity within the guidelines
+
+**Team Members:**
+
+- Communicates with other members
+- Do not directly contact stakeholders, but can ask to
+- Redirects communication toward the communication team
+- Right to disapprove the use of communication
+
+**Other Team Members:**
+
+- Read our documents
+- Can communicate with us about progress/ideas
+- Share Knowledge
+- Shows interest in our work, and will contact us about it.
+
+**Public Audience:**
+
+- Widest audience
+- Our communication must be tailored to them
+- Will follow our communication flows
+- Must be informed via documents of the project's progress.
+
 #### 4.2 Stakeholders Requirements
-<!---
-To help you meet your objectives, list all of the guidelines that are applicable to the dissemination of communications messages within your team. For instance, your communications guidelines might be that:
-    • All messages will be audience-specific
-    • Every key message will be communicated formally
-    • Messages will be distributed through an appropriate channel
-    • The team will communicate what people need to know before they need to know it
-    • Communication will be tailored, based on what people need to know
-    • All critical communications must be approved by management prior to distribution
-    • Only the communications team will be able to distribute official press releases
-    • Project-wide meetings will be held at all important milestones
-    • Regular, unbiased reporting will be undertaken
-    • The project team will listen and act on feedback  --->
 
+This part then takes the audience and describes the information that they need to have access to and receive:
 
-<!--
-4 Stakeholders
+**Client:**
 
-So far, you have described the communications environment and set 3 key objectives for communications within your team. The next step is to identify who it is that will be involved in the dissemination and receipt of communications issued by your team i.e. who is going to create, send out and receive the formal communications messages.
+- Deliverables
+- Weekly Reports
+- Meeting feedback (if any held with the client)
+- KPIs
+- Communication with the team representative
 
-4.1 Target Audience
-List and describe each of the audience groups (i.e. stakeholders) that your team will communicate with. Remember that this is a formal Communications Plan. Therefore, you with only wish to list audience groups whom your team will want to communicate formally with. 
+**Communication Team:**
 
-For example, a project may have the following target audiences:
+- Receive documents from the client
+- Receive inquiries from the client
+- Receive information from the client
+- Information from the team
+- Information from other teams
+- Inquiry from external sources
 
-    • Project board (sponsor, director, other board members)
-    • Project management team (project manager, project leaders)
-    • Project team members
-    • Related project teams
-    • Project management office
-    • Related business unit managers
-    • Internal audit or strategy staff
-    • External suppliers and contractors
-    • Governance and regulatory bodies
+**Team Members:**
 
-4.2 Stakeholder Requirements
-You now know exactly who it is that you are going to formally communicate with. The next step is to identify the information that they need to receive. List each stakeholder in the table below then describe the information that they need to receive and the timeframe in which they need to receive it.  -->
+- Information from the communication team
+- Information from other members
+
+**Other Team Members:**
+
+- Receive some of our knowledge and information
+- Access to our documents
+
+**Public:**
+
+- Access to our documents
+- Access to the product
+- Receive answers to their inquiry
+- Learn knowledge from our work
+
+## Conclusion
+
+This document is aimed at the stakeholder to understand our communication plan and how we communicate with each other. It details how we communicate, with whom, and on what basis. \
+Moreover, various steps have been described to improve the communication and are effective upon agreement with the team.
+We know and understand the importance of communication in a project, it has been explained clearly in this document. \
+We are still working on our communication strategies. We are aiming to work even more on this site for the client's satisfaction, the project's success, the public's approbation and to share knowledge.
+
+This document is subject to changes.
