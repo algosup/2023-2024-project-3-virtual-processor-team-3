@@ -50,9 +50,9 @@ This document describes our plan of action to improve the quality of communicati
 - With the public,
 - And any other sources that would be interested in our project
   
-This document will set the guidelines, the frequency, and everything that is needed to have great communication among all the stakeholders. This document will improve the team's quality if the guidelines are respected. Communication means a broader product as the overall quality of the final product will be elevated to a higher state.
-This document serves to help in the identification of the client's needs and expectations as communicating with the client is necessary to ensure that both parties are aiming the same way.
-In a nutshell, this document is made for every stakeholder, to ensure a high-quality product by the end of the project.
+This document will set the guidelines, the frequency, and everything needed to ensure communication among all the stakeholders. This document will improve the team's quality if the guidelines are respected. Communication is necessary to elevate the final product quality.
+This document serves to help in the identification of the client's needs and expectations. Communicating with the client is necessary to ensure that both parties aims the same way.
+In a nutshell, this document is made for every stakeholders, to ensure a high-quality product by the end of the project.
 
 ## 1.2 Current Communication Activities
 
@@ -74,80 +74,80 @@ In this table, frequency represents an average.
 
 **Weekly Meetings**:
 
-Our team, is hosting bi-weekly meetings. According to the week's schedule, the team gather for a 20 minutes meeting the first time that they are working together in a week. And the last day in which they meet in project. \
-This bi-weekly planning has been acted since the beginning of the project. They are made to discuss the current state of the project. Discuss the progress of the project (which then fuels KPIs), discuss ideas, discuss the current feeling amongst the team about the final product and about overall members' feeling and emotions. \
-This is a way for the team to ensure that everything is running as expected and as smooth as possible, all while ensuring the team's well-being and the project's.
+Our team is hosting bi-weekly meetings. According to the week's schedule, the team gathers for a 20-minute meeting for the first time that they are working together in a week. And the last day on which they meet in project. \
+This bi-weekly planning has been ongoing since the beginning of the project. They are made to discuss the current state of the project. Discuss the progress of the project (which then fuels KPIs), discuss ideas, and discuss the current feeling amongst the team about the final product and overall members' feelings and emotions. \
+It is a way for the team to ensure that everything is running as expected and smoothly as possible while ensuring the team's well-being and the project's.
 
 ### 1.2.2 With the stakeholders
 
-Refer to the Project Charter of this project, where stakeholders have been defined: [Project Charter Here](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/project_charter/project_charter.md)
+Refer to the Project Charter of this project, where stakeholders are defined: [Project Charter Here](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/project_charter/project_charter.md)
 
-Communication between the different stakeholders, is handled by the program manager and the Project Manager. \
+Communication between the different stakeholders is handled by the program manager and the Project Manager. \
 They both engage in:
 
-- Ensuring that the client's requirement are well understood
+- Ensuring that the client's requirements are well understood
 - Providing a weekly feedback to the client
 - Ensuring that the client is aware of the project's progress
-- Ensuring a great communication from within the team.
+- Ensuring great communication from within the team.
 
 Currently, our team is posting weekly reports every week, which are available to the stakeholders. \
-Moreover, we reserve right to allow the stakeholder to ask for a meeting if it seems necessary for the project's weel-being.
+Moreover, we reserve the right to allow the stakeholder to demand a meeting if necessary for the project's well-being.
 
-Communication between our team and the client is handled via Email communication in the formal form.
-Moreover, communications between other stakeholders is handled mostly via the Slack Software.
+Communication between our team and the client is handled via Email in a formal form.
+Moreover, communications between other stakeholders are handled mostly via Slack Software.
 
 ### 1.2.3 Current Outcome
 
-From the last meeting between the team members, some issues have been marked. The team feels like there's not enough communication between each other, mostly between the project manager and other members. Moreover, we feel like we could communicate with the stakeholders even more.
+From the last meeting between the team members, some issues have emerged. The team feels as if there's not enough communication between the project manager and other members. Moreover, we feel like we could communicate with the stakeholders even more.
 
-There's a desire from the team to improve the overall communication within the team and a desire to inform more the client about the project's state in order to get feedback and to ensure that everything is going in the wanted direction. \
-Current communication with the client via email, were resourceful and were answering some of our questions. However, we still felt like some fields were still foggy and this is probably due to the way we wrote to the client. We didn't made sure that we were asking everything we were eager to hear about
+There's a desire from the team to improve the overall communication within the team and a willingness to inform the client about the project's state to get feedback and to ensure that everything is going in the wanted direction. \
+Current communication with the client via email was resourceful and answered many of our questions. However, we still felt like some fields were still foggy. It is due to the way we wrote to the client. We didn't make sure that we were asking everything we were eager to hear about
 
-The outcome of this document is to improve the quality of the communication to meet the expectations of both the team and the client. The communication planning process will help the team to understand, when, how and to whom communicate and thus in a more effective way but as well for the client to understand how to contact us and how so in an effective way.
+The outcome of this document is to improve the quality of the communication to meet the expectations of both the team and the client. The communication planning process will help the team to comprehend when, how, and to whom to communicate and thus in a more effective way but also for the client to understand how to contact us and how so effectively.
 
 ## 2. Environment Situation Analysis
 
-This part analyzes the current strengths, weaknesses, opportunities and threats of the previously defined environmnent to determine in a near future the action to take to improve the communication plan.
+This part analyzes the current strengths, weaknesses, opportunities, and threats of the previously defined environment to determine shortly the action to take to improve the communication plan.
 
 ### 2.1 Strengths
 
-This part defines the various strength of our current communication strategies:
+This part defines the various strengths of our current communication strategies:
 
 - Bi-weekly meeting among the team
 - Information flow among the team
 - Weekly Reports
 - KPIs fueled by communication
 - Send the right information to the right person
-- Great selection on communication to the public
-- Decision making clear and defined
+- Great selection of communication to the public
+- Decision-making clear and defined
 
 ### 2.2 Weaknesses
 
 This part defines the weaknesses of our current communication strategies:
 
 - Not enough communication with the client
-- Not enough communcation within the team during project
-- Improve the frequency we communicate with the client
+- Not enough communication within the team during the project
+- Improve the frequency of our team's communication with the client
 - Lack of a template/guideline for communication
 
 ### 2.3 Opportunities
 
 - Improve project awareness
 - Improve the product's quality
-- Improve team's poductivity
+- Improve team's productivity
 - Improve team's efficiency
-- Sthrengthen client's relationship
+- Strengthen the client's relationship
 
 ### 2.4 Threats
 
 - Misinterpretation
 - Miscommunication
 - Broken communication  
-  - Flow of information being disrupted oor innefective - leads to misunderstanding and potential project failures.
+  - Flow of information being disrupted or ineffective - leads to misunderstanding and potential project failures.
 - Project's failure
   - The fact of not meeting the client's expectations. Leading to a non-completion of the project.
 - Team's disengagement on a long-term
-  - Loss of interest and engagement in the project, lower efficiency of the team. Could lead to a total stopping of the project.
+  - Loss of interest and engagement in the project, lower team efficiency. Leading to a total stopping of the project.
 - Failure to resist changes if they happen
 - Low-quality product
 - Failure to meet client's satisfaction
@@ -156,32 +156,32 @@ This part defines the weaknesses of our current communication strategies:
 
 ### 3.1 Communication Objectives
 
-In order to improve the current communication state, actions must be taken, here are the three main decision that have been taken.
+To improve communication, we must take action. The three main actions to take are:
 
-1. Greater communication from Project manager to the team members:
+1. Greater communication from the Project manager to the team members:
 
-- The project manager, engages to take more part into discussions to communicate more effectively with every team members. \
-In order to do so, the project manager will ask for daily feedback to have a better insight of the current progress being made on the project. This will greatly help in term of project planning, in communication among the team. Reduce various threats such as broken communication and team disengagement.  
+- The project Manager engages in participating more in discussions to communicate more effectively with every team member. \
+To do so, the project manager will ask for daily feedback to have a better insight into the current progress made on the project. Greatly helping in terms of project planning, communication among the team. Reduce various threats such as broken communication and team disengagement..  
 
 2. Greater communication between our team and the client:
 
-- Our team engages to use every possible ways (which will be described later) to communicate effectively and regularly with the client. Our team will send all necessary information that needs the attention of the client.
+- Our team engages to use every possible way (which is explained later) to communicate effectively and regularly with the client. Our team will send all the necessary information that needs the client's attention.
 
 3. Creation of Guidelines to follow for communication:
 
-- Creation of guidelines to follow while communicating among the stakeholders is necessary and will be set among our team. A formal message needs to follow guidelines in order to be receivable by the client. Mutual respect is necessary and is the key to a great communication.
+- Creation of guidelines to follow while communicating among the stakeholders is necessary and will be set among our team. A formal message needs to follow guidelines to be receivable by the client. Mutual respect is necessary and is the key to appreciable communication.
 
 ### 3.2 Communication Guidelines
 
 General guidelines:
 
 - Every communication will be made in a formal way
-- Our communication team will communicate once and only when the whole team has accepted to do so.
+- Our communication team will communicate once and only once the whole team has agreed to do so.
 - Reporting is unbiased
 
 #### 3.2.1 Communication with the client
 
-Messages are audience-specific, communication with the client will only be things that concerning the client, this could be:
+Messages are audience-specific. Communication with the client will only be things that concern the client. This could be:
 
 - Documents created by the team for the project such as:
   - Functional Specifications
@@ -192,25 +192,25 @@ Messages are audience-specific, communication with the client will only be thing
 - Weekly Reports
 - KPIs
 
-Moreover, these documents have to be written in a formal way, any other use of language will not be tolerated during approval of the document. We must thoroughly check the language used when writting a document. These documents will be posted on our GitHub repository.
+Moreover, these documents have to be formal. Any other use of language isn't tolerated during approval of the document. We must thoroughly check the language used when writing a document. These documents are posted on our GitHub repository.
 
-Every communication with the client, will be handled via email.
-Emails are a formal communication form. They must be concise, tailored to the client's knowledge, as clear as possible. \
-These are a way to ensure that what we inquire is understood by the client, in order to have the best answer possible, that responds to every inquiry and in an effective way.
+Communication with the client is handled via email.
+Emails are a formal communication form. They must be concise, tailored to the client's knowledge, and as clear as can be. \
+These are a way to ensure that what we inquire is understood by the client, to have the best answer possible, that responds to every inquiry effectively.
 
-These documents are written principaly for the client, to inform himself about the project's progress. The client can take action from the documents he gets, and can express his worries about specific things, if needed. But as well for us to get feedback from our progress and to ensure that we meet the client's expectation by the end of the project.
+These documents are written principally for the client, to inform himself about the project's progress. The client can take action from the documents he gets and can express his worries about specific things if needed. But as well for us to get feedback on our progress and to ensure that we meet the client's expectations by the end of the project.
 
 #### 3.2.2 Communication with the public
 
-Our work is available to the public on our GitHub repository, meaning that we must keep a formal language at all time, whenever we are posting or communicating on the repository.
+Our work is available to the public on our GitHub repository, meaning that we must keep a formal language at all times. Whenever we are posting or communicating on the repository.
 
-Moreover, if we ever are contacted about the project by the public, this will take place via email. The same rules as when communicating with the client will apply when being in contact with the public.
+Moreover, if we ever are contacted about the project by the public, this will take place via email. The same rules as when communicating with the client will apply when interacting with the public.
 
-In addition, if the public contact us about inquiries, it means that your work either lacks documentation or clarity. \
-We will try to communicate on what people need to know, before they even know it. Meaning that strong documentation is necessary and must be as clear as possible and tailored to a wide audience, even to the most unknowledgable ones.
+In addition, if the public contacts us about inquiries, your work lacks documentation or clarity. \
+We will try to communicate what people need to know before they have to know it. This means sharp documentation is necessary. It must be as concise as possible and tailored to a large audience, even to the most non-knowledgeable ones.
 
 We are still open to public inquiries if necessary on specific topics, such as legal concerns, safety concerns, etc. \
- Communication will be handled by the Project Manager in this case
+Communication is handled by the Project Manager in this case.
 
 #### 3.2.3 Communication among the team
 
