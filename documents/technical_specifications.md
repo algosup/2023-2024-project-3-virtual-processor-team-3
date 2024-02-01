@@ -35,9 +35,10 @@ ___
     - [4.4.1 Example:](#441-example)
 - [6. Technical aspects](#6-technical-aspects)
   - [6.1 CPU architecture](#61-cpu-architecture)
-  - [6.2 Parser\[^7\]](#62-parser7)
-  - [6.3 Error handling](#63-error-handling)
-  - [6.4 Execution](#64-execution)
+  - [6.2 portability](#62-portability)
+  - [6.3 Parser\[^7\]](#63-parser7)
+  - [6.4 Error handling](#64-error-handling)
+  - [6.5 Execution](#65-execution)
 - [8. Maintenance](#8-maintenance)
   
 </details>
@@ -284,7 +285,11 @@ For this project we are following the Von Neumann architecture[^6], this archite
 
 <img src="./Img/von_neumann_architecture.png" height="300px">
 
-### 6.2 Parser[^7]
+### 6.2 portability
+
+Our CPU can be used on any system which can use a program using at least 5 Megabytes of memory and can use the current C standard which at this date is C17.
+
+### 6.3 Parser[^7]
 
 To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers. 
 
@@ -398,7 +403,7 @@ Then we are creating a new file with the translated assembly into binary. Additi
 
 Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
 
-### 6.3 Error handling
+### 6.4 Error handling
 
 In case of encoutering any type of error, the program will store a structure containing the number of the line, the line itself and the error type.
 
@@ -414,7 +419,7 @@ typedef struct {
 
 For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#➭-621-instruction-error"> functional specifications</a>.
 
-### 6.4 Execution
+### 6.5 Execution
 
 To execute each line of the binary file we are comparing the retrieved 4 bytes to:
 
