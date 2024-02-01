@@ -31,6 +31,13 @@ Table Of Content
   - [2.4 Threats](#24-threats)
 - [3. Objectives](#3-objectives)
   - [3.1 Communication Objectives](#31-communication-objectives)
+  - [3.2 Communication Guidelines](#32-communication-guidelines)
+    - [3.2.1 Communication with the client](#321-communication-with-the-client)
+    - [3.2.2 Communication with the public](#322-communication-with-the-public)
+    - [3.2.3 Communication among the team](#323-communication-among-the-team)
+  - [4. Stakeholders](#4-stakeholders)
+    - [4.1 Target Audience](#41-target-audience)
+    - [4.2 Stakeholders Requirements](#42-stakeholders-requirements)
 
 </details>
 
@@ -133,14 +140,17 @@ This part defines the weaknesses of our current communication strategies:
 
 ### 2.4 Threats
 
-- Missinterpretation
-- Misscomunication
-- Broken communication
+- Misinterpretation
+- Miscommunication
+- Broken communication  
+  - Flow of information being disrupted oor innefective - leads to misunderstanding and potential project failures.
 - Project's failure
-- Team's disengagement on a long term
-- Failure to resist to changes if they happen
-- Low quality product
-- Client's insatisfaction
+  - The fact of not meeting the client's expectations. Leading to a non-completion of the project.
+- Team's disengagement on a long-term
+  - Loss of interest and engagement in the project, lower efficiency of the team. Could lead to a total stopping of the project.
+- Failure to resist changes if they happen
+- Low-quality product
+- Failure to meet client's satisfaction
 
 ## 3. Objectives
 
@@ -153,21 +163,63 @@ In order to improve the current communication state, actions must be taken, here
 - The project manager, engages to take more part into discussions to communicate more effectively with every team members. \
 In order to do so, the project manager will ask for daily feedback to have a better insight of the current progress being made on the project. This will greatly help in term of project planning, in communication among the team. Reduce various threats such as broken communication and team disengagement.  
 
-2. Insert
+2. Greater communication between our team and the client:
 
-3. Insert
+- Our team engages to use every possible ways (which will be described later) to communicate effectively and regularly with the client. Our team will send all necessary information that needs the attention of the client.
 
-<!-- 3 Objectives
-So far, you have set out the current state of communications within your team. The next step is to describe the future state, which will be achieved through the execution of this plan.
-3.1 Communications Objectives
-List here, the top 3 objectives that are to be achieved by the execution of this Communications Plan. Try and make your objectives: Specific, Measurable, Actionable, Relevant and Timely (S.M.A.R.T) where possible. For instance, your objectives may be related to:
-    • Increasing stakeholder awareness
-    • Improving team efficiency and productivity
-    • Gaining management sponsorship and buy-in
-    • Changing the perception of your team
-    • Improving team culture and behaviour.
+3. Creation of Guidelines to follow for communication:
 
-    3.2 Communications Guidelines
+- Creation of guidelines to follow while communicating among the stakeholders is necessary and will be set among our team. A formal message needs to follow guidelines in order to be receivable by the client. Mutual respect is necessary and is the key to a great communication.
+
+### 3.2 Communication Guidelines
+
+General guidelines:
+
+- Every communication will be made in a formal way
+- Our communication team will communicate once and only when the whole team has accepted to do so.
+- Reporting is unbiased
+
+#### 3.2.1 Communication with the client
+
+Messages are audience-specific, communication with the client will only be things that concerning the client, this could be:
+
+- Documents created by the team for the project such as:
+  - Functional Specifications
+  - Technical Specifications
+  - Project Charter
+- Inquiry about the project
+- Deliverables
+- Weekly Reports
+- KPIs
+
+Moreover, these documents have to be written in a formal way, any other use of language will not be tolerated during approval of the document. We must thoroughly check the language used when writting a document. These documents will be posted on our GitHub repository.
+
+Every communication with the client, will be handled via email.
+Emails are a formal communication form. They must be concise, tailored to the client's knowledge, as clear as possible. \
+These are a way to ensure that what we inquire is understood by the client, in order to have the best answer possible, that responds to every inquiry and in an effective way.
+
+These documents are written principaly for the client, to inform himself about the project's progress. The client can take action from the documents he gets, and can express his worries about specific things, if needed. But as well for us to get feedback from our progress and to ensure that we meet the client's expectation by the end of the project.
+
+#### 3.2.2 Communication with the public
+
+Our work is available to the public on our GitHub repository, meaning that we must keep a formal language at all time, whenever we are posting or communicating on the repository.
+
+Moreover, if we ever are contacted about the project by the public, this will take place via email. The same rules as when communicating with the client will apply when being in contact with the public.
+
+In addition, if the public contact us about inquiries, it means that your work either lacks documentation or clarity. \
+We will try to communicate on what people need to know, before they even know it. Meaning that strong documentation is necessary and must be as clear as possible and tailored to a wide audience, even to the most unknowledgable ones.
+
+We are still open to public inquiries if necessary on specific topics, such as legal concerns, safety concerns, etc. \
+ Communication will be handled by the Project Manager in this case
+
+#### 3.2.3 Communication among the team
+
+### 4. Stakeholders
+
+#### 4.1 Target Audience
+
+#### 4.2 Stakeholders Requirements
+<!---
 To help you meet your objectives, list all of the guidelines that are applicable to the dissemination of communications messages within your team. For instance, your communications guidelines might be that:
     • All messages will be audience-specific
     • Every key message will be communicated formally
@@ -178,13 +230,14 @@ To help you meet your objectives, list all of the guidelines that are applicable
     • Only the communications team will be able to distribute official press releases
     • Project-wide meetings will be held at all important milestones
     • Regular, unbiased reporting will be undertaken
-    • The project team will listen and act on feedback
+    • The project team will listen and act on feedback  --->
 
+
+<!--
 4 Stakeholders
 
 So far, you have described the communications environment and set 3 key objectives for communications within your team. The next step is to identify who it is that will be involved in the dissemination and receipt of communications issued by your team i.e. who is going to create, send out and receive the formal communications messages.
 
-Download our free Stakeholder Analysis Template for Excel
 4.1 Target Audience
 List and describe each of the audience groups (i.e. stakeholders) that your team will communicate with. Remember that this is a formal Communications Plan. Therefore, you with only wish to list audience groups whom your team will want to communicate formally with. 
 
@@ -199,5 +252,6 @@ For example, a project may have the following target audiences:
     • Internal audit or strategy staff
     • External suppliers and contractors
     • Governance and regulatory bodies
+
 4.2 Stakeholder Requirements
 You now know exactly who it is that you are going to formally communicate with. The next step is to identify the information that they need to receive. List each stakeholder in the table below then describe the information that they need to receive and the timeframe in which they need to receive it.  -->
