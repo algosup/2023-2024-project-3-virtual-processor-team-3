@@ -28,7 +28,7 @@ ___
   - [4.1 Commits](#41-commits)
     - [4.1.1 Title](#411-title)
     - [4.1.2 Body](#412-body)
-    - [4.1.4 Examples](#414-examples)
+    - [4.1.3 Examples](#413-examples)
   - [4.2 Files](#42-files)
   - [4.3 Names](#43-names)
   - [4.4 Comments](#44-comments)
@@ -167,7 +167,7 @@ The body describes the commit with more details, and as titles, it has to follow
   
   The body can also contain a few keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the "footer section.
 
-#### 4.1.4 Examples
+#### 4.1.3 Examples
 
 For a feature:
 
