@@ -21,7 +21,6 @@ ___
 - [Table of content](#table-of-content)
 - [0. Last reviewer](#0-last-reviewer)
 - [1. Introduction](#1-introduction)
-  - [1.1 Project overview](#11-project-overview)
   - [1.2 Prior knowledge](#12-prior-knowledge)
 - [2. File architecture](#2-file-architecture)
 - [3.Development environment](#3development-environment)
@@ -55,18 +54,17 @@ ___
 
 ## 1. Introduction
 
-### 1.1 Project overview
-
 The goal of this project is to create a virtual CPU and a compiler of our own assembly language. The language used to create both the CPU and the compiler must be made in C.
 
 ### 1.2 Prior knowledge
 
-This document is using multiple technical terms and principle related to computer science. Thus this document is mainly written for:
+This document uses multiple technical terms and principles related to computer science. Thus this document is mainly written for:
+
 - Software engineers,
 - Current project collaborator,
 - Reviewer possessing prior knowledge.
 
-Additionally, before reading this document, please be aware that the ALGORISK assembly is expleined in the <a href="./functional_specifications.md">functional specifications</a>. We recommend reviewing that document first for a comprehensive understanding of the ALGORISK assembly.
+Additionally, before reading this document, please be aware that the ALGORISK assembly is explained in the functional specifications. We recommend reviewing that document first for a comprehensive understanding of the ALGORISK assembly.
 
 ## 2. File architecture
 
@@ -137,7 +135,7 @@ As for the IDE[^1], out of the six members of our team, five use Visual Studio C
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. Except for names which we are using camelCase.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>, except for names which we are using camelCase.
 We chose these standards because they cover almost every aspect of c.
 
 ## 4. Conventions
