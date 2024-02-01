@@ -1,5 +1,11 @@
 
 .DS_Store
+
 src/.DS_Store
 src/assembler/.DS_Store
 .DS_Store
+
+
+*.exe
+.vscode/
+
