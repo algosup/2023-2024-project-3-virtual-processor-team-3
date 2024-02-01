@@ -37,9 +37,10 @@ ___
 - [5. Technical aspects](#5-technical-aspects)
   - [5.1 CPU architecture](#51-cpu-architecture)
   - [5.2 portability](#52-portability)
-  - [5.3 Parser\[^7\]](#53-parser7)
-  - [5.4 Error handling](#54-error-handling)
-  - [5.5 Execution](#55-execution)
+  - [5.3 Preprocessing](#53-preprocessing)
+  - [5.4 Parsers\[^7\]](#54-parsers7)
+  - [5.5 Error handling](#55-error-handling)
+  - [5.6 Execution](#56-execution)
 - [6. Maintenance](#6-maintenance)
   
 </details>
@@ -310,7 +311,17 @@ For this project we are following the Von Neumann architecture[^6], this archite
 
 Our CPU can be used on any system that can use a program using at least 5 Megabytes of memory and can use the current C standard which at this date is C17.
 
-### 5.3 Parser[^7]
+### 5.3 Preprocessing
+
+Before going from ALGORISK assembly to machine code we need to use a crucial step, the preprocessing. This step manages core parts of a programming language. The prepocessor has multiple uses in our project:
+
+- Removing comments from the code.
+- Replacing labels and jumps by positions of the memory.
+- Defining variables set by the user and changes the calls of said variable by it's position in the memory.
+  
+Note: The preprocessor does not remove or modify the user's original code.
+
+### 5.4 Parsers[^7]
 
 To translate from ALGORISK assembly to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers.
 
@@ -429,7 +440,7 @@ Then we create a new file, this file contains the binary equivalent of the progr
 
 Finally, our program parses a final time the binary file to execute it and output the result into a console. The result is what is inside the registers.
 
-### 5.4 Error handling
+### 5.5 Error handling
 
 In case of encountering any type of error, the program will store a structure containing the number of the line, the line itself, and the error type.
 
@@ -445,7 +456,7 @@ typedef struct {
 
 For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#➭-621-instruction-error"> functional specifications</a>.
 
-### 5.5 Execution
+### 5.6 Execution
 
 To execute each line of the binary file we are comparing the retrieved 4 bytes to:
 
