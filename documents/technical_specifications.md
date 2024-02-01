@@ -26,13 +26,13 @@ ___
 - [3.Development environment](#3development-environment)
 - [4. Conventions](#4-conventions)
   - [4.1 Commits](#41-commits)
-    - [4.1.1 Title:](#411-title)
-    - [4.1.2 Body:](#412-body)
-    - [4.1.4 Examples:](#414-examples)
+    - [4.1.1 Title](#411-title)
+    - [4.1.2 Body](#412-body)
+    - [4.1.4 Examples](#414-examples)
   - [4.2 Files](#42-files)
   - [4.3 Names](#43-names)
   - [4.4 Comments](#44-comments)
-    - [4.4.1 Example:](#441-example)
+    - [4.4.1 Example](#441-example)
 - [6. Technical aspects](#6-technical-aspects)
   - [6.1 CPU architecture](#61-cpu-architecture)
   - [6.2 portability](#62-portability)
@@ -44,10 +44,10 @@ ___
 </details>
 
 ## 0. Last reviewer
+
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
 | Aurélien Fernandez | 01/02/2024 |
-
 
 ## 1. Introduction
 
@@ -103,6 +103,7 @@ Project
    └── 📃unit_tests.c
 ```
 Legend:
+
 - 🖼️Images
 - 📖Documents
 - 📕The assembly manual
@@ -114,20 +115,23 @@ The architecture of the project is subject to modification.
 ## 3.Development environment
 
 Our team uses multiple machines to work on this project such as:
-  - 3 Windows operating on Windows 11.
-  - 3 MacBooks operating on MacOS Sonoma 14.
 
-As for the IDE[^1], out of the 6 members of our team, 5 uses Visual Studio Code and 1 uses Visual Studio Codium. As they are extremely similar, we all uses the same extensions to run and debug C. All of these extensions are packed into one called
-<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C/C++ Extension Pack</a> .
+- 3 Windows operating on Windows 11.
+- 3 MacBooks operating on MacOS Sonoma 14.
+
+As for the IDE[^1], out of the six members of our team, five use Visual Studio Code, and 1 uses Visual Studio Codium. As they are extremely similar, we are all using the same extensions to run and debug C. All of these extensions are packed into one called
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C/C++ Extension Pack</a>.
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions,variables or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. For the exception of names which we are using camelCase.
-We choose these standards because it covers almost every aspect of c.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use these standards: <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html">Mellon University's standards</a>. Except for names which we are using camelCase.
+We chose these standards because they cover almost every aspect of c.
+
 ## 4. Conventions
 
-The project's repository[^2] have to be organised to allow contributors and potential visitors to navigate through the repository without problems such as:
-- Having trouble to find a specific file.
+The project's repository[^2] has to be organized to allow contributors and potential visitors to navigate through the repository without problems such as:
+
+- Having trouble finding a specific file.
 - Creating conflicts with pushes.
 - Different naming standards between contributors.
 - etc.
@@ -136,34 +140,37 @@ The project's repository[^2] have to be organised to allow contributors and pote
 
 Commits must be written following these specific rules, most of the rules can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a>.
 
-#### 4.1.1 Title:
+#### 4.1.1 Title
 
-The title is one of the most important thing is a commit, it serves to describe what the commit is about, and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow few rules.
+The title is one of the most important things is a commit, it serves to describe what the commit is about and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
 
-It has to begin with one of the following: 
-- "feat:" if the commit implement a feature to the project.
+It has to begin with one of the following:
+
+- "feat:" if the commit implements a feature to the project.
 - "fix:" if the commit fixes a bug encountered after an implementation.
-- "chore:" if the commit is about a routine task, for example refactoring, it is mostly used to tasks that are neither features or fixes.
+- "chore:" If the commit is about a routine task, for example, refactoring, it is mostly used for tasks that are neither features nor fixes.
 - "docs:" if the commit is about changes to a document or adding documents.
-- "perf:" if the commit is about optimising of performances.
+- "perf:" if the commit is about optimizing of performances.
 - "remove:" if the commit removes a feature.
 
-Furthermore a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb and the name of the implementation or the name of the file involved.
+Furthermore, a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb, and the name of the implementation or the name of the file involved.
 
-#### 4.1.2 Body:
+#### 4.1.2 Body
 
-The body describes the commit with more details, and as titles it has to follow certain rules:
-  - Provide context: explain why this change is needed.
-  - If possible summarise how changes were applied, notably for implementations, fixes, refactoring or optimisation.
-  - Reference issues if needed.
-  - Avoid long paragraphs, list what has been done.
-  - No jargon without explanations, other contributors must understand the commit.
+The body describes the commit with more details, and as titles, it has to follow certain rules:
+
+- Provide context: explain why this change is needed.
+- If possible summarise how changes were applied, notably for implementations, fixes, refactoring, or optimization.
+- Reference issues if needed.
+- Avoid long paragraphs, list what has been done.
+- No jargon without explanations, other contributors must understand the commit.
   
-  The body can also contain few keywords that can interact with the repository, such as adding co-authors, close issues etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the "footer section.
+  The body can also contain a few keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the "footer section.
 
-#### 4.1.4 Examples:
+#### 4.1.4 Examples
 
 For a feature:
+
 ```
 Feat: implementation of multiplications
 
@@ -174,8 +181,10 @@ Implement a new feature to support multiplication operations in the calculator.
 - Add unit test related to multiplications.
 
 This feature enhance the usability of the calculator, providing users with a new set of operations.
-``` 
+```
+
 For a fix committed after the previous example:
+
 ```
 Fix:  overflow with multiplication
 
@@ -189,49 +198,51 @@ see commit: 1a2b3c
 This fix allows users to apply multiplications to higher numbers without being subject to an overflow.
 
 Closes: #324
-``` 
+```
 
 ### 4.2 Files
 
-Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contains all functions. A header file should contain function one functionality.
+Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contain all functions. A header file should contain function one functionality.
 
-Furthermore, header files should not depend on other header files. This is only making maintenance more difficult than expected at first. This rule does not include standards headers. 
+Furthermore, header files should not depend on other header files. This is only making maintenance more difficult than expected at first. This rule does not include standard headers.
 
 For example in a calculator project, there should be a structure similar to this one:
-  - Calculator.c
-  - Operations.h
-  - Display.h
-  - Input.h
+
+- Calculator.c
+- Operations.h
+- Display.h
+- Input.h
 
 ### 4.3 Names
 
-Names are extremely important to a project's readability[^4], not having conventions or having each collaborators of a projects using it's own conventions leads to deteriorate both the quality of the project and the overall readability.
+Names are extremely important to a project's readability[^4], not having conventions or having each collaborator of a project use its conventions leads to the deterioration of both the quality of the project and the overall readability.
 
-For this project this set of naming conventions has been chosen:
+For this project, this set of naming conventions has been chosen:
 
-- Branches: PascalCases, appart of the Main,PreMain,Documents, the branch is named after the name of the feature or after the name/id of the fix.
+- Branches: PascalCases, apart from the Main, PreMain, and Documents, the branch is named after the name of the feature or after the name/id of the fix.
 - Folder/Files: snake_case.
 
 ### 4.4 Comments
 
-We are using standards to increase the readability of a code, but without comments reading a code can take a more time than expected and desired.
+We are using standards to increase the readability of a code, but without comments reading a code can take more time than expected and desired.
 
-To be able to hand our code to other collaborator during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules were made:
+To be able to hand our code to other collaborators during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules was made:
 
-Every .c and .h files must have a "header comment". This comment describes what does this file contains in a quick summary. We do not need to go too much into the details in this comment.
+Every .c and .h file must have a "header comment". This comment describes what this file contains in a quick summary. We do not need to go too much into the details in this comment.
 
-Then functions and defined elements must have a "function header". It is a multiline comment containing: 
-  - A short description of the function.
-  - Parameters needed to call the function, with their type and a short explanation of the variable.
-  - The result of the function, it may be a sucess/failure output or describing what does the function do being (example: the function create/modify/remove a file).
+The functions and defined elements must have a "function header". It is a multiline comment containing:
+
+- A short description of the function.
+- Parameters needed to call the function, with their type and a short explanation of the variable.
+- The result of the function, may be a success/failure output or describing what the function does (for example: the function creates/modifies/removes a file).
   
-Finally the components of a function must have a comment to explain in few words what it does.
+Finally, the components of a function must have a comment to explain in a few words what it does.
 
 If the IDE allows it[^5], the function header can be read by hovering the mouse on the name of the function.
 
-**Beware, do not abuse of comments. A function shouldn't have a comment on every lines!**  
+**Beware, do not abuse comments. A function shouldn't have a comment on every line!**  
 
-#### 4.4.1 Example:
+#### 4.4.1 Example
 
 ```c
 /* Filename.c
@@ -287,11 +298,11 @@ For this project we are following the Von Neumann architecture[^6], this archite
 
 ### 6.2 portability
 
-Our CPU can be used on any system which can use a program using at least 5 Megabytes of memory and can use the current C standard which at this date is C17.
+Our CPU can be used on any system that can use a program using at least 5 Megabytes of memory and can use the current C standard which at this date is C17.
 
 ### 6.3 Parser[^7]
 
-To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers. 
+To translate from Assembly language to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers.
 
 This is the flowcharts of the two parsers used for our project:
 
@@ -299,14 +310,11 @@ This is the flowcharts of the two parsers used for our project:
 
 <img src="./Img/parser2FC.png" height="790px">
 
-
-Finally the whole parsering flowchart should ressemble to this process:
-
+Finally, the whole parsing flowchart should resemble this process:
 
 <img src="./Img/complete_parserFC.png" height="1150px">
 
-
-To parse ALGORISK we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instructions and arguments provided by the user.
+To parse ALGORISK we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instruction and arguments provided by the user.
 
 ```c
 //This is an enumerator containing all of the instructions.
@@ -356,6 +364,7 @@ const char *instruction_strings[] = {
     "LBU", "LHU"
     };
 ```
+
 As to how to detect instructions we are using this function:
 
 ```c
@@ -405,15 +414,16 @@ To detect an overflow or an underflow we are using these comparisons:
     return 1;
   }
 ```
-Then we are creating a new file with the translated assembly into binary. Additionally the binary generated by the interpreter is writing the binary in little endian[^13]. 
 
-Finally our program parse a final time the binary file to execute it and output the result into a console. the result being what are inside the registers.
+Then we create a new file with the translated assembly into binary. Additionally, the binary generated by the interpreter is writing the binary in little endian[^13].
+
+Finally, our program parses a final time the binary file to execute it and output the result into a console. The result is what is inside the registers.
 
 ### 6.4 Error handling
 
-In case of encoutering any type of error, the program will store a structure containing the number of the line, the line itself and the error type.
+In case of encountering any type of error, the program will store a structure containing the number of the line, the line itself, and the error type.
 
-Each error are stored in a single list which if is not empty will display the error on the console after the end of the parsing.
+Each error is stored in a single list which if is not empty will display the error on the console after the end of the parsing.
 
 ```c
 typedef struct {
@@ -429,35 +439,35 @@ For more information about error types, you can refer to the documentation provi
 
 To execute each line of the binary file we are comparing the retrieved 4 bytes to:
 
-- An instruction, 7 bit
-- The destination register, 5 bit
-- An indicator to identify which operation is required, 3 bit
-- The first source register, 5 bit
-- The second source register, 5 bit
-- A second indicator to encode additional informations about the operation, 7 bits
+- An instruction, 7-bit
+- The destination register, 5-bit
+- An indicator to identify which operation is required, 3-bit
+- The first source register, 5-bit
+- The second source register, 5-bit
+- A second indicator to encode additional information about the operation, 7 bits
 
-The indicators are not necessary used in every intruction, in this case they are filled with 0.
+The indicators are not necessarily used in every instruction, in this case, they are filled with 0.
 
-A full explanation of the different type of instructions is available in the <a href="./functional_specifications.md/#52-instruction-types-and-binary-formats">functional specifications</a>
+A full explanation of the different types of instructions is available in the <a href="./functional_specifications.md/#52-instruction-types-and-binary-formats">functional specifications</a>
 
-After the completion of the execution a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
+After the completion of the execution, a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
 
 ## 8. Maintenance
 
 The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
 
-[^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or to write a computer program.
-[^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify and delete a repository freely.
+[^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or write a computer program.
+[^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify, and delete a repository freely.
 [^3]: Header: A header file is a file used for C/C++ programs. It is used to declare functions and variables before executing a program.
-[^4]: Readability: The readability is the ability to read a program without having problems to understand it's use or the goal of the functions/variables used.
-[^5]: IDEs that allows this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE and multiple others.
+[^4]: Readability: The ability to read a program without having problems understanding its use or the goal of the functions/variables used.
+[^5]: IDEs that allow this feature are: VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE, and multiple others.
 [^6]: Von Neumann architecture: The Von Neumann architecture is one of the earliest computer architecture.
-[^7]: Parser: A Parser is a program that can split a chain of character to identify a specific syntax or specific keywords.
+[^7]: Parser: A Parser is a program that can split a chain of characters to identify a specific syntax or specific keywords.
 [^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
-[^9]: String: A chain of character contained in one variable.
-[^10]: Arrays and enumerators: An array is a data structure that store a fixed number of the same type of variable and an enumerator is a type of data that represent a sequence of value.
-[^11]: An overflow is when a value exceed the maximum.
+[^9]: String: A chain of characters contained in one variable.
+[^10]: Arrays and enumerators: An array is a data structure that stores a fixed number of the same type of variable and an enumerator is a type of data that represents a sequence of values.
+[^11]: An overflow is when a value exceeds the maximum.
 [^12]: An underflow is when a value falls below the minimum.
-[^13]: The little endian is the format commonly used by processors to read binary, this format stores the least significant byte at the start, as the contrary of the big endian.
+[^13]: The little-endian is the format commonly used by processors to read binary, this format stores the least significant byte at the start, as the contrary of the big-endian.
 
 <div align="right"><a href="#table-of-content"><img src="img/functional_specifications/back.png" width="35px"></a></div>
