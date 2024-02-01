@@ -1,10 +1,10 @@
-<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left" id="top"><a href="./"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Functional Specifications </h1>
 
 <p align="center"> 
-Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30/01/2024
+Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01/02/2024
 </p>
 
 <details>
@@ -45,6 +45,13 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
   - [5.1 Sections](#51-sections)
   - [5.2 Instruction types and binary formats](#52-instruction-types-and-binary-formats)
   - [5.3 Instruction Set Architecture](#53-instruction-set-architecture)
+  - [5.4 Labels](#54-labels)
+  - [5.5 Conventions and Syntax](#55-conventions-and-syntax)
+    - [➭ 5.5.1 Sections Convention](#-551-sections-convention)
+    - [➭ 5.5.2 Instructions Convention](#-552-instructions-convention)
+    - [➭ 5.5.3 Registers Convention](#-553-registers-convention)
+    - [➭ 5.5.4 Immediates Convention](#-554-immediates-convention)
+    - [➭ 5.5.5 Labels Convention](#-555-labels-convention)
 - [6. From ALGORISK assembly to executable](#6-from-algorisk-assembly-to-executable)
   - [6.1 Preprocessor](#61-preprocessor)
   - [6.2 Lexer](#62-lexer)
@@ -83,7 +90,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | 32-bit Virtual Processor | A virtual processor that uses 32-bit instructions and data. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
 | Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
-| Instruction| A single operation performed by a processor, expressed as a binary code. |
+| Instruction | A single operation performed by a processor, expressed as a binary code. |
+| Atomic Instruction | An instruction that cannot be interrupted by other instructions. |
+| Interrupt | An asynchronous event or signal that temporarily diverts the processor's normal execution flow to handle a specific task or event, often requiring the processor to save its current state and transfer control to an interrupt service routine. |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
 | RISC Approach and RISC-V Architecture    | Reduced Instruction Set Computing (RISC) is an architecture that uses a small, highly optimized set of instructions. RISC-V is an open-source RISC architecture. |
@@ -98,9 +107,10 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 30
 | Exception Handling | The process of responding to the occurrence of exceptions – anomalous or exceptional conditions requiring special processing. |
 | Plugin             | A software component that adds a specific feature to an existing computer program.                           |
 | Color Highlighting, Snippets              | Features related to programming and code editing, providing visual enhancements and code shortcuts.        |
-| Ahead of Time Compilation| It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
-| Pipeline| An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
-| ISA| ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
+| Ahead of Time Compilation | It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
+| Pipeline | An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
+| Multi-threading | A technique in which a single process can have multiple code segments (threads) running concurrently.|
+| ISA | ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
 
 ## 2. Introduction
 
@@ -136,15 +146,16 @@ We want beginners to learn how a computer works at a low level, without being di
 | Implement interrupts |
 | Implement multi-threading |
 | Implement atomic instructions |
+| Implement complex pipelining |
 
 #### ➭ <ins>2.2.3 Deliverables</ins>
 
 | Name                               | Type                | Deadline     | Link                                                         |
 | ---------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| Functional Specifications Document | Document (markdown) | 30/01/2024   | [functional_specifications.md](./functional_specifications.md) |
-| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [TechnicalSpecifications.md](./TechnicalSpecifications.md) |
-| Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports](./Management/weekly_report/)                          |
-| Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./Testing/test_plan.md)              |
+| Functional Specifications Document | Document (markdown) | 30/01/2024   | [Functional Specifications](./functional_specifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [Technical Specifications](./TechnicalSpecifications.md) |
+| Weekly Reports                     | Document (markdown) | Every Friday | [Weekly Reports](./Management/weekly_report/)                          |
+| Test Plan                          | Document (markdown) | 16/02/2024   | [Test Plan](./Testing/test_plan.md)              |
 | Final Product                      | Executable and/or a C file         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
@@ -182,7 +193,7 @@ The project sponsors (highlighted in **bold**) are expected to be in charge of:
 |---|---|---|
 | Project Manager | In charge of organisation, planning and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
 | Program Manager | Makes sure the project meets the client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
-| Tech Lead | Makes the technical decision in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
+| Tech Lead | Makes the technical decisions in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
 | Software Engineer | Writes the code. <br> Writes documentation. <br> Participate in the technical choices. | Malo ARCHIMBAUD <br> <br> Mathis KAKAL|
 | Quality Assurance |  Tests all the functionalities of the product to find bugs and issues. <br> Document bugs and issues. <br> Defines the test strategy and writes the test plan. <br> Checks that issues are fixed. | Arthur LEMOINE |
 
@@ -194,6 +205,8 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.1 Retroplanning</ins>
 
+The project will last for 8 weeks, from January 8th 2024 to March 1st 2024.
+
 ![retroplanning.png](/documents/img/functional_specifications/retroplanning.png)
 
 #### ➭ <ins>2.4.2 Milestones</ins>
@@ -202,6 +215,7 @@ External project reviewers have been appointed by the project owner to review ou
 | -------------------------------- | -------------------------- |
 | Functional Specifications V1     | Tuesday, January 30th 2024 |
 | Technical Specifications V1      | Friday, February 9th 2024  |
+| Test Plan | Friday, February 16th 2024 |
 | Final Product | Friday, February 23rd 2024 |
 | Oral Presentation | Friday, March 1st 2024     |
 
@@ -502,6 +516,58 @@ By providing too few instructions, it would mean that some operations would not 
 
 This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, the content of r1 will be copied in r2.
 
+### 5.4 Labels
+
+Labels are used to mark a position in the code. They are used to jump to a specific instruction or to store the address of an instruction in a register. \
+Labels are declared by writing the name of the label followed by a column. \
+
+```
+.code
+    instruction ...
+    instruction ...
+    jump MyLabel
+MyLabel:
+```
+
+In this example, the jump instruction is just a representation for any instruction of the J-Type.
+
+### 5.5 Conventions and Syntax
+
+It's important to define conventions for the syntax of the assembly language to ensure consistency and readability. \
+If a convention is not respected, the assembler will throw an error. 
+
+*In the future, we would like to implement warnings to inform the user that a convention is not respected, but the program would still be assembled.*
+
+#### ➭ <ins>5.5.1 Sections Convention</ins>
+
+The data section is delimited by the `.data` directive and the code section is delimited by the `.code` directive. \
+Any other syntax than those two will throw an error.
+
+Nothing else (except comments) can be written on the same line as a section declaration.
+
+#### ➭ <ins>5.5.2 Instructions Convention</ins>
+
+Instructions are written in lowercase and are followed by a space. \
+If a different syntax than the ones in the [instruction set](#53-instruction-set-architecture) is used, the assembler will throw an error.
+
+Instructions should be indented by 4 spaces compared to sections and labels but if it's not respected, the assembler will still work.
+
+#### ➭ <ins>5.5.3 Registers Convention</ins>
+
+Registers are written in lowercase and are preceded by a space and followed by a comma if there is no other operand after. \
+They are named from `r0` to `r31`. \
+If any other syntax is used, it will throw an error.
+
+#### ➭ <ins>5.5.4 Immediates Convention</ins>
+
+Immediates are written in base 10 and commas are forbidden as grouping separators (e.g. 100,000 should be written 100000 without a comma to separate). \
+If any other syntax is used, it will throw an error.
+
+#### ➭ <ins>5.5.5 Labels Convention</ins>
+
+Labels are written in PascalCase and are followed by a column. \
+They can contain letter and numbers but must start with a letter. \
+
 ## 6. From ALGORISK assembly to executable
 
 Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that our code must be fully optimized before assembly into machine code.
@@ -527,7 +593,7 @@ Furthermore, if the preprocessor encounters a label, it will save it. When finis
 
 ```
 \\code
-jal r1,MyLabel
+jal r1, MyLabel
 
 MyLabel:
 \\ code
