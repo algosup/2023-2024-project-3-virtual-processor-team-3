@@ -1,4 +1,4 @@
-<div align="left"><a href="../"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left"><a href="./"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Technical specifications </h1>
