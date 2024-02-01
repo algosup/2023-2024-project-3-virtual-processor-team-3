@@ -1,49 +1,52 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-
 #ifndef TYPE_H
 #define TYPE_H
 
-#define byte unsigned char
-#define u64 unsigned long long
-#define i64 long long
-#define f64 double
-
-enum registers
+enum InstructionFormat
 {
-    R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RA, RB, RC, RD, RE, RF,
-    F0, F1, F2, F3, F4, F5, F6, F7, F8, F9, FA, FB, FC, FD, FE, FF,
+    R,
+    I,
+    S,
+    B,
+    U,
+    J,
 };
 
-enum opcode
+enum BaseOpcode
 {
-    LII, LIF,
-    STI, STF, LDI, LDF,
-    MOV, MOVF,
-    ADD, SUB, MUL, DIV,
-    ADDF, SUBF, MULF, DIVF,
-    PRT, PRTF,
-    PUSH, POP,
-    PUSHF, POPF,
-    STOP
+    LOAD = 0B0000011,
+    OP_IMM = 0B0010011,
+    AUIPC = 0B0010111,
+    STORE = 0B0100011,
+    OP = 0B0110011,
+    LUI = 0B0110111,
+    BRANCH = 0B1100011,
+    JALR = 0B1100111,
+    JAL = 0B1101111,
+    SYSTEM = 0B1110011,
 };
 
-typedef struct
+enum Register
 {
-    f64 *mem;
-    i64 max_mem;
+    x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, xA, xB, xC, xD, xE, xF,
+    x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x1A, x1B, x1C, x1D, x1E, x1F,
+};
 
-    i64 pc;
-    i64 sp;
-    i64 r[16];
-    f64 fr[16];
+typedef struct cpu
+{
+    int *mem;
+    int max_mem;
 
-    i64 inst;
-    i64 dest;
-    f64 arg1;
-    i64 arg2;
-} cpu_t;
+    int pc;
+    int sp;
+    int x[32];
+
+    int instruction;
+    int func7;
+    int func3;
+    int destination;
+    int arg1;
+    int arg2;
+    int immediate;
+}cpu_t;
 
 #endif

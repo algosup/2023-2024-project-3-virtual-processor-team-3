@@ -1,145 +1,100 @@
 #ifndef CPU_H
 #define CPU_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdbool.h>
+
 #include "type.h"
 
-void execute(cpu_t *c);
-void fetch(cpu_t *c);
+void fetch(cpu_t* cpu);
+void execute(cpu_t* cpu);
 
-cpu_t* new_cpu(f64* memory, i64 mem_size)
+void add(cpu_t *cpu);
+
+cpu_t* new_cpu(int *mem)
 {
     cpu_t* cpu = malloc(sizeof(cpu_t));
-    cpu->mem = memory;
-    cpu->max_mem = mem_size;
+    cpu->mem = mem;
+    cpu->max_mem = 4194304;
     cpu->pc = -1;
-    cpu->sp = mem_size - 1;
-    cpu->inst = 0;
-    for (int i = 0; i < 16; i++)
+    cpu->sp = cpu->max_mem -1;
+    for (int i = 0; i < 32; i++)
     {
-        cpu->r[i] = 0;
-        cpu->fr[i] = 0;
+        cpu->x[i] = 0;
     }
+    cpu->x[4] = 2;
+    cpu->x[5] = 5;
+
     return cpu;
 }
 
-void cpu_free(cpu_t* cpu)
+void free_cpu(cpu_t* cpu)
 {
     free(cpu);
 }
 
 void run_cpu(cpu_t* cpu)
 {
-    while (cpu->inst != STOP)
-    {
-        fetch(cpu);
-        execute(cpu);
-    }
+    //while (cpu->mem < cpu->max_mem)  // TODO: change exit condition
+    //{
+    //    fetch(cpu);
+    //    execute(cpu);
+    //}
+
+    fetch(cpu);
+    execute(cpu);
 }
 
 void fetch(cpu_t* cpu)
 {
     cpu->pc++;
-    cpu->inst = cpu->mem[cpu->pc];
-    cpu->dest = cpu->mem[cpu->pc+1];
-    cpu->arg1 = cpu->mem[cpu->pc+2];
-    cpu->arg2 = cpu->mem[cpu->pc+3];
+    cpu->instruction = (cpu->mem[cpu->pc] << 25) >> 25;
 }
 
 void execute(cpu_t* cpu)
 {
-    switch (cpu->inst)
+    switch(cpu->instruction)
     {
-        case LII:
-			cpu->r[cpu->dest] = cpu->arg1;
-			cpu->pc += 2;
-			break;
-        case LIF:
-			cpu->fr[cpu->dest - 16] = cpu->arg1;
-			cpu->pc += 2;
-			break;
-        case STI:
-            cpu->mem[cpu->dest] = cpu->r[(i64)cpu->arg1];
-            cpu->pc += 2;
+        case LOAD:
             break;
-        case STF:
-            cpu->mem[cpu->dest] = cpu->fr[(i64)cpu->arg1-16];
-            cpu->pc += 2;
+        case OP_IMM:
             break;
-        case LDI:
-            cpu->r[cpu->dest] = cpu->mem[(i64)cpu->arg1];
-            cpu->pc += 2;
+        case AUIPC:
             break;
-        case LDF:
-            cpu->fr[cpu->dest-16] = cpu->mem[(i64)cpu->arg1];
-            cpu->pc += 2;
+        case STORE:
             break;
-        case MOV:
-            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1];
-            cpu->pc += 2;
+        case OP:
+            cpu->func7 = cpu->mem[cpu->pc] >> 25;
+            cpu->func3 = (cpu->mem[cpu->pc] << 17) >> 29;
+            cpu->destination = (cpu->mem[cpu->pc] << 22) >> 27;
+            cpu->arg1 = (cpu->mem[cpu->pc] << 12) >> 27;
+            cpu->arg2 = (cpu->mem[cpu->pc] << 7) >> 27;
+            if (cpu->func7 == 0 && cpu->func3 == 0)
+            {
+                add(cpu);
+            }
             break;
-        case MOVF:
-            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16];
-            cpu->pc += 2;
+        case LUI:
             break;
-        case ADD:
-            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1] + cpu->r[cpu->arg2];
-            cpu->pc += 3;
+        case BRANCH:
             break;
-        case SUB:
-            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1] - cpu->r[cpu->arg2];
-            cpu->pc += 3;
+        case JALR:
             break;
-        case MUL:
-            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1] * cpu->r[cpu->arg2];
-            cpu->pc += 3;
+        case JAL:
             break;
-        case DIV:
-            cpu->r[cpu->dest] = cpu->r[(i64)cpu->arg1] / cpu->r[cpu->arg2];
-            cpu->pc += 3;
-            break;
-        case ADDF:
-            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16] + cpu->fr[cpu->arg2-16];
-            cpu->pc += 3;
-            break;
-        case SUBF:
-            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16] - cpu->fr[cpu->arg2-16];
-            cpu->pc += 3;
-            break;
-        case MULF:
-            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16] * cpu->fr[cpu->arg2-16];
-            cpu->pc += 3;
-            break;
-        case DIVF:
-            cpu->fr[cpu->dest-16] = cpu->fr[(i64)cpu->arg1-16] / cpu->fr[cpu->arg2-16];
-            cpu->pc += 3;
-            break;
-        case PRT:
-            printf("%ld\n", cpu->r[cpu->dest]);
-            cpu->pc += 1;
-            break;
-        case PRTF:
-            printf("%f\n", cpu->fr[cpu->dest-16]);
-            cpu->pc += 1;
-            break;
-        case PUSH:
-			cpu->mem[--cpu->sp] = cpu->r[(i64)cpu->mem[++cpu->pc]];
-			break;
-        case POP:
-			cpu->r[(i64)cpu->mem[++cpu->pc]] = cpu->mem[cpu->sp++];
-			break;
-        case PUSHF:
-            cpu->mem[--cpu->sp] = cpu->fr[(i64)cpu->mem[++cpu->pc]-16];
-            break;
-        case POPF:
-            cpu->fr[(i64)cpu->mem[++cpu->pc]-16] = cpu->mem[cpu->sp++];
-            break;
-        case STOP:
-            cpu->pc = cpu->max_mem;
+        case SYSTEM:
             break;
         default:
-            printf("Unknown instruction: %d\n", cpu->inst);
-            exit(1);
+            break;
     }
+}
+
+void add(cpu_t *cpu)
+{
+    cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->x[cpu->arg2];
 }
 
 #endif
