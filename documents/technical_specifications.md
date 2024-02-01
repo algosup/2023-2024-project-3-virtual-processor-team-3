@@ -22,6 +22,7 @@ ___
 - [0. Last reviewer](#0-last-reviewer)
 - [1. Introduction](#1-introduction)
   - [1.1 Project overview](#11-project-overview)
+  - [1.2 Prior knowledge](#12-prior-knowledge)
 - [2. File architecture](#2-file-architecture)
 - [3.Development environment](#3development-environment)
 - [4. Conventions](#4-conventions)
@@ -53,7 +54,16 @@ ___
 
 ### 1.1 Project overview
 
-The goal of this project is to create our own virtual processor. Our processor should be able to read assembly instructions using our own dialect.
+This project has been requested by the school ALGOSUP. The goal of said project is to create a virtual CPU and an interpreter of our own assembly language.
+
+### 1.2 Prior knowledge
+
+This document is using multiple technical terms and principle related to computer science. Thus this document is mainly written for:
+- Software engineers,
+- Current project collaborator,
+- Reviewer possessing prior knowledge.
+
+Additionally, before reading this document, please be aware that the ALGORISK assembly is expleined in the <a href="./functional_specifications.md">functional specifications</a>. We recommend reviewing that document first for a comprehensive understanding of the ALGORISK assembly.
 
 ## 2. File architecture
 
