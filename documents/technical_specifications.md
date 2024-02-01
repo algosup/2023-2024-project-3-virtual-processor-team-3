@@ -305,7 +305,7 @@ float floatMultiplication(float x,float y)
 
 For this project we are following the Von Neumann architecture[^6], this architecture defines how a computer system works. It can be represented as the following:
 
-<img src="./Img/von_neumann_architecture.png" height="300px">
+<img src="./img/von_neumann_architecture.png" height="300px">
 
 ### 5.2 portability
 
@@ -327,13 +327,13 @@ To translate from ALGORISK assembly to machine code[^8] and compile the resultin
 
 This is the flowcharts of the two parsers used for our project:
 
-<img src="./Img/parserFC.png" height="900px">
+<img src="./img/parserFC.png" height="900px">
 
-<img src="./Img/parser2FC.png" height="790px">
+<img src="./img/parser2FC.png" height="790px">
 
 Finally, the whole parsing flowchart should resemble this process:
 
-<img src="./Img/complete_parserFC.png" height="1150px">
+<img src="./img/complete_parserFC.png" height="1150px">
 
 To parse ALGORISK assembly we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instruction and arguments provided by the user.
 
