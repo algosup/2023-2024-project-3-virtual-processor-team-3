@@ -4,7 +4,7 @@
 <h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 26/01/2024
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 01/02/2024
 </p>
 
 ___
@@ -28,7 +28,6 @@ ___
   - [4.1 Commits](#41-commits)
     - [4.1.1 Title:](#411-title)
     - [4.1.2 Body:](#412-body)
-    - [4.1.3 Additional keywords:](#413-additional-keywords)
     - [4.1.4 Examples:](#414-examples)
   - [4.2 Files](#42-files)
   - [4.3 Names](#43-names)
@@ -45,7 +44,7 @@ ___
 ## 0. Last reviewer
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 26/01/2024 |
+| Aurélien Fernandez | 01/02/2024 |
 
 
 ## 1. Introduction
@@ -133,7 +132,7 @@ The project's repository[^2] have to be organised to allow contributors and pote
   
 ### 4.1 Commits
 
-Commits must be written following these specific rules:
+Commits must be written following these specific rules, most of the rules can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a>.
 
 #### 4.1.1 Title:
 
@@ -145,6 +144,7 @@ It has to begin with one of the following:
 - "chore:" if the commit is about a routine task, for example refactoring, it is mostly used to tasks that are neither features or fixes.
 - "docs:" if the commit is about changes to a document or adding documents.
 - "perf:" if the commit is about optimising of performances.
+- "remove:" if the commit removes a feature.
 
 Furthermore a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb and the name of the implementation or the name of the file involved.
 
@@ -156,31 +156,8 @@ The body describes the commit with more details, and as titles it has to follow 
   - Reference issues if needed.
   - Avoid long paragraphs, list what has been done.
   - No jargon without explanations, other contributors must understand the commit.
-
-#### 4.1.3 Additional keywords:
-
-These keywords are not absolutely needed in one's commit but can enhance the project's organisation and allow collaborators to hit two birds with one stone in multiple cases. 
-
-Git/Github desktop:
-
-These lines are to be added at the end of the body of a commit. 
-  ```
-  Close(s/d)/Fix(es/ed)/resolve(s/d) (:) #[*issue id*]
-  ```
-  It closes the issue with this id, only one of the precedent words is necessary.
-  ```
-  Co-authored-by(:) [*Name*] [*colleague@example.com*]
-  ``` 
-   It adds a co-author to the commit, the name is not sensitive to collaborators on the contrary of the email address.
-
-   For Github dekstop, the co author can be added by using this:
-
-   <img src="./Img/co-authors-demo-hq.gif" height="200vh">
-
-   ```
-   commit(:) [*commit hashcode*]
-   ```
-   It is a link to a past commit.
+  
+  The body can also contain few keywords that can interact with the repository, such as adding co-authors, close issues etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a> in the "footer section.
 
 #### 4.1.4 Examples:
 
