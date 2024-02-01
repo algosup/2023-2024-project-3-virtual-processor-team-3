@@ -1,26 +1,38 @@
-# Communication Management Plan - Team 3
+
+<h1 align="center"> Communication Management Plan </h1>
+
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 02/01/2024 <br> Last update: 02/01/2024
+</p>
+
+___
 
 | Document Owner    | MARLIER THIBAUD |
 |-------------------|-----------------|
-| Last Modification | 02/01/2024      |
-| Reviewer(s)       | Aurélien FERNANDEZ|               |
+| Reviewer(s)       | Aurélien FERNANDEZ|
 
-- [Communication Management Plan - Team 3](#communication-management-plan---team-3)
-- [1. Overview](#1-overview)
-  - [1.1 Introduction](#11-introduction)
-  - [1.2 Current Communication Activities](#12-current-communication-activities)
-    - [1.2.1 Amongst the team](#121-amongst-the-team)
-    - [1.2.2 With the stakeholders](#122-with-the-stakeholders)
-    - [1.2.3 Current Outcome](#123-current-outcome)
-  - [2. Environment Situation Analysis](#2-environment-situation-analysis)
-    - [2.1 Strengths](#21-strengths)
-    - [2.2 Weaknesses](#22-weaknesses)
-    - [2.3 Opportunities](#23-opportunities)
-    - [2.4 Threats](#24-threats)
-  - [3. Objectives](#3-objectives)
-    - [3.1 Communication Objectives](#31-communication-objectives)
+___
 
-# 1. Overview
+<details>
+
+<summary>
+Table Of Content
+</summary>
+
+- [1.1 Introduction](#11-introduction)
+- [1.2 Current Communication Activities](#12-current-communication-activities)
+  - [1.2.1 Amongst the team](#121-amongst-the-team)
+  - [1.2.2 With the stakeholders](#122-with-the-stakeholders)
+  - [1.2.3 Current Outcome](#123-current-outcome)
+- [2. Environment Situation Analysis](#2-environment-situation-analysis)
+  - [2.1 Strengths](#21-strengths)
+  - [2.2 Weaknesses](#22-weaknesses)
+  - [2.3 Opportunities](#23-opportunities)
+  - [2.4 Threats](#24-threats)
+- [3. Objectives](#3-objectives)
+  - [3.1 Communication Objectives](#31-communication-objectives)
+
+</details>
 
 ## 1.1 Introduction
 
@@ -43,8 +55,8 @@ This table describes the current communication activities made within the team.
 
 | Team Member                | Project Manager (MARLIER Thibaud) | Program Manager (CLEMENT Quentin)                     | Technical Leader (FERNANDEZ Aurélien)                 | Software Enginner #1 (ARCHIMBAUD Malo) | Software Engineer #2 (KAKAL Mathis) | Quality Assurance (LEMOINE Arthur)                    |
 |----------------------------|-----------------------------------|-------------------------------------------------------|-------------------------------------------------------|----------------------------------------|-------------------------------------|-------------------------------------------------------|
-| Platform Used              | Slack                             | Slack                                                 | Slack                                                 | Slack                                  | Slack                               | Slack                                                 |   |
-| Sends information to       | Whole Team                        | Technical Leader, Project Manager                     | Software Engineers, Project Manager, Program Manager. | Technical Leader, Project Manager      | Technical Leader, Project Manager   | Software Engineers, Technical Leader                  |   |
+| Platform Used              | Slack                             | Slack                                                 | Slack                                                 | Slack                                  | Slack                               | Slack                                                 |
+| Sends information to       | Whole Team                        | Technical Leader, Project Manager                     | Software Engineers, Project Manager, Program Manager. | Technical Leader, Project Manager      | Technical Leader, Project Manager   | Software Engineers, Technical Leader                  |
 | Receives information from  | Whole Team                        | Project Manager, Technical Leader, Software Engineers | Project Manager, Program Manager, Software Engineers  | Technical Leader, Project Manager      | Technical Leader, Project Manager   | Project Manager, Software Engineers, Technical Leader |
 | Frequency                  | Three times a week                            | Three times a week                                    | Three times a week                                    | Three times a week                     | Three times a week                  | Twice a week                                          |
 
@@ -136,8 +148,15 @@ This part defines the weaknesses of our current communication strategies:
 
 In order to improve the current communication state, actions must be taken, here are the three main decision that have been taken.
 
-    I. Greater communication from Project manager to the team members: 
-        The project manager, engages to take more part into discussions to communicate more effectively with every team members. In order to do so, the project manager will ask for daily feedback to have a better insight of the current progress being made on the project. This will greatly help in term of project planning, in communication among the team. Reduce various threats such as broken communication and team disengagement.  
+1. Greater communication from Project manager to the team members:
+
+- The project manager, engages to take more part into discussions to communicate more effectively with every team members. \
+In order to do so, the project manager will ask for daily feedback to have a better insight of the current progress being made on the project. This will greatly help in term of project planning, in communication among the team. Reduce various threats such as broken communication and team disengagement.  
+
+2. Insert
+
+3. Insert
+
 <!-- 3 Objectives
 So far, you have set out the current state of communications within your team. The next step is to describe the future state, which will be achieved through the execution of this plan.
 3.1 Communications Objectives
@@ -181,4 +200,4 @@ For example, a project may have the following target audiences:
     • External suppliers and contractors
     • Governance and regulatory bodies
 4.2 Stakeholder Requirements
-You now know exactly who it is that you are going to formally communicate with. The next step is to identify the information that they need to receive. List each stakeholder in the table below then describe the information that they need to receive and the timeframe in which they need to receive it.  --> 
+You now know exactly who it is that you are going to formally communicate with. The next step is to identify the information that they need to receive. List each stakeholder in the table below then describe the information that they need to receive and the timeframe in which they need to receive it.  -->
