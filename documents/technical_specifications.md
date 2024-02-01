@@ -21,7 +21,7 @@ ___
 - [Table of content](#table-of-content)
 - [0. Last reviewer](#0-last-reviewer)
 - [1. Introduction](#1-introduction)
-  - [1.1 Project goal](#11-project-goal)
+  - [1.1 Project overview](#11-project-overview)
 - [2. File architecture](#2-file-architecture)
 - [3.Development environment](#3development-environment)
 - [4. Conventions](#4-conventions)
@@ -33,13 +33,13 @@ ___
   - [4.3 Names](#43-names)
   - [4.4 Comments](#44-comments)
     - [4.4.1 Example](#441-example)
-- [6. Technical aspects](#6-technical-aspects)
-  - [6.1 CPU architecture](#61-cpu-architecture)
-  - [6.2 portability](#62-portability)
-  - [6.3 Parser\[^7\]](#63-parser7)
-  - [6.4 Error handling](#64-error-handling)
-  - [6.5 Execution](#65-execution)
-- [8. Maintenance](#8-maintenance)
+- [5. Technical aspects](#5-technical-aspects)
+  - [5.1 CPU architecture](#51-cpu-architecture)
+  - [5.2 portability](#52-portability)
+  - [5.3 Parser\[^7\]](#53-parser7)
+  - [5.4 Error handling](#54-error-handling)
+  - [5.5 Execution](#55-execution)
+- [6. Maintenance](#6-maintenance)
   
 </details>
 
@@ -51,7 +51,7 @@ ___
 
 ## 1. Introduction
 
-### 1.1 Project goal
+### 1.1 Project overview
 
 The goal of this project is to create our own virtual processor. Our processor should be able to read assembly instructions using our own dialect.
 
@@ -288,19 +288,19 @@ float floatMultiplication(float x,float y)
 }
 ```
 
-## 6. Technical aspects
+## 5. Technical aspects
 
-### 6.1 CPU architecture
+### 5.1 CPU architecture
 
 For this project we are following the Von Neumann architecture[^6], this architecture defines how a computer system works. It can be represented as the following:
 
 <img src="./Img/von_neumann_architecture.png" height="300px">
 
-### 6.2 portability
+### 5.2 portability
 
 Our CPU can be used on any system that can use a program using at least 5 Megabytes of memory and can use the current C standard which at this date is C17.
 
-### 6.3 Parser[^7]
+### 5.3 Parser[^7]
 
 To translate from ALGORISK assembly to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers.
 
@@ -419,7 +419,7 @@ Then we create a new file, this file contains the binary equivalent of the progr
 
 Finally, our program parses a final time the binary file to execute it and output the result into a console. The result is what is inside the registers.
 
-### 6.4 Error handling
+### 5.4 Error handling
 
 In case of encountering any type of error, the program will store a structure containing the number of the line, the line itself, and the error type.
 
@@ -435,7 +435,7 @@ typedef struct {
 
 For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#➭-621-instruction-error"> functional specifications</a>.
 
-### 6.5 Execution
+### 5.5 Execution
 
 To execute each line of the binary file we are comparing the retrieved 4 bytes to:
 
@@ -452,7 +452,7 @@ A full explanation of the different types of instructions is available in the <a
 
 After the completion of the execution, a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
 
-## 8. Maintenance
+## 6. Maintenance
 
 The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
 
