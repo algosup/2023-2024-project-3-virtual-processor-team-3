@@ -341,7 +341,7 @@ enum instructions
     LBU, LHU
 };
 
-//This is an array of 44 characters containing all instructions.
+//This is an array of all string equivalent of our instructions.
 const char *instruction_strings[] = {
     "ADD", "SUB", "MUL", "MULH", "DIV", "REM",
     "AND", "OR", "XOR",
