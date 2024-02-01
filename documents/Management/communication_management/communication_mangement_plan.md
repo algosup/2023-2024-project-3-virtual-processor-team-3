@@ -3,7 +3,7 @@
 | Document Owner    | MARLIER THIBAUD |
 |-------------------|-----------------|
 | Last Modification | 02/01/2024      |
-| Reviewer(s)       | /               |
+| Reviewer(s)       | Aurélien FERNANDEZ|               |
 
 - [Communication Management Plan - Team 3](#communication-management-plan---team-3)
 - [1. Overview](#1-overview)
