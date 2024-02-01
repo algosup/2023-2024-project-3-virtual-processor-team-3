@@ -176,7 +176,7 @@ The body describes the commit with more details, and as titles, it has to follow
 - Avoid long paragraphs, list what has been done.
 - No jargon without explanations, other contributors must understand the commit.
   
-  The body can also contain a few keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the "footer section.
+  The body can also contain a few keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the footer section.
 
 #### 4.1.3 Examples
 
@@ -454,7 +454,7 @@ typedef struct {
 } Error_t;
 ```
 
-For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#➭-621-instruction-error"> functional specifications</a>.
+For more information about error types, you can refer to the documentation provided in the <a href="./functional_specifications.md/#-621-instruction-error"> functional specifications</a>.
 
 ### 5.6 Execution
 
@@ -469,7 +469,7 @@ To execute each line of the binary file we are comparing the retrieved 4 bytes t
 
 The indicators are not necessarily used in every instruction, in this case, they are filled with 0.
 
-A full explanation of the different types of instructions is available in the <a href="./functional_specifications.md/#52-instruction-types-and-binary-formats">functional specifications</a>
+A broader explanation of the different types of instructions is available in the <a href="./functional_specifications.md/#52-instruction-types-and-binary-formats">functional specifications</a>
 
 After the completion of the execution, a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
 
