@@ -6,7 +6,7 @@
 
 This week starts off the beginning of the Virtual Processor project, we've received the Call For Tender on January 2nd.  
 
-### <u> Ongoing Tasks</u>
+### <u> Ongoing Tasks</u> 
 
 |           Task           | Member Assigned  | Progression | End Of Week objective | Start Date |
 | :----------------------: | :--------------: | :---------: | :-------------------: | :--------: |

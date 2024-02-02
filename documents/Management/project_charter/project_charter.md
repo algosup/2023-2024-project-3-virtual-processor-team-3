@@ -18,15 +18,15 @@
   - [Budget](#budget)
   - [Quality Standards](#quality-standards)
   - [Communication Plans](#communication-plans)
-  - [Success Criterias](#success-criterias)
+  - [Success Criteria](#success-criteria)
 
 </details>
 
 ## Project Overview
 
-This project aims to design and create a **virtual processor** and an **interpreter** running our **own Assembly language** on that same processor. All developed by **our team**.
+This project aims to design and create a **virtual processor** and an **interpreter** running our **own Assembly language** on that same processor. All were developed by **our** team**.
 Our product will be developed using the **C language**, relying only on the **C standard library**, no other libraries should be used by our team.  
-The project officially started (for the team) on the 17th of January. The final product will be given to the client the 23rd of February.
+The project officially started (for the team) on the 17th of January. The final product will be given to the client on the 23rd of February.
 In the short term, we have to come up with an original and new processor and Assembly language. We have to make our dream processor. The processor and Assembly will be aimed to be educative, meaning it should be understandable by everyone, and will help you during the process of learning how a CPU works.  
 We will draw inspiration from the architecture of the RISC-V 32-bit CPU architecture.
 Our Assembly language will be minimalistic, making each instruction as understandable and as clear as possible for the user.
@@ -51,8 +51,7 @@ The scope of the **Virtual Processor project** is to create, along with a workin
 - The four basic logical operations: OR, AND, XOR, and NOT.
 
 The objective of handling a product that contains all these requirements in due time is achievable.
-In addition, our final product will be a 32-bit processor.
-Moreover,our team will implement machine code, meaning that our Assembly code will be interpreted by our CPU via machine code.
+In addition, our final product will be a 32-bit processor. Moreover, our team will implement machine code, meaning that our Assembly code will be interpreted by our CPU via machine code.
 
 ## Team Members
 
@@ -106,7 +105,7 @@ Based on the precedent tables here is what needs to be delivered to the client:
 
 ## Budget
 
-There's no budget given by the client, or set. This project will rely on the free resources and software available to us. However, if a budget is necessary for the project, this will be discussed among with the stakeholders.
+There's no budget given by the client, or set. This project will rely on the free resources and software available to us. However, if a budget is necessary for the project, this will be discussed among the stakeholders.
 Having no budget could be a constraint if we find out that we are obligated to buy any resources or software. This needs to be taken into account by our team.
 
 ## Quality Standards
@@ -140,7 +139,7 @@ Moreover, we have weekly meetings set, to discuss the project's advancement. Get
 In addition, communication between the team and the stakeholders will be handled mostly by the Program Manager and the Project manager.  
 Our team will contact the client whenever it is needed and our team is always available to answer the client's questions and consolate them if they have any worries.
 
-## Success Criterias  
+## Success Criteria  
 
 The success criteria are defined by the client.
 

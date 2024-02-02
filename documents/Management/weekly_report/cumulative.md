@@ -72,7 +72,7 @@ Next week's priorities are:
 
 ### <u> Introduction </u>
 
-This week was once more ruled by leaning the C language which is necessary for this project, however we have had the time to gather during project time to discuss about various dirrections that we will take for the project.
+This week was once more ruled by learning the C language which is necessary for this project, however, we have had the time to gather during project time to discuss various directions that we will take for the project.
 
 ### <u> Ongoing Tasks</u>
 
@@ -98,30 +98,30 @@ This week was once more ruled by leaning the C language which is necessary for t
 
 ### <u>Team meeting</u>
 
-The 17th of January 2024, we gathered for the first during project time to have a meeting about various directions to take, during the morning we have:
+The 17th of January 2024, we gathered for the first during project time to have a meeting about various directions to take, during the morning we had:
 
 * Discussed the specifications of our Assembly Language,
-* Broke down the different step to build our own Virtual Processor,
-* Started working on the Processor's architecture by checking different architectures that already exists,
-* Decided to take inspiration from different CPU, RISK-V, ARM....
+* Broke down the different steps to build our own Virtual Processor,
+* Started working on the Processor's architecture by checking different architectures that already exist,
+* Decided to take inspiration from different CPUs, RISK-V, ARM...
 * Set up our coding environment and laws of development.
 
-* We have decided to contact the client about the various decisions that we have taken and the client seemed interesting about the directions we were taking.
+* We have decided to contact the client about the various decisions that we have taken and the client seemed interested in the directions we were taking.
 
 ### <u>Week feedback</u>
 
-This week didn't mark any great advancement document writing wise, but gathering to take all these decisions was necessary. We are sure to all have the same scope for the project. We still have yet to decide all the specifications for the project, but this will be done shortly.
+This week didn't mark any great advancement document writing-wise, but gathering to take all these decisions was necessary. We are sure to all have the same scope for the project. We still have yet to decide on all the specifications for the project, but this will be done shortly.
 
 ### <u>Next week planning </u>
 
-* Initial meeting on monday the 22nd.
+* Initial meeting on Monday the 22nd
 * Functional specification near finalization
-* Functional specification review, if finished.
-* Project Charter publishing.
-* Advencing on Technical specifications. (25% of completion)
-* Advencing on Test plan. (20% completion)
-* Discuss the last details.
-* Beginning of vCPU development.
+* Functional specification review, if finished
+* Project Charter publishing
+* Advancing on Technical specifications (25% of completion)
+* Advancing on Test plan (20% completion)
+* Discuss the last details
+* Beginning of vCPU development
 
 </details>
 
@@ -171,7 +171,7 @@ During the week, we had one meeting on Monday the 22nd of January, during this m
 We've discussed the upcoming tasks and how we would dispatch them to the team.
 Many technical decisions have been made amongst the team, which will be described in the functional and technical specifications.  
 Moreover, we've discussed the various KPIs that would be set, here's a link to the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)  
-On Friday the 26th, we made a meeting to debrief the whole week, we have determined the tasks that need to be done urgently for next week. Some members have to be working on the weekend to finalize the function specifications document. Meaning that a meeting is necessary on Monday the 29th to discuss the progress made on the document.
+On Friday the 26th, we made a meeting to debrief the whole week, we have determined the tasks that need to be done urgently for next week. Some members have to be working on the weekend to finalize the function specifications document. This means that a meeting is necessary on Monday the 29th to discuss the progress made on the document.
 
 ### <u>Week feedback</u>
 
