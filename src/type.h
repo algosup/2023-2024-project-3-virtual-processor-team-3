@@ -1,6 +1,8 @@
 #ifndef TYPE_H
 #define TYPE_H
 
+#define uint unsigned int
+
 enum InstructionFormat
 {
     R,
@@ -33,19 +35,19 @@ enum Register
 
 typedef struct cpu
 {
-    int *mem;
+    uint *mem;
     int max_mem;
 
     int pc;
     int sp;
     int x[32];
 
-    unsigned int instruction;
-    unsigned int func7;
-    unsigned int func3;
-    unsigned destination;
-    unsigned int arg1;
-    unsigned int arg2;
+    uint instruction;
+    uint func7;
+    uint func3;
+    uint destination;
+    uint arg1;
+    uint arg2;
     int immediate;
 }cpu_t;
 

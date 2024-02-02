@@ -23,8 +23,6 @@ cpu_t* new_cpu(int *mem)
     {
         cpu->x[i] = 0;
     }
-    cpu->x[4] = 2;
-    cpu->x[5] = 5;
 
     return cpu;
 }
@@ -78,7 +76,10 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] - cpu->x[cpu->arg2];
             }
-            
+            else if (cpu->func7 == 0 && cpu->func3 == 0B111)
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] & cpu->x[cpu->arg2];
+            }
             break;
         case LUI:
             break;
