@@ -76,8 +76,8 @@ In this table, frequency represents an average.
 
 **Weekly Meetings**:
 
-Our team is hosting bi-weekly meetings. According to the week's schedule, the team gathers for a 20-minute meeting for the first time that they are working together in a week. And the last day on which they meet in project. \
-This bi-weekly planning has been ongoing since the beginning of the project. They are made to discuss the current state of the project. Discuss the progress of the project (which then fuels KPIs), discuss ideas, and discuss the current feeling amongst the team about the final product and overall members' feelings and emotions. \
+Our team is hosting bi-weekly meetings. According to the week's schedule, the team gathers for a 20-minute meeting for the first time that they are working together in a week. And the last day on which they meet in project time. \
+This bi-weekly planning has been ongoing since the beginning of the project. They are made to discuss the current state of the project. Discuss the progress of the project (which then fuels [KPIs](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)), discuss ideas, and discuss the current feeling amongst the team about the final product and overall members' feelings and emotions. \
 It is a way for the team to ensure that everything is running as expected and smoothly as possible while ensuring the team's well-being and the project's.
 
 ### 1.2.2 With the stakeholders
@@ -88,12 +88,12 @@ Communication between the different stakeholders is handled by the program manag
 They both engage in:
 
 - Ensuring that the client's requirements are well understood
-- Providing a weekly feedback to the client
+- Providing weekly feedback to the client
 - Ensuring that the client is aware of the project's progress
 - Ensuring great communication from within the team.
 
 Currently, our team is posting weekly reports every week, which are available to the stakeholders. \
-Moreover, we reserve the right to allow the stakeholder to demand a meeting if necessary for the project's well-being.
+Moreover, we reserve the right to allow the stakeholders to demand a meeting if necessary for the project's well-being.
 
 Communication between our team and the client is handled via Email in a formal form.
 Moreover, communications between other stakeholders are handled mostly via Slack Software.
@@ -115,7 +115,7 @@ This part analyzes the current strengths, weaknesses, opportunities, and threats
 
 This part defines the various strengths of our current communication strategies:
 
-- Bi-weekly meeting among the team
+- Bi-weekly meetings among the team
 - Information flow among the team
 - Weekly Reports
 - KPIs fueled by communication
@@ -145,7 +145,7 @@ This part defines the weaknesses of our current communication strategies:
 - Misinterpretation
 - Miscommunication
 - Broken communication  
-  - Flow of information being disrupted or ineffective - leads to misunderstanding and potential project failures.
+  - The flow of information being disrupted or ineffective - leads to misunderstanding and potential project failures.
 - Project's failure
   - The fact of not meeting the client's expectations. Leading to a non-completion of the project.
 - Team's disengagement on a long-term
@@ -167,11 +167,11 @@ To do so, the project manager will ask for daily feedback to have a better insig
 
 2. Greater communication between our team and the client:
 
-- Our team engages to use every possible way (which is explained later) to communicate effectively and regularly with the client. Our team will send all the necessary information that needs the client's attention.
+- Our team engages in every possible way (which is explained later) to communicate effectively and regularly with the client. Our team will send all the necessary information that needs the client's attention.
 
 3. Creation of Guidelines to follow for communication:
 
-- Creation of guidelines to follow while communicating among the stakeholders is necessary and will be set among our team. A formal message needs to follow guidelines to be receivable by the client. Mutual respect is necessary and is the key to appreciable communication.
+- The creation of guidelines to follow while communicating among the stakeholders is necessary and will be set among our team. A formal message needs to follow guidelines to be receivable by the client. Mutual respect is necessary and is the key to appreciable communication.
 
 ### 3.2 Communication Guidelines
 
@@ -208,7 +208,7 @@ Our work is available to the public on our GitHub repository, meaning that we mu
 
 Moreover, if we ever are contacted about the project by the public, this will take place via email. The same rules as when communicating with the client will apply when interacting with the public.
 
-In addition, if the public contacts us about inquiries, your work lacks documentation or clarity. \
+In addition, if the public contacts us about inquiries, this means our work lacks documentation or clarity. \
 We will try to communicate what people need to know before they have to know it. This means sharp documentation is necessary. It must be as concise as possible and tailored to a large audience, even to the most non-knowledgeable ones.
 
 We are still open to public inquiries if necessary on specific topics, such as legal concerns, safety concerns, etc. \
@@ -236,30 +236,31 @@ Go back to [1.2.1 Amongst the team](#121-amongst-the-team) for more details abou
 
 **Client:**  
 
-- Reads documents concerning his interest
-- Answers our inquiry
-- Contacts the team when needed
+- Read documents concerning his interest
+- Answer our inquiry
+- Contact the team when needed
 
 **Communication Team:**
 
 - Responsible for the communication with the stakeholders (client, public, team)
 - Responsible for the management of the communication among the team
 - Receive and answer inquiries from external sources
-- Ensure the communication integrity within the guidelines
+- Ensure communication integrity within the guidelines
 
 **Team Members:**
 
-- Communicates with other members
+- Communicate with other members
 - Do not directly contact stakeholders, but can ask to
-- Redirects communication toward the communication team
+- Redirect communication toward the communication team
 - Right to disapprove the use of communication
+- Read Document
 
-**Other Team Members:**
+**Other Team's Members:**
 
 - Read our documents
 - Can communicate with us about progress/ideas
 - Share Knowledge
-- Shows interest in our work, and will contact us about it.
+- Show interest in our work, and will contact us about it.
 
 **Public Audience:**
 
@@ -308,7 +309,7 @@ This part then takes the audience and describes the information that they need t
 
 ## Conclusion
 
-This document is aimed at the stakeholder to understand our communication plan and how we communicate with each other. It details how we communicate, with whom, and on what basis. \
+This document is aimed at the stakeholders to understand our communication plan and how we communicate with each other. It details how we communicate, with whom, and on what basis. \
 Moreover, various steps have been described to improve the communication and are effective upon agreement with the team.
 We know and understand the importance of communication in a project, it has been explained clearly in this document. \
 We are still working on our communication strategies. We are aiming to work even more on this site for the client's satisfaction, the project's success, the public's approbation and to share knowledge.
