@@ -4,6 +4,8 @@ void testAddi(void);
 void testAndi(void);
 void testOri(void);
 void testXori(void);
+void testSlli(void);
+void testSrli(void);
 
 int main(void)
 {
@@ -11,6 +13,8 @@ int main(void)
     testAndi();
     testOri();
     testXori();
+    testSlli();
+    testSrli();
 
     return 0;
 }
@@ -64,5 +68,31 @@ void testXori(void){
     cpu->x[4] = 4;
     run_cpu(cpu);
     printf("Xori: x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testSlli(void){
+    uint memSlli[] =
+    {
+        0B00000000001100100001000110010011, // slli x3, x4, 3
+        //IIIIIIIIIIII11111333DDDDDOOOOOOO      
+    };
+    cpu_t *cpu = new_cpu(memSlli);
+    cpu->x[4] = 4;
+    run_cpu(cpu);
+    printf("Slli: x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testSrli(void){
+    uint memSrli[] =
+    {
+        0B00000000001100100101000110010011, // srli x3, x4, 3
+        //IIIIIIIIIIII11111333DDDDDOOOOOOO      
+    };
+    cpu_t *cpu = new_cpu(memSrli);
+    cpu->x[4] = 32;
+    run_cpu(cpu);
+    printf("Srli: x3: %d\n", cpu->x[3]);
     free_cpu(cpu);
 }
