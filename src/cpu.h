@@ -68,25 +68,37 @@ void execute(cpu_t* cpu)
             cpu->destination = (cpu->mem[cpu->pc] << 20) >> 27;
             cpu->arg1 = (cpu->mem[cpu->pc] << 12) >> 27;
             cpu->arg2 = (cpu->mem[cpu->pc] << 7) >> 27;
-            if (cpu->func7 == 0 && cpu->func3 == 0)
+            if (cpu->func7 == 0 && cpu->func3 == 0)  // add
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->x[cpu->arg2];
             }
-            else if (cpu->func7 == 0B100000 && cpu->func3 == 0)
+            else if (cpu->func7 == 0B100000 && cpu->func3 == 0) // sub
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] - cpu->x[cpu->arg2];
             }
-            else if (cpu->func7 == 0 && cpu->func3 == 0B111)
+            else if (cpu->func7 == 0 && cpu->func3 == 0B111) // and
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] & cpu->x[cpu->arg2];
             }
-            else if (cpu->func7 == 0 && cpu->func3 == 0B110)
+            else if (cpu->func7 == 0 && cpu->func3 == 0B110) // or
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] | cpu->x[cpu->arg2];
             }
-            else if (cpu->func7 == 0 && cpu->func3 == 0B100)
+            else if (cpu->func7 == 0 && cpu->func3 == 0B100) // xor
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] ^ cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0 && cpu->func3 == 0B001) // sll
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] << cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0 && cpu->func3 == 0B101) // srl
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] >> cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0B0100000 && cpu->func3 == 0B101) // sra
+            {
+                cpu->x[cpu->destination] = (int)cpu->x[cpu->arg1] >> cpu->x[cpu->arg2];
             }
             break;
         case LUI:
