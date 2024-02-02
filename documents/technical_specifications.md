@@ -4,7 +4,7 @@
 <h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 01/02/2024
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 02/02/2024
 </p>
 
 ___
@@ -50,7 +50,7 @@ ___
 
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 01/02/2024 |
+| Aurélien Fernandez | 02/02/2024 |
 
 ## 1. Introduction
 
