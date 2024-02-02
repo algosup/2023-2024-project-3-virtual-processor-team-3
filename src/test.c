@@ -4,6 +4,7 @@ void testAdd(void);
 void testSub(void);
 void testAnd(void);
 void testOr(void);
+void testXor(void);
 
 
 int main(void)
@@ -12,6 +13,7 @@ int main(void)
     testSub();
     testAnd();
     testOr();
+    testXor();
 
     return 0;
 }
@@ -66,6 +68,21 @@ void testOr()
     uint memOr[]=
     {
         0B00000000010100100110000110110011, // or x3, x4, x5
+        //77777772222211111333DDDDDOOOOOOO
+    };
+    cpu_t *cpu = new_cpu(memOr);
+    cpu->x[4] = 4;
+    cpu->x[5] = 5;
+    run_cpu(cpu);
+    printf("x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testXor()
+{
+    uint memOr[]=
+    {
+        0B00000000010100100100000110110011, // xor x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memOr);
