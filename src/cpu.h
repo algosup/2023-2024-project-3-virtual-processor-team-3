@@ -57,6 +57,14 @@ void execute(cpu_t* cpu)
         case LOAD:
             break;
         case OP_IMM:
+            cpu->func3 = (cpu->mem[cpu->pc] << 17) >> 29;
+            cpu->destination = (cpu->mem[cpu->pc] << 20) >> 27;
+            cpu->arg1 = (cpu->mem[cpu->pc] << 12) >> 27;
+            cpu->immediate = ((int)cpu->mem[cpu->pc] >> 20);
+            if (cpu->func3 == 0) // addi
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->immediate;
+            }
             break;
         case AUIPC:
             break;
