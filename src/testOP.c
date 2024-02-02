@@ -8,6 +8,7 @@ void testXor(void);
 void testSll(void);
 void testSrl(void);
 void testSra(void);
+void testIlt(void);
 
 
 int main(void)
@@ -20,6 +21,7 @@ int main(void)
     testSll();
     testSrl();
     testSra();
+    testIlt();
 
     return 0;
 }
@@ -141,5 +143,20 @@ void testSra()
     cpu->x[5] = 2;
     run_cpu(cpu);
     printf("Sra: x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testIlt()
+{
+    uint memIlt[]=
+    {
+        0B00000000010100100010000110110011, // ilt x3, x4, x5
+        //77777772222211111333DDDDDOOOOOOO
+    };
+    cpu_t *cpu = new_cpu(memIlt);
+    cpu->x[4] = 4;
+    cpu->x[5] = 5;
+    run_cpu(cpu);
+    printf("Ilt: x3: %d\n", cpu->x[3]);
     free_cpu(cpu);
 }

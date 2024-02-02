@@ -98,7 +98,11 @@ void execute(cpu_t* cpu)
             }
             else if (cpu->func7 == 0B0100000 && cpu->func3 == 0B101) // sra
             {
-                cpu->x[cpu->destination] = (int)cpu->x[cpu->arg1] >> cpu->x[cpu->arg2];
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] >> cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0 && cpu->func3 == 0B010) //ilt?
+            {
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < cpu->x[cpu->arg2])? 1: 0;
             }
             break;
         case LUI:
