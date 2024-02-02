@@ -13,21 +13,18 @@
 
 enum registers
 {
-    R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RA, RB, RC, RD, RE, RF,
-    F0, F1, F2, F3, F4, F5, F6, F7, F8, F9, FA, FB, FC, FD, FE, FF,
+    R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15,
+    R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28,
 };
 
-enum opcode
-{
-    LII, LIF,
-    STI, STF, LDI, LDF,
-    MOV, MOVF,
-    ADD, SUB, MUL, DIV,
-    ADDF, SUBF, MULF, DIVF,
-    PRT, PRTF,
-    PUSH, POP,
-    PUSHF, POPF,
-    STOP
+enum Opcode {
+    ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, MUL, MULH, MULHU, MULHSU, DIV, DIVU, REM, REMU,
+    ADDI, ANDI, ORI, XORI, SLLI, SRLI, SRAI, ILT, ILTI, ILTU, ILTUI, LB, LBU, LH, LHU, LW,
+    JIE, JINE, JIGE, JIGEU, JILE, JILEU,
+    JAL, JALR,
+    LUI, AUIPC,
+    SB, SH, SW,
+    SYSCALL, BREAK, PRT
 };
 
 typedef struct
@@ -37,10 +34,10 @@ typedef struct
 
     i64 pc;
     i64 sp;
-    i64 r[16];
+    long r[16];
     f64 fr[16];
 
-    i64 inst;
+    int inst;
     i64 dest;
     f64 arg1;
     i64 arg2;
