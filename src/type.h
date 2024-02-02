@@ -40,12 +40,12 @@ typedef struct cpu
     int sp;
     int x[32];
 
-    int instruction;
-    int func7;
-    int func3;
-    int destination;
-    int arg1;
-    int arg2;
+    unsigned int instruction;
+    unsigned int func7;
+    unsigned int func3;
+    unsigned destination;
+    unsigned int arg1;
+    unsigned int arg2;
     int immediate;
 }cpu_t;
 
