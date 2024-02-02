@@ -12,8 +12,6 @@
 void fetch(cpu_t* cpu);
 void execute(cpu_t* cpu);
 
-void add(cpu_t *cpu);
-
 cpu_t* new_cpu(int *mem)
 {
     cpu_t* cpu = malloc(sizeof(cpu_t));
@@ -69,13 +67,18 @@ void execute(cpu_t* cpu)
         case OP:
             cpu->func7 = cpu->mem[cpu->pc] >> 25;
             cpu->func3 = (cpu->mem[cpu->pc] << 17) >> 29;
-            cpu->destination = (cpu->mem[cpu->pc] << 22) >> 27;
+            cpu->destination = (cpu->mem[cpu->pc] << 20) >> 27;
             cpu->arg1 = (cpu->mem[cpu->pc] << 12) >> 27;
             cpu->arg2 = (cpu->mem[cpu->pc] << 7) >> 27;
             if (cpu->func7 == 0 && cpu->func3 == 0)
             {
-                add(cpu);
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->x[cpu->arg2];
             }
+            else if (cpu->func7 == 0B100000 && cpu->func3 == 0)
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] - cpu->x[cpu->arg2];
+            }
+            
             break;
         case LUI:
             break;
@@ -90,11 +93,6 @@ void execute(cpu_t* cpu)
         default:
             break;
     }
-}
-
-void add(cpu_t *cpu)
-{
-    cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->x[cpu->arg2];
 }
 
 #endif
