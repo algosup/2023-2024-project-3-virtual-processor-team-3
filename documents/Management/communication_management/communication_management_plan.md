@@ -40,6 +40,7 @@ Table Of Content
     - [4.1 Target Audience](#41-target-audience)
     - [4.2 Stakeholders Requirements](#42-stakeholders-requirements)
 - [Conclusion](#conclusion)
+  - [Glossary](#glossary)
 
 </details>
 
@@ -315,3 +316,9 @@ We know and understand the importance of communication in a project, it has been
 We are still working on our communication strategies. We are aiming to work even more on this site for the client's satisfaction, the project's success, the public's approbation and to share knowledge.
 
 This document is subject to changes.
+
+### Glossary
+
+**KPI**: short for **K**ey **P**erformance **I**ndicators, a way to calculate the progress of the project. \
+**Stakeholders**: Individuals or groups who have an interest or concern in the project, including the client, team members, and the public. \
+**Deliverables**: Tangible or intangible items produced as a result of project activities, often presented to the client.
