@@ -65,6 +65,18 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] + cpu->immediate;
             }
+            else if (cpu->func3 == 0B111) // andi
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] & cpu->immediate;    
+            }
+            else if (cpu->func3 == 0B110) // ori
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] | cpu->immediate;
+            }
+            else if (cpu->func3 == 0B100) // xori
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] ^ cpu->immediate;
+            }
             break;
         case AUIPC:
             break;
