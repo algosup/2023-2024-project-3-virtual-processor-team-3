@@ -72,6 +72,21 @@ Additionally, before reading this document, please be aware that the ALGORISK as
 Project
 ├── 📁documents
 │  ├── 📁img
+│  |   ├── 📁img
+|  |   |     ├── 🖼️assembler_diagram.png
+|  |   |     ├── 🖼️back.png
+|  |   |     ├── 🖼️back2.png
+|  |   |     ├── 🖼️company_instructor.png
+|  |   |     ├── 🖼️engineer.png
+|  |   |     ├── 🖼️instruction_format.png
+|  |   |     ├── 🖼️iot_woman.png
+|  |   |     ├── 🖼️lexer_diagram.png
+|  |   |     ├── 🖼️open_source_guy.png
+|  |   |     ├── 🖼️promising_kid.png
+|  |   |     ├── 🖼️retroplanning.png
+|  |   |     ├── 🖼️script_kid.png
+|  |   |     ├── 🖼️student1.png
+|  |   |     └── 🖼️student2.png
 |  |   ├── 🖼️co-authors-demo-hq.png
 |  |   ├── 🖼️complete_Parser.png
 |  |   ├── 🖼️multiplication.png
