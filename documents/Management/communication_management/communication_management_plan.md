@@ -9,7 +9,8 @@ ___
 
 | Document Owner    | MARLIER THIBAUD |
 |-------------------|-----------------|
-| Reviewer(s)       | Aurélien FERNANDEZ|
+| Reviewer(s)       |Aurélien FERNANDEZ|
+| Last Review Date  | 02/02/2024      |
 
 ___
 
@@ -52,8 +53,8 @@ This document describes our plan of action to improve the quality of communicati
 - And any other sources that would be interested in our project
   
 This document will set the guidelines, the frequency, and everything needed to ensure communication among all the stakeholders. This document will improve the team's quality if the guidelines are respected. Communication is necessary to elevate the final product quality.
-This document serves to help in the identification of the client's needs and expectations. Communicating with the client is necessary to ensure that both parties aims the same way.
-In a nutshell, this document is made for every stakeholders, to ensure a high-quality product by the end of the project.
+This document serves to help in the identification of the client's needs and expectations. Communicating with the client is necessary to ensure that both parties aim the same way.
+In a nutshell, this document is made for every stakeholder, to ensure a high-quality product by the end of the project.
 
 ## 1.2 Current Communication Activities
 
@@ -162,7 +163,7 @@ To improve communication, we must take action. The three main actions to take ar
 1. Greater communication from the Project manager to the team members:
 
 - The project Manager engages in participating more in discussions to communicate more effectively with every team member. \
-To do so, the project manager will ask for daily feedback to have a better insight into the current progress made on the project. Greatly helping in terms of project planning, communication among the team. Reduce various threats such as broken communication and team disengagement..  
+To do so, the project manager will ask for daily feedback to have a better insight into the current progress made on the project. Greatly helping in terms of project planning, and communication among the team. Reduce various threats such as broken communication and team disengagement.  
 
 2. Greater communication between our team and the client:
 
@@ -197,7 +198,7 @@ Moreover, these documents have to be formal. Any other use of language isn't tol
 
 Communication with the client is handled via email.
 Emails are a formal communication form. They must be concise, tailored to the client's knowledge, and as clear as can be. \
-These are a way to ensure that what we inquire is understood by the client, to have the best answer possible, that responds to every inquiry effectively.
+These are a way to ensure that what we inquire about is understood by the client, to have the best answer possible, that responds to every inquiry effectively.
 
 These documents are written principally for the client, to inform himself about the project's progress. The client can take action from the documents he gets and can express his worries about specific things if needed. But as well for us to get feedback on our progress and to ensure that we meet the client's expectations by the end of the project.
 
@@ -215,11 +216,11 @@ Communication is handled by the Project Manager in this case.
 
 #### 3.2.3 Communication among the team
 
-As previously shown, our team holds two meetings a week. This meeting is made to keep track of the progress. This is a professional meeting that must follow basic guidelines, such as: listening to others, respecting others. Moreover, we have to keep formal. We are obviously allowed to have fun but it has to be kept within a respectful range and shouldn't alter the flow of development of the project.
+As previously shown, our team holds two meetings a week. This meeting is made to keep track of the progress. This is a professional meeting that must follow basic guidelines, such as: listening to others and respecting others. Moreover, we have to keep formal. We are allowed to have fun but it has to be kept within a respectful range and shouldn't alter the flow of development of the project.
 
-Outside of school, communication is made on Slack on a specific channel. We have to follow the school's guideline when communicating, between each other, and online. \
-We share knowledge, ideas, progress on the project. In a nutshell, everything related to the project and that could help the project's progress. \
-Go back to [1.2.1 Amongst the team](#121-amongst-the-team) for more details about how the information flow flows troughout the team.
+Outside of school, communication is made on Slack on a specific channel. We have to follow the school's guidelines when communicating, between each other, and online. \
+We share knowledge, ideas, and progress on the project. In a nutshell, everything related to the project and that could help the project's progress. \
+Go back to [1.2.1 Amongst the team](#121-amongst-the-team) for more details about how the information flow flows throughout the team.
 
 ### 4. Stakeholders
 
