@@ -85,9 +85,13 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = cpu->x[cpu->arg1] >> cpu->immediate;
             }
-            else if (cpu->func3 == 0B101) // srai
+            // else if (cpu->func3 == 0B101) // srai
+            // {
+                // cpu->x[cpu->destination] = cpu->x[cpu->arg1] >> cpu->immediate;
+            // }
+            else if (cpu->func3 == 0B010) // ilti?
             {
-                cpu->x[cpu->destination] = cpu->x[cpu->arg1] >> cpu->immediate;
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < cpu->immediate)? 1: 0;
             }
             break;
         case AUIPC:
