@@ -93,6 +93,10 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < cpu->immediate)? 1: 0;
             }
+            else if (cpu->func3 == 0B011) // iltiu?
+            {
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (unsigned int)cpu->immediate)? 1: 0;
+            }
             break;
         case AUIPC:
             break;

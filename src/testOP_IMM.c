@@ -7,6 +7,7 @@ void testXori(void);
 void testSlli(void);
 void testSrli(void);
 void testIlti(void);
+void testIltiu(void);
 
 int main(void)
 {
@@ -17,6 +18,7 @@ int main(void)
     testSlli();
     testSrli();
     testIlti();
+    testIltiu();
 
     return 0;
 }
@@ -102,12 +104,25 @@ void testSrli(void){
 void testIlti(void){
     uint memIlti[] =
     {
-        0B00000010000000100010000110010011, // ilti x3, x4, 32
+        0B00000000001000100010000110010011, // ilti x3, x4, 32
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memIlti);
-    cpu->x[4] = 4;
+    cpu->x[4] = -4;
     run_cpu(cpu);
     printf("Ilti: x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testIltiu(void){
+    uint memIltiu[] =
+    {
+        0B00000000000000100011000110010011, // iltiu x3, x4, 1
+        //IIIIIIIIIIII11111333DDDDDOOOOOOO      
+    };
+    cpu_t *cpu = new_cpu(memIltiu);
+    cpu->x[4] = 4;
+    run_cpu(cpu);
+    printf("Iltiu: x3: %d\n", cpu->x[3]);
     free_cpu(cpu);
 }
