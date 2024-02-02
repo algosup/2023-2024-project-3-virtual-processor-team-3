@@ -37,7 +37,7 @@ ___
   - [5.1 CPU architecture](#51-cpu-architecture)
   - [5.2 portability](#52-portability)
   - [5.3 Preprocessing](#53-preprocessing)
-  - [5.4 Parsers\[^7\]](#54-parsers7)
+  - [5.4 Parsers](#54-parsers)
   - [5.5 Error handling](#55-error-handling)
   - [5.6 Execution](#56-execution)
 - [6. Technical limitations](#6-technical-limitations)
@@ -105,7 +105,7 @@ Project
 │  └── 📖functional_specifications.md
 └── 📁code
    ├── 📁headers
-   |  ├── 📄cpu.h
+   |  ├── 📄cpu.h 
    |  ├── 📄preprocessor.h
    |  ├── 📄assembler.h
    |  ├── 📄lexer.h
@@ -320,9 +320,9 @@ Before going from ALGORISK assembly to machine code we need to use a crucial ste
   
 Note: The preprocessor does not remove or modify the user's original code.
 
-### 5.4 Parsers[^7]
+### 5.4 Parsers
 
-To translate from ALGORISK assembly to machine code[^8] and compile the resulting machine code we need to be able to identify what is contained in a string[^9]. To achieve this we can create two different parsers.
+To translate from ALGORISK assembly to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create two different parsers[^9].
 
 This is the flowcharts of the two parsers used for our project:
 
@@ -497,9 +497,9 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^4]: Readability: The ability to read a program without having problems understanding its use or the goal of the functions/variables used.
 [^5]: IDEs that allow this feature are VScode/codium, Visual Studio Community, Eclipse, IntelliJ IDEA, PyCharm, Arduino IDE, and multiple others.
 [^6]: Von Neumann architecture: The Von Neumann architecture is one of the earliest computer architectures.
-[^7]: Parser: A Parser is a program that can split a chain of characters to identify a specific syntax or specific keywords.
-[^8]: Machine code: Machine code is the name given to the language of the computer, also named binary.
-[^9]: String: A chain of characters contained in one variable.
+[^7]: Machine code: Machine code is the name given to the language of the computer, also named binary.
+[^8]: String: A chain of characters contained in one variable.
+[^9]: Parser: A Parser is a program that can split a chain of characters to identify a specific syntax or specific keywords.
 [^10]: Arrays and enumerators: An array is a data structure that stores a fixed number of the same type of variable and an enumerator is a type of data that represents a sequence of values.
 [^11]: An overflow is when a value exceeds the maximum.
 [^12]: An underflow is when a value falls below the minimum.
