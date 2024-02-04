@@ -14,10 +14,10 @@ This document will show the weekly progress made on the project, on various task
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
 | Technical Specification Review | Arthur, Thibaud, Quentin     |    60%     | 0%   | 02/02/2024    |
-| Test Plan                      | Arthur                       |            | 50%  | 01/11/2024    |
+| Test Plan                      | Arthur                       |    80%     | 50%  | 01/11/2024    |
 | Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
-| Processor development          | Malo, Quentin                |            | 70%  | 01/24/2024    |
-| Assembler development          | Mathis, Quentin              |            | 70%  | 01/24/2024    |
+| Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
+| Assembler development          | Mathis, Quentin              |    5%      | 70%  | 01/24/2024    |
 |                                |                              |            |      |               |
 
 ### Cheat Sheet
@@ -39,7 +39,6 @@ This document will show the weekly progress made on the project, on various task
 | Management Communication Plan    | Thibaud                      | 02/01/2024           | 02/02/2024    |
 | Update of weekly KPIs    |   Thibaud  |  02/02/2024    |   02/02/2024    |
 | Technical Specifications |  Aurélien  |  01/17/2024          |  02/02/2024        |
-|       |                    |            |          |
 
 ### <u>Team meeting</u>
 
@@ -49,7 +48,11 @@ We agreed on focusing on the Functional Specifications as the document was due t
 Moreover, the team mentioned that the Project Manager was not enough integrated into the technical discussions, and this had to be taken into consideration. \
 We then dispatched various tasks for the day and started to work. \
 
-The second weekly meeting was held on Friday the second of February.
+The second weekly meeting was held on Friday the second of February, we discussed the various tasks done during the week and congratulated each other for the progress made. \
+We discussed some more technical ideas that we had throughout the week and decided to think about these during the weekend to make a great decision on Monday.
+Moreover, Aurélien, Quentin and Thibaud decided to keep on working on the technical specifications to maintain the document at a great overall quality. \
+The team feels great according to the feedback they gave, we have to keep working this way for the project's well-being. We discussed the progress made on different tasks to fuel the KPIs, so far, they are great, even if we still could do better. \
+This wrapped up the week, we are ready for a new one.
 
 ### <u>Week feedback</u>
 
@@ -61,6 +64,7 @@ This week was exhaustive, the team needs to rest during the weekend. Our team wi
 
 ### <u>Next week planning </u>
 
+Next week, will mostly be overtime hours as we only have, three hours and thirty minutes in project time, all together. Meaning, it is necessary to work overtime next week, on the various tasks dispatched.
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
 
 - Finalize the Technical Specifications
