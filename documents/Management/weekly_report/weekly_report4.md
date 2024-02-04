@@ -18,7 +18,6 @@ This document will show the weekly progress made on the project, on various task
 | Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
 | Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
 | Assembler development          | Mathis, Quentin              |    5%      | 70%  | 01/24/2024    |
-|                                |                              |            |      |               |
 
 ### Cheat Sheet
 
@@ -64,7 +63,7 @@ This week was exhaustive, the team needs to rest during the weekend. Our team wi
 
 ### <u>Next week planning </u>
 
-Next week, will mostly be overtime hours as we only have, three hours and thirty minutes in project time, all together. Meaning, it is necessary to work overtime next week, on the various tasks dispatched.
+Next week, will mostly be overtime hours as we only have, three hours and thirty minutes in project time, all together. Meaning, it is necessary to work overtime next week, on the various tasks dispatched. \
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
 
 - Finalize the Technical Specifications
