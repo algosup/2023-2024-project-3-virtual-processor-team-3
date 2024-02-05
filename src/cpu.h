@@ -148,6 +148,25 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (unsigned int)cpu->x[cpu->arg2])? 1: 0;
             }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0) //mul
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] * cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B1) // mulh
+            {
+                long long result = (long long)cpu->x[cpu->arg1] * (long long)cpu->x[cpu->arg2];
+                cpu->x[cpu->destination] = (result >> 32);
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B11) // mulhu
+            {
+                long long result = (unsigned long long)cpu->x[cpu->arg1] * (unsigned long long)cpu->x[cpu->arg2];
+                cpu->x[cpu->destination] = (result >> 32);
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B10) // mulhsu
+            {
+                long long result = (long long)cpu->x[cpu->arg1] * (unsigned long long)cpu->x[cpu->arg2];
+                cpu->x[cpu->destination] = (result >> 32);
+            }
             break;
         case LUI:
             break;
