@@ -4,7 +4,7 @@
 <h1 align="center"> Technical specifications </h1>
 
 <p align="center"> 
-Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 02/02/2024
+Created by: Aurélien FERNANDEZ <br> Creation Date: 17/01/2024 <br> Last update: 05/02/2024
 </p>
 
 ___
@@ -25,14 +25,15 @@ ___
 - [2. File architecture](#2-file-architecture)
 - [3. Development environment](#3-development-environment)
 - [4. Conventions](#4-conventions)
-  - [4.1 Commits](#41-commits)
-    - [4.1.1 Title](#411-title)
-    - [4.1.2 Body](#412-body)
-    - [4.1.3 Examples](#413-examples)
-  - [4.2 Files](#42-files)
-  - [4.3 Names](#43-names)
-  - [4.4 Comments](#44-comments)
-    - [4.4.1 Example](#441-example)
+- [4.1 Repository rules](#41-repository-rules)
+  - [4.2 Commits](#42-commits)
+    - [4.2.1 Title](#421-title)
+    - [4.2.2 Body](#422-body)
+    - [4.2.3 Examples](#423-examples)
+  - [4.3 Files](#43-files)
+  - [4.4 Names](#44-names)
+  - [4.5 Comments](#45-comments)
+    - [4.5.1 Example](#451-example)
 - [5. Technical aspects](#5-technical-aspects)
   - [5.1 CPU architecture](#51-cpu-architecture)
   - [5.2 portability](#52-portability)
@@ -50,7 +51,7 @@ ___
 
 |    Collaborator    |    Date    |
 | :----------------: | :--------: |
-| Aurélien Fernandez | 02/02/2024 |
+| Aurélien Fernandez | 05/02/2024 |
 
 ## 1. Introduction
 
@@ -68,6 +69,16 @@ Additionally, before reading this document, please be aware that the ALGORISK as
 
 ## 2. File architecture
 
+
+
+Legend:
+
+- 🖼️Images
+- 📖Documents
+- 📕The ALGORISK assembly manual
+- 📄Header file
+- 📃C files
+  
 ```
 Project
 ├── 📁documents
@@ -128,16 +139,6 @@ Project
    ├── 📃main.c
    └── 📃unit_tests.c
 ```
-Legend:
-
-- 🖼️Images
-- 📖Documents
-- 📕The ALGORISK assembly manual
-- 📄Header file
-- 📃C files
-
-The architecture of the project is subject to modification.
-
 ## 3. Development environment
 
 Our team uses multiple machines to work on this project such as:
@@ -145,12 +146,13 @@ Our team uses multiple machines to work on this project such as:
 - 3 Windows operating on Windows 11.
 - 3 MacBooks operating on MacOS Sonoma 14.
 
-As for the IDE[^1], out of the six members of our team, five use Visual Studio Code, and 1 uses Visual Studio Codium. As they are extremely similar, we are all using the same extensions to run and debug C. All of these extensions are packed into one called
+As for the IDE[^1], out of the six members of our team, five use  <a href="https://code.visualstudio.com/">Visual Studio code</a> Code, and 1 uses <a href="https://vscodium.com/">Visual Studio Codium</a>. As they are extremely similar, we are all using the same extensions to run and debug C. All of these extensions are packed into one called
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C/C++ Extension Pack</a>.
 
 To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html"> Mellon University's standards</a>, except for names for which we use camelCase. We chose these standards because they cover almost every aspect of c.
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html"> Mellon University's standards</a>, except for names of files, functions and variables for which we use camelCase. We chose these standards because they cover almost every aspect of C.
+
 
 ## 4. Conventions
 
@@ -159,13 +161,24 @@ The project's repository[^2] has to be organized to allow contributors and poten
 - Having trouble finding a specific file.
 - Creating conflicts with pushes.
 - Different naming standards between contributors.
-- etc.
+- Finding non-functional code inside the main branch or in releases.
+
+## 4.1 Repository rules
+
+  To ensure the quality of the code present both in the main branch and in releases
+  we chose to apply rules. 
   
-### 4.1 Commits
+  First of all, the main branch is locked except for pull requests, this makes the branch safe for unwanted modifications. Each pull request requires the approval of at least one team member.
+  
+  Additionally, a branch named "Premain" has been created, the goal of this branch is to be sure any code that is meant to be pushed to the main branch is functional and does not carry bugs. Another rule is that any code inside the "Premain" branch has to be tested with unit tests and all of them must pass.
+
+  The only branch that can bypass these rules is the branch "Documents", as it does not contain code.
+
+### 4.2 Commits
 
 Commits must be written following these specific rules, most of the rules can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a>.
 
-#### 4.1.1 Title
+#### 4.2.1 Title
 
 The title is one of the most important things in a commit, it serves to describe what the commit is about and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
 
@@ -180,7 +193,7 @@ It has to begin with one of the following:
 
 Furthermore, a title shouldn't be more than 50 characters long and must describe the action of the commit, a verb, and the name of the implementation or the name of the file involved.
 
-#### 4.1.2 Body
+#### 4.2.2 Body
 
 The body describes the commit with more details, and as titles, it has to follow certain rules:
 
@@ -192,7 +205,7 @@ The body describes the commit with more details, and as titles, it has to follow
   
   The body can also contain specific keywords that can interact with the repository, such as adding co-authors, closing issues, etc. They can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md/#5-Footer">here</a> in the footer section.
 
-#### 4.1.3 Examples
+#### 4.2.3 Examples
 
 For a feature:
 
@@ -225,7 +238,7 @@ This fix allows users to apply multiplications to higher numbers without being s
 Closes: #324
 ```
 
-### 4.2 Files
+### 4.3 Files
 
 Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contain all functions. A header file should contain function one functionality.
 
@@ -233,12 +246,12 @@ Furthermore, header files should not depend on other header files. This is only 
 
 For example in a calculator project, there should be a structure similar to this one:
 
-- Calculator.c
-- Operations.h
-- Display.h
-- Input.h
+- calculator.c
+- operations.h
+- display.h
+- input.h
 
-### 4.3 Names
+### 4.4 Names
 
 Names are extremely important to a project's readability[^4], not having conventions or having each collaborator of a project use its conventions leads to the deterioration of both the quality of the project and the overall readability.
 
@@ -247,7 +260,7 @@ For this project, this set of naming conventions has been chosen:
 - Branches: PascalCases, apart from the Main, PreMain, and Documents, the branch is named after the name of the feature or after the name/id of the fix.
 - Folder/Files: snake_case.
 
-### 4.4 Comments
+### 4.5 Comments
 
 We are using standards to increase the readability of a code, but without comments reading a code can take more time than expected and desired.
 
@@ -267,7 +280,7 @@ If the IDE allows it[^5], the function header can be read by hovering the mouse 
 
 **Beware, do not abuse comments. A function shouldn't have a comment on every line!**  
 
-#### 4.4.1 Example
+#### 4.5.1 Example
 
 ```c
 /* Filename.c
@@ -312,7 +325,6 @@ float floatMultiplication(float x,float y)
   return result; 
 }
 ```
-
 ## 5. Technical aspects
 
 ### 5.1 CPU architecture
