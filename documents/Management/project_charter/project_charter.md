@@ -1,24 +1,24 @@
-# Project Charter - Virtual Processor - Team 3
+<h1 align="center"> Project Charter </h1>
 
-| **Document Name**  | Project Charter           |
-|--------------------|---------------------------|
-| **Document Owner** | MARLIER Thibaud           |
-|**Last Modification (Date)**| 01/22/2024        |
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/20/2024 <br> Last update: 02/05/2024
+</p>
+
+___
 
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
 
-- [Project Charter - Virtual Processor - Team 3](#project-charter---virtual-processor---team-3)
-  - [Project Overview](#project-overview)
-  - [Project Scope](#project-scope)
-  - [Team Members](#team-members)
-  - [Stakeholders](#stakeholders)
-  - [Milestones](#milestones)
-  - [Deliverables](#deliverables)
-  - [Budget](#budget)
-  - [Quality Standards](#quality-standards)
-  - [Communication Plans](#communication-plans)
-  - [Success Criteria](#success-criteria)
+- [Project Overview](#project-overview)
+- [Project Scope](#project-scope)
+- [Team Members](#team-members)
+- [Stakeholders](#stakeholders)
+- [Milestones](#milestones)
+- [Deliverables](#deliverables)
+- [Budget](#budget)
+- [Quality Standards](#quality-standards)
+- [Communication Plans](#communication-plans)
+- [Success Criteria](#success-criteria)
 
 </details>
 
@@ -115,7 +115,7 @@ In this table, you will find the Minimum Viable Product (MVP).
 | Aspect | Description|
 | :-: | :-: |
 | Storing an immediate value into a register. | The user must be able to store a value in the memory of the CPU |
-| Copying the value of a register into another register | The user should be able to store the value of a register in another register by making a copy of it.
+| Copying the value of a register into another register | The user should be able to store the value of a register in another register by making a copy of it. |
 | Reading the value of the memory at the address contained by a register and storing it in another register. | The processor should be able to handle the reading value of the memory at a given address in a register and then store it in another register. |
 | Storing the value of a register into memory at the address contained by another register. | The processor should handle the instruction to store the content of a register giving the address where data will be stored.  |
 | Comparing the content of registers. | Basic comparison of the value contained in a register. |
@@ -137,7 +137,8 @@ These are the basic requirements that were given to us by the client in the Call
 Communication in the team is handled via the platform Slack.  
 Moreover, we have weekly meetings set, to discuss the project's advancement. Get new ideas and improve the overall quality of the final product.  
 In addition, communication between the team and the stakeholders will be handled mostly by the Program Manager and the Project manager.  
-Our team will contact the client whenever it is needed and our team is always available to answer the client's questions and consolate them if they have any worries.
+Our team will contact the client whenever it is needed and our team is always available to answer the client's questions and consolate them if they have any worries. \
+Moreover, for a more detailed insight of the communication management plan, follow this link: [Communication Management Plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/Documents/documents/Management/communication_management/communication_management_plan.md)
 
 ## Success Criteria  
 
