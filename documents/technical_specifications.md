@@ -380,11 +380,11 @@ enum instructions
     ADDI, MULI, DIVI,
     ANDI, ORI, XORI,
     SLLI, SRLI, SRAI,
-    ILTI?,
+    ILTI,
     LUI,AUIPC,
     //Unsigned
     MULHU, MULHSU, DIVU, REMU
-    ILTU?, ILTUI?,
+    ILTU, ILTUI,
     JIGEU, JILEU,
     LBU, LHU
 };
