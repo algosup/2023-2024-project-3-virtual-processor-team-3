@@ -7,13 +7,6 @@ Created by: Thibaud MARLIER <br> Creation Date: 02/01/2024 <br> Last update: 02/
 
 ___
 
-| Document Owner    | MARLIER THIBAUD |
-|-------------------|-----------------|
-| Reviewer(s)       |Aurélien FERNANDEZ|
-| Last Review Date  | 02/02/2024      |
-
-___
-
 <details>
 
 <summary>

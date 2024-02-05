@@ -1,4 +1,10 @@
-# Management Artifacts - Team 3
+<h1 align="center"> Management Artifacts - Team 3 </h1>
+
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/20/2024 <br> Last update: 02/05/2024
+</p>
+
+___
 
 This document will help you while navigating into the different management documents, here are the various documents that you will find here:
 
