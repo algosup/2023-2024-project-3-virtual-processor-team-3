@@ -95,7 +95,7 @@ void execute(cpu_t* cpu)
             }
             else if (cpu->func3 == 0B011) // iltiu?
             {
-                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (unsigned int)cpu->immediate)? 1: 0;
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (uint)cpu->immediate)? 1: 0;
             }
             break;
         case AUIPC:
@@ -146,7 +146,7 @@ void execute(cpu_t* cpu)
             }
             else if (cpu->func7 == 0 && cpu->func3 == 0B011) //iltu?
             {
-                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (unsigned int)cpu->x[cpu->arg2])? 1: 0;
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (uint)cpu->x[cpu->arg2])? 1: 0;
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0) //mul
             {
@@ -154,18 +154,34 @@ void execute(cpu_t* cpu)
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B1) // mulh
             {
-                long long result = (long long)cpu->x[cpu->arg1] * (long long)cpu->x[cpu->arg2];
+                long long result = (ll)cpu->x[cpu->arg1] * (ll)cpu->x[cpu->arg2];
                 cpu->x[cpu->destination] = (result >> 32);
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B11) // mulhu
             {
-                long long result = (unsigned long long)cpu->x[cpu->arg1] * (unsigned long long)cpu->x[cpu->arg2];
+                long long result = (ull)cpu->x[cpu->arg1] * (ull)cpu->x[cpu->arg2];
                 cpu->x[cpu->destination] = (result >> 32);
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B10) // mulhsu
             {
-                long long result = (long long)cpu->x[cpu->arg1] * (unsigned long long)cpu->x[cpu->arg2];
+                long long result = (ll)cpu->x[cpu->arg1] * (ull)cpu->x[cpu->arg2];
                 cpu->x[cpu->destination] = (result >> 32);
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B100) // div
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] / cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B101) // divu
+            {
+                cpu->x[cpu->destination] = (uint)cpu->x[cpu->arg1] / (uint)cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B110) //rem
+            {
+                cpu->x[cpu->destination] = cpu->x[cpu->arg1] % cpu->x[cpu->arg2];
+            }
+            else if (cpu->func7 == 0B1 && cpu->func3 == 0B111) // remu
+            {
+                cpu->x[cpu->destination] = (uint)cpu->x[cpu->arg1] % (uint)cpu->x[cpu->arg2];
             }
             break;
         case LUI:

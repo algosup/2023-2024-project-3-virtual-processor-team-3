@@ -2,6 +2,8 @@
 #define TYPE_H
 
 #define uint unsigned int
+#define ull unsigned long long
+#define ll long long
 
 enum BaseOpcode
 {
