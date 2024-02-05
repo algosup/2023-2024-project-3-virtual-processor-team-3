@@ -1,4 +1,4 @@
-<div> <a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/tree/Documents/documents/Management"> <img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/Documents/documents/img/functional_specifications/back2.png"></a>
+<div> <a href="./"><img src="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/Documents/documents/img/functional_specifications/back2.png"></a>
 </div>
 
 <br>
