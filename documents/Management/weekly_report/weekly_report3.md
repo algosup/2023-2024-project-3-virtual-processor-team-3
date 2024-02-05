@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 # Project Virtual Processor - Team 3  
 
 ## Weekly Report N°3
@@ -43,7 +46,7 @@ During the week, we had one meeting on Monday the 22nd of January, during this m
 We've discussed the upcoming tasks and how we would dispatch them to the team.
 Many technical decisions have been made amongst the team, which will be described in the functional and technical specifications.  
 Moreover, we've discussed the various KPIs that would be set, here's a link to the KPIs: [Link](https://docs.google.com/spreadsheets/d/1_e3KZmQ_rL7N9RfHELOPWwakPeHL5rIRIHAhU5QM1bc/edit#gid=704615476)  
-On Friday the 26th, we made a meeting to debrief the whole week, we have determined the tasks that need to be done urgently for next week. Some members have to be working on the weekend to finalize the function specifications document. Meaning that a meeting is necessary on Monday the 29th to discuss the progress made on the document.
+On Friday the 26th, we made a meeting to debrief the whole week, we have determined the tasks that need to be done urgently for next week. Some members have to be working on the weekend to finalize the function specifications document. This means that a meeting is necessary on Monday the 29th to discuss the progress made on the document.
 
 ### <u>Week feedback</u>
 
@@ -62,3 +65,5 @@ Despite that, the team is content with the current state of the project, they li
 - Meetings on Monday and Friday.
 
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+
+<div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>

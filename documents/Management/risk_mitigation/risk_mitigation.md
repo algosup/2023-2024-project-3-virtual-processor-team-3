@@ -1,16 +1,30 @@
-# Risks and Mitigation plans - Virtual Processor - Team 3
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
 
-| **Document Name**            | Risks and Mitigation plans |
-| ---------------------------- | -------------------------- |
-| **Document Owner**           | MARLIER Thibaud            |
-| **Last Modification (Date)** | 01/26/2024                 |
+<h1 align="center"> Risks and Mitigation plans - Virtual Processor - Team 3 </h1>
 
-## Introduction
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/24/2024 <br> Last update: 02/05/2024
+</p>
+
+___
+<details>
+<summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
+
+- [1. Introduction](#1-introduction)
+- [2. Level of likelihood](#2-level-of-likelihood)
+- [3. Impact](#3-impact)
+- [4. Risks and Mitigation](#4-risks-and-mitigation)
+- [5. Probability/Impact Matrix](#5-probabilityimpact-matrix)
+
+</details>
+
+## 1. Introduction
 
 This document will go through some of the risks that our team might encounter during the Virtual Processor Project.  
 This project aims to design and create a virtual processor and an interpreter running our own Assembly language on that same processor.
 
-## Level of likelihood
+## 2. Level of likelihood
 
 | Level |       Meaning        | Description                                                                                                                                                                          |
 | :---: | :------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -20,7 +34,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 | **4** |     **Unlikely**     | Rare risk. It's unlikely to happen. Nevertheless, they still have to be considered.                                                                                                  |
 | **5** |       **Odd**        | The rarest ever risk possible. Pigs will fly if it happens.                                                                                                                          |
 
-## Impact
+## 3. Impact
 
 | Level |    Meaning     | Description                                                                                                                        |
 | :---: | :------------: | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +44,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 | **D** |   **Major**    | Will strongly interrupt the project's progression. Loads of work will be needed to get out of the situation.                       |
 | **E** |   **Fatal**    | Will be fatal for the project, meaning that it would be near impossible to keep the head out of the water if the risk is overlook. |
 
-## Risks and Mitigation
+## 4. Risks and Mitigation
 
 1. ### Complexity
 
@@ -44,7 +58,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 
 3. ### Sudden Changes
 
-    - **Risk(s):** Indeed, the client could change requirements at any time during the project. If the client wants to change anything, from the requirements to a specific architecture, whatever that has been specified or not in the Call For Tender or anything succeeding it.
+    - **Risk(s):** Indeed, the client could change requirements at any time during the project. If the client wants to change anything, from the requirements to a specific architecture, whatever has been specified or not in the Call For Tender or anything succeeding it.
     - **Mitigation:** We will comply with the client's expectations and requirements, so if needed after a change, we reserve ourselves the right to contact the client for any further information. Every consequence will be mitigated, changing the Work Breakdown Structure, management strategies, development strategies, and testing strategies, and documents will be reworked to comply with the client's needs. Our team will do everything possible to overcome sudden changes.
 
 4. ### Not Meeting Project Requirements
@@ -54,7 +68,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 
 5. ### Limited Hardware Knowledge
 
-    - **Risk(s):** Not having the necessary hardware knowledge of the computer architecture and hardware design principles, would lead to not making the optimal design choices and our product might end up being flowfull.
+    - **Risk(s):** Not having the necessary hardware knowledge of the computer architecture and hardware design principles, would lead to not making the optimal design choices and our product might end up being flowful.
     - **Mitigation:** Reading lots of documentation on already existing processor architecture like CISC, ARM, RISC, and many others, to draw inspiration and learn about the architecture of a processor and/or the computer's architecture. To have an efficient product in the end.
 
 6. ### Poor Documentation and code maintenance
@@ -75,27 +89,28 @@ This project aims to design and create a virtual processor and an interpreter ru
 9. ### Loss Of Human Resources
 
     - **Risk(s):** Team members may face setbacks, such as illness or transportation challenges, that hinder their ability to work effectively. Instances where team members are unable to work due to sickness or limited transportation options, such as unreliable train services, exemplify the difficulties in maintaining consistent presence and optimal productivity. These situations highlight the potential loss of work hours when a team member is unavailable due to unforeseen circumstances. Addressing these challenges requires implementing strategies to mitigate the impact of such disruptions and ensuring continuity in team collaboration and productivity.
-    - **Mitigation:** Tasks could be attributed to another team member if needed so that we do not lose too much time and keep up to the pace that we desire.
+    - **Mitigation:** Tasks could be attributed to another team member if needed so that we do not lose too much time and keep up with the pace that we desire.
   
 10. ### Assembly Too Demanding For User
 
-    - **Risk(s):** Assembly being a low-level language is sometimes complicated to understand as there's some level of abstraction in the instructions names and what happens then in the bare metal level. Leading to a challenge to comprehend when you are relatively new to computer science and programming.
-    - **Mitigation:** We want our product to be understandable by everyone. An 8-year-old kid, you, and even your grand parents have to be able to comprehend how the language works but also understand what's going on. To mitigate the risk of something being too hard to comprehend for newbies, we could test our product on a wide audience to be sure everything is clear and make changes if needed.
+    - **Risk(s):** Assembly being a low-level language is sometimes complicated to understand as there's some level of abstraction in the instructions names and what happens then in the bare metal level. This leads to a challenge to comprehend when you are relatively new to computer science and programming.
+    - **Mitigation:** We want our product to be understandable by everyone. An 8-year-old kid, you, and even your grandparents have to be able to comprehend how the language works but also understand what's going on. To mitigate the risk of something being too hard to comprehend for newcomers. We will test our product on a wide audience to be sure everything is clear and make changes if needed.
 
 Here are some of the various risks that our team might encounter during the project. However, this document does not prevent every possible risk that could happen and isn't a hazard threshold, some events might still occur.
 
-## Probability/Impact Matrix
+## 5. Probability/Impact Matrix
 
 | Risk                                                                                    | [Likeliness](#level-of-likelihood) / [Impact](#impact) |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| **[Complexity](#complexity)**                                                           | <center> 2 / C </center>                               |
-| **[Resource Management](#resource-management-inside-our-processor)**                    | <center> 1 / C </center>                               |
-| **[Sudden Changes In Requirements](#sudden-changes)**                                   | <center> 2 / D </center>                               |
-| **[Not Meeting Project Requirements](#not-meeting-project-requirements)**               | <center> 3 / E </center>                               |
-| **[Limited Hardware Knowledge](#limited-hardware-knowledge)**                           | <center> 2 / D </center>                               |
-| **[Poor Documentation and Code Maintenance](#poor-documentation-and-code-maintenance)** | <center> 3 / C </center>                               |
-| **[Tough Debugging and Testing](#tough-debugging-and-testing)**                         | <center> 2 / C </center>                               |
-| **[Time Constraints](#time-constraint)**                                                | <center> 2 / D </center>                               |
-| **[Loss Of Human Resources](#loss-of-human-resources)**                                 | <center> 1 / C </center>                               |
-| **[Assembly Too Demanding For User](#assembly-too-demanding-for-user)**                 | <center> 2 / D  </center>                              |
+| --------------------------------------------------------------------------------------- | ---------------------------------- |
+| **[Complexity](#complexity)**                                                           |  2 / C                             |
+| **[Resource Management](#resource-management-inside-our-processor)**                    |  1 / C                             |
+| **[Sudden Changes In Requirements](#sudden-changes)**                                   |  2 / D                             |
+| **[Not Meeting Project Requirements](#not-meeting-project-requirements)**               |  3 / E                             |
+| **[Limited Hardware Knowledge](#limited-hardware-knowledge)**                           |  2 / D                             |
+| **[Poor Documentation and Code Maintenance](#poor-documentation-and-code-maintenance)** |  3 / C                             |
+| **[Tough Debugging and Testing](#tough-debugging-and-testing)**                         |  2 / C                             |
+| **[Time Constraints](#time-constraint)**                                                |  2 / D                             |
+| **[Loss Of Human Resources](#loss-of-human-resources)**                                 |  1 / C                             |
+| **[Assembly Too Demanding For User](#assembly-too-demanding-for-user)**                 |  2 / D                             |
 
+<div align="right"><a href="#1-introduction"><img src="../img/back.png" width="35px"></a></div>
