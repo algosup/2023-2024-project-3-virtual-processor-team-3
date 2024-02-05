@@ -11,6 +11,8 @@ Created by: Thibaud MARLIER <br> Creation Date: 01/20/2024 <br> Last update: 02/
 
 ___
 
+# Introduction
+
 This document will help you while navigating into the different management documents, here are the various documents that you will find here:
 
 - Project Charter
@@ -53,3 +55,5 @@ Describes how the team handles communication from and to various sources during 
 ## Weekly Reports
 
 You can find every weekly report by following this link: [Weekly Reports](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/weekly_report/cumulative.md)
+
+<div align="right"><a href="#introduction"><img src="../img/functional_specifications/back.png" width="35px"></a></div>
