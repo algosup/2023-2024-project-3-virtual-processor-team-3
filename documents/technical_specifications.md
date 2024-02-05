@@ -42,8 +42,9 @@ ___
   - [5.5 Error handling](#55-error-handling)
   - [5.6 Execution](#56-execution)
 - [6. Technical limitations](#6-technical-limitations)
-- [7. risks](#7-risks)
-- [8. Maintenance](#8-maintenance)
+- [7. Tests](#7-tests)
+- [8. risks](#8-risks)
+- [9. Maintenance](#9-maintenance)
   
 </details>
 
@@ -506,7 +507,13 @@ We have a few limitations for this project, which can be listed as:
 - The lack of memory available for our virtual CPU and user's program.
 - Performance limitation.
 
-## 7. risks
+## 7. Tests
+
+Tests are an important part of the project, as they ensure the project's quality. Each function present in our projects must have a corresponding unit test.
+
+For more information about testing, refer to the <a href="./Testing/test_plan.md">test plan</a>.
+
+## 8. risks
 
 Along with limitations come risks which are:
 
@@ -514,7 +521,7 @@ Along with limitations come risks which are:
 - The use of memory allocation might result in memory leaks if not managed properly.
 - There is a risk our CPU might perform slowly or even crash with enormous assembly programs.
 
-## 8. Maintenance
+## 9. Maintenance
 
 The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
 
