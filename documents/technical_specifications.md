@@ -265,7 +265,7 @@ For this project, this set of naming conventions has been chosen:
 
 We are using standards to increase the readability of a code, but without comments reading a code can take more time than expected and desired.
 
-To be able to hand our code to other collaborators during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules was made:
+To allow other collaborators to work on the code during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules was made:
 
 Every .c and .h file must have a "header comment". This comment describes what this file contains in a quick summary. We do not need to go too much into the details in this comment.
 
