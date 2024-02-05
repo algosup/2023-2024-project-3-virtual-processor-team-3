@@ -39,6 +39,7 @@ bool is_error(FILE *asm_file)
 }
 
 void write_data(FILE *asm_file) {
+    rewind(asm_file);  // Move the file pointer to the beginning of the file
     char line[100];
     FILE *data_file = fopen("data.txt", "w");
 
@@ -55,16 +56,20 @@ void write_data(FILE *asm_file) {
 }
 
 void write_code(FILE *asm_file) {
+    rewind(asm_file);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *code_file = fopen("code.txt", "w");
+    FILE *code_file = fopen("code.txt", "a");  // Open in append mode
 
     while (fgets(line, sizeof(line), asm_file)) {
         if (strstr(line, ".code")) {
-            while (fgets(line, sizeof(line), asm_file) == NULL) {
+            // Write each line to the code file starting from the line after ".code" directive
+            while (fgets(line, sizeof(line), asm_file)) {
                 fprintf(code_file, "%s", line);
             }
+            break; // Exit the loop after writing the code section
         }
     }
 
     fclose(code_file);
 }
+
