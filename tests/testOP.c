@@ -9,7 +9,7 @@ void testSll(void);
 void testSrl(void);
 void testSra(void);
 void testIlt(void);
-
+void testIltu(void);
 
 int main(void)
 {
@@ -22,6 +22,7 @@ int main(void)
     testSrl();
     testSra();
     testIlt();
+    testIltu();
 
     return 0;
 }
@@ -158,5 +159,20 @@ void testIlt()
     cpu->x[5] = 5;
     run_cpu(cpu);
     printf("Ilt: x3: %d\n", cpu->x[3]);
+    free_cpu(cpu);
+}
+
+void testIltu()
+{
+    uint memIltu[]=
+    {
+        0B00000000010100100011000110110011, // iltu x3, x4, x5
+        //77777772222211111333DDDDDOOOOOOO
+    };
+    cpu_t *cpu = new_cpu(memIltu);
+    cpu->x[4] = 4;
+    cpu->x[5] = 5;
+    run_cpu(cpu);
+    printf("Iltu: x3: %d\n", cpu->x[3]);
     free_cpu(cpu);
 }

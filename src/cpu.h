@@ -144,6 +144,10 @@ void execute(cpu_t* cpu)
             {
                 cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < cpu->x[cpu->arg2])? 1: 0;
             }
+            else if (cpu->func7 == 0 && cpu->func3 == 0B011) //iltu?
+            {
+                cpu->x[cpu->destination] = (cpu->x[cpu->arg1] < (unsigned int)cpu->x[cpu->arg2])? 1: 0;
+            }
             break;
         case LUI:
             break;
