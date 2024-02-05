@@ -1,4 +1,13 @@
-# Team 3 - Cumulative Weekly Reports
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
+<h1 align="center"> Team 3 - Cumulative Weekly Reports </h1>
+
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/10/2024 <br> Last update: 02/05/2024
+</p>
+
+___
 
 **<u>Note:</u>** If you wish to access the weekly report, kindly click on its name and it will appear. If you want to close the document, do the same.  
 Thank you!
@@ -307,3 +316,6 @@ Note: this document is subject to change.
 <br>
 
 <img src="https://www.jeanphilippegrasse.com/wp-content/uploads/2023/04/ALGOSUP.png" width="700">
+
+
+<div align="right"><a href="#week-1"><img src="../img/back.png" width="35px"></a></div>
