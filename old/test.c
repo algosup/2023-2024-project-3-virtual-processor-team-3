@@ -1,4 +1,4 @@
-#include "cpu.h"
+#include "oldcpu.h"
 
 int main(int argc, char **argv) 
 {

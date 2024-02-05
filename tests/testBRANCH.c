@@ -27,7 +27,7 @@ void testJie(void)
         0B00001000010000011001111001100011, // jle x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJle);
+    cpu_t *cpu = new_cpu(memJle, 1);
     cpu->x[3] = 4;
     cpu->x[4] = 4;    
     run_cpu(cpu); 
@@ -42,7 +42,7 @@ void testJine(void)
         0B00001000010000011101111001100011, // jne x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJne);
+    cpu_t *cpu = new_cpu(memJne, 1);
     cpu->x[3] = 4;
     cpu->x[4] = 5; 
     run_cpu(cpu);
@@ -57,7 +57,7 @@ void testJige(void)
         0B00001000010000011011111001100011, // jge x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJge);
+    cpu_t *cpu = new_cpu(memJge, 1);
     cpu->x[3] = 5;
     cpu->x[4] = -4;
     run_cpu(cpu);
@@ -72,7 +72,7 @@ void testJigeu(void)
         0B00001000010000011111111001100011, // jgeu x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJgeu);
+    cpu_t *cpu = new_cpu(memJgeu, 1);
     cpu->x[3] = 5;
     cpu->x[4] = 4;
     run_cpu(cpu);
@@ -87,7 +87,7 @@ void testJile(void)
         0B00001000010000011010111001100011, // jle x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJle);
+    cpu_t *cpu = new_cpu(memJle, 1);
     cpu->x[3] = -4;
     cpu->x[4] = 4;
     run_cpu(cpu);
@@ -102,7 +102,7 @@ void testJileu(void)
         0B00001000010000011110111001100011, // jleu x3, x4, 156
         //IIIIIII2222211111333IIIII0000000
     };
-    cpu_t *cpu = new_cpu(memJleu);
+    cpu_t *cpu = new_cpu(memJleu, 1);
     cpu->x[3] = 4;
     cpu->x[4] = 5;
     run_cpu(cpu);

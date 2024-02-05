@@ -34,7 +34,7 @@ void testAdd()
         0B00000000010100100000000110110011, // add x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO      
     };
-    cpu_t *cpu = new_cpu(memAdd);
+    cpu_t *cpu = new_cpu(memAdd, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -49,7 +49,7 @@ void testSub()
         0B01000000010100100000000110110011, // sub x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memSub);
+    cpu_t *cpu = new_cpu(memSub, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -64,7 +64,7 @@ void testAnd()
         0B00000000010100100111000110110011, // and x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memAnd);
+    cpu_t *cpu = new_cpu(memAnd, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -79,7 +79,7 @@ void testOr()
         0B00000000010100100110000110110011, // or x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memOr);
+    cpu_t *cpu = new_cpu(memOr, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -94,7 +94,7 @@ void testXor()
         0B00000000010100100100000110110011, // xor x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memOr);
+    cpu_t *cpu = new_cpu(memOr, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -109,7 +109,7 @@ void testSll()
         0B00000000010100100001000110110011, // sll x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memSll);
+    cpu_t *cpu = new_cpu(memSll, 1);
     cpu->x[4] = 8;
     cpu->x[5] = 2;
     run_cpu(cpu);
@@ -124,7 +124,7 @@ void testSrl()
         0B00000000010100100101000110110011, // srl x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memSrl);
+    cpu_t *cpu = new_cpu(memSrl, 1);
     cpu->x[4] = 8;
     cpu->x[5] = 2;
     run_cpu(cpu);
@@ -139,7 +139,7 @@ void testSra()
         0B01000000010100100101000110110011, // sra x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memSra);
+    cpu_t *cpu = new_cpu(memSra, 1);
     cpu->x[4] = -8;
     cpu->x[5] = 2;
     run_cpu(cpu);
@@ -154,7 +154,7 @@ void testIlt()
         0B00000000010100100010000110110011, // ilt x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memIlt);
+    cpu_t *cpu = new_cpu(memIlt, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
@@ -169,7 +169,7 @@ void testIltu()
         0B00000000010100100011000110110011, // iltu x3, x4, x5
         //77777772222211111333DDDDDOOOOOOO
     };
-    cpu_t *cpu = new_cpu(memIltu);
+    cpu_t *cpu = new_cpu(memIltu, 1);
     cpu->x[4] = 4;
     cpu->x[5] = 5;
     run_cpu(cpu);
