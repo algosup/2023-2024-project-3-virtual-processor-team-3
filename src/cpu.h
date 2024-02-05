@@ -148,6 +148,52 @@ void execute(cpu_t* cpu)
         case LUI:
             break;
         case BRANCH:
+            cpu->func3 = (cpu->mem[cpu->pc] << 17) >> 29;
+            cpu->arg1 = (cpu->mem[cpu->pc] << 12) >> 27;
+            cpu->arg2 = (cpu->mem[cpu->pc] << 7) >> 27;
+            cpu->immediate = ((cpu->mem[cpu->pc] << 20) >> 28)*2 + ((cpu->mem[cpu->pc] << 1) >> 26)*32 + ((cpu->mem[cpu->pc] << 24) >> 31)*2048 + (cpu->mem[cpu->pc] >> 31)*4096;
+            if (cpu->func3 == 1) // jie
+            {
+                if (cpu->x[cpu->arg1] == cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
+            else if (cpu->func3 == 0B101) // jine
+            {
+                if (cpu->x[cpu->arg1] != cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
+            else if (cpu->func3 == 0B011) // jige
+            {
+                if (cpu->x[cpu->arg1] >= cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
+            else if (cpu->func3 == 0B111) //jigeu
+            {
+                if ((uint)cpu->x[cpu->arg1] >= (uint)cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
+            else if (cpu->func3 == 0B10) // jile
+            {
+                if (cpu->x[cpu->arg1] <= cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
+            else if (cpu->func3 == 0B110) // jileu
+            {
+                if ((uint)cpu->x[cpu->arg1] <= (uint)cpu->x[cpu->arg2])
+                {
+                    cpu->pc = cpu->immediate;
+                }
+            }
             break;
         case JALR:
             break;

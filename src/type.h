@@ -3,16 +3,6 @@
 
 #define uint unsigned int
 
-enum InstructionFormat
-{
-    R,
-    I,
-    S,
-    B,
-    U,
-    J,
-};
-
 enum BaseOpcode
 {
     LOAD = 0B0000011,
@@ -35,13 +25,16 @@ enum Register
 
 typedef struct cpu
 {
+    // Memory
     uint *mem;
     int max_mem;
 
+    // Registers
     int pc;
     int sp;
     int x[32];
 
+    // alu
     uint instruction;
     uint func7;
     uint func3;
