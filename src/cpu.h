@@ -18,7 +18,7 @@ cpu_t* new_cpu(int *mem, int maxmem)
     cpu->mem = mem;
     cpu->max_mem = maxmem;
     cpu->pc = 0;
-    cpu->sp = cpu->max_mem -1;
+    cpu->sp = maxmem -1;
     for (int i = 0; i < 32; i++)
     {
         cpu->x[i] = 0;
