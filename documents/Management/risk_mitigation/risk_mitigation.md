@@ -1,16 +1,27 @@
-# Risks and Mitigation plans - Virtual Processor - Team 3
+<h1 align="center"> Risks and Mitigation plans - Virtual Processor - Team 3 </h1>
 
-| **Document Name**            | Risks and Mitigation plans |
-| ---------------------------- | -------------------------- |
-| **Document Owner**           | MARLIER Thibaud            |
-| **Last Modification (Date)** | 01/26/2024                 |
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/24/2024 <br> Last update: 02/05/2024
+</p>
 
-## Introduction
+___
+<details>
+<summary style="font-size:1.2em; font-weight:bold;">Table Of Content:</summary>
+
+- [1. Introduction](#1-introduction)
+- [2. Level of likelihood](#2-level-of-likelihood)
+- [3. Impact](#3-impact)
+- [4. Risks and Mitigation](#4-risks-and-mitigation)
+- [5. Probability/Impact Matrix](#5-probabilityimpact-matrix)
+
+</details>
+
+## 1. Introduction
 
 This document will go through some of the risks that our team might encounter during the Virtual Processor Project.  
 This project aims to design and create a virtual processor and an interpreter running our own Assembly language on that same processor.
 
-## Level of likelihood
+## 2. Level of likelihood
 
 | Level |       Meaning        | Description                                                                                                                                                                          |
 | :---: | :------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -20,7 +31,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 | **4** |     **Unlikely**     | Rare risk. It's unlikely to happen. Nevertheless, they still have to be considered.                                                                                                  |
 | **5** |       **Odd**        | The rarest ever risk possible. Pigs will fly if it happens.                                                                                                                          |
 
-## Impact
+## 3. Impact
 
 | Level |    Meaning     | Description                                                                                                                        |
 | :---: | :------------: | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,7 +41,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 | **D** |   **Major**    | Will strongly interrupt the project's progression. Loads of work will be needed to get out of the situation.                       |
 | **E** |   **Fatal**    | Will be fatal for the project, meaning that it would be near impossible to keep the head out of the water if the risk is overlook. |
 
-## Risks and Mitigation
+## 4. Risks and Mitigation
 
 1. ### Complexity
 
@@ -84,7 +95,7 @@ This project aims to design and create a virtual processor and an interpreter ru
 
 Here are some of the various risks that our team might encounter during the project. However, this document does not prevent every possible risk that could happen and isn't a hazard threshold, some events might still occur.
 
-## Probability/Impact Matrix
+## 5. Probability/Impact Matrix
 
 | Risk                                                                                    | [Likeliness](#level-of-likelihood) / [Impact](#impact) |
 | --------------------------------------------------------------------------------------- | ---------------------------------- |

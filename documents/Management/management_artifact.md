@@ -1,4 +1,13 @@
-# Management Artifacts - Team 3
+<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<br>
+
+<h1 align="center"> Management Artifacts - Team 3 </h1>
+
+<p align="center">
+Created by: Thibaud MARLIER <br> Creation Date: 01/20/2024 <br> Last update: 02/05/2024
+</p>
+
+___
 
 This document will help you while navigating into the different management documents, here are the various documents that you will find here:
 
