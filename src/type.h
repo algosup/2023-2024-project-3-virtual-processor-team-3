@@ -17,30 +17,43 @@ enum registers
     R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28,
 };
 
-enum Opcode {
-    ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, MUL, MULH, MULHU, MULHSU, DIV, DIVU, REM, REMU,
-    ADDI, ANDI, ORI, XORI, SLLI, SRLI, SRAI, ILT, ILTI, ILTU, ILTUI, LB, LBU, LH, LHU, LW,
-    JIE, JINE, JIGE, JIGEU, JILE, JILEU,
-    JAL, JALR,
-    LUI, AUIPC,
-    SB, SH, SW,
-    SYSCALL, BREAK, PRT
+enum BaseOpcode
+{
+    LOAD = 0B0000011,
+    OP_IMM = 0B0010011,
+    AUIPC = 0B0010111,
+    STORE = 0B0100011,
+    OP = 0B0110011,
+    LUI = 0B0110111,
+    BRANCH = 0B1100011,
+    JALR = 0B1100111,
+    JAL = 0B1101111,
+    SYSTEM = 0B1110011,
 };
 
-typedef struct
+enum Sections
 {
-    f64 *mem;
-    i64 max_mem;
+    DATA, CODE
+};
 
-    i64 pc;
-    i64 sp;
-    long r[16];
-    f64 fr[16];
+typedef struct 
+{
+    int *mem;
+    int max_mem;
 
-    int inst;
-    i64 dest;
-    f64 arg1;
-    i64 arg2;
+    int pc;
+    int sp;
+    int x[32];
+
+    int section;
+
+    unsigned int instruction;
+    unsigned int func7;
+    unsigned int func3;
+    unsigned destination;
+    unsigned int arg1;
+    unsigned int arg2;
+    int immediate;
 } cpu_t;
 
 #endif

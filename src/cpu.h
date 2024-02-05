@@ -341,7 +341,9 @@ void execute(cpu_t* cpu)
             cpu->r[cpu->dest] = (u64)cpu->r[(i64)cpu->arg1] % (u64)cpu->r[cpu->arg2];
             cpu->pc += 3;
             break;
-        
+        case BREAK:
+            cpu->pc = cpu->max_mem;
+            break;
         default:
             printf("Unknown instruction: %d\n", cpu->inst);
             exit(1);

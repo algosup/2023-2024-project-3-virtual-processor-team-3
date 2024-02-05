@@ -4,19 +4,8 @@ int main(int argc, char **argv)
 {
     f64 memint[]=
     {
-        ADDI, R1, 3,
-        ADDI, R2, 4,
-        ADD, R3, R2, R1,
-        SUB, R4, R3, R2,
-        MUL, R5, R3, R4,
-        DIV, R6, R5, R4,
-        PRT, R3,
-        PRT, R4,
-        PRT, R5,
-        PRT, R6,
-        SB, R6, 40,
-        LB, R7, 40,
-        PRT, R7,
+        ADDI, R1, R1, 3,
+        PRT, R1,
         BREAK,
         0, 0, 0
     };
