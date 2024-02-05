@@ -1,4 +1,4 @@
-#include "cpu.h"
+#include "..\src\cpu.h"
 
 // 156 = 0B10011100 = 0 0 000100 1110 0;  
 

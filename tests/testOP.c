@@ -1,4 +1,4 @@
-#include "cpu.h"
+#include "..\src\cpu.h"
 
 void testAdd(void);
 void testSub(void);
