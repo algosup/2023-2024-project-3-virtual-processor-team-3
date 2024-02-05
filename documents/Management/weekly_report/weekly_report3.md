@@ -1,7 +1,10 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 # Project Virtual Processor - Team 3  
 
 ## Weekly Report N°3
- 
+
 ### <u> Introduction </u>
 
 Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by great progress made on the project. The Functional Specification document is due next week so most of the work has to be done on the document, moreover, various other tasks have been done during the week, so let's deal with that.
@@ -62,3 +65,5 @@ Despite that, the team is content with the current state of the project, they li
 - Meetings on Monday and Friday.
 
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+
+<div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>

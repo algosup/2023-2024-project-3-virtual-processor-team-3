@@ -1,4 +1,4 @@
-<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div align="left" id="top"><a href="./"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
 <br>
 
 <h1 align="center"> Functional Specifications </h1>
@@ -31,7 +31,7 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01
     - [➭ 2.4.1 Retroplanning](#-241-retroplanning)
     - [➭ 2.4.2 Milestones](#-242-milestones)
     - [➭ 2.4.3 Dependencies](#-243-dependencies)
-    - [➭ 2.4.4 Resources/Help/Financial plan](#-244-resourceshelpfinancial-plan)
+    - [➭ 2.4.4 Resources/Help/Financial Plan](#-244-resourceshelpfinancial-plan)
     - [➭ 2.4.5 Assumptions/Constraints](#-245-assumptionsconstraints)
 - [3. Personas](#3-personas)
   - [3.1 Novice Programmers](#31-novice-programmers)
@@ -45,6 +45,13 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01
   - [5.1 Sections](#51-sections)
   - [5.2 Instruction types and binary formats](#52-instruction-types-and-binary-formats)
   - [5.3 Instruction Set Architecture](#53-instruction-set-architecture)
+  - [5.4 Labels](#54-labels)
+  - [5.5 Conventions and Syntax](#55-conventions-and-syntax)
+    - [➭ 5.5.1 Sections Convention](#-551-sections-convention)
+    - [➭ 5.5.2 Instructions Convention](#-552-instructions-convention)
+    - [➭ 5.5.3 Registers Convention](#-553-registers-convention)
+    - [➭ 5.5.4 Immediates Convention](#-554-immediates-convention)
+    - [➭ 5.5.5 Labels Convention](#-555-labels-convention)
 - [6. From ALGORISK assembly to executable](#6-from-algorisk-assembly-to-executable)
   - [6.1 Preprocessor](#61-preprocessor)
   - [6.2 Lexer](#62-lexer)
@@ -61,12 +68,12 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01
   - [7.1 Console Debugger](#71-console-debugger)
   - [7.2 Graphical Debugger](#72-graphical-debugger)
 - [8. Plugin](#8-plugin)
-  - [8.1 Color Higlighting](#81-color-higlighting)
+  - [8.1 Color Highlighting](#81-color-highlighting)
   - [8.2 Auto-completion](#82-auto-completion)
   - [8.3 Snippets](#83-snippets)
 - [9. Conclusion](#9-conclusion)
     - [Authors](#authors)
-    - [Acknowledgements](#acknowledgements)
+    - [Acknowledgments](#acknowledgments)
 - [10. Appendix](#10-appendix)
   - [10.1 Architecture Benchmark](#101-architecture-benchmark)
     - [Sources](#sources)
@@ -83,7 +90,9 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01
 | 32-bit Virtual Processor | A virtual processor that uses 32-bit instructions and data. |
 | Machine Code                              | The binary representation of program instructions, which is directly executable by a computer's central processing unit (CPU). |
 | Assembly Language                        | A low-level programming language that is closely tied to machine code instructions; used for programming processors directly. |
-| Instruction| A single operation performed by a processor, expressed as a binary code. |
+| Instruction | A single operation performed by a processor, expressed as a binary code. |
+| Atomic Instruction | An instruction that cannot be interrupted by other instructions. |
+| Interrupt | An asynchronous event or signal that temporarily diverts the processor's normal execution flow to handle a specific task or event, often requiring the processor to save its current state and transfer control to an interrupt service routine. |
 | Debug Programs                            | The process of identifying and fixing errors or issues in a computer program.                                |
 | External Library                          | A collection of precompiled routines and functions that can be used in a software development project.        |
 | RISC Approach and RISC-V Architecture    | Reduced Instruction Set Computing (RISC) is an architecture that uses a small, highly optimized set of instructions. RISC-V is an open-source RISC architecture. |
@@ -98,9 +107,10 @@ Created by: Quentin CLÉMENT <br> Creation Date: 12/01/2024 <br> Last update: 01
 | Exception Handling | The process of responding to the occurrence of exceptions – anomalous or exceptional conditions requiring special processing. |
 | Plugin             | A software component that adds a specific feature to an existing computer program.                           |
 | Color Highlighting, Snippets              | Features related to programming and code editing, providing visual enhancements and code shortcuts.        |
-| Ahead of Time Compilation| It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
-| Pipeline| An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
-| ISA| ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
+| Ahead of Time Compilation | It is a process in which a programming language's source code is compiled into machine code (native code) before the program is executed, as opposed to being compiled during execution (Just-in-Time compilation) or interpreted directly.|
+| Pipeline | An execution pipeline in processor architecture refers to a technique used to improve the overall processing speed of a CPU. Instead of processing each instruction sequentially (completing one instruction before starting the next), the CPU divides the processing of instructions into several stages, allowing it to work on multiple instructions simultaneously, much like an assembly line in a manufacturing process. This approach significantly increases the CPU's throughput—the number of instructions that can be processed in a given amount of time.|
+| Multi-threading | A technique in which a single process can have multiple code segments (threads) running concurrently.|
+| ISA | ISA stands for Instruction Set Architecture, and serves as an interface between the computer's software and hardware. The ISA defines the architectures' main aspects like: instructions, registers, data types, addressing mode, memory architecture among others.|
 
 ## 2. Introduction
 
@@ -136,6 +146,7 @@ We want beginners to learn how a computer works at a low level, without being di
 | Implement interrupts |
 | Implement multi-threading |
 | Implement atomic instructions |
+| Implement complex pipelining |
 
 #### ➭ <ins>2.2.3 Deliverables</ins>
 
@@ -145,6 +156,10 @@ We want beginners to learn how a computer works at a low level, without being di
 | Technical Specifications Document  | Document (markdown) | 09/02/2024   | [technical_specifications.md](./TechnicalSpecifications.md) |
 | Weekly Reports                     | Document (markdown) | Every Friday | [weekly_reports](./Management/weekly_report/)                          |
 | Test Plan                          | Document (markdown) | 16/02/2024   | [test_plan.md](./Testing/test_plan.md)              |
+| Functional Specifications Document | Document (markdown) | 30/01/2024   | [Functional Specifications](./functional_specifications.md) |
+| Technical Specifications Document  | Document (markdown) | 09/02/2024   | [Technical Specifications](./TechnicalSpecifications.md) |
+| Weekly Reports                     | Document (markdown) | Every Friday | [Weekly Reports](./Management/weekly_report/)                          |
+| Test Plan                          | Document (markdown) | 16/02/2024   | [Test Plan](./Testing/test_plan.md)              |
 | Final Product                      | Executable and/or a C file         | 23/02/2024   |                                                              |
 
 ### 2.3 Project Organisation
@@ -182,7 +197,7 @@ The project sponsors (highlighted in **bold**) are expected to be in charge of:
 |---|---|---|
 | Project Manager | In charge of organisation, planning and budgeting. <br> Ensure the communication within the team  <br> Keep the team motivated.  | Thibaud MARLIER |
 | Program Manager | Makes sure the project meets the client's expectations. <br> Is the intermediary between the client and the development team. <br> Is responsible for writing the Functional Specifications. | Quentin CLÉMENT |
-| Tech Lead | Makes the technical decision in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
+| Tech Lead | Makes the technical decisions in the project.<br> Translates the Functional Specification into Technical Specifications. <br> Does code review. | Aurélien FERNANDEZ |
 | Software Engineer | Writes the code. <br> Writes documentation. <br> Participate in the technical choices. | Malo ARCHIMBAUD <br> <br> Mathis KAKAL|
 | Quality Assurance |  Tests all the functionalities of the product to find bugs and issues. <br> Document bugs and issues. <br> Defines the test strategy and writes the test plan. <br> Checks that issues are fixed. | Arthur LEMOINE |
 
@@ -194,6 +209,8 @@ External project reviewers have been appointed by the project owner to review ou
 
 #### ➭ <ins>2.4.1 Retroplanning</ins>
 
+The project will last for 8 weeks, from January 8th 2024 to March 1st 2024.
+
 ![retroplanning.png](/documents/img/functional_specifications/retroplanning.png)
 
 #### ➭ <ins>2.4.2 Milestones</ins>
@@ -202,6 +219,7 @@ External project reviewers have been appointed by the project owner to review ou
 | -------------------------------- | -------------------------- |
 | Functional Specifications V1     | Tuesday, January 30th 2024 |
 | Technical Specifications V1      | Friday, February 9th 2024  |
+| Test Plan | Friday, February 16th 2024 |
 | Final Product | Friday, February 23rd 2024 |
 | Oral Presentation | Friday, March 1st 2024     |
 
@@ -211,9 +229,9 @@ Functional Specifications require the call for tender and a clear understanding 
 
 Technical Specifications require the Functional Specifications to be validated by the client.
 
-The development phase requires prior understanding of the target technologies defined in the technical specifications before being begun.
+The development phase requires a prior understanding of the target technologies defined in the technical specifications before being begun.
 
-#### ➭ <ins>2.4.4 Resources/Help/Financial plan</ins>
+#### ➭ <ins>2.4.4 Resources/Help/Financial Plan</ins>
 
 - The team (6 people)
 
@@ -226,7 +244,7 @@ P.S. The school might give us more/less time to work on the project.
 
 - ALGOSUP's library
 
-- Similars projects on the internet
+- Similar projects on the internet
 
 #### ➭ <ins>2.4.5 Assumptions/Constraints</ins>
 
@@ -246,7 +264,7 @@ P.S. The school might give us more/less time to work on the project.
 
 As our aim is for the project to be educational, novice programmers are our main focus.
 
-They are separated as followed:
+They are separated as follows:
 
 |<p width="20px" align="center">The Promising Kid</p>|<p align="center">The Computer Science Student</p>|<p align="center">Never-too-late-for-taking-RISCS</p>|
 |---|---|---|
@@ -256,35 +274,34 @@ They are separated as followed:
 
 ### 3.2 The Enthusiasts 
 
-Our second focus is enthusiasts. People who are more knowledgeable about processor architecture and whom might find some use in our program as a platform for learning, testing and debugging.
+Our second focus is enthusiasts. People who are more knowledgeable about processor architecture and who might find some use in our program as a platform for learning, testing and debugging.
 
 |<p align="center">The RISC-Y Script Kiddie</p>|<p align="center">The Level 2 Student</p>|<p align="center">The Open Source Enthusiast</p>|
 |---|---|---|
 |<p align="center"><img width="150px" src="./img/functional_specifications/script_kid.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/student2.png"></p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/open_source_guy.png"></p>|
 |Age 11 to 18|Age 18 to 35|Age 35+|
-|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix.<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
+|They are interested in everything new and want to impress others with their extensive knowledge.<br>Want to be able to master RISC architecture faster through a visual interface and debugger, and quicly understands the tradeoffs of such a program.<br>Will only read the README and the source code<br>Will parse the source code with their eyes, being too lazy/distracted to read the documentation<br>The source code must be very well commented and segmented, the file structure/program structure must be clear or shown in the README.<br>The dependencies of the program have to be very clear.|Already has some experience or knowledge in processor architectures.<br>Will master the language and specs faster.<br>May use our solution to improve knowledge, debug programs or prototype faster<br>Need good documentation, other than Functional Specifications.<br>Needs developmental features (Debugger, State of Pipeline, Register).|Will check out and collect anything that is open source and decide whether they want to integrate it in a project later on.<br>Must be able to identify strengths, weaknesses, opportunities and weaknesses of a product quickly.<br>Must understand clearly the differences between our product and common architectures and be able to compare them quickly (comparison chart, see appendix).<br>They are a vector for promoting the project.<br>Therefore, the license must be very clear, the Repo must look good and clean, and we need a social media preview for sharing.|
 
 ### 3.3 The Professional
 
-Our tertiary focus, since our project doesn't adhere to all the specifications of the RISC-V standard, but might be helpful for teaching, even in enterprise grounds.
+Our tertiary focus, since our project doesn't adhere to all the specifications of the RISC-V standard, might be helpful for teaching, even on enterprise grounds.
 
 |The Company Instructor|The IOT Nerd|
 |---|---|
 |<p align="center"><img width="150px" src="/documents/img/functional_specifications/company_instructor.png"><p>|<p align="center"><img width="150px" src="/documents/img/functional_specifications/iot_woman.png"><p>|
-|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Difference from what they know need to be clear from the get go.<br> Dependencies of the program have to be very clear.|
+|Works in a company for which computer science is important but not the main focus, it could be beneficial for them to use this project to teach the basis of how processors work.<br>They want very clear documentation and instructions.<br>Having a one click install and example programs will be a big plus, that will allow them to not waste time on fixing everyone's installations, and give students a bit of autonomy.<br>We must feature a clear explanation of the interface for them.|IOT Professional with several years of experience.<br>Are used to other architectures<br>Differences from what they know need to be clear from the get go.<br> Project dependencies must be very clear.|
 
 ## 4. Virtual Processor Architecture
-
-The primary concern for choosing and designing our processor architecture were:
+The primary concerns for choosing and designing our processor architecture were:
 
 - An open architecture that we could use and implement without asking for permission.
 - A simple and regular instruction set, yet complete enough to serve as a target for a C compiler.
 - An architecture in line with the current state of the market.
-- An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spending too much time learning about it.
+- An architecture that was different from our previous project, to broaden our scope, but not too different, to ensure not spend too much time learning about it.
   
-Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broke down into simpler ones, avoid unnecessary complexity."
+Since most of our intended audience consists of beginners without expertise in intricate operations and instructions we embraced the philosophy of "if an operation can be broken down into simpler ones, avoid unnecessary complexity."
 
-After gathering information on many known computer architectures, from the 60's until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), we found that the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
+After gathering information on many known computer architectures, from the '60s until today, and after comparing dozens of architectures and assembly languages (see [Architecture Benchmark](#101-architecture-benchmark)), we found that the RISC approach aligns closely with this philosophy, featuring a reduced set of straightforward instructions, among other important factors.
 
 This benchmark has been made considering numerous factors (more or less ordered from most important to least important). Those factors are (but not limited to):
 
@@ -297,12 +314,12 @@ This benchmark has been made considering numerous factors (more or less ordered 
 - Pipelining and execution Strategy
 - Micro-Code (aka firmware - induces variable length instructions)
 
-In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive, primarily drawing inspiration from RISC-V.
+In pursuit of this commitment to innovation, we opted for a trade-off among multiple architectures to end up with a distinctive and custom-made one, primarily drawing inspiration from RISC-V.
 
 > [!NOTE]
-> Other than the traditional–slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
+> Other than the traditional–and slightly outdated–RISC and CISC paradigms, there are as many ways to approach designing a processor, whether virtual or physical, as there are types of data and operations to handle.<br><br>
 > The aforementioned paradigms, in fact, only usually reflect the number of instructions used by the processor among other things such as : the sequence for execution (also known as pipeline) or register usage.<br><br>
-> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding around.<br><br>
+> While those design choices are already substantial and have deep implications, they do not account for the wide range of architectures that are found in the all the machines surrounding us.<br><br>
 > This is why we decided to widen our research field to pick from a large range of features and architectural decisions, which are presented in the benchmark (see appendix or link above)
 
 ### 4.1 Registers
@@ -315,7 +332,7 @@ The first 16 registers handle integer values and the following 16 handle floatin
 Three more register types are used for specific purposes:
 - `pc` (program counter): Holds the address in memory of the next instruction to be fetched.
 - `ir` (instruction register): Holds the current instruction being executed.
-- `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. Currently, 3 csr are present in our processor.
+- `csr` (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. Currently, 3 csr's are present in our processor.
 
 Our CSRs are:
 
@@ -329,7 +346,7 @@ This processor also contains an ALU (Arithmetic Logic Unit) which will be a vers
 
 ### 4.3 Memory
 
-Every processor needs a certain amount of memory to operate. Thus we chose to allow up to 2 megabyte. We chose this number to allow users to use the memory freely and to not overload the computer our virtual cpu is running on.
+Every processor needs a certain amount of memory to operate. Thus we chose to allow up to 2 megabytes. We chose this number to allow users to use the memory freely and to not overload the computer our virtual CPU is running on.
 
 ## 5. Assembly Language
 
@@ -440,57 +457,58 @@ These fields collectively define the operands, destinations, and additional info
 ### 5.3 Instruction Set Architecture
 
 Even though we want to keep the instruction set as simple as possible, we still need to provide a wide range of instructions to allow the user to write complex programs. \
-By providing too few instructions, it would mean that some operations would not be doable even by combining multiple instructions.
+Providing too few instructions would mean that some operations would not be doable even by combining multiple instructions.
 
-| Category | Instruction | Expanding | Description | Syntax | Type | Func3 | Func7 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **Base Integer** | `add` | | Adds the contents of two registers and stores the result in a register | `add rd, r1, r2` | R-Type | 000 | 0000000 |
-| | `addi` | **Add Immediate** | Adds an immediate value to a register and stores the result in a register | `addi rd, r1, immediate` | I-Type | 000 | |
-| | `sub` | **Subtract** | Subtracts the contents of two registers and stores the result in a register | `sub rd, r1, r2` | R-Type | 000 | 0100000 |
-| | `and` | | Performs a bitwise AND operation on the values of two registers and stores the result in a register | `and rd, r1, r2` | R-Type | 111 | 0000000 | 
-| | `andi` | **And Immediate** | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | `andi rd, r1, immediate` | I-Type | 111 | |
-| | `or` | | Performs a bitwise OR operation on the values of two registers and stores the result in a register | `or rd, r1, r2` | R-Type | 110 | 0000000 |
-| | `ori` | **Or Immediate** | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register | `ori rd, r1, immediate` | I-Type | 110 | |
-| | `xor` | **Exclusive Or** | Performs a bitwise XOR operation on the values of two registers and stores the result in a register | `xor rd, r1, r2` | R-Type | 100 | 0000000 |
-| | `xori` | **Exclusive Or Immediate** | Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | `xori rd, r1, immediate` | I-Type | 100 | |
-| | `sll` | **Shift Left Logical** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `sll rd, r1, r2` | R-Type | 001 | 0000000 |
-| | `slli` | **Shift Left Logical Immediate** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `slli rd, r1, immediate` | I-Type | 001 | |
-| | `srl` | **Shift Right Logical** | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `srl rd, r1, r2` | R-Type | 101 | 0000000 |
-| | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type | 101 | |
-| | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type | 101 | 0100000 |
-| | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type | 101 | |
-| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt? rd, r1, r2` | I-Type | 010 | |
-| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti? rd, r1, immediate` | I-Type | 010 | |
-| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu? rd, r1, r2` | I-Type | 011 | |
-| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui? rd, r1, immediate` | I-Type | 011 | |
-| | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type | 001 | |
-| | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type | 101 | |
-| | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type | 011 | |
-| | `jigeu` | **Jump If Greater or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | `jigeu r1, r2, label` | B-Type | 111 | |
-| | `jile` | **Jump If Less or Equal** | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | `jile r1, r2, label` | B-Type | 010 | |
-| | `jileu` | **Jump If Less or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | `jileu r1, r2, label` | B-Type | 110 | |
-| | `jal` | **Jump And Link** | Jumps to a label and stores the return address in a register | `jal rd, label` | J-Type | | |
-| | `jalr` | **Jump And Link Register** | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register | `jalr rd, r1, offset` | J-Type | | |
-| | `syscall` | **System Call** | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands) | `syscall` | Special | | |
-| | `break` | | Generates a breakpoint exception, which can be used for debugging | `break` | Special | | |
-| | `lb` | **Load Byte**<sup>1</sup> | Loads a signed byte from memory into a register, the address in memory must be specified as an operand | `lb rd, address` | I-Type | | |
-| | `lbu` | **Load Byte**<sup>1</sup> **Unsigned** | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand | `lbu rd, address` | I-Type | | |
-| | `lh` | **Load Halfword**<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type | | |
-| | `lhu` | **Load Halfword**<sup>2</sup> **Unsigned** | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | `lhu rd, address` | I-Type | | |
-| | `lw` | **Load Word**<sup>3</sup> | Loads a word from memory into a register, the address in memory must be specified as an operand | `lw rd, address` | I-Type | | |
-| | `lui` | **Load Upper Immediate** | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | `lui rd, immediate` | U-Type | | |
-| | `auipc` | **Add Upper Immediate to PC** | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0 | `auipc rd, immediate` | U-Type | | |
-| | `sb` | **Store Byte**<sup>1</sup> | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | `sb rd, address` | S-Type | | |
-| | `sh` | **Store Halfword**<sup>2</sup> | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | `sh rd, address` | S-Type | | |
-| | `sw` | **Store Word**<sup>3</sup> | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | `sw rd, address` | S-Type | | |
-| **Integer Multiplication and Division** | `mul` | | Multiplies the contents of two registers and stores the result in a register | `mul rd, r1, r2` | R-Type | 000 | 0000001 |
-| | `mulh` | **Multiply High** | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register | `mulh rd, r1, r2` | R-Type | 001 | 0000001 |
-| | `mulhu` | **Multiply High Unsigned** | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | `mulhu rd, r1, r2` | R-Type | 011 | 0000001 |
-| | `mulhsu` | **Multiply High Signed Unsigned** | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register | `mulhsu rd, r1, r2` | R-Type | 010 | 0000001 |
-| | `div` | **Divide** | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `div rd, r1, r2` | R-Type | 100 | 0000001 |
-| | `divu` | **Divide Unsigned** | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `divu rd, r1, r2` | R-Type | 101 | 0000001 |
-| | `rem` | **Remainder** | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `rem rd, r1, r2` | R-Type | 110 | 0000001 |
-| | `remu` | **Remainder Unsigned** | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `remu rd, r1, r2` | R-Type | 111 | 0000001 |
+| Category | Instruction | Expanding | Description | Syntax | Type | Func3 | Func7 | Opcode |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Base Integer** | `add` | | Adds the contents of two registers and stores the result in a register | `add rd, r1, r2` | R-Type | 000 | 0000000 | 0110011 |
+| | `addi` | **Add Immediate** | Adds an immediate value to a register and stores the result in a register | `addi rd, r1, immediate` | I-Type | 000 | | 0010011 |
+| | `sub` | **Subtract** | Subtracts the contents of two registers and stores the result in a register | `sub rd, r1, r2` | R-Type | 000 | 0100000 | 0110011 |
+| | `and` | | Performs a bitwise AND operation on the values of two registers and stores the result in a register | `and rd, r1, r2` | R-Type | 111 | 0000000 | 0110011 |
+| | `andi` | **And Immediate** | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | `andi rd, r1, immediate` | I-Type | 111 | | 0010011 |
+| | `or` | | Performs a bitwise OR operation on the values of two registers and stores the result in a register | `or rd, r1, r2` | R-Type | 110 | 0000000 | 0110011 |
+| | `ori` | **Or Immediate** | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register | `ori rd, r1, immediate` | I-Type | 110 | | 0010011 |
+| | `xor` | **Exclusive Or** | Performs a bitwise XOR operation on the values of two registers and stores the result in a register | `xor rd, r1, r2` | R-Type | 100 | 0000000 | 0110011 |
+| | `xori` | **Exclusive Or Immediate** | Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | `xori rd, r1, immediate` | I-Type | 100 | | 0010011 |
+| | `sll` | **Shift Left Logical** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `sll rd, r1, r2` | R-Type | 001 | 0000000 | 0110011 |
+| | `slli` | **Shift Left Logical Immediate** | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | `slli rd, r1, immediate` | I-Type | 001 | | 0010011 |
+| | `srl` | **Shift Right Logical** | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `srl rd, r1, r2` | R-Type | 101 | 0000000 | 0110011 |
+| | `srli` | **Shift Right Logical Immediate** | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srli rd, r1, immediate` | I-Type | 101 | | 0010011 |
+| | `sra` | **Shift Right Arithmetic** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | `sra rd, r1, r2` | R-Type | 101 | 0100000 | 0110011 |
+| | `srai` | **Shift Right Arithmetic Immediate** | Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | `srai rd, r1, immediate` | I-Type | 101 | | 0010011 |
+| | `ilt?` | **Is Less Than?** | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `ilt? rd, r1, r2` | I-Type | 010 | | 0010011 |
+| | `ilti?` | **Is Less Than Immediate?** | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `ilti? rd, r1, immediate` | I-Type | 010 | | 0010011 |
+| | `iltu?` | **Is Less Than Unsigned?** | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | `iltu? rd, r1, r2` | R-Type | 011 | | 0110011 |
+| | `iltui?` | **Is Less Than Unsigned Immediate?** | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | `iltui? rd, r1, immediate` | I-Type | 011 | | 0010011 |
+| | `jie` | **Jump If Equal** | Jumps to a label if two registers are equal | `jie r1, r2, label` | B-Type | 001 | | 1100011 |
+| | `jine` | **Jump If Not Equal** | Jumps to a label if two registers are not equal | `jine r1, r2, label` | B-Type | 101 | | 1100011 |
+| | `jige` | **Jump If Greater or Equal** | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | `jige r1, r2, label` | B-Type | 011 | | 1100011 |
+| | `jigeu` | **Jump If Greater or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | `jigeu r1, r2, label` | B-Type | 111 | | 1100011 |
+| | `jile` | **Jump If Less or Equal** | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | `jile r1, r2, label` | B-Type | 010 | | 1100011 |
+| | `jileu` | **Jump If Less or Equal Unsigned** | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | `jileu r1, r2, label` | B-Type | 110 | | 1100011 |
+| | `jal` | **Jump And Link** | Jumps to a label and stores the return address in a register | `jal rd, label` | J-Type | | | 1101111 |
+| | `jalr` | **Jump And Link Register** | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register | `jalr rd, r1, offset` | J-Type | | | 1100111 |
+| | `syscall` | **System Call** | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands) | `syscall` | Special | | | 1110011 |
+| | `break` | | Generates a breakpoint exception, which can be used for debugging | `break` | Special | | | 1110011 |
+| | `lb` | **Load Byte**<sup>1</sup> | Loads a signed byte from memory into a register, the address in memory must be specified as an operand | `lb rd, address` | I-Type | | | 0000011 |
+| | `lbu` | **Load Byte**<sup>1</sup> **Unsigned** | Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand | `lbu rd, address` | I-Type | | | 0000011 |
+| | `lh` | **Load Halfword**<sup>2</sup> | Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | `lh rd, address` | I-Type | | | 0000011 |
+| | `lhu` | **Load Halfword**<sup>2</sup> **Unsigned** | Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | `lhu rd, address` | I-Type | | | 0000011 |
+| | `lw` | **Load Word**<sup>3</sup> | Loads a word from memory into a register, the address in memory must be specified as an operand | `lw rd, address` | I-Type | | | 0000011 |
+| | `lui` | **Load Upper Immediate** | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | `lui rd, immediate` | U-Type | | | 0110111 |
+| | `auipc` | **Add Upper Immediate to PC** | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0 | `auipc rd, immediate` | U-Type | | | 0010111 |
+| | `sb` | **Store Byte**<sup>1</sup> | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | `sb rd, address` | S-Type | | | 0100011 |
+| | `sh` | **Store Halfword**<sup>2</sup> | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | `sh rd, address` | S-Type | | | 0100011 |
+| | `sw` | **Store Word**<sup>3</sup> | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | `sw rd, address` | S-Type | | | 0100011 |
+| **Integer Multiplication and Division** | `mul` | **Multiply** | Multiplies the contents of two registers and stores the result in a register | `mul rd, r1, r2` | R-Type | 000 | 0000001 | 0110011 |
+| | `mulh` | **Multiply High** | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register | `mulh rd, r1, r2` | R-Type | 001 | 0000001 | 0110011 |
+| | `mulhu` | **Multiply High Unsigned** | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | `mulhu rd, r1, r2` | R-Type | 011 | 0000001 | 0110011 |
+| | `mulhsu` | **Multiply High Signed Unsigned** | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register | `mulhsu rd, r1, r2` | R-Type | 010 | 0000001 | 0110011 |
+| | `div` | **Divide** | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `div rd, r1, r2` | R-Type | 100 | 0000001 | 0110011 |
+| | `divu` | **Divide Unsigned** | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | `divu rd, r1, r2` | R-Type | 101 | 0000001 | 0110011 |
+| | `rem` | **Remainder** | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `rem rd, r1, r2` | R-Type | 110 | 0000001 | 0110011 |
+| | `remu` | **Remainder Unsigned** | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | `remu rd, r1, r2` | R-Type | 111 | 0000001 | 0110011 |
+
 
 *rd: destination register, r1: source register 1, r2: source register 2, immediate: immediate value, label: label*
 
@@ -502,19 +520,71 @@ By providing too few instructions, it would mean that some operations would not 
 
 This instruction is equivalent to a `mov` instruction in x86 assembly. As `r1 + 0 = r1`, the content of r1 will be copied in r2.
 
+### 5.4 Labels
+
+Labels are used to mark a position in the code. They are used to jump to a specific instruction or to store the address of an instruction in a register. \
+Labels are declared by writing the name of the label followed by a column.
+
+```
+.code
+    instruction ...
+    instruction ...
+    jump MyLabel
+MyLabel:
+```
+
+In this example, the jump instruction is just a representation for any instruction of the J-Type.
+
+### 5.5 Conventions and Syntax
+
+It's important to define conventions for the syntax of the assembly language to ensure consistency and readability. \
+If a convention is not respected, the assembler will throw an error. 
+
+*In the future, we would like to implement warnings to inform the user that a convention is not respected, but the program would still be assembled.*
+
+#### ➭ <ins>5.5.1 Sections Convention</ins>
+
+The data section is delimited by the `.data` directive and the code section is delimited by the `.code` directive. \
+Any other syntax than those two will throw an error.
+
+Nothing else (except comments) can be written on the same line as a section declaration.
+
+#### ➭ <ins>5.5.2 Instructions Convention</ins>
+
+Instructions are written in lowercase and are followed by a space. \
+If a different syntax than the ones in the [instruction set](#53-instruction-set-architecture) is used, the assembler will throw an error.
+
+Instructions should be indented by 4 spaces compared to sections and labels but if it's not respected, the assembler will still work.
+
+#### ➭ <ins>5.5.3 Registers Convention</ins>
+
+Registers are written in lowercase and are preceded by a space and followed by a comma if there is no other operand after. \
+They are named from `r0` to `r31`. \
+If any other syntax is used, it will throw an error.
+
+#### ➭ <ins>5.5.4 Immediates Convention</ins>
+
+Immediates are written in base 10 and commas are forbidden as grouping separators (e.g. 100,000 should be written 100000 without a comma to separate). \
+If any other syntax is used, it will throw an error.
+
+#### ➭ <ins>5.5.5 Labels Convention</ins>
+
+Labels are written in PascalCase and are followed by a column. \
+They can contain letter and numbers but must start with a letter.
+
 ## 6. From ALGORISK assembly to executable
 
 Since our processor is based on an RISC architecture, we have decided to omit using micro-code (a.k.a. firmware) in the Processor program, meaning that our code must be fully optimized before assembly into machine code.
 
-It makes sense for us to use an ahead of time compilation strategy which usually means more complex compilation/assembly of the program, but faster runtime execution.
+It makes sense for us to use an ahead-of-time compilation strategy which usually means more complex compilation/assembly of the program, but faster runtime execution.
 
-It's crucial to clarify that, instead of employing an interpreter for translating our assembly code into machine code, we will break the process down into three steps: preprocessing, lexing, and ultimately assembling.
+It's crucial to clarify that, instead of employing an interpreter to translate our assembly code into machine code, we will break the process down into three steps: preprocessing, lexing, and ultimately assembling.
 
 ### 6.1 Preprocessor
 
 The preprocessor is a quick step where the C program will divide the assembly code into two main parts, the data section and the code section. \
 Whenever the preprocessor encounters a line starting with a dot followed by the keyword `data` or `code`. The preprocessor will break down the assembly and separate both sections. \
-Meaning, everything declared in `.data` (usually variables) will be allocated in memory to be used later in the code section. \
+Meaning, that everything declared in `.data` (usually variables) will be allocated in memory to be used later in the code section. \
 
 After completing the preprocessing of the data section and initialising variables, the next step involves preprocessing the `.code` section. This section contains all the instructions where user-defined operations are conveyed to the processing unit. Since variables have already been initialised and stored in memory, they can be reused within the code section. \
 During the whole process, if the preprocessor encounters a comment `\\`, the preprocessing unit will remove whatever is after on the line. And will then be ignored throughout all the remaining processes.
@@ -523,11 +593,11 @@ During the whole process, if the preprocessor encounters a comment `\\`, the pre
 \\ This a comment
 ```
 
-Furthermore, if the preprocessor encounters a label, it will save it. When finishing the reading, every jumps leading to a label will be replaced by the label's position.
+Furthermore, if the preprocessor encounters a label, it will save it. When finishing the reading, every jump leading to a label will be replaced by the label's position.
 
 ```
 \\code
-jal r1,MyLabel
+jal r1, MyLabel
 
 MyLabel:
 \\ code
@@ -604,7 +674,7 @@ Moreover, during the preprocessing process, the preprocessor will check if a lab
 
 ### 6.3 Assembler
 
-When the lexer verified that the program is correct, the assembling process begins.
+When the lexer has verified that the program is correct, the assembling process begins.
 
 A binary file is created and the assembler transforms each instruction into a 32-bit binary code as defined [previously](#42-instruction-types-and-binary-formats). They will be stored in the binary file in the same order as they are in the assembly file.
 
@@ -741,22 +811,22 @@ The displayed registers or memory addresses are updated after each instruction.
 
 ### 7.2 Graphical Debugger
 
-*The graphical debugger is a nice to have feature that will be implemented if time allows it. This also means that this section of the document specifying what it will contain will be clarified in the coming weeks according to what is and isn't feasible.*
+*The graphical debugger is a nice-to-have feature that will be implemented if time allows it. This also means that this section of the document specifying what it will contain will be clarified in the coming weeks according to what is and isn't feasible.*
 
-The graphical debugger as its name suggests is a debugger with a graphical interface. It is a more user-friendly version of the console debugger and aims to beginners. It shows step by step how the virtual processor handles each instruction by showing how the registers and memory are used and updated after each instruction. 
+The graphical debugger as its name suggests is a debugger with a graphical interface. It is a more user-friendly version of the console debugger and is aimed at beginners. It shows step by step how the virtual processor handles each instruction by showing how the registers and memory are used and updated after each instruction. 
 
 ## 8. Plugin
 
 To continue in this willingness to make programming and computer science more accessible to everyone, a plugin for Visual Studio Code named "ALGORISK for VS Code" will be implemented.
 
-### 8.1 Color Higlighting
+### 8.1 Color Highlighting
 
 The plugin highlights each type of keyword with a different color. This allows the user to quickly identify the different parts of the code. Here is what each color will represent:
 
 <span style="color:#006EB3">**Sections**: #006EB3</span>  \
 <span style="color:#4EC3E0">**Instructions**: #4EC3E0</span> \
 <span style="color:#FF6720">**Labels**: #FF6720</span> \
-<span style="color:#250E62">**Destination register**: #250E62</span> \
+<span style="color:#250E62">**Destination registers**: #250E62</span> \
 <span style="color:#E0004D">**Immediates**: #E0004D</span> \
 <span style="color:#FCE300">**Memory addresses**: #FCE300</span> \
 <span style="color:#7f7f7f">**Register operands**: #FFFFFF or #000000 (depending on the background color)
@@ -764,7 +834,7 @@ The plugin highlights each type of keyword with a different color. This allows t
 ### 8.2 Auto-completion
 
 Moreover, the plugin will come with the auto-completion functionality. Our plugin will scan whatever the user is writing using a dictionary (the documentation of the code) to try and guess what the user is typing. \
-The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. In order to apply what he wishes, the user needs to press the key "tab", filling out the blank of the instruction. The user is now free to continue to code. \
+The function will show the user multiple propositions (if there are several suggestions). Therefore, the user accepts the proposition he wishes to apply. To apply what he wishes, the user needs to press the key "tab", and fill out the blank of the instruction. The user is now free to continue to code. \
 For instance:
 
 ```
@@ -802,7 +872,7 @@ We welcome contributions, so please feel free to open issues, fork this reposito
 
 </summary>
 
-Main author: [Quentin CLÉMENT](https://www.linkedin.com/in/quentin-cl%C3%A9ment-939110221/) \
+Main Author: [Quentin CLÉMENT](https://www.linkedin.com/in/quentin-cl%C3%A9ment-939110221/) \
 Contributors: [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa12232/), [Aurélien FERNANDEZ](https://www.linkedin.com/in/aur%C3%A9lien-fernandez-4971201b8/), [Mathis KAKAL](https://www.linkedin.com/in/mathis-k-a239ba10a/), [Thibaud MARLIER](https://www.linkedin.com/in/thibaud-marlier/)
 
 </details>
@@ -810,7 +880,7 @@ Contributors: [Malo ARCHIMBAUD](https://www.linkedin.com/in/malo-archimbaud-58aa
 <details>
 <summary>
 
-#### Acknowledgements
+#### Acknowledgments
 
 </summary>
 

@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 # Project Virtual Processor - Team 3  
 
 ## Weekly Report N°4
@@ -76,3 +79,5 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 - Start the development of the debugger
 
 Note: this document is subject to change.
+
+<div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>

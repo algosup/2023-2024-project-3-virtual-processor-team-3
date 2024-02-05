@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 # RACI - Team 3
 
 | ROLE                     | MARLIER Thibaud | CLEMENT Quentin | FERNANDEZ Aurélien | ARCHIMBAUD Malo | KAKAL Mathis | LEMOINE Arthur | Client |

@@ -1,3 +1,5 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
 
 <h1 align="center"> Communication Management Plan </h1>
 
@@ -315,3 +317,5 @@ This document is subject to changes.
 **KPI**: short for **K**ey **P**erformance **I**ndicators, a way to calculate the progress of the project. \
 **Stakeholders**: Individuals or groups who have an interest or concern in the project, including the client, team members, and the public. \
 **Deliverables**: Tangible or intangible items produced as a result of project activities, often presented to the client.
+
+<div align="right"><a href="#11-introduction"><img src="../img/back.png" width="35px"></a></div>

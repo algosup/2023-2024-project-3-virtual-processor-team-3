@@ -1,4 +1,6 @@
-<div align="left" id="top"><a href="https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3"><img src="img/functional_specifications/back2.png" width="35px"></a></div>
+<div> <a href="./"><img src="../img/functional_specifications/back2.png" width="35px"></a>
+</div>
+
 <br>
 
 <h1 align="center"> Management Artifacts - Team 3 </h1>
@@ -8,6 +10,8 @@ Created by: Thibaud MARLIER <br> Creation Date: 01/20/2024 <br> Last update: 02/
 </p>
 
 ___
+
+# Introduction
 
 This document will help you while navigating into the different management documents, here are the various documents that you will find here:
 
@@ -51,3 +55,5 @@ Describes how the team handles communication from and to various sources during 
 ## Weekly Reports
 
 You can find every weekly report by following this link: [Weekly Reports](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/weekly_report/cumulative.md)
+
+<div align="right"><a href="#introduction"><img src="../img/functional_specifications/back.png" width="35px"></a></div>

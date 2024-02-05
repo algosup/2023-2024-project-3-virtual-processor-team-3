@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 # Project Virtual Processor - Team 3  
 
 ## Weekly Report N°1  
@@ -6,7 +9,7 @@
 
 This week starts off the beginning of the Virtual Processor project, we've received the Call For Tender on January 2nd.  
 
-### <u> Ongoing Tasks</u> 
+### <u> Ongoing Tasks</u>
 
 |           Task           | Member Assigned  | Progression | End Of Week objective | Start Date |
 | :----------------------: | :--------------: | :---------: | :-------------------: | :--------: |
@@ -56,3 +59,5 @@ Next week's priorities are:
 * Functional specifications
 * RACII
 * Gantt
+
+<div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>

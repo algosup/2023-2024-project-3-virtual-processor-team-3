@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 <h1 align="center"> Project Charter </h1>
 
 <p align="center">
@@ -145,3 +148,5 @@ Moreover, for a more detailed insight of the communication management plan, foll
 The success criteria are defined by the client.
 
 The project will be considered a success when all the requirements are met, and when the client has received the full product and approved it. Our team engages itself to full commitment to this project to hand out the product at an advanced stage of development. Our goal is to fulfill the client's expectations while learning new technologies. Once and only once all these conditions are met. The contract will be fulfilled.
+
+<div align="right"><a href="#project-overview"><img src="../img/back.png" width="35px"></a></div>

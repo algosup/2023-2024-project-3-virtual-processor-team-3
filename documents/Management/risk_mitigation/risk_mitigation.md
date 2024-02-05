@@ -1,3 +1,6 @@
+<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+</div>
+
 <h1 align="center"> Risks and Mitigation plans - Virtual Processor - Team 3 </h1>
 
 <p align="center">
@@ -109,3 +112,5 @@ Here are some of the various risks that our team might encounter during the proj
 | **[Time Constraints](#time-constraint)**                                                |  2 / D                             |
 | **[Loss Of Human Resources](#loss-of-human-resources)**                                 |  1 / C                             |
 | **[Assembly Too Demanding For User](#assembly-too-demanding-for-user)**                 |  2 / D                             |
+
+<div align="right"><a href="#1-introduction"><img src="../img/back.png" width="35px"></a></div>

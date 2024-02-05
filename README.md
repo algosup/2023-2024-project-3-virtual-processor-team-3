@@ -12,4 +12,4 @@
 
 ## Overview
 
-This project, is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language in order to run instructions on it. Moreover, we have to develop an a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
+This project is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language to run instructions on it. Moreover, we have to develop a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
