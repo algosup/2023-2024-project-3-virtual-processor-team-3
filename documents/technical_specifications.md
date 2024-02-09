@@ -56,11 +56,11 @@ ___
 
 ## 1. Introduction
 
-The goal of this project is to create a virtual CPU and a compiler of our own assembly language. The language used to create both the CPU and the compiler must be made in C.
+The goal of this project is to create a virtual CPU and a compiler of our assembly language. To create both the CPU and the compiler, we must use the C programming language.
 
 ### 1.2 Prior knowledge
 
-This document uses multiple technical terms and principles related to computer science. Thus this document is mainly written for:
+This document uses multiple technical terms and principles related to computer science. Thus, this document is mainly written for:
 
 - Software engineers,
 - Current project collaborator,
@@ -142,18 +142,17 @@ Project
 ```
 ## 3. Development environment
 
-Our team uses multiple machines to work on this project such as:
+Our team uses multiple machines to work on this project, such as:
 
 - 3 Windows operating on Windows 11.
 - 3 MacBooks operating on MacOS Sonoma 14.
 
-As for the IDE[^1], out of the six members of our team, five use  <a href="https://code.visualstudio.com/">Visual Studio code</a> Code, and 1 uses <a href="https://vscodium.com/">Visual Studio Codium</a>. As they are extremely similar, we are all using the same extensions to run and debug C. All of these extensions are packed into one called
+As for the IDE[^1], out of the six members of our team, five use  <a href="https://code.visualstudio.com/">Visual Studio code</a> Code and one uses <a href="https://vscodium.com/">Visual Studio Codium</a>. As they are very similar, we all are using the same extensions to run and debug C. All of these extensions are packed into one called
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack">C/C++ Extension Pack</a>.
 
-To be able to run C we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
+To be able to run the C programming language, we all installed the compiler <a href="https://gcc.gnu.org/">GCC</a>.
 
-Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html"> Mellon University's standards</a>, except for names of files, functions and variables for which we use camelCase. We chose these standards because they cover almost every aspect of C.
-
+Finally, to avoid conflicts in terms of conventions, such as the naming conventions for functions, variables, or other conventions. We chose to use <a href="https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html"> Mellon University's standards</a>, except for names of files, functions, and variables for which we use camelCase. We chose these standards because they cover almost every aspect of C.
 
 ## 4. Conventions
 
@@ -167,21 +166,21 @@ The project's repository[^2] has to be organized to allow contributors and poten
 ## 4.1 Repository rules
 
   To ensure the quality of the code present both in the main branch and in releases
-  we chose to apply rules. 
+  we chose to apply rules.
   
-  First of all, the main branch is locked except for pull requests, this makes the branch safe for unwanted modifications. Each pull request requires the approval of at least one team member.
+  First of all, the main branch is locked except for pull requests. This makes the branch safe for unwanted modifications. Each pull request requires the approval of at least one team member.
   
-  Additionally, a branch named "Premain" has been created, the goal of this branch is to be sure any code that is meant to be pushed to the main branch is functional and does not carry bugs. Another rule is that any code inside the "Premain" branch has to be tested with unit tests and all of them must pass.
+  Additionally, a branch named "Premain" has been created. The goal of this branch is to be sure any code meant to be pushed to the main branch is functional and does not carry bugs. Another rule is that any code inside the "Premain" branch has to be tested with unit tests and all of them must pass.
 
   The only branch that can bypass these rules is the branch "Documents", as it does not contain code.
 
 ### 4.2 Commits
 
-Commits must be written following these specific rules, most of the rules can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a>.
+Commits must be written following these specific rules; most of the rules can be found <a href="https://github.com/FlowingCode/DevelopmentConventions/blob/main/conventional-commits.md">here</a>.
 
 #### 4.2.1 Title
 
-The title is one of the most important things in a commit, it serves to describe what the commit is about and provide a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
+The title is one of the most important things in a commit. It serves to describe what the commit is about and provides a quick summary of what is implemented/fixed/removed. As such, it has to follow a few rules.
 
 It has to begin with one of the following:
 
@@ -196,10 +195,10 @@ Furthermore, a title shouldn't be more than 50 characters long and must describe
 
 #### 4.2.2 Body
 
-The body describes the commit with more details, and as titles, it has to follow certain rules:
+The body describes the commit with more details, and as titles, it has to follow specific rules:
 
 - Provide context: explain why this change is needed.
-- If possible summarise how changes were applied, notably for implementations, fixes, refactoring, or optimization.
+- If possible, summarise how changes were applied, notably for implementations, fixes, refactoring, or optimization.
 - Reference issues if needed.
 - Avoid long paragraphs. Make a list of what has been done.
 - No jargon without explanations. Other contributors must understand commits.
@@ -216,22 +215,22 @@ Feat: implementation of multiplications
 Implement a new feature to support multiplication operations in the calculator.
 
 - Implementation of the multiplication algorithm.
-- Update user interface to include multiplication.
-- Add unit test related to multiplications.
+- Update the user interface to include multiplication.
+- Add unit tests related to multiplications.
 
-This feature enhance the usability of the calculator, providing users with a new set of operations.
+This feature enhances the usability of the calculator, providing users with a new set of operations.
 ```
 
 For a fix committed after the previous example:
 
 ```
-Fix:  overflow with multiplication
+Fix:  overflow with multiplications
 
 Fix an issue where the multiplication may create an overflow if the inputs are higher than expected (over a trillion).
 
 see commit: 1a2b3c
 
-- If one of the value is higher than the limit, divide it into two separate value.
+- If one of the values is higher than the limit, divide it into two separate values.
 - If a value is too high, represent it with exponent (1e10 is equal to 1x(10x10))
 
 This fix allows users to apply multiplications to higher numbers without being subject to an overflow.
@@ -241,11 +240,11 @@ Closes: #324
 
 ### 4.3 Files
 
-Files, and more precisely header[^3] files, should be divided into multiple files. A single file should not contain all functions. A header file should contain function one functionality.
+Files, more precisely header[^3] files, should be divided into multiple files. A single file should not contain all functions. A header file should contain function one functionality.
 
 Furthermore, header files should not depend on other header files. This is only making maintenance more difficult than expected at first. This rule does not include standard headers.
 
-For example in a calculator project, there should be a structure similar to this one:
+For example, in a calculator project, there should be a structure similar to this one:
 
 - calculator.c
 - operations.h
@@ -254,7 +253,7 @@ For example in a calculator project, there should be a structure similar to this
 
 ### 4.4 Names
 
-Names are extremely important to a project's readability[^4], not having conventions or having each collaborator of a project use its conventions leads to the deterioration of both the quality of the project and the overall readability.
+Names are extremely important to a project's readability[^4]. Not having conventions or having each collaborator of a project use its conventions leads to the deterioration of both the quality of the project and the overall readability.
 
 For this project, this set of naming conventions has been chosen:
 
@@ -263,9 +262,9 @@ For this project, this set of naming conventions has been chosen:
 
 ### 4.5 Comments
 
-We are using standards to increase the readability of a code, but without comments reading a code can take more time than expected and desired.
+We are using standards to increase the readability of a code, but without comments, reading a code can take more time than expected and desired.
 
-To allow other collaborators to work on the code during this project, or for the maintenance of the project, comments are necessary. For this purpose this set of rules was made:
+To allow other collaborators to work on the code during this project. For the maintenance of the project, comments are necessary. For this purpose this set of rules was made:
 
 Every .c and .h file must have a "header comment". This comment describes what this file contains in a quick summary. We do not need to go too much into the details in this comment.
 
@@ -273,7 +272,7 @@ The functions and defined elements must have a "function header". It is a multil
 
 - A short description of the function.
 - Parameters needed to call the function, with their type and a short explanation of the variable.
-- The result of the function, may be a success/failure output or describing what the function does (for example: the function creates/modifies/removes a file).
+- The result of the functions may be a success/failure output or describing what the function does (for instance, the function creates/modifies/removes a file).
   
 Finally, the components of a function must have a comment to explain in a few words what it does.
 
@@ -291,22 +290,22 @@ If the IDE allows it[^5], the function header can be read by hovering the mouse 
  * 
  * Summary:
  * This file contains functions allowing the operations of the calculator.
- * It allows the calculator to perform: additions, substrations etc...
+ * It allows the calculator to perform: additions, subtractions, etc...
  * 
  */
 
 /**
  * This definition calls the "sin" operation corresponding with the appropriate type.
  * @param x (double/float/long double): this is the value to perform the sin operation on.
- * @result (double/float/long double): The functions result either a double, a float or a long double depending of the level of precision needed.
+ * @result (double/float/long double): The functions result in either a double, a float, or a long double depending on the level of precision needed.
  */
 #define sin(x) _Generic((x), float:sinf,double:sin, long double: sinl)(X)
 
 /**
- * This function multiply one int with another and return the result of the operation.
+ * This function multiplies one int with another and returns the result of the operation.
  * @param x (int): this is the first int.
  * @param y (int): this is the second int.
- * @result (int): The functions result an int which is the result of a multiplication.
+ * @result (int): The functions result in an int which is the result of a multiplication.
  */
 int intMultiplication(int x,int y)
 {
@@ -315,10 +314,10 @@ int intMultiplication(int x,int y)
 }
 
 /**
- * This function multiply one float with another and return the result of the operation.
+ * This function multiplies one float with another and returns the result of the operation.
  * @param x (float): this is the first float.
  * @param y (float): this is the second float.
- * @result (float): The functions result an float which is the result of a multiplication.
+ * @result (float): The functions result in a float which is the result of a multiplication.
  */
 float floatMultiplication(float x,float y)
 {
@@ -340,7 +339,7 @@ Our CPU can be used on any system that can use a program using at least 5 Megaby
 
 ### 5.3 Preprocessing
 
-Before going from ALGORISK assembly to machine code we need to use a crucial step, the preprocessing. This step manages the core parts of a programming language. The preprocessor  has multiple uses in our project:
+Before going from ALGORISK assembly to machine code, we need to use a crucial step, the preprocessing. This step manages the core parts of a programming language. The preprocessor  has multiple uses in our project:
 
 - Removing comments from the code.
 - Replacing labels and jumps by positions of the memory.
@@ -350,7 +349,7 @@ Note: The preprocessor does not remove or modify the user's original code.
 
 ### 5.4 Parsers
 
-To translate from ALGORISK assembly to machine code[^7] and compile the resulting machine code we need to be able to identify what is contained in a string[^8]. To achieve this we can create two different parsers[^9].
+To translate from ALGORISK assembly to machine code[^7] and compile the resulting machine code, we need to be able to identify what's contained in a string[^8]. To achieve that we can create two different parsers[^9].
 
 This is the flowcharts of the two parsers used for our project:
 
@@ -362,7 +361,7 @@ Finally, the whole parsing flowchart should resemble this process:
 
 <img src="./img/complete_parserFC.png" height="1150px">
 
-To parse ALGORISK assembly we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instruction and arguments provided by the user.
+To parse ALGORISK assembly, we are using an enumerator[^10] with the instructions required and an array[^11] of strings to compare each instruction and arguments provided by the user.
 
 ```c
 //This is an enumerator containing all of the instructions.
@@ -389,7 +388,7 @@ enum instructions
     LBU, LHU
 };
 
-//This is an array of all string equivalent of our instructions.
+//This is an array of all string equivalents of our instructions.
 const char *instruction_strings[] = {
     "ADD", "SUB", "MUL", "MULH", "DIV", "REM",
     "AND", "OR", "XOR",
@@ -413,13 +412,13 @@ const char *instruction_strings[] = {
     };
 ```
 
-As to how to detect instructions we are using this function:
+As to how to detect instructions, we are using this function:
 
 ```c
 /**
  * This function detects if a string contains one of the instructions present in the enumeration named "instructions".
  * @param str (char pointer): this is the string in which an instruction should be present.
- * @result (int): The position in the enumerator of the instruction, returns -1 if there is no instructions.
+ * @result (int): The position in the numerator of the instruction, returns -1 if there are no instructions.
 */
 int detect_instruction(const char *str)
 {
@@ -434,9 +433,9 @@ int detect_instruction(const char *str)
 }
 ```
 
-In case of overflow[^11] or underflow[^12], the program detects the error before executing it.
+In case of an overflow[^11] or underflow[^12], the program detects the error before executing it.
 
-To detect an overflow or an underflow we are using these comparisons:
+To detect an overflow or an underflow, we are using these comparisons:
 
 ```c
   int max=pow(2,32) // calculate the power of 32, our maximum
@@ -463,15 +462,15 @@ To detect an overflow or an underflow we are using these comparisons:
   }
 ```
 
-Then we create a new file, this file contains the binary equivalent of the program. Additionally, the binary generated by the compiler is writing the binary in little endian[^13].
+Then, we create a new file. This file contains the binary equivalent of the program. Additionally, the binary generated by the compiler is writing the binary in little endian[^13].
 
 Finally, our program parses a final time the binary file to execute it and output the result into a console. The result is what is inside the registers.
 
 ### 5.5 Error handling
 
-In case of encountering any type of error, the program will store a structure containing the number of the line, the line itself, and the error type.
+In case of encountering any kind of error, the program will store a structure containing the number of the line, the line itself, and the error type.
 
-Each error is stored in a single list which if is not empty will display the error on the console after the end of the parsing.
+Each error is stored in a single list, if it is not empty, will display the error on the console after the end of the parsing.
 
 ```c
 typedef struct {
@@ -485,7 +484,7 @@ For more information about error types, you can refer to the documentation provi
 
 ### 5.6 Execution
 
-To execute each line of the binary file we are comparing the retrieved 4 bytes to:
+To execute each line of the binary file, we are comparing the retrieved 4 bytes to:
 
 - An instruction, 7-bit
 - The destination register, 5-bit
@@ -494,11 +493,11 @@ To execute each line of the binary file we are comparing the retrieved 4 bytes t
 - The second source register, 5-bit
 - A second indicator to encode additional information about the operation, 7-bits
 
-The indicators are not necessarily used in every instruction, in this case, they are filled with 0.
+The indicators are not necessarily used in every instruction. In this case, they are filled with 0.
 
 A broader explanation of the different types of instructions is available in the <a href="./functional_specifications.md/#52-instruction-types-and-binary-formats">functional specifications</a>
 
-After the completion of the execution, a console will appear, if the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
+After the completion of the execution, a console will appear. If the user's program contains a syscall it will display the content of the syscall. If not, the console will remain black.
 
 ## 6. Technical limitations
 
@@ -523,7 +522,7 @@ Along with limitations come risks which are:
 
 ## 9. Maintenance
 
-The maintenance after the project is the longest period of the lifetime of a project. Thus we are aiming to have commented and refactored our code as much as possible in the current context.
+The maintenance after the project is the longest period of the lifetime of a project. Thus, we are aiming to have commented and refactored our code as much as possible in the current context.
 
 [^1]:IDE: Integrated Development Environment. This is an application or even a terminal allowing users to modify or write a computer program.
 [^2]:Repository: A repository is a folder (usually a project) stored both locally and in the cloud. A group of individuals can create, modify, and delete a repository freely.
@@ -534,9 +533,9 @@ The maintenance after the project is the longest period of the lifetime of a pro
 [^7]: Machine code: Machine code is the name given to the language of the computer, also named binary.
 [^8]: String: A chain of characters contained in one variable.
 [^9]: Parser: A Parser is a program that can split a chain of characters to identify a specific syntax or specific keywords.
-[^10]: Arrays and enumerators: An array is a data structure that stores a fixed number of the same type of variable and an enumerator is a type of data that represents a sequence of values.
+[^10]: Arrays and enumerators: An array is a data structure that stores a fixed number of the same type of variable, and an enumerator is a type of data representing a sequence of values.
 [^11]: An overflow is when a value exceeds the maximum.
 [^12]: An underflow is when a value falls below the minimum.
-[^13]: The little-endian is the format commonly used by processors to read binary, this format stores the least significant byte at the start, as the contrary of the big-endian.
+[^13]: The little-endian is the format commonly used by processors to read binary. This format stores the least significant byte at the start. On the contrary of the big-endian.
 
 <div align="right"><a href="#table-of-content"><img src="img/functional_specifications/back.png" width="35px"></a></div>
