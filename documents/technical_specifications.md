@@ -299,13 +299,13 @@ If the IDE allows it[^5], the function header can be read by hovering the mouse 
  * @param x (double/float/long double): this is the value to perform the sin operation on.
  * @result (double/float/long double): The functions result in either a double, a float, or a long double depending on the level of precision needed.
  */
-#define sin(x) _Generic((x), float:sinf,double:sin, long double: sinl)(X)
+#define sin(x) _Generic((x), float:sinf, double: sin, long double: sinl)(X)
 
 /**
  * This function multiplies one int with another and returns the result of the operation.
  * @param x (int): this is the first int.
  * @param y (int): this is the second int.
- * @result (int): The functions result in an int which is the result of a multiplication.
+ * @result (int): The functions result in an int, which is the result of a multiplication.
  */
 int intMultiplication(int x,int y)
 {
@@ -403,7 +403,7 @@ const char *instruction_strings[] = {
     "ANDI", "ORI", "XORI",
     "SLLI", "SRLI", "SRAI",
     "ILTI?",
-    "LUI","AUIPC",
+    "LUI", "AUIPC",
     //Unsigned
     "MULHU", "MULHSU", "DIVU", "REMU"
     "ILTU?", "ILTUI?",
