@@ -33,7 +33,7 @@ void sectionNotFound(FILE *asm_file)
         }
     }
     if(error){
-        errors(4);
+        errorsHandler(4);
     }
 }
 

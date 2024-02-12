@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
         write_code(asm_file);
     }
     else{
-        errors(0);
+        errorsHandler(0);
     }
     // if (is_error(asm_file))
     // {

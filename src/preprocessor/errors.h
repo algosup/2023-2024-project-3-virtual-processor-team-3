@@ -14,7 +14,7 @@
  *@param errorNumber(int): An int representing which error has been found.
  *@result An error is printed in the terminal and the program exits.
  */
-void errors(int errorNumber)
+void errorsHandler(int errorNumber)
 {
     switch (errorNumber)
     {
@@ -40,18 +40,24 @@ void errors(int errorNumber)
     exit(0);
 }
 
+/**
+ * This function goes through the arguments and search for errors.
+ * @param argc (int): The number of arguments called in the command line.
+ * @param argv (char array pointer): An array of all the arguments.
+ * @result If there is no errors, does nothing, if there is an error, call the error handler.
+*/
 void checkArgs(int argc, char *argv[])
 {
     if (argc < 3)
     {
-        errors(1);
+        errorsHandler(1);
     }
     if (strcmp(argv[1], "gorasm") != 0 && strcmp(argv[1], "gras") != 0)
     {
-        errors(2);
+        errorsHandler(2);
     }
     if (argc > 3)
     {
-        errors(3);
+        errorsHandler(3);
     }
 }
