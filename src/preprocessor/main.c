@@ -1,6 +1,6 @@
 #include "preprocessor.h"
 
-int main()
+int main(int argc, char* argv[])
 {
     FILE *asm_file;
     if (asm_file = fopen("asm.txt", "r"))
