@@ -78,6 +78,5 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 - 60% completion for the Assembler development
 - Start the development of the debugger
 
-Note: this document is subject to change.
 
 <div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>
