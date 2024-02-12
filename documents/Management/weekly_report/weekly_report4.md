@@ -10,7 +10,7 @@
 This week marks the fourth week of the Virtual Processor Project. One major event happened this week: we had to submit and send the [functional specifications](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/functional_specifications.md) to the client. \
 However, there was no time to rest as the technical specifications document is due next week. \
 Moreover, we need to keep progressing on the overall state of the project. \
-This document will show the weekly progress made on the project, on various tasks and shows the tasks done during the week.
+This document will show the weekly progress made on the project, on various tasks, and shows the tasks done during the week.
 
 ### <u>Ongoing Tasks</u>
 
@@ -20,13 +20,13 @@ This document will show the weekly progress made on the project, on various task
 | Test Plan                      | Arthur                       |    80%     | 50%  | 01/11/2024    |
 | Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
 | Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
-| Assembler development          | Mathis, Quentin              |    5%      | 70%  | 01/24/2024    |
+| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 01/24/2024    |
 
 ### Cheat Sheet
 
 | Percentage | 0%                           | 0% < 10%                                                                                         | 10% < 75%                                           | 75% < 90%                       | 90% < 99%                       | 100%                           |
 | ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------- | ------------------------------- | ------------------------------ |
-| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates, and  details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
+| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates and details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
 
 <br>
 
@@ -52,7 +52,7 @@ We then dispatched various tasks for the day and started to work. \
 
 The second weekly meeting was held on Friday the second of February, we discussed the various tasks done during the week and congratulated each other for the progress made. \
 We discussed some more technical ideas that we had throughout the week and decided to think about these during the weekend to make a great decision on Monday.
-Moreover, Aurélien, Quentin and Thibaud decided to keep on working on the technical specifications to maintain the document at a great overall quality. \
+Moreover, Aurélien, Quentin, and Thibaud decided to keep on working on the technical specifications to maintain the document at a great overall quality. \
 The team feels great according to the feedback they gave, we have to keep working this way for the project's well-being. We discussed the progress made on different tasks to fuel the KPIs, so far, they are great, even if we still could do better. \
 This wrapped up the week, we are ready for a new one.
 
@@ -70,7 +70,7 @@ Next week, will mostly be overtime hours as we only have, three hours and thirty
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
 
 - Finalize the Technical Specifications
-- Review Technical Specifications document
+- Review the Technical Specifications document
 - Submit the Technical Specifications
 - Test Cases finalize
 - Test plan nearly completed (75%)
