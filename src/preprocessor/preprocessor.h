@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "./errors.h"
 
 #define byte unsigned char
 #define u64 unsigned long long
@@ -21,21 +22,24 @@ void create_code_file()
     FILE *code = fopen("code.txt", "w");
 }
 
-bool is_error(FILE *asm_file)
+void sectionNotFound(FILE *asm_file)
 {
-    bool error = false;
+    bool error = true;
     char line[100];
     while (fgets(line, 100, asm_file))
     {
         if (strstr(line, ".code") || strstr(line, ".data"))
         {
+            error=false;
         }
         else
         {
-            error = true;
+
         }
     }
-    return error;
+    if(error){
+        errors(2);
+    }
 }
 
 void write_data(FILE *asm_file) {
@@ -58,7 +62,7 @@ void write_data(FILE *asm_file) {
 void write_code(FILE *asm_file) {
     rewind(asm_file);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *code_file = fopen("code.txt", "a");  // Open in append mode
+    FILE *code_file = fopen("code.txt", "w");  // Open in append mode
 
     while (fgets(line, sizeof(line), asm_file)) {
         if (strstr(line, ".code")) {
