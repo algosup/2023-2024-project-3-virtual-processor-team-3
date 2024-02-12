@@ -130,6 +130,23 @@ void execute(cpu_t* cpu)
         case AUIPC:
             break;
         case STORE:
+            cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
+            cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27; // in this register, there is the address where you want to store
+            cpu->arg2 = (cpu->mem[cpu->pc/4] << 7) >> 27; // which register to store
+            cpu->immediate = ((cpu->mem[cpu->pc/4] << 20) >> 27) + (cpu->mem[cpu->pc/4] >> 25)*32; // offset
+            if (cpu->func3 == 1) // sb
+            {
+                cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4] = (cpu->x[cpu->arg2] << 24) >> 24;
+            }
+            else if (cpu->func3 == 0B10) // sh
+            {
+                cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4] = (cpu->x[cpu->arg2] << 16) >> 16;
+            }
+            else if (cpu->func3 == 0B11) // sw
+            {
+                cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4] = cpu->x[cpu->arg2];
+            }
+            cpu->pc += 4;
             break;
         case OP:
             cpu->func7 = cpu->mem[cpu->pc/4] >> 25;
