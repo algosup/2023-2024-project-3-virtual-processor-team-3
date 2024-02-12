@@ -22,9 +22,15 @@ void errors(int errorNumber)
         printf("Error:\nFile not found, please enter another path.");
         break;
     case 1:
-        printf("Error:\nCommand line argument not recognised.");
+        printf("Error:\nCommand line argument are required.");
         break;
     case 2:
+        printf("Error:\nCommand line argument not recognised.");
+        break;
+    case 3:
+        printf("Error:\nToo many command line arguments.");
+        break;
+    case 4:
         printf("Error:\nSection data and code not found.");
         break;
     default:
@@ -32,4 +38,20 @@ void errors(int errorNumber)
         break;
     }
     exit(0);
+}
+
+void checkArgs(int argc, char *argv[])
+{
+    if (argc < 3)
+    {
+        errors(1);
+    }
+    if (strcmp(argv[1], "gorasm") != 0 && strcmp(argv[1], "gras") != 0)
+    {
+        errors(2);
+    }
+    if (argc > 3)
+    {
+        errors(3);
+    }
 }
