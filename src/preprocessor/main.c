@@ -3,7 +3,7 @@
 int main(int argc, char* argv[])
 {
     FILE *asm_file;
-    if (asm_file = fopen("asm.txt", "r"))
+    if (asm_file = fopen(argv[2], "r"))
     {
         sectionNotFound(asm_file);
         write_data(asm_file);

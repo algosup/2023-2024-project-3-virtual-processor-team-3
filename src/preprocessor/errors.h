@@ -14,7 +14,7 @@
  *@param errorNumber(int): An int representing which error has been found.
  *@result An error is printed in the terminal and the program exits.
  */
-void errors(int errorNumber )
+void errors(int errorNumber)
 {
     switch (errorNumber)
     {
