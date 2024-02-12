@@ -3,6 +3,7 @@
 int main(int argc, char* argv[])
 {
     FILE *asm_file;
+    printf("%s", argv[0]);
     if (asm_file = fopen(argv[2], "r"))
     {
         sectionNotFound(asm_file);
