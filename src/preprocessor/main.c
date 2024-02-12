@@ -2,7 +2,9 @@
 
 int main(int argc, char* argv[])
 {
+    checkArgs(argc,argv);
     FILE *asm_file;
+    printf("%s\n",argv[0]);
     if (asm_file = fopen(argv[2], "r"))
     {
         sectionNotFound(asm_file);
