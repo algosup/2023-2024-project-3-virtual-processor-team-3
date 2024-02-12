@@ -14,8 +14,8 @@ We've been focusing on another project that was given to us in Git class.
 
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
-| Processor development   | Malo, Quentin    |    80%           | 85%  | 01/24/2024     |
-| Assembler development   | Mathis, Quentin  |    80%           | 85%  | 01/24/2024    |
+| Processor development   | Malo, Quentin    |    70%           | 70%  | 01/24/2024     |
+| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 01/24/2024    |
 | Test Plan               | Arthur           |    85%           | 85%     |  01/11/2024 |
 | Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 01/05/2024  |
 
@@ -44,6 +44,8 @@ Moreover, we've received the functional specification feedback from the reviewer
 As previously said, the week was quite short, our team was focused on the Git courses. Little to no progress was made on the product, but this week was necessary for the team and was resourceful. More progress will be made next week and hopefully, we will nearly finish the processor and the assembly. Then we will focus on the debugger and the Visual Studio code plugin.
 
 ### <u>Next week planning </u>
+
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
 
 - Finalize the Test Plan
 - Submit the Test plan to the client and the reviewers
