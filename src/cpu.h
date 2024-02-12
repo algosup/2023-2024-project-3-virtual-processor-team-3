@@ -50,6 +50,39 @@ void execute(cpu_t* cpu)
     switch(cpu->instruction)
     {
         case LOAD:
+            cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
+            cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
+            cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27; // address to take from
+            cpu->immediate = ((int)cpu->mem[cpu->pc/4] >> 20); // offset from this address
+            if (cpu->func3 == 1) // lb
+            {
+                if (cpu->mem[cpu->arg1 + cpu->immediate] >> 7 == 0)
+                {
+                    cpu->x[cpu->destination] = cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4];
+                }
+                else
+                {
+                    cpu->x[cpu->destination] = (int)cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4];
+                    cpu->x[cpu->destination] = (cpu->x[cpu->destination] << 24) >> 24;
+                }
+            }
+            else if (cpu->func3 == 0B10) // lh
+            {
+                if (cpu->mem[cpu->arg1 + cpu->immediate] >> 15 == 0)
+                {
+                    cpu->x[cpu->destination] = cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4];
+                }
+                else
+                {
+                    cpu->x[cpu->destination] = (int)cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4];
+                    cpu->x[cpu->destination] = (cpu->x[cpu->destination] << 16) >> 16;
+                }
+            }
+            else if (cpu->func3 == 0B11 || cpu->func3 == 0B100 || cpu->func3 == 0B101) // lw || lbu || lhu
+            {
+                cpu->x[cpu->destination] = cpu->mem[cpu->x[cpu->arg1]/4 + cpu->immediate/4];
+            }
+            cpu->pc += 4;
             break;
         case OP_IMM:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
@@ -262,7 +295,7 @@ void execute(cpu_t* cpu)
         case SYSTEM:
             break;
         default:
-
+            cpu->pc += 4;
             break;
     }
 }
