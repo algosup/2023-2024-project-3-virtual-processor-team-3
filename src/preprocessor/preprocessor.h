@@ -1,4 +1,4 @@
-#include "./errors.h"
+#include "errors.h"
 
 #define byte unsigned char
 #define u64 unsigned long long
@@ -7,68 +7,47 @@
 
 // Check line by line and if a line contains a ".code" or ".data" directive, it will be printed in command line. If there is a "." something else, it should return an error and if there is something else written in the line, it should return an error as well.
 
-void create_data_file()
+void createDataFile()
 {
     FILE *data = fopen("data.txt", "w");
 }
 
-void create_code_file()
+void createCodeFile()
 {
     FILE *code = fopen("code.txt", "w");
 }
 
-void sectionNotFound(FILE *asm_file)
-{
-    bool error = true;
+void writeData(FILE *asmFile) {
+    rewind(asmFile);  // Move the file pointer to the beginning of the file
     char line[100];
-    while (fgets(line, 100, asm_file))
-    {
-        if (strstr(line, ".code") || strstr(line, ".data"))
-        {
-            error=false;
-        }
-        else
-        {
+    FILE *dataFile = fopen("data.txt", "w");
 
-        }
-    }
-    if(error){
-        errorsHandler(4);
-    }
-}
-
-void write_data(FILE *asm_file) {
-    rewind(asm_file);  // Move the file pointer to the beginning of the file
-    char line[100];
-    FILE *data_file = fopen("data.txt", "w");
-
-    while (fgets(line, sizeof(line), asm_file)) {
+    while (fgets(line, sizeof(line), asmFile)) {
         if (strstr(line, ".data")) {
             // Write each line to the data file until it encounters a ".code" directive
-            while (fgets(line, sizeof(line), asm_file) && strstr(line, ".code") == NULL) {
-                fprintf(data_file, "%s", line);
+            while (fgets(line, sizeof(line), asmFile) && strstr(line, ".code") == NULL) {
+                fprintf(dataFile, "%s", line);
             }
         }
     }
 
-    fclose(data_file);
+    fclose(dataFile);
 }
 
-void write_code(FILE *asm_file) {
-    rewind(asm_file);  // Move the file pointer to the beginning of the file
+void writeCode(FILE *asmFile) {
+    rewind(asmFile);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *code_file = fopen("code.txt", "w");  // Open in append mode
+    FILE *codeFile = fopen("code.txt", "w");  // Open in append mode
 
-    while (fgets(line, sizeof(line), asm_file)) {
+    while (fgets(line, sizeof(line), asmFile)) {
         if (strstr(line, ".code")) {
             // Write each line to the code file starting from the line after ".code" directive
-            while (fgets(line, sizeof(line), asm_file)) {
-                fprintf(code_file, "%s", line);
+            while (fgets(line, sizeof(line), asmFile)) {
+                fprintf(codeFile, "%s", line);
             }
             break; // Exit the loop after writing the code section
         }
     }
 
-    fclose(code_file);
+    fclose(codeFile);
 }
-

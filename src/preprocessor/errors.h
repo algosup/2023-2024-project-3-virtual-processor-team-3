@@ -61,3 +61,23 @@ void checkArgs(int argc, char *argv[])
         errorsHandler(3);
     }
 }
+
+void sectionNotFound(FILE *asm_file)
+{
+    bool error = true;
+    char line[100];
+    while (fgets(line, 100, asm_file))
+    {
+        if (strstr(line, ".code") || strstr(line, ".data"))
+        {
+            error=false;
+        }
+        else
+        {
+
+        }
+    }
+    if(error){
+        errorsHandler(4);
+    }
+}
