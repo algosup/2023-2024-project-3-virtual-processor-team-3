@@ -3,12 +3,12 @@
 int main(int argc, char* argv[])
 {
     checkArgs(argc,argv);
-    FILE *asm_file;
-    if (asm_file = fopen(argv[2], "r"))
+    FILE *asmFile;
+    if (asmFile = fopen(argv[2], "r"))
     {
-        sectionNotFound(asm_file);
-        write_data(asm_file);
-        write_code(asm_file);
+        sectionNotFound(asmFile);
+        writeData(asmFile);
+        writeCode(asmFile);
     }
     else{
         errors(0);
