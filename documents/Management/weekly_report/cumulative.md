@@ -198,7 +198,7 @@ Despite that, the team is content with the current state of the project, they li
 * Progress concerning the Test Plan. (50% of completion)
 * Meetings on Monday and Friday.
 
-For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 </details>
 
@@ -269,7 +269,7 @@ This week was exhaustive, the team needs to rest during the weekend. Our team wi
 ### <u>Next week planning </u>
 
 Next week, will mostly be overtime hours as we only have, three hours and thirty minutes in project time, all together. Meaning, it is necessary to work overtime next week, on the various tasks dispatched. \
-For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 * Finalize the Technical Specifications
 * Review the Technical Specifications document
@@ -329,7 +329,7 @@ As previously said, the week was quite short, our team was focused on the Git co
 
 ### <u>Next week planning </u>
 
-For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 * Finalize the Test Plan
 * Submit the Test plan to the client and the reviewers

@@ -45,7 +45,7 @@ As previously said, the week was quite short, our team was focused on the Git co
 
 ### <u>Next week planning </u>
 
-For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 - Finalize the Test Plan
 - Submit the Test plan to the client and the reviewers

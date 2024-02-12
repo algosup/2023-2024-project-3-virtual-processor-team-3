@@ -141,7 +141,7 @@ Communication in the team is handled via the platform Slack.
 Moreover, we have weekly meetings set, to discuss the project's advancement. Get new ideas and improve the overall quality of the final product.  
 In addition, communication between the team and the stakeholders will be handled mostly by the Program Manager and the Project manager.  
 Our team will contact the client whenever it is needed and our team is always available to answer the client's questions and consolate them if they have any worries. \
-Moreover, for a more detailed insight of the communication management plan, follow this link: [Communication Management Plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/Documents/documents/Management/communication_management/communication_management_plan.md)
+Moreover, for a more detailed insight of the communication management plan, follow this link: [Communication Management Plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/communication_management/communication_management_plan.md)
 
 ## Success Criteria  
 
