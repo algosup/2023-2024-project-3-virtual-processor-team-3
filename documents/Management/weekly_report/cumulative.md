@@ -205,14 +205,14 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 4</summary>
 
-## Week 4
+## Weekly Report N°4
 
 ### <u>Introduction </u>
 
 This week marks the fourth week of the Virtual Processor Project. One major event happened this week: we had to submit and send the [functional specifications](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/functional_specifications.md) to the client. \
 However, there was no time to rest as the technical specifications document is due next week. \
 Moreover, we need to keep progressing on the overall state of the project. \
-This document will show the weekly progress made on the project, on various tasks and shows the tasks done during the week.
+This document will show the weekly progress made on the project, on various tasks, and shows the tasks done during the week.
 
 ### <u>Ongoing Tasks</u>
 
@@ -222,13 +222,13 @@ This document will show the weekly progress made on the project, on various task
 | Test Plan                      | Arthur                       |    80%     | 50%  | 01/11/2024    |
 | Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
 | Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
-| Assembler development          | Mathis, Quentin              |    5%      | 70%  | 01/24/2024    |
+| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 01/24/2024    |
 
 ### Cheat Sheet
 
 | Percentage | 0%                           | 0% < 10%                                                                                         | 10% < 75%                                           | 75% < 90%                       | 90% < 99%                       | 100%                           |
 | ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------- | ------------------------------- | ------------------------------ |
-| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates, and  details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
+| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates and details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
 
 <br>
 
@@ -254,7 +254,7 @@ We then dispatched various tasks for the day and started to work. \
 
 The second weekly meeting was held on Friday the second of February, we discussed the various tasks done during the week and congratulated each other for the progress made. \
 We discussed some more technical ideas that we had throughout the week and decided to think about these during the weekend to make a great decision on Monday.
-Moreover, Aurélien, Quentin and Thibaud decided to keep on working on the technical specifications to maintain the document at a great overall quality. \
+Moreover, Aurélien, Quentin, and Thibaud decided to keep on working on the technical specifications to maintain the document at a great overall quality. \
 The team feels great according to the feedback they gave, we have to keep working this way for the project's well-being. We discussed the progress made on different tasks to fuel the KPIs, so far, they are great, even if we still could do better. \
 This wrapped up the week, we are ready for a new one.
 
@@ -272,7 +272,7 @@ Next week, will mostly be overtime hours as we only have, three hours and thirty
 For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
 
 * Finalize the Technical Specifications
-* Review Technical Specifications document
+* Review the Technical Specifications document
 * Submit the Technical Specifications
 * Test Cases finalize
 * Test plan nearly completed (75%)
@@ -287,7 +287,57 @@ Note: this document is subject to change.
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 5</summary>
 
-## Week 5
+## Weekly Report N°5
+
+### <u> Introduction </u>
+
+This week marks the 5th week of the virtual processor project. However, this week was cut short as only 3h30 was specified during school hours for the week.
+We've been focusing on another project that was given to us in Git class.
+
+### <u> Ongoing Tasks</u>
+
+| Task  | Member Assigned | Progression | End Of Week objective | Start Date |
+| :---: | :-------------: | :---------: | :-------------------: | :--------: |
+| Processor development   | Malo, Quentin    |    70%           | 70%  | 01/24/2024     |
+| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 01/24/2024    |
+| Test Plan               | Arthur           |    85%           | 85%     |  01/11/2024 |
+| Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 01/05/2024  |
+
+### Cheat Sheet
+
+| Percentage | 0%                           | 0% < 10%                                                                                         | 10% < 75%                                           | 75% < 90%                       | 90% < 99%                       | 100%                           |
+| ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------- | ------------------------------- | ------------------------------ |
+| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates and details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
+
+<br>
+
+### <u>Finished Tasks</u>
+
+| Task  | Member(s) Assigned | Start Date | End Date |
+| :---: | :----------------: | :--------: | :------: |
+| Test Cases | Arthur        | 02/01/2024 |  02/09/2024|
+| Technical Specifications Review | Thibaud | 02/05/2024 | 02/09/2024 |
+
+### <u>Team meeting</u>
+
+The team gathered on Monday the 5th of January and was the only time in the week that they gathered to discuss the project's progress. We've only dispatched basic tasks. We knew that the week would be short project-wise. However, some progress needed to be made to improve the final product. So the week was made to read documentation for ourselves on how we would build the debugger. We're still needing to define all the major steps to create it. \
+Moreover, we've received the functional specification feedback from the reviewers and analyzed it. We've found many points to modify and to go deeper into to improve the document and the final product's quality.
+
+### <u>Week feedback</u>
+
+As previously said, the week was quite short, our team was focused on the Git courses. Little to no progress was made on the product, but this week was necessary for the team and was resourceful. More progress will be made next week and hopefully, we will nearly finish the processor and the assembly. Then we will focus on the debugger and the Visual Studio code plugin.
+
+### <u>Next week planning </u>
+
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+
+* Finalize the Test Plan
+* Submit the Test plan to the client and the reviewers
+* Start the debugger development
+* Continue to read the documentation
+* Create a PDF on which our documentation will be
+* Improve the KPIs
+* Start working on the plugin if possible.
 
 </details>
 
@@ -316,6 +366,5 @@ Note: this document is subject to change.
 <br>
 
 <img src="https://www.jeanphilippegrasse.com/wp-content/uploads/2023/04/ALGOSUP.png" width="700">
-
 
 <div align="right"><a href="#week-1"><img src="../img/back.png" width="35px"></a></div>
