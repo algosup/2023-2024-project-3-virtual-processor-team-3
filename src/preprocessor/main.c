@@ -1,10 +1,12 @@
 #include "preprocessor.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-    FILE *asm_file = fopen("asm.txt", "r");
-    write_data(asm_file);
-    write_code(asm_file);
+    // FILE *asm_file = fopen("asm.txt", "r");
+    // write_data(asm_file);
+    // write_code(asm_file);
+
+    file_not_found(argc, argv);
 
     // if (is_error(asm_file))
     // {

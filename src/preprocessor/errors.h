@@ -9,7 +9,13 @@
 #define i64 long long
 #define f64 double
 
-void file_not_found(char *filename)
+void file_not_found(int argc, char* argv[])
 {
-    scanf("%s", str);
+    printf("%s", argv[0]);
+    if (argv[0] == "./main") {
+        printf("Impeccable!");
+    }
+    else {
+        printf("Le fichier n'existe pas cogno!");
+    }
 }
