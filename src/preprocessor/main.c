@@ -7,20 +7,19 @@ int main(int argc, char* argv[])
     if (asmFile = fopen(argv[2], "r"))
     {
         sectionNotFound(asmFile);
-        writeData(asmFile);
-        writeCode(asmFile);
+        // writeData(asmFile);
+        // writeCode(asmFile);
     }
     else{
         errorsHandler(0);
     }
-    // if (is_error(asm_file))
-    // {
-    //     printf("Error detected in the assembly file.\n");
-    // }
-    // else
-    // {
-    //     write_data(asm_file);
-    // }
+
+    isComment(asmFile);
+    fclose(asmFile);
+    FILE *noCommentsFile = fopen("./temp-files/noComments.txt", "r");
+    writeData(noCommentsFile);
+    writeCode(noCommentsFile);
+    fclose(noCommentsFile);
 
     return 0;
 }
