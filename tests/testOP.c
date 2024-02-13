@@ -35,10 +35,10 @@ void testAdd()
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memAdd, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Add: x3: %d\n", cpu->x[3]);
+    printf("Add: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -50,10 +50,10 @@ void testSub()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memSub, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Sub: x3: %d\n", cpu->x[3]);
+    printf("Sub: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -65,10 +65,10 @@ void testAnd()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memAnd, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("And: x3: %d\n", cpu->x[3]);
+    printf("And: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -80,10 +80,10 @@ void testOr()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memOr, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Or: x3: %d\n", cpu->x[3]);
+    printf("Or: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -95,10 +95,10 @@ void testXor()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memOr, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Xor: x3: %d\n", cpu->x[3]);
+    printf("Xor: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -110,10 +110,10 @@ void testSll()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memSll, 1);
-    cpu->x[4] = 8;
-    cpu->x[5] = 2;
+    cpu->r[4] = 8;
+    cpu->r[5] = 2;
     run_cpu(cpu);
-    printf("Sll: x3: %d\n", cpu->x[3]);
+    printf("Sll: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -125,10 +125,10 @@ void testSrl()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memSrl, 1);
-    cpu->x[4] = 8;
-    cpu->x[5] = 2;
+    cpu->r[4] = 8;
+    cpu->r[5] = 2;
     run_cpu(cpu);
-    printf("Srl: x3: %d\n", cpu->x[3]);
+    printf("Srl: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -140,10 +140,10 @@ void testSra()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memSra, 1);
-    cpu->x[4] = -8;
-    cpu->x[5] = 2;
+    cpu->r[4] = -8;
+    cpu->r[5] = 2;
     run_cpu(cpu);
-    printf("Sra: x3: %d\n", cpu->x[3]);
+    printf("Sra: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -155,10 +155,10 @@ void testIlt()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memIlt, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Ilt: x3: %d\n", cpu->x[3]);
+    printf("Ilt: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -170,9 +170,9 @@ void testIltu()
         //77777772222211111333DDDDDOOOOOOO
     };
     cpu_t *cpu = new_cpu(memIltu, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Iltu: x3: %d\n", cpu->x[3]);
+    printf("Iltu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }

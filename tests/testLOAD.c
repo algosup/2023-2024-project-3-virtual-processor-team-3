@@ -25,9 +25,9 @@ void testLb(void)
     };
     int maxmem = sizeof(memLb)/sizeof(memLb[0]);
     cpu_t *cpu = new_cpu(memLb, maxmem);
-    cpu->x[2] = 4;
+    cpu->r[2] = 4;
     run_cpu(cpu);
-    printf("lb : x1 : %d\n", cpu->x[1]);
+    printf("lb : x1 : %d\n", cpu->r[1]);
     free_cpu(cpu);
 }
 
@@ -40,9 +40,9 @@ void testLh(void)
     };
     int maxmem = sizeof(memLh)/sizeof(memLh[0]);
     cpu_t *cpu = new_cpu(memLh, maxmem);
-    cpu->x[2] = 4;
+    cpu->r[2] = 4;
     run_cpu(cpu);
-    printf("lh : x1 : %d\n", cpu->x[1]);
+    printf("lh : x1 : %d\n", cpu->r[1]);
     free_cpu(cpu);
 }
 
@@ -56,9 +56,9 @@ void testLw(void)
     };
     int maxmem = sizeof(memLw)/sizeof(memLw[0]);
     cpu_t *cpu = new_cpu(memLw, maxmem);
-    cpu->x[2] = 4;
+    cpu->r[2] = 4;
     run_cpu(cpu);
-    printf("lw : x1 : %d\n", cpu->x[1]);
+    printf("lw : x1 : %d\n", cpu->r[1]);
     free_cpu(cpu);
 }
 
@@ -72,9 +72,9 @@ void testLbu(void)
     };
     int maxmem = sizeof(memLbu)/sizeof(memLbu[0]);
     cpu_t *cpu = new_cpu(memLbu, maxmem);
-    cpu->x[2] = 4;
+    cpu->r[2] = 4;
     run_cpu(cpu);
-    printf("lbu : x1 : %d\n", cpu->x[1]);
+    printf("lbu : x1 : %d\n", cpu->r[1]);
     free_cpu(cpu);
 }
 
@@ -87,8 +87,8 @@ void testLhu(void)
     };
     int maxmem = sizeof(memLhu)/sizeof(memLhu[0]);
     cpu_t *cpu = new_cpu(memLhu, maxmem);
-    cpu->x[2] = 4;
+    cpu->r[2] = 4;
     run_cpu(cpu);
-    printf("lh : x1 : %d\n", cpu->x[1]);
+    printf("lh : x1 : %d\n", cpu->r[1]);
     free_cpu(cpu);
 }

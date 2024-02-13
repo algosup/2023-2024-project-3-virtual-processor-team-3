@@ -28,7 +28,7 @@ void sumInt(void)
     int maxmem = sizeof(mem)/sizeof(mem[0]);
     cpu_t *cpu = new_cpu(mem, maxmem);
     run_cpu(cpu);
-    printf("Sum: x1: %d\n", cpu->x[1]);
+    printf("Sum: %d\n", cpu->r[1]);
     free_cpu(cpu);
 }
 
@@ -50,7 +50,7 @@ void fibonacci(void)
     int maxmem = sizeof(mem)/sizeof(mem[0]);
     cpu_t *cpu = new_cpu(mem, maxmem);
     run_cpu(cpu);
-    printf("Fibonacci: x3: %d\n", cpu->x[3]);
+    printf("Fibonacci: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -69,6 +69,6 @@ void factorial(void){
     int maxmem = sizeof(mem)/sizeof(mem[0]);
     cpu_t *cpu = new_cpu(mem, maxmem);
     run_cpu(cpu);
-    printf("Factorial: x1: %d\n", cpu->x[1]);
+    printf("Factorial: %d\n", cpu->r[1]);
     free_cpu(cpu);
 }

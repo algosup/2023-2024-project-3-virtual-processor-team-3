@@ -28,8 +28,8 @@ void testJie(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJle, 1);
-    cpu->x[3] = 4;
-    cpu->x[4] = 4;    
+    cpu->r[3] = 4;
+    cpu->r[4] = 4;    
     run_cpu(cpu); 
     printf("Jle: pc: %d\n", cpu->pc);
     free_cpu(cpu);
@@ -43,8 +43,8 @@ void testJine(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJne, 1);
-    cpu->x[3] = 4;
-    cpu->x[4] = 5; 
+    cpu->r[3] = 4;
+    cpu->r[4] = 5; 
     run_cpu(cpu);
     printf("Jne: pc: %d\n", cpu->pc);
     free_cpu(cpu);
@@ -58,8 +58,8 @@ void testJige(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJge, 1);
-    cpu->x[3] = 5;
-    cpu->x[4] = -4;
+    cpu->r[3] = 5;
+    cpu->r[4] = -4;
     run_cpu(cpu);
     printf("Jige: pc: %d\n", cpu->pc);
     free_cpu(cpu);
@@ -73,8 +73,8 @@ void testJigeu(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJgeu, 1);
-    cpu->x[3] = 5;
-    cpu->x[4] = 4;
+    cpu->r[3] = 5;
+    cpu->r[4] = 4;
     run_cpu(cpu);
     printf("Jigeu: pc: %d\n", cpu->pc);
     free_cpu(cpu);
@@ -88,8 +88,8 @@ void testJile(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJle, 1);
-    cpu->x[3] = -4;
-    cpu->x[4] = 4;
+    cpu->r[3] = -4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
     printf("Jle: pc: %d\n", cpu->pc);
     free_cpu(cpu);
@@ -103,8 +103,8 @@ void testJileu(void)
         //IIIIIII2222211111333IIIII0000000
     };
     cpu_t *cpu = new_cpu(memJleu, 1);
-    cpu->x[3] = 4;
-    cpu->x[4] = 5;
+    cpu->r[3] = 4;
+    cpu->r[4] = 5;
     run_cpu(cpu);
     printf("Jleu: pc: %d\n", cpu->pc);
     free_cpu(cpu);

@@ -21,8 +21,8 @@ void testSb(void)
     };
     int maxmem = sizeof(memSb)/sizeof(memSb[0]);
     cpu_t *cpu = new_cpu(memSb, maxmem);
-    cpu->x[1] = 5;
-    cpu->x[2] = 4;
+    cpu->r[1] = 5;
+    cpu->r[2] = 4;
     run_cpu(cpu);
     printf("Sb : mem : %d\n", cpu->mem[1]);
     free_cpu(cpu);
@@ -38,8 +38,8 @@ void testSh(void)
     };
     int maxmem = sizeof(memSh)/sizeof(memSh[0]);
     cpu_t *cpu = new_cpu(memSh, maxmem);
-    cpu->x[1] = 1000;
-    cpu->x[2] = 4;
+    cpu->r[1] = 1000;
+    cpu->r[2] = 4;
     run_cpu(cpu);
     printf("Sh : mem : %d\n", cpu->mem[1]);
     free_cpu(cpu);
@@ -55,8 +55,8 @@ void testSw(void)
     };
     int maxmem = sizeof(memSw)/sizeof(memSw[0]);
     cpu_t *cpu = new_cpu(memSw, maxmem);
-    cpu->x[1] = 70000;
-    cpu->x[2] = 4;
+    cpu->r[1] = 70000;
+    cpu->r[2] = 4;
     run_cpu(cpu);
     printf("Sh : mem : %d\n", cpu->mem[1]);
     free_cpu(cpu);

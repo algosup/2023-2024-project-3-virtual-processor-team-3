@@ -30,10 +30,10 @@ void testMul(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memMul, 1);
-    cpu->x[4] = 4;
-    cpu->x[5] = 5;
+    cpu->r[4] = 4;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Mul: x3: %d\n", cpu->x[3]);
+    printf("Mul: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -45,10 +45,10 @@ void testMulh(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memMulh, 1);
-    cpu->x[4] = -1048576;
-    cpu->x[5] = 1048576;
+    cpu->r[4] = -1048576;
+    cpu->r[5] = 1048576;
     run_cpu(cpu);
-    printf("Mulh: x3: %d\n", cpu->x[3]);
+    printf("Mulh: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -60,10 +60,10 @@ void testMulhu(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memMulhu, 1);
-    cpu->x[4] = 1048576;
-    cpu->x[5] = 1048576;
+    cpu->r[4] = 1048576;
+    cpu->r[5] = 1048576;
     run_cpu(cpu);
-    printf("Mulhu: x3: %d\n", cpu->x[3]);
+    printf("Mulhu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -75,10 +75,10 @@ void testMulhsu(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memMulhsu, 1);
-    cpu->x[4] = -1048576;
-    cpu->x[5] = 1048576;
+    cpu->r[4] = -1048576;
+    cpu->r[5] = 1048576;
     run_cpu(cpu);
-    printf("Mulhsu: x3: %d\n", cpu->x[3]);
+    printf("Mulhsu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -90,10 +90,10 @@ void testDiv(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memDiv, 1);
-    cpu->x[4] = -20;
-    cpu->x[5] = 5;
+    cpu->r[4] = -20;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Div: x3: %d\n", cpu->x[3]);
+    printf("Div: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -105,10 +105,10 @@ void testDivu(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memDivu, 1);
-    cpu->x[4] = 20;
-    cpu->x[5] = 5;
+    cpu->r[4] = 20;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Divu: x3: %d\n", cpu->x[3]);
+    printf("Divu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -120,10 +120,10 @@ void testRem(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memRem, 1);
-    cpu->x[4] = 21;
-    cpu->x[5] = 5;
+    cpu->r[4] = 21;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Rem: x3: %d\n", cpu->x[3]);
+    printf("Rem: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -135,9 +135,9 @@ void testRemu(void)
         //77777772222211111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memRemu, 1);
-    cpu->x[4] = 21;
-    cpu->x[5] = 5;
+    cpu->r[4] = 21;
+    cpu->r[5] = 5;
     run_cpu(cpu);
-    printf("Remu: x3: %d\n", cpu->x[3]);
+    printf("Remu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }

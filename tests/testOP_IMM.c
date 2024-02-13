@@ -30,9 +30,9 @@ void testAddi(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memAddi,1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Addi: x3: %d\n", cpu->x[3]);
+    printf("Addi: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -43,9 +43,9 @@ void testAndi(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memAndi, 1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Andi: x3: %d\n", cpu->x[3]);
+    printf("Andi: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -56,9 +56,9 @@ void testOri(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memOri, 1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Ori: x3: %d\n", cpu->x[3]);
+    printf("Ori: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -69,9 +69,9 @@ void testXori(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memXori, 1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Xori: x3: %d\n", cpu->x[3]);
+    printf("Xori: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -82,9 +82,9 @@ void testSlli(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memSlli, 1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Slli: x3: %d\n", cpu->x[3]);
+    printf("Slli: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -95,9 +95,9 @@ void testSrli(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memSrli, 1);
-    cpu->x[4] = 32;
+    cpu->r[4] = 32;
     run_cpu(cpu);
-    printf("Srli: x3: %d\n", cpu->x[3]);
+    printf("Srli: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -108,9 +108,9 @@ void testIlti(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memIlti, 1);
-    cpu->x[4] = -4;
+    cpu->r[4] = -4;
     run_cpu(cpu);
-    printf("Ilti: x3: %d\n", cpu->x[3]);
+    printf("Ilti: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
 
@@ -121,8 +121,8 @@ void testIltiu(void){
         //IIIIIIIIIIII11111333DDDDDOOOOOOO      
     };
     cpu_t *cpu = new_cpu(memIltiu, 1);
-    cpu->x[4] = 4;
+    cpu->r[4] = 4;
     run_cpu(cpu);
-    printf("Iltiu: x3: %d\n", cpu->x[3]);
+    printf("Iltiu: x3: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
