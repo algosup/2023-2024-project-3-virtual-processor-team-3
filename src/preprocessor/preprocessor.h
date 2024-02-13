@@ -12,6 +12,18 @@
 //     FILE *code = fopen("code.txt", "w");
 // }
 
+char *suppressIndentation(char *line)
+{
+    // Find the index of the first non-whitespace character
+    int index = 0;
+    while (line[index] == ' ' || line[index] == '\t') {
+        index++;
+    }
+
+    char *noIntendLine = &line[index];
+    return noIntendLine;
+}
+
 void writeData(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
@@ -29,7 +41,8 @@ void writeData(FILE *file)
                 {
                     continue;
                 }
-                fprintf(dataFile, "%s", line);
+                char *noIntendLine = suppressIndentation(line);
+                fprintf(dataFile, "%s", noIntendLine);
             }
         }
     }
@@ -55,7 +68,8 @@ void writeCode(FILE *file)
                 {
                     continue;
                 }
-                fprintf(codeFile, "%s", line);
+                char *noIntendLine = suppressIndentation(line);
+                fprintf(codeFile, "%s", noIntendLine);
             }
             break; // Exit the loop after writing the code section
         }
@@ -82,6 +96,7 @@ void isComment(FILE *asmFile)
         }
         else
         {
+            // No comment found, write the line as is
             fprintf(noCommentsFile, "%s", line);
         }
     }
