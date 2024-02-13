@@ -12,15 +12,23 @@
 //     FILE *code = fopen("code.txt", "w");
 // }
 
-void writeData(FILE *file) {
-    rewind(file);  // Move the file pointer to the beginning of the file
+void writeData(FILE *file)
+{
+    rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
     FILE *dataFile = fopen("./temp_files/data.txt", "w");
 
-    while (fgets(line, sizeof(line), file)) {
-        if (strstr(line, ".data")) {
+    while (fgets(line, sizeof(line), file))
+    {
+        if (strstr(line, ".data"))
+        {
             // Write each line to the data file until it encounters a ".code" directive
-            while (fgets(line, sizeof(line), file) && strstr(line, ".code") == NULL) {
+            while (fgets(line, sizeof(line), file) && strstr(line, ".code") == NULL)
+            {
+                if (strcmp(line, "\0") == 0)
+                {
+                    continue;
+                }
                 fprintf(dataFile, "%s", line);
             }
         }
@@ -29,15 +37,24 @@ void writeData(FILE *file) {
     fclose(dataFile);
 }
 
-void writeCode(FILE *file) {
-    rewind(file);  // Move the file pointer to the beginning of the file
+void writeCode(FILE *file)
+{
+    rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *codeFile = fopen("./temp_files/code.txt", "w");  // Open in append mode
+    FILE *codeFile = fopen("./temp_files/code.txt", "w"); // Open in append mode
 
-    while (fgets(line, sizeof(line), file)) {
-        if (strstr(line, ".code")) {
+    while (fgets(line, sizeof(line), file))
+    {
+        if (strstr(line, ".code"))
+        {
+
             // Write each line to the code file starting from the line after ".code" directive
-            while (fgets(line, sizeof(line), file)) {
+            while (fgets(line, sizeof(line), file))
+            {
+                if (strcmp(line, " \n") == 0)
+                {
+                    continue;
+                }
                 fprintf(codeFile, "%s", line);
             }
             break; // Exit the loop after writing the code section
@@ -49,23 +66,25 @@ void writeCode(FILE *file) {
 
 void isComment(FILE *asmFile)
 {
-    rewind(asmFile);  // Move the file pointer to the beginning of the file
+    rewind(asmFile); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "w");  // Open in append mode
+    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "w"); // Open in append mode
 
-    while (fgets(line, sizeof(line), asmFile)) {
+    while (fgets(line, sizeof(line), asmFile))
+    {
         char *commentStart = strstr(line, "//");
-        
-        if (commentStart != NULL) {
+
+        if (commentStart != NULL)
+        {
             // Single-line comment found, truncate the line at the comment
             *commentStart = '\0';
             fprintf(noCommentsFile, "%s \n", line);
         }
-        else {
+        else
+        {
             fprintf(noCommentsFile, "%s", line);
         }
     }
 
-    fclose(noCommentsFile);  // Close the file after writing
+    fclose(noCommentsFile); // Close the file after writing
 }
-
