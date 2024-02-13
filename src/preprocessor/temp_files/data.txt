@@ -1,0 +1,3 @@
+    myVar: .int 10
+    myFloat: .float 3.14
+

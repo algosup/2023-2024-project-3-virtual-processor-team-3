@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
     isComment(asmFile);
     fclose(asmFile);
-    FILE *noCommentsFile = fopen("./temp-files/noComments.txt", "r");
+    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "r");
     writeData(noCommentsFile);
     writeCode(noCommentsFile);
     fclose(noCommentsFile);

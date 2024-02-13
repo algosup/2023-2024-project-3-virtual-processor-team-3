@@ -15,7 +15,7 @@
 void writeData(FILE *file) {
     rewind(file);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *dataFile = fopen("./temp-files/data.txt", "w");
+    FILE *dataFile = fopen("./temp_files/data.txt", "w");
 
     while (fgets(line, sizeof(line), file)) {
         if (strstr(line, ".data")) {
@@ -32,7 +32,7 @@ void writeData(FILE *file) {
 void writeCode(FILE *file) {
     rewind(file);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *codeFile = fopen("./temp-files/code.txt", "w");  // Open in append mode
+    FILE *codeFile = fopen("./temp_files/code.txt", "w");  // Open in append mode
 
     while (fgets(line, sizeof(line), file)) {
         if (strstr(line, ".code")) {
@@ -51,7 +51,7 @@ void isComment(FILE *asmFile)
 {
     rewind(asmFile);  // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *noCommentsFile = fopen("./temp-files/noComments.txt", "a");  // Open in append mode
+    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "w");  // Open in append mode
 
     while (fgets(line, sizeof(line), asmFile)) {
         char *commentStart = strstr(line, "//");
