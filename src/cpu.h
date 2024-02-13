@@ -6,13 +6,14 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "type.h"
 
 void fetch(cpu_t* cpu);
 void execute(cpu_t* cpu);
 
-cpu_t* new_cpu(int *mem, int maxmem)
+cpu_t* new_cpu(uint *mem, int maxmem)
 {
     cpu_t* cpu = malloc(sizeof(cpu_t));
     cpu->mem = mem;
@@ -128,6 +129,9 @@ void execute(cpu_t* cpu)
             cpu->pc += 4;
             break;
         case AUIPC:
+            cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
+            cpu->immediate = (cpu->mem[cpu->pc/4] >> 12) * pow(2, 12);
+            cpu->pc = (((cpu->pc + cpu->immediate) >> 12 )<< 12);
             break;
         case STORE:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
@@ -232,6 +236,9 @@ void execute(cpu_t* cpu)
             cpu->pc += 4;
             break;
         case LUI:
+            cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
+            cpu->immediate = (cpu->mem[cpu->pc/4] >> 12) * pow(2, 12);
+            cpu->x[cpu->destination] = cpu->immediate;
             break;
         case BRANCH:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
