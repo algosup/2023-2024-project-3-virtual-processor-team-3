@@ -2,5 +2,5 @@
     myVar: .int 10
     myFloat: .float 3.14
 
-.
+.lol
     add r1, r0, myVar

@@ -1,39 +1,13 @@
+#ifndef PREPROCESSOR_H
+#define PREPROCESSOR_H
+
 #include "errors.h"
-
-// Check line by line and if a line contains a ".code" or ".data" directive, it will be printed in command line. If there is a "." something else, it should return an error and if there is something else written in the line, it should return an error as well.
-
-// void createDataFile()
-// {
-//     FILE *data = fopen("data.txt", "w");
-// }
-
-// void createCodeFile()
-// {
-//     FILE *code = fopen("code.txt", "w");
-// }
-
-/**
- * This functions returns the position of the first character other than spaces.
- * @param line(char pointer): A pointer to a char.
- * @result The index of the first character other than a space.
-*/
-char *suppressIndentation(char *line)
-{
-    // Find the index of the first non-whitespace character
-    int index = 0;
-    while (line[index] == ' ' || line[index] == '\t') {
-        index++;
-    }
-
-    char *noIntendLine = &line[index];
-    return noIntendLine;
-}
 
 /**
  * This functions creates a new file named data.txt.
  * @param file(FILE pointer): A pointer to an assembly file.
  * @result Create a new file with all lines in the data section without it's comments.
-*/
+ */
 void writeData(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
@@ -64,7 +38,7 @@ void writeData(FILE *file)
  * This function creates a new text file named code.txt
  * @param file (File pointer): A pointer to an assembly file.
  * @result A new temporary file which contains all lines present in the section code, without comments.
-*/
+ */
 void writeCode(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
@@ -97,14 +71,14 @@ void writeCode(FILE *file)
  * This functions removes all comments in the assembly file.
  * @param asm_file(FILE pointer): A pointer to an assembly file.
  * @result Create a file with no comments.
-*/
-void isComment(FILE *asmFile)
+ */
+void isComment(FILE *asm_file)
 {
-    rewind(asmFile); // Move the file pointer to the beginning of the file
+    rewind(asm_file); // Move the file pointer to the beginning of the file
     char line[100];
     FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "w"); // Open in append mode
 
-    while (fgets(line, sizeof(line), asmFile))
+    while (fgets(line, sizeof(line), asm_file))
     {
         char *commentStart = strstr(line, "//");
 
@@ -123,3 +97,6 @@ void isComment(FILE *asmFile)
 
     fclose(noCommentsFile); // Close the file after writing
 }
+
+
+#endif
