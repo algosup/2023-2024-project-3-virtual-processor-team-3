@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
     else{
         errorsHandler(0);
     }
-
+    incorrectSection(asmFile);
     isComment(asmFile);
     fclose(asmFile);
     FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "r");
