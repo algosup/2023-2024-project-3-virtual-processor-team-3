@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
     uint mem[10];
     for (i = 0; i < 10; i++)
     {
-        fscanf(file, "%d", &mem[i]);
+        fread(&mem[i], sizeof(uint), 1, file);
     }
     fclose(file);
     cpu_t *cpu = new_cpu(mem, 10);
