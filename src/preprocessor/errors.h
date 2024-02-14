@@ -81,3 +81,19 @@ void sectionNotFound(FILE *asm_file)
         errorsHandler(4);
     }
 }
+
+void incorrectSection (FILE *asm_file)
+{
+    char line[100];
+    while (fgets(line, 100, asm_file))
+    {
+        if (strstr(line, ".")){
+            if (strstr(line, ".data" ) || strstr(line, ".code")){
+                continue;
+            }
+            else{
+                errorsHandler(4);
+            }
+        }
+    }
+}
