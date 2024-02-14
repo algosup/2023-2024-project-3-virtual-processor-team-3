@@ -62,6 +62,11 @@ void checkArgs(int argc, char *argv[])
     }
 }
 
+/**
+ * This functions checks if there is a section .data or .code.
+ * @param asm_file(FILE pointer): A pointer to an assembly file.
+ * @result If there is no .data or .code section in the assembly file, return an error.
+*/
 void sectionNotFound(FILE *asm_file)
 {
     bool error = true;
@@ -71,10 +76,6 @@ void sectionNotFound(FILE *asm_file)
         if (strstr(line, ".code") || strstr(line, ".data"))
         {
             error=false;
-        }
-        else
-        {
-
         }
     }
     if(error){
