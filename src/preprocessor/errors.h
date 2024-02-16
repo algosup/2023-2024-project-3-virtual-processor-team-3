@@ -119,14 +119,9 @@ void incorrectSection(FILE *asm_file)
     while (fgets(line, sizeof(line), asm_file))
     {
         char *noIntendLine = suppressIndentation(line);
-
         if (noIntendLine[0] == '.')
         {
-            if (strstr(line, ".data") || strstr(line, ".code"))
-            {
-                continue;
-            }
-            else
+            if (!strstr(line, ".data") && !strstr(line, ".code"))
             {
                 errorsHandler(5, LineNumber, line);
             }
