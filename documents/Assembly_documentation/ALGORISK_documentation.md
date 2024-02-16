@@ -4,11 +4,36 @@
 <h1 align="center"> ALGORISK Documentation </h1>
 
 <p align="center">
-Created by: Thibaud MARLIER <br> Creation Date: 02/15/2024 <br> Last update: 02/15/2024
+Created by: Thibaud MARLIER <br> Creation Date: 02/09/2024 <br> Last update: 02/16/2024
 </p>
 
 ___
+
+<details>
+
+- [Copyright](#copyright)
+- [Content](#content)
+- [I. Introduction](#i-introduction)
+  - [Before you read](#before-you-read)
+  - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
+    - [Assembler overview](#assembler-overview)
+  - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
+    - [General Purpose Instructions](#general-purpose-instructions)
+    - [Data Transfer Instructions](#data-transfer-instructions)
+    - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
+    - [Logical Instructions](#logical-instructions)
+    - [Shift and Rotate Instructions](#shift-and-rotate-instructions)
+    - [Bit and Byte Instructions](#bit-and-byte-instructions)
+    - [Control Transfer Instructions](#control-transfer-instructions)
+    - [String Instructions](#string-instructions)
+- [Index](#index)
+
+</details>
+
+___
+
 ## Copyright
+
 Copyright (c) 2024 ALGOSUP
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -53,6 +78,8 @@ __
 
 **Who should use this documentation?**
 
+The ALGORISK Assembly documentation, is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
+
 ### Chapter 1: Overview of the ALGORISK Assembler
 
 #### Assembler overview
@@ -60,6 +87,8 @@ __
 ### Chapter 2: Instruction Set
 
 #### General Purpose Instructions
+
+
 
 #### Data Transfer Instructions
 
@@ -74,9 +103,6 @@ __
 #### Control Transfer Instructions
 
 #### String Instructions
-
-
-
 
 ## Index
 
