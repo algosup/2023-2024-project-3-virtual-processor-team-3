@@ -50,7 +50,6 @@ ___
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
-
 ## I. Introduction
 
 ### Before you read
@@ -77,6 +76,9 @@ The ALGORISK Assembly possesses multiple registers which can be grouped into 3 c
 
 
 ### Assembler Directives
+
+.data
+.code
 
 ## Chapter 2: Instruction Set
 
@@ -106,20 +108,19 @@ In this documentation, you'll find registers which are defined as:
 |**sh**| Store Halfword | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | ``` sh rd, address ```|
 |**sw**| Store Word | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | ``` sw rd, address ```|
 
-
 #### Binary Arithmetic Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| **add** | - |Adds the contents of two registers and stores the result in a register	| ```add rd, r1, r2```         |
-| **addi** | Add Immediate |Adds an immediate value to a register and stores the result in a register	| ```addi rd, r1, immediate``` |
-| **sub** | Subtract |Subtracts the contents of two registers and stores the result in a register	| ```sub rd, r1, r2```         |
-| **mul** | Multiply | Multiplies the contents of two registers and stores the result in a register	| ```mul rd, r1, r2```  |
-| **mulh** | Multiply High	| Multiplies the contents of two registers and stores the upper 32 bits of the result in a register	| ```mulh rd, r1, r2```         |
+| **add** | - |Adds the contents of two registers and stores the result in a register | ```add rd, r1, r2```         |
+| **addi** | Add Immediate |Adds an immediate value to a register and stores the result in a register | ```addi rd, r1, immediate``` |
+| **sub** | Subtract |Subtracts the contents of two registers and stores the result in a register | ```sub rd, r1, r2```         |
+| **mul** | Multiply | Multiplies the contents of two registers and stores the result in a register | ```mul rd, r1, r2```  |
+| **mulh** | Multiply High | Multiplies the contents of two registers and stores the upper 32 bits of the result in a register | ```mulh rd, r1, r2```         |
 | **mulhu** | Multiply High Unsigned | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | ```mulhu rd, r1, r2``` |
-| **mulhsu** | Multiply High Signed Unsigned | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register	| ```mulhsu rd, r1, r2``` |
-| **div** | Divide | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats)	| ```div rd, r1, r2``` |
-| **divu** | Divide Unsigned | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats)	| ```divu rd, r1, r2``` |
+| **mulhsu** | Multiply High Signed Unsigned | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register | ```mulhsu rd, r1, r2``` |
+| **div** | Divide | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | ```div rd, r1, r2``` |
+| **divu** | Divide Unsigned | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats) | ```divu rd, r1, r2``` |
 | **rem** | Remainder | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | ```rem rd, r1, r2``` |
 | **remu** | Remainder Unsigned | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | ```remu rd, r1, r2``` |
 
@@ -133,8 +134,8 @@ The logical instructions perform basic logical operations on their operands.
 | **andi** | - |Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | ```andi rd, r1,immediate``` |
 | **or** | - |  Performs a bitwise OR operation on the values of two registers and stores the result in a register | ```or rd, r1, r2```         |
 | **ori** | Or immediate | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register  | ```ori rd, r1, immediate```  |
-| **xor** | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2	```         |
-| **xori** | Exclusive or immediate |Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | ```xori rd, r1, immediate ``` |
+| **xor** | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2 ```         |
+| **xori** | Exclusive or immediate |Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | ```xori rd, r1, immediate``` |
 
 #### Shift Instructions
 
@@ -142,39 +143,40 @@ The logical instructions perform basic logical operations on their operands.
 | ---| --- | --- | --- |
 | **sll** | Shift left logical | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | ```sll rd, r1, r2```         |
 | **slli** | Shift Left Logical Immediate | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | ```slli rd, r1, immediate``` |
-| **srl** | Shift Right Logical	 | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```srl rd, r1, r2```         |
+| **srl** | Shift Right Logical  | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```srl rd, r1, r2```         |
 | **srli** | Shift Right Logical Immediate | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srli rd, r1, immediates```  |
 | **sra** | Shift Right Arithmetic |Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```sra rd, r1, r2```         |
-| **srai** | Shift Right Arithmetic Immediate	|Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srai rd, r1, immediate``` |
+| **srai** | Shift Right Arithmetic Immediate |Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srai rd, r1, immediate``` |
 
 #### Conditional Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| **ilt?** | Is Less Than? | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0	| ```ilt? rd, r1, r2``` |
-| **ilti?** | Is Less Than Immediate? | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```ilti? rd, r1, immediate``` |
-| **iltu?** | Is Less Than Unsigned?	| Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0	| ```iltu? rd, r1, r2``` |
-| **iltui?** | Is Less Than Unsigned Immediate?	| Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```iltui? rd, r1, immediate``` |
+| **ilt?** | Is Less Than? | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | ```ilt? rd, r1, r2``` |
+| **ilti?** | Is Less Than Immediate? | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | ```ilti? rd, r1, immediate``` |
+| **iltu?** | Is Less Than Unsigned? | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | ```iltu? rd, r1, r2``` |
+| **iltui?** | Is Less Than Unsigned Immediate? | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | ```iltui? rd, r1, immediate``` |
 
 #### Control transfer Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| **jie** | Jump If Equal	| Jumps to a label if two registers are equal	| ```jie r1, r2, label``` |
-| **jine** | Jump If Not Equal | Jumps to a label if two registers are not equal	| ```jine r1, r2, label``` |
-| **jige** | Jump If Greater or Equal	| Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register	| ```jige r1, r2, label``` |
-| **jigeu** | Jump If Greater or Equal Unsigned	| Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register	| ```jigeu r1, r2, label``` |
-| **jile** | Jump If Less or Equal	| Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register	| ```jile r1, r2, label``` |
-| **jileu** | Jump If Less or Equal Unsigned	| Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register	| ```jileu r1, r2, label``` |
-| **jal** | Jump And Link	| Jumps to a label and stores the return address in a register	| ```jal rd, label``` |
-| **jalr** | Jump And Link Register	| Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register	 | ```jalr rd, r1, offset``` |
+| **jie** | Jump If Equal | Jumps to a label if two registers are equal | ```jie r1, r2, label``` |
+| **jine** | Jump If Not Equal | Jumps to a label if two registers are not equal | ```jine r1, r2, label``` |
+| **jige** | Jump If Greater or Equal | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | ```jige r1, r2, label``` |
+| **jigeu** | Jump If Greater or Equal Unsigned | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | ```jigeu r1, r2, label``` |
+| **jile** | Jump If Less or Equal | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | ```jile r1, r2, label``` |
+| **jileu** | Jump If Less or Equal Unsigned | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | ```jileu r1, r2, label``` |
+| **jal** | Jump And Link | Jumps to a label and stores the return address in a register | ```jal rd, label``` |
+| **jalr** | Jump And Link Register | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register  | ```jalr rd, r1, offset``` |
+| **auipc** | Add Upper Immediate to PC | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0  | ```auipc rd, immediate``` |
 
 #### Special Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| **syscall** | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)	 | ```syscall``` |
-| **break** | - | Generates a breakpoint exception, which can be used for debugging	| ```break``` |
+| **syscall** | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)  | ```syscall``` |
+| **break** | - | Generates a breakpoint exception, which can be used for debugging | ```break``` |
 
 ## Index
 
