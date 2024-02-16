@@ -26,7 +26,7 @@ ___
     - [Shift Instructions](#shift-instructions)
     - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
-    - [String Instructions](#string-instructions)
+    - [Special Instructions](#special-instructions)
 - [Index](#index)
 
 </details>
@@ -70,7 +70,7 @@ ___
     - [Shift Instructions](#shift-instructions)
     - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
-    - [String Instructions](#string-instructions)
+    - [Special Instructions](#special-instructions)
 - [Index](#index)
 
 
@@ -163,7 +163,14 @@ The logical instructions perform basic logical operations on their operands.
 
 auipc
 
-#### String Instructions
+#### Special Instructions
+
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **syscall** | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)	 | ```syscall``` |
+| **break** | - | Generates a breakpoint exception, which can be used for debugging	| ```break``` |
+
+
 
 ## Index
 
