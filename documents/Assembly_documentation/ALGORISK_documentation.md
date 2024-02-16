@@ -127,9 +127,6 @@ The logical instructions perform basic logical operations on their operands.
 |---|---|---|
 |add| Adds the contents of two registers and stores the result in a register| ``` add rd, r1,r2 ```|
 
-
-
-
 #### Shift and Rotate Instructions
 
 #### Bit and Byte Instructions
