@@ -50,7 +50,7 @@ ___
 <div align="center"><img src="https://algosup.com/wp-content/uploads/2022/09/logo-white.png">
 </div>
 
-__
+___
 
 ## Content
 
@@ -78,7 +78,7 @@ __
 
 **Who should use this documentation?**
 
-The ALGORISK Assembly documentation, is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
+The ALGORISK Assembly documentation is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
 
 ### Chapter 1: Overview of the ALGORISK Assembler
 
@@ -88,13 +88,20 @@ The ALGORISK Assembly documentation, is aimed at every user of our Assembler. It
 
 #### General Purpose Instructions
 
-
-
 #### Data Transfer Instructions
 
 #### Binary Arithmetic Instructions
 
 #### Logical Instructions
+
+The logical instructions perform basic logical operations on their operands.
+
+|ALGORISK instuction|Description|Example|
+|---|---|---|
+|add|	Adds the contents of two registers and stores the result in a register| ``` add rd, r1,r2 ```|
+
+
+
 
 #### Shift and Rotate Instructions
 
