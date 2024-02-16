@@ -3,6 +3,21 @@
 
 #include "errors.h"
 
+
+/**
+ * This functions checks if a line is empty or not.
+ * @param line (char pointer): A string representing a line.
+ * @result The line if it contains anything or nothing if there is nothing but a line feed.
+*/
+char *removeBlanks(char *line)
+{
+    if (strcmp(line, "\n") == 0)
+    {
+        return NULL;
+    }
+    return line;
+}
+
 /**
  * This functions creates a new file named data.txt.
  * @param file(FILE pointer): A pointer to an assembly file.
@@ -21,11 +36,11 @@ void writeData(FILE *file)
             // Write each line to the data file until it encounters a ".code" directive
             while (fgets(line, sizeof(line), file) && strstr(line, ".code") == NULL)
             {
-                if (strcmp(line, "\0") == 0)
+                char *noIntendLine = suppressIndentation(line);
+                if (removeBlanks(noIntendLine) == 0)
                 {
                     continue;
                 }
-                char *noIntendLine = suppressIndentation(line);
                 fprintf(dataFile, "%s", noIntendLine);
             }
         }
@@ -34,14 +49,6 @@ void writeData(FILE *file)
     fclose(dataFile);
 }
 
-char *removeBlanks(char *line)
-{
-    if (strcmp(line, "\n") == 0)
-    {
-        return NULL;
-    }
-    return line;
-}
 
 /**
  * This function creates a new text file named code.txt
@@ -62,11 +69,11 @@ void writeCode(FILE *file)
             // Write each line to the code file starting from the line after ".code" directive
             while (fgets(line, sizeof(line), file))
             {
-                if (strcmp(line, " \n") == 0)
+                char *noIntendLine = suppressIndentation(line);
+                if (removeBlanks(noIntendLine) == 0)
                 {
                     continue;
                 }
-                char *noIntendLine = suppressIndentation(line);
                 fprintf(codeFile, "%s", noIntendLine);
             }
             break; // Exit the loop after writing the code section
