@@ -1,6 +1,6 @@
 # <h1 align="center">Test Plan</h1>
 
-<p align="right">created : 17/01/2024<br>last modified : 16/02/2024</p>
+<p align="right">created : 17/01/2024<br>last modified : 24/01/2024</p>
 
 # 0. Document Review
 
@@ -18,7 +18,7 @@ This project has for objective to recreate a virtual processor and a correspondi
 
 ### 1.1.1 In Scope
 
-All the feature of the project defined in the [Functional Specification](../functional_specifications.md) are in need to be tested
+All the feature of the project defined in the [Functional Specification](../TechnicalSpecifications.md) are in need to be tested
 
 | Feature | Full Name | Type | Description |
 | :--: | :--: | :--: | :--: |
@@ -177,17 +177,21 @@ Bellow is the list of artefacts that should be produced during testing.
 
 |Name|Purpose|Link|
 |:-:|:-:|:-:|
-|Test Plan||[X](../Testing/test_plan.md)|
-|Test Cases||[X](https://github.com/orgs/algosup/projects/23)|
-|Bug Reports||[X](../Testing/test_plan.md)|
-|Bugs Data Report||[X](../Testing/test_plan.md)|
+|Test Plan||[X](../Testing/TestPlan.md)|
+|Test Cases||[X](../Testing/TestPlan.md)|
+|Bug Reports||[X](../Testing/TestPlan.md)|
+|Bugs Data Report||[X](../Testing/TestPlan.md)|
 
 # 4 Resource & Environment Needs
 
 ## 4.1 Testing Tools
 
-Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and the GitHub "project" feature to handle test cases.
+Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and test cases.
 
+whever:
+- test case and bug report with issues
+- test cases with project and bug report with issues
+- test cases and bug report with project
 
 ## 4.2 Test Environment
 
@@ -196,14 +200,14 @@ Since there is multiple working environment within the project team. It will all
 ### 4.2.1 Hardware
 
 |Processor|RAM|
-|:-|-:|
+|-|-|
 |Apple M1|8Gb|
-|Intel i7|16Gb|
+|||
 
 ### 4.2.2 Software
 
 |OS|Version|
-|:-|-:|
+|-|-|
 |MacOS|14.3|
 |Windows|11|
 
@@ -235,4 +239,4 @@ Bug Severity and Priority fields are both very important for categorizing bugs a
 |Term / Acronym|Definition|
 |:-:|:-:|
 |BUG|Any error or defect that cause the solution or hardware to malfunction|
-|CODE COVERAGE|/|
+|...|/|
