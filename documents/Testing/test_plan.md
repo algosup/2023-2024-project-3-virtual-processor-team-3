@@ -8,7 +8,41 @@
 | :----: | :----: |
 | 16/02/2024 | MARLIER Thibaud |
 
-# 1. Introduction
+<details>
+<summary>Table Of Content</summary>
+
+- [1 Introduction](#1-introduction)
+    - [1.1 Scope](#11-scope)
+        - [1.1.1 In Scope](#111-in-scope)
+        - [1.1.2 Out Of Scope](#112-out-of-scope)
+    - [1.2 Quality Objective](#12-quality-objective)
+        - [1.2.1 Primary Objective](#121-primary-objective)
+        - [1.2.2 Secondary Objective](#122-secondary-objective)
+    - [1.3 Roles & Responsabilities](#13-roles--responsibilities)
+        - [1.3.1 Developer(-s)](#131-developer-s)
+        - [1.3.2 Tester(-s)](#132-tester-s)
+- [2 Test Methodology](#2-test-methodology)
+    - [2.1 Overview](#21-overview)
+    - [2.2 Usability Testing](#22-usability-testing)
+    - [2.3 Unit Testing (Multiple)](#23-unit-testing-multiple)
+    - [2.4 Iteration Testing](#24-iteration-testing)
+    - [2.5 Bug Triage](#25-bug-triage)
+    - [2.6 Suspension Criteria & Resumption Requirement](#26-suspension-criteria--resumption-requirement)
+    - [2.7 Test Completeness](#27-test-completeness)
+- [3 Test Deliverables](#3-test-deliverables)
+- [4 Ressource & Environment Needs](#4-resource--environment-needs)
+    - [4.1 Testing Tools](#41-testing-tools)
+    - [4.2 Test Environment](#42-test-environment)
+        - [4.2.1 Hardware](#421-hardware)
+        - [4.2.2 Software](#422-software)
+    - [4.3 Bug Severity & Priority Definition](#43-bug-severity--priority-definition)
+        - [4.3.1 Severity List](#431-severity-list)
+        - [4.3.2 Priority List](#432-priority-list)
+- [5 Terms & Acronyms](#5-terms--acronyms)
+
+</details>
+
+# 1 Introduction
 
 This test plan is designed to prescribe the scope, approach, resources, and schedule of all testing activities for the project Virtual_Processor_Team_3.
 
@@ -133,7 +167,7 @@ We will use usability testing to ensure compliance with the user's needs and uni
 
 The purpose of usability testing is to ensure that the new components and/or features will function in a proper manner that is acceptable to the user.
 
-Usability testing can be coordinated by Tester(-s), but actual testing must be performed by non-testers (**as close to end-users as possible**). Tester(-s) will then review the findings and provide the project team with their evaluation of the impact these changes will have on the testing process and to the project as a whole.
+Usability testing can be coordinated by Tester(-s), but actual testing must be performed by non-testers (**as close to end-users as possible**). Tester(-s) will then review the findings and provide the project team with their evaluation of the impact these changes will have on the testing process and the project as a whole.
 
 We will use some help from other teams and enroll their QAs or Developers as our users for testing sessions.
 
@@ -147,7 +181,7 @@ Each function, whatever its purpose, shall have at least one corresponding unit 
 
 ## 2.4 Iteration Testing
 
-Iterative development refers to the method which consists in dividing a project into smaller parts when one is finished, we either iterate over it to enhanced it or implement it and pass to the next one.
+Iterative development refers to the method which consists in dividing a project into smaller parts when one is finished, we either iterate over it to enhance it or implement it and pass to the next one.
 
 The purpose of iterative testing is to complete iterative development by testing at the end of each "Iteration".
 
@@ -192,7 +226,7 @@ Below is the list of artifacts that should be produced during testing.
 
 ## 4.1 Testing Tools
 
-Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and the GitHub "project" feature to handle test cases.
+Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug reports and the GitHub "project" feature to handle test cases.
 
 ## 4.2 Test Environment
 
@@ -238,7 +272,11 @@ Bug Severity and Priority fields are both very important for categorizing bugs a
 # 5 Terms / Acronyms
 
 |Term / Acronym|Definition|
-|:-:|:-:|
+|-:|:-|
 |BUG|Any error or defect that cause the solution or hardware to malfunction|
 |CODE COVERAGE|In our context (Unit testing), it reffers to the percentage of code that is covered by the automated tests|
-|||
+|PROGRAM COUNTER|Holds the address in memory of the next instruction to be fetched|
+|ASSEMBLER| A program that converts assembly language into machine code|
+|UNIT TESTING|It is a software testing method by which individual units of code are tested to determine whether they are fit for use or not|
+|FILE CORRUPTION|A corrupted file is one that has been modified in a way that renders it unusable or incomplete|
+|MULTY THREADING|it is a technique in which a single process can have multiple code segments (threads) running concurrently|
