@@ -1,4 +1,4 @@
-<div> <a href="./"><img src="../img/back2.png" width="35px"></a>
+<div> <a href="./"><img src="../img/functional_specifications/back2.png" width="35px"></a>
 </div>
 
 <h1 align="center"> ALGORISK Documentation </h1>
@@ -6,28 +6,6 @@
 <p align="center">
 Created by: Thibaud MARLIER <br> Creation Date: 02/15/2024 <br> Last update: 02/15/2024
 </p>
-
-___
-
-<details>
-
-- [Copyright](#copyright)
-- [I. Introduction](#i-introduction)
-  - [Before you read](#before-you-read)
-  - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
-    - [Assembler overview](#assembler-overview)
-  - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
-    - [General Purpose Instructions](#general-purpose-instructions)
-    - [Data Transfer Instructions](#data-transfer-instructions)
-    - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
-    - [Logical Instructions](#logical-instructions)
-    - [Shift and Rotate Instructions](#shift-and-rotate-instructions)
-    - [Bit and Byte Instructions](#bit-and-byte-instructions)
-    - [Control Transfer Instructions](#control-transfer-instructions)
-    - [String Instructions](#string-instructions)
-- [Index](#index)
-
-</details>
 
 ___
 ## Copyright
@@ -46,6 +24,28 @@ ___
 
 <div align="center"><img src="https://algosup.com/wp-content/uploads/2022/09/logo-white.png">
 </div>
+
+__
+
+## Content
+
+- [Copyright](#copyright)
+- [Content](#content)
+- [I. Introduction](#i-introduction)
+  - [Before you read](#before-you-read)
+  - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
+    - [Assembler overview](#assembler-overview)
+  - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
+    - [General Purpose Instructions](#general-purpose-instructions)
+    - [Data Transfer Instructions](#data-transfer-instructions)
+    - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
+    - [Logical Instructions](#logical-instructions)
+    - [Shift and Rotate Instructions](#shift-and-rotate-instructions)
+    - [Bit and Byte Instructions](#bit-and-byte-instructions)
+    - [Control Transfer Instructions](#control-transfer-instructions)
+    - [String Instructions](#string-instructions)
+- [Index](#index)
+
 
 ## I. Introduction
 
@@ -81,4 +81,4 @@ ___
 ## Index
 
 
-<div align="right"><a href="#copyright"><img src="../img/back.png" width="35px"></a></div>
+<div align="right"><a href="#copyright"><img src="../img/functional_specifications/back.png" width="35px"></a></div>
