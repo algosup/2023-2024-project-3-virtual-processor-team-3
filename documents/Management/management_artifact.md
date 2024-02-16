@@ -31,7 +31,7 @@ You can find the Project Charter, giving you most of the basics of the project b
 
 You will find the various tasks, their assignees, done tasks, and pending ones. In a nutshell, everything you need to know about the timelines of the project!
 
-Click here: [GitHub Projects - Team 3](https://github.com/orgs/algosup/projects/20/views/4)
+Click here: [GitHub Projects - Team 3](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 ## RACI Matrix
 
@@ -50,7 +50,7 @@ By following this link, you'll be redirected toward the spreadsheet in which our
 ## Communication Management Plan
 
 Describes how the team handles communication from and to various sources during the project. \
-[Communication Management Plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/Documents/documents/Management/communication_management/communication_management_plan.md)
+[Communication Management Plan](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Management/communication_management/communication_management_plan.md)
 
 ## Weekly Reports
 

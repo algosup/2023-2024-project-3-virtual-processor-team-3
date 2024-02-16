@@ -64,6 +64,6 @@ Despite that, the team is content with the current state of the project, they li
 - Progress concerning the Test Plan. (50% of completion)
 - Meetings on Monday and Friday.
 
-For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/orgs/algosup/projects/20/views/4)
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2)
 
 <div align="right"><a href="#project-virtual-processor---team-3"><img src="../img/back.png" width="35px"></a></div>
