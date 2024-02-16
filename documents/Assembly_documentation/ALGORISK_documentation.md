@@ -51,7 +51,7 @@ ___
 <div align="center"><img src="https://algosup.com/wp-content/uploads/2022/09/logo-white.png">
 </div>
 
-__
+___
 
 ## Content
 
@@ -80,7 +80,7 @@ __
 
 **Who should use this documentation?**
 
-The ALGORISK Assembly documentation, is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
+The ALGORISK Assembly documentation is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
 
 ## Chapter 1: Overview of the ALGORISK Assembler
 
@@ -94,19 +94,49 @@ The ALGORISK Assembly documentation, is aimed at every user of our Assembler. It
 
 **The general-purpose instructions perform basic data movement, memory addressing,
 arithmetic and logical operations, output, and string operations on
-integer, pointer.**
+integers and pointers.**
+
+In this documentation, you'll find registers which are defined as:
+
+- rd = Destination Register
+- r1 = Register number one
+- r2 = Register number two
 
 #### Data Transfer Instructions
+
+|ALGORISK instuction|Expanding|Description|Example|
+|---|---|---|---|
+|**lb**| Load Byte |Loads a signed byte from memory into a register, the address in memory must be specified as an operand| ``` lb rd, address ```|
+|**lbu**| Load Byte Unsigned| Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand| ``` lbu rd, address ```|
+|**lh**| Load Halfword| Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | ``` lh rd, address ```|
+|**lhu**| Load Halfword Unsigned| Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | ``` lhu rd, address ```|
+|**lw**| Load Word | Loads a word from memory into a register, the address in memory must be specified as an operand | ``` lw rd, address ```|
+|**lui**| Load Upper Immediate | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | ``` lui rd, immediate ```|
+|**sb**| Store Byte | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | ``` sb rd, address ```|
+|**sh**| Store Halfword | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | ``` sh rd, address ```|
+|**sw**| Store Word | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | ``` sw rd, address ```|
+
 
 #### Binary Arithmetic Instructions
 
 #### Logical Instructions
+
+The logical instructions perform basic logical operations on their operands.
+
+|ALGORISK instuction|Description|Example|
+|---|---|---|
+|add| Adds the contents of two registers and stores the result in a register| ``` add rd, r1,r2 ```|
+
+
+
 
 #### Shift and Rotate Instructions
 
 #### Bit and Byte Instructions
 
 #### Control Transfer Instructions
+
+auipc
 
 #### String Instructions
 
