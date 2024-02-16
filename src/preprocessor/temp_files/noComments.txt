@@ -1,6 +1,13 @@
 .data
-    myVar: .int 10
-    myFloat: .float 3.14
+    myVar: .int 10       
+
+     
+
+    myFloat: .float 3.14         
 
 .code
-    add r1, r0, myVar
+    add r1, r0, myVar       
+
+     
+
+    add r2, r1, myFloat         

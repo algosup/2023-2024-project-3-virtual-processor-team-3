@@ -34,6 +34,15 @@ void writeData(FILE *file)
     fclose(dataFile);
 }
 
+char *removeBlanks(char *line)
+{
+    if (strcmp(line, "\n") == 0)
+    {
+        return NULL;
+    }
+    return line;
+}
+
 /**
  * This function creates a new text file named code.txt
  * @param file (File pointer): A pointer to an assembly file.
