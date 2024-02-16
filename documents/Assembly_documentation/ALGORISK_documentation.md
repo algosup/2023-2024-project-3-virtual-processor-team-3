@@ -24,7 +24,6 @@ ___
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
-    - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [String Instructions](#string-instructions)
 - [Index](#index)
@@ -68,7 +67,6 @@ ___
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
-    - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [String Instructions](#string-instructions)
 - [Index](#index)
@@ -156,8 +154,6 @@ The logical instructions perform basic logical operations on their operands.
 | **srli** | Shift Right Logical Immediate | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srli rd, r1, immediates```  |
 | **sra** | Shift Right Arithmetic |Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```sra rd, r1, r2```         |
 | **srai** | Shift Right Arithmetic Immediate	|Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srai rd, r1, immediate``` |
-
-#### Bit and Byte Instructions
 
 #### Control Transfer Instructions
 
