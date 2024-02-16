@@ -217,11 +217,11 @@ Testing will be considered complete when the following criteria have been met:
 Below is the list of artifacts that should be produced during testing.
 
 |Name|Purpose|Link|
-|:-:|:-:|:-:|
-|Test Plan||[X](../Testing/test_plan.md)|
-|Test Cases||[X](https://github.com/orgs/algosup/projects/23)|
-|Bug Reports||[X](https://github.com/users/arthur-lemo1ne/projects/3/views/1)|
-|Bugs Data Report||[X](../Testing/bug_data_report.md)|
+|-:|:-|:-:|
+|Test Plan|Outlines the approach, scope, objectives, and resources for testing|[X](../Testing/test_plan.md)|
+|Test Cases|Ensure that the software operates as planned and that all its features and functions perform correctly|[X](https://github.com/orgs/algosup/projects/23)|
+|Bug Reports|Provide an accurate description of the problem (bug) to the development team to facilitate the bug's resolution|[X](https://github.com/users/arthur-lemo1ne/projects/3/views/1)|
+|Bugs Data Report|Provide data on the current and passed bugs encountered during testing|[X](../Testing/bug_data_report.md)|
 
 # 4 Resource & Environment Needs
 
