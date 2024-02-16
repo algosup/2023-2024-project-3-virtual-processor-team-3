@@ -258,7 +258,7 @@ Bug Severity and Priority fields are both very important for categorizing bugs a
 |1|Critical|The solution crashes or the bug causes non-recoverable conditions. System crashes, file corruption, or potential data loss, program hangs requiring reboot are all examples of a Severity 1 bug|
 |2|High|Major solution component unusable due to failure or incorrect functionality.  Severity 2 bugs cause serious problems such as a lack of functionality, or insufficient or unclear error messages that can have a major impact to the user, prevents other areas of the solution from being tested, etc|
 |3|Medium|Incorrect functionality of component or process|
-|4|Minor|Incorrect functionality of component or process.  There is a simple work around for the bug if it is Severity 3|
+|4|Minor|Incorrect functionality of component or process.  There is a simple work around for the bug if it is Severity 4|
 
 ### 4.3.2 Priority List
 
