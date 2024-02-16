@@ -1,6 +1,6 @@
 # <h1 align="center">Test Plan</h1>
 
-<p align="right">created : 17/01/2024<br>last modified : 24/01/2024</p>
+<p align="right">created : 17/01/2024<br>last modified : 16/02/2024</p>
 
 # 0. Document Review
 
@@ -219,8 +219,8 @@ Below is the list of artifacts that should be produced during testing.
 |Name|Purpose|Link|
 |-:|:-|:-:|
 |Test Plan|Outlines the approach, scope, objectives, and resources for testing|[X](../Testing/test_plan.md)|
-|Test Cases|Ensure that the software operates as planned and that all its features and functions perform correctly|[X](https://github.com/orgs/algosup/projects/23)|
-|Bug Reports|Provide an accurate description of the problem (bug) to the development team to facilitate the bug's resolution|[X](https://github.com/users/arthur-lemo1ne/projects/3/views/1)|
+|Test Cases|Ensure that the software operates as planned and that all its features and functions perform correctly|[X](https://github.com/users/arthur-lemo1ne/projects/3/views/1)|
+|Bug Reports|Provide an accurate description of the problem (bug) to the development team to facilitate the bug's resolution|[X](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/issues)|
 |Bugs Data Report|Provide data on the current and passed bugs encountered during testing|[X](../Testing/bug_data_report.md)|
 
 # 4 Resource & Environment Needs
