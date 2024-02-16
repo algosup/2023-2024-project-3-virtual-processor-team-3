@@ -177,10 +177,10 @@ Bellow is the list of artefacts that should be produced during testing.
 
 |Name|Purpose|Link|
 |:-:|:-:|:-:|
-|Test Plan||[X](../Testing/TestPlan.md)|
-|Test Cases||[X](../Testing/TestPlan.md)|
-|Bug Reports||[X](../Testing/TestPlan.md)|
-|Bugs Data Report||[X](../Testing/TestPlan.md)|
+|Test Plan||[X](../Testing/test_plan.md)|
+|Test Cases||[X](https://github.com/orgs/algosup/projects/23)|
+|Bug Reports||[X](https://github.com/users/arthur-lemo1ne/projects/3/views/1)|
+|Bugs Data Report||[X](../Testing/bug_data_report.md)|
 
 # 4 Resource & Environment Needs
 
@@ -239,4 +239,5 @@ Bug Severity and Priority fields are both very important for categorizing bugs a
 |Term / Acronym|Definition|
 |:-:|:-:|
 |BUG|Any error or defect that cause the solution or hardware to malfunction|
-|...|/|
+|CODE COVERAGE|In our context (Unit testing), it reffers to the percentage of code that is covered by the automated tests|
+|||
