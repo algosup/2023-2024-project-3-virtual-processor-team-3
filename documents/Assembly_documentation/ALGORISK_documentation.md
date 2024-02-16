@@ -15,10 +15,11 @@ ___
 - [Content](#content)
 - [I. Introduction](#i-introduction)
   - [Before you read](#before-you-read)
-  - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
-    - [Assembler overview](#assembler-overview)
-  - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
-    - [General Purpose Instructions](#general-purpose-instructions)
+- [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
+  - [Assembler overview](#assembler-overview)
+  - [Assembler Directives](#assembler-directives)
+- [Chapter 2: Instruction Set](#chapter-2-instruction-set)
+  - [General Purpose Instructions](#general-purpose-instructions)
     - [Data Transfer Instructions](#data-transfer-instructions)
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
@@ -58,10 +59,11 @@ ___
 - [Content](#content)
 - [I. Introduction](#i-introduction)
   - [Before you read](#before-you-read)
-  - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
-    - [Assembler overview](#assembler-overview)
-  - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
-    - [General Purpose Instructions](#general-purpose-instructions)
+- [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
+  - [Assembler overview](#assembler-overview)
+  - [Assembler Directives](#assembler-directives)
+- [Chapter 2: Instruction Set](#chapter-2-instruction-set)
+  - [General Purpose Instructions](#general-purpose-instructions)
     - [Data Transfer Instructions](#data-transfer-instructions)
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
@@ -80,13 +82,19 @@ ___
 
 The ALGORISK Assembly documentation is aimed at every user of our Assembler. It will help you throughout your journey of coding with our language and break down all the instructions for a deeper understanding of the ALGORISK language.
 
-### Chapter 1: Overview of the ALGORISK Assembler
+## Chapter 1: Overview of the ALGORISK Assembler
 
-#### Assembler overview
+### Assembler overview
 
-### Chapter 2: Instruction Set
+### Assembler Directives
 
-#### General Purpose Instructions
+## Chapter 2: Instruction Set
+
+### General Purpose Instructions
+
+**The general-purpose instructions perform basic data movement, memory addressing,
+arithmetic and logical operations, output, and string operations on
+integers and pointers.**
 
 #### Data Transfer Instructions
 
