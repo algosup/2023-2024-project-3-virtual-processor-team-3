@@ -119,6 +119,20 @@ In this documentation, you'll find registers which are defined as:
 
 #### Binary Arithmetic Instructions
 
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **add** | - |Adds the contents of two registers and stores the result in a register	| ```add rd, r1, r2```         |
+| **addi** | Add Immediate |Adds an immediate value to a register and stores the result in a register	| ```addi rd, r1, immediate``` |
+| **sub** | Subtract |Subtracts the contents of two registers and stores the result in a register	| ```sub rd, r1, r2```         |
+| **mul** | Multiply | Multiplies the contents of two registers and stores the result in a register	| ```mul rd, r1, r2```  |
+| **mulh** | Multiply High	| Multiplies the contents of two registers and stores the upper 32 bits of the result in a register	| ```mulh rd, r1, r2```         |
+| **mulhu** | Multiply High Unsigned | Multiplies the unsigned value of two registers and stores the upper 32 bits of the result in a register | ```mulhu rd, r1, r2``` |
+| **mulhsu** | Multiply High Signed Unsigned | Multiplies the signed value of a register with the unsigned value of another register and stores the upper 32 bits of the result in a register	| ```mulhsu rd, r1, r2``` |
+| **div** | Divide | Divides the contents of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats)	| ```div rd, r1, r2``` |
+| **divu** | Divide Unsigned | Divides the unsigned value of two registers and stores the result in a register (the destination register has to be from r16 to r31 to handle floats)	| ```divu rd, r1, r2``` |
+| **rem** | Remainder | Divides the contents of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | ```rem rd, r1, r2``` |
+| **remu** | Remainder Unsigned | Divides the unsigned value of two registers and stores the remainder in a register (the destination register has to be from r16 to r31 to handle floats) | ```remu rd, r1, r2``` |
+
 #### Logical Instructions
 
 The logical instructions perform basic logical operations on their operands.
@@ -126,7 +140,7 @@ The logical instructions perform basic logical operations on their operands.
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
 | **and** | - |Performs a bitwise AND operation on the values of two registers and stores the result in a register | ```and rd, r1,r2```         |
-| **andi** | Add immediate | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | ```andi rd, r1,immediate``` |
+| **andi** | - |Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | ```andi rd, r1,immediate``` |
 | **or** | - |  Performs a bitwise OR operation on the values of two registers and stores the result in a register | ```or rd, r1, r2```         |
 | **ori** | Or immediate | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register  | ```ori rd, r1, immediate```  |
 | **xor** | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2	```         |
