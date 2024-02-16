@@ -25,6 +25,7 @@ ___
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
+    - [Conditional Instructions](#conditional-instructions)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -68,6 +69,7 @@ ___
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
+    - [Conditional Instructions](#conditional-instructions)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -158,6 +160,15 @@ The logical instructions perform basic logical operations on their operands.
 #### Control Transfer Instructions
 
 auipc
+
+#### Conditional Instructions
+
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **ilt?** | Is Less Than? | Compares the signed values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0	| ```ilt? rd, r1, r2``` |
+| **ilti?** | Is Less Than Immediate? | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```ilti? rd, r1, immediate``` |
+| **iltu?** | Is Less Than Unsigned?	| Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0	| ```iltu? rd, r1, r2``` |
+| **iltui?** | Is Less Than Unsigned Immediate?	| Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```iltui? rd, r1, immediate``` |
 
 #### Special Instructions
 
