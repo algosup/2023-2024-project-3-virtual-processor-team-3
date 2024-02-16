@@ -23,7 +23,7 @@ ___
     - [Data Transfer Instructions](#data-transfer-instructions)
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
-    - [Shift and Rotate Instructions](#shift-and-rotate-instructions)
+    - [Shift Instructions](#shift-instructions)
     - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [String Instructions](#string-instructions)
@@ -67,7 +67,7 @@ ___
     - [Data Transfer Instructions](#data-transfer-instructions)
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
-    - [Shift and Rotate Instructions](#shift-and-rotate-instructions)
+    - [Shift Instructions](#shift-instructions)
     - [Bit and Byte Instructions](#bit-and-byte-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [String Instructions](#string-instructions)
@@ -104,14 +104,25 @@ integers and pointers.**
 
 The logical instructions perform basic logical operations on their operands.
 
-|ALGORISK instuction|Description|Example|
-|---|---|---|
-|add|	Adds the contents of two registers and stores the result in a register| ``` add rd, r1,r2 ```|
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **and** | - |Performs a bitwise AND operation on the values of two registers and stores the result in a register | ```and rd, r1,r2```         |
+| **andi** | Add immediate | Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | ```andi rd, r1,immediate``` |
+| **or** | - |  Performs a bitwise OR operation on the values of two registers and stores the result in a register | ```or rd, r1, r2```         |
+| **ori** | Or immediate | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register  | ```ori rd, r1, immediate```  |
+| **xor** | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2	```         |
+| **xori** | Exclusive or immediate |Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | ```xori rd, r1, immediate ``` |
 
+#### Shift Instructions
 
-
-
-#### Shift and Rotate Instructions
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **sll** | Shift left logical | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | ```sll rd, r1, r2```         |
+| **slli** | Shift Left Logical Immediate | Makes a logical shift of the bits of the first register to the left by the number of bits specified in the second register and stores the result in a register | ```slli rd, r1, immediate``` |
+| **srl** | Shift Right Logical	 | Makes a logical shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```srl rd, r1, r2```         |
+| **srli** | Shift Right Logical Immediate | Makes a logical shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srli rd, r1, immediates```  |
+| **sra** | Shift Right Arithmetic |Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```sra rd, r1, r2```         |
+| **xori** | Exclusive or immediate |Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | ```xori rd, r1, immediate ``` |
 
 #### Bit and Byte Instructions
 
