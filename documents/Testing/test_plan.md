@@ -6,7 +6,7 @@
 
 | Last Review | Reviewer |
 | :----: | :----: |
-|  |  |
+| 16/02/2024 | MARLIER Thibaud |
 
 # 1. Introduction
 
@@ -18,7 +18,7 @@ This project has for objective to recreate a virtual processor and a correspondi
 
 ### 1.1.1 In Scope
 
-All the feature of the project defined in the [Functional Specification](../TechnicalSpecifications.md) are in need to be tested
+All the features of the project defined in the [Functional Specification](../functional_specifications.md) are in need to be tested
 
 | Feature | Full Name | Type | Description |
 | :--: | :--: | :--: | :--: |
@@ -85,8 +85,9 @@ All the feature of the project defined in the [Functional Specification](../Tech
 
 ### 1.1.2 Out-Of-Scope
 
-These feature are not to be tested as they are not included in the requirement specifications
-- Multy-Threading
+These features are not to be tested as they are not included in the requirement specifications
+
+- Multi-Threading
 - Interrupts
 - Atomic Instructions
 
@@ -94,9 +95,9 @@ These feature are not to be tested as they are not included in the requirement s
 
 ### 1.2.1 Primary Objective
 
-The primary objective is to ensure that the project in its entirety meets the full requirements defined in the functional specifications and fit metrics for each quality requierement.
+The primary objective is to ensure that the project in its entirety meets the full requirements defined in the functional specifications and fit metrics for each quality requirement.
 
-Any changes, additions, or deletion to the requirements document, Functional Specification, or Technical Specification will be documented and tested at the highest level of quality allowed within the remaining time of the project and within the ability of the test team.
+Any changes, additions, or deletions to the requirements document, Functional Specification, or Technical Specification will be documented and tested at the highest level of quality allowed within the remaining time of the project and within the ability of the test team.
 
 ### 1.2.2 Secondary Objective
 
@@ -107,11 +108,14 @@ The secondary objective will be to identify and expose all issues and the associ
 ### 1.3.1 Developer(-s)
 
 The team member or members that undertake solution development activities. Responsible for:
+
 1. Developing the solution
 2. Conduct Unit testing
 
 ### 1.3.2 Tester(-s)
+
 The team member or members that undertake testing, and quality management activities. Responsible for:
+
 1. Writing the test plan
 2. Monitoring and managing testing integrity
 3. Support and conduct testing activities
@@ -121,9 +125,9 @@ The team member or members that undertake testing, and quality management activi
 
 ## 2.1 Overview
 
-For this project, we will follow an iterative testing strategy, as it will allow us to have testing feedback rapidely and on a regular basis (at each Milestone/Release). It will also allow us to save time on testing after multiple iterations based on experience from past iterations.
+For this project, we will follow an iterative testing strategy, as it will allow us to have testing feedback rapidly and regularly (at each Milestone/Release). It will also allow us to save time on testing after multiple iterations based on experience from past iterations.
 
-We will use usability testing to ensure complience with the user's needs and Unit testing to verify functionality and code coverage.
+We will use usability testing to ensure compliance with the user's needs and unit testing to verify functionality and code coverage.
 
 ## 2.2 Usability Testing
 
@@ -131,23 +135,23 @@ The purpose of usability testing is to ensure that the new components and/or fea
 
 Usability testing can be coordinated by Tester(-s), but actual testing must be performed by non-testers (**as close to end-users as possible**). Tester(-s) will then review the findings and provide the project team with their evaluation of the impact these changes will have on the testing process and to the project as a whole.
 
-We will use some help from other teams and enrole their QAs or Developers as our users for testing sessions. 
+We will use some help from other teams and enroll their QAs or Developers as our users for testing sessions.
 
-As we know those sessions are time consuming we will also propose that our QAs or Developer help other teams as users.
+As we know those sessions are time-consuming we will also propose that our QAs or Developer help other teams as users.
 
 ## 2.3 Unit testing (Multiple)
 
-Unit testing will be conducted by the Developer during code development process to ensure that proper functionality and code coverage have been acheived.
+Unit testing will be conducted by the Developer during the code development process to ensure that proper functionality and code coverage have been achieved.
 
-Each function, whatever its porpuse, shall have at least one coresponding unit test that will verify its functionalty with multiple parameters to ensure flawless running of the solution.
+Each function, whatever its purpose, shall have at least one corresponding unit test that will verify its functionality with multiple parameters to ensure the flawless running of the solution.
 
 ## 2.4 Iteration Testing
 
-Iterative development refers to the method which consist in dividing a project into smaller parts, when one is finish, we either iterate over it to enhanced it or implement it and pass to the next one.
+Iterative development refers to the method which consists in dividing a project into smaller parts when one is finished, we either iterate over it to enhanced it or implement it and pass to the next one.
 
 The purpose of iterative testing is to complete iterative development by testing at the end of each "Iteration".
 
-In our case, we will run test sessions at each merge in the main branch on the github repository.
+In our case, we will run test sessions at each merge in the main branch on the GitHub repository.
 
 ## 2.5 Bug Triage
 
@@ -158,6 +162,7 @@ All members of the team should be involved in these triage meetings to ensure go
 ## 2.6 Suspension Criteria & Resumption Requirement
 
 Testing will be suspended if any of the following conditions are met and until they are resolved:
+
 - There is a critical change in the scope of the project which has an impact on the critical path.
 - A bug of critical severity on a major feature is discovered.
 
@@ -166,6 +171,7 @@ If one of those conditions is ever met, the Quality Assurance will help the deve
 ## 2.7 Test Completeness
 
 Testing will be considered complete when the following criteria have been met:
+
 - When all team members agree that testing is complete, the solution is stable, and agree that the solution meets functional requirements.
 - All test cases have passed.
 - All priority 1 & 2 bugs have been resolved and closed.
@@ -173,7 +179,7 @@ Testing will be considered complete when the following criteria have been met:
 
 # 3 Test Deliverables
 
-Bellow is the list of artefacts that should be produced during testing.
+Below is the list of artifacts that should be produced during testing.
 
 |Name|Purpose|Link|
 |:-:|:-:|:-:|
@@ -186,28 +192,23 @@ Bellow is the list of artefacts that should be produced during testing.
 
 ## 4.1 Testing Tools
 
-Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and test cases.
-
-whever:
-- test case and bug report with issues
-- test cases with project and bug report with issues
-- test cases and bug report with project
+Since the project is hosted on GitHub, we will use the GitHub "Issues" feature as a tool to create tickets as bug report and the GitHub "project" feature to handle test cases.
 
 ## 4.2 Test Environment
 
-Since there is multiple working environment within the project team. It will allow us to test our solution in different contexts which are defined bellow.
+Since there are multiple working environments within the project team. It will allow us to test our solution in different contexts which are defined below.
 
 ### 4.2.1 Hardware
 
 |Processor|RAM|
-|-|-|
+|:-|-:|
 |Apple M1|8Gb|
-|||
+|Intel i7|16Gb|
 
 ### 4.2.2 Software
 
 |OS|Version|
-|-|-|
+|:-|-:|
 |MacOS|14.3|
 |Windows|11|
 
@@ -224,7 +225,7 @@ Bug Severity and Priority fields are both very important for categorizing bugs a
 |3|Medium|Incorrect functionality of component or process|
 |4|Minor|Incorrect functionality of component or process.  There is a simple work around for the bug if it is Severity 3|
 
-### 4.3.2 Priotity List
+### 4.3.2 Priority List
 
 |Priority ID|Priority Level|Priority Description|
 |:-:|:-:|:-:|
