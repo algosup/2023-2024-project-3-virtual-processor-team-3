@@ -4,7 +4,7 @@
 <h1 align="center"> ALGORISK Documentation </h1>
 
 <p align="center">
-Created by: Thibaud MARLIER <br> Creation Date: 02/09/2024 <br> Last update: 02/16/2024
+Created by: Thibaud MARLIER <br> Creation Date: 09/02/2024 <br> Last update: 16/02/2024
 </p>
 
 ___
