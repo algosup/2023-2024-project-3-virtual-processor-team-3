@@ -9,31 +9,6 @@ Created by: Thibaud MARLIER <br> Creation Date: 02/09/2024 <br> Last update: 02/
 
 ___
 
-<details>
-
-- [Copyright](#copyright)
-- [Content](#content)
-- [I. Introduction](#i-introduction)
-  - [Before you read](#before-you-read)
-- [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
-  - [Assembler overview](#assembler-overview)
-  - [Assembler Directives](#assembler-directives)
-- [Chapter 2: Instruction Set](#chapter-2-instruction-set)
-  - [General Purpose Instructions](#general-purpose-instructions)
-    - [Data Transfer Instructions](#data-transfer-instructions)
-    - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
-    - [Logical Instructions](#logical-instructions)
-    - [Shift Instructions](#shift-instructions)
-    - [Control Transfer Instructions](#control-transfer-instructions)
-    - [Conditional Instructions](#conditional-instructions)
-    - [Control transfer Instructions](#control-transfer-instructions-1)
-    - [Special Instructions](#special-instructions)
-- [Index](#index)
-
-</details>
-
-___
-
 ## Copyright
 
 Copyright (c) 2024 ALGOSUP
@@ -69,9 +44,8 @@ ___
     - [Binary Arithmetic Instructions](#binary-arithmetic-instructions)
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
-    - [Control Transfer Instructions](#control-transfer-instructions)
     - [Conditional Instructions](#conditional-instructions)
-    - [Control transfer Instructions](#control-transfer-instructions-1)
+    - [Control transfer Instructions](#control-transfer-instructions)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -159,10 +133,6 @@ The logical instructions perform basic logical operations on their operands.
 | **sra** | Shift Right Arithmetic |Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified in the second register and stores the result in a register | ```sra rd, r1, r2```         |
 | **srai** | Shift Right Arithmetic Immediate	|Makes an arithmetic shift of the bits of the first register to the right by the number of bits specified by the immediate and stores the result in a register | ```srai rd, r1, immediate``` |
 
-#### Control Transfer Instructions
-
-auipc
-
 #### Conditional Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
@@ -191,8 +161,6 @@ auipc
 | ---| --- | --- | --- |
 | **syscall** | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)	 | ```syscall``` |
 | **break** | - | Generates a breakpoint exception, which can be used for debugging	| ```break``` |
-
-
 
 ## Index
 
