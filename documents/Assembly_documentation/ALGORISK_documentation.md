@@ -102,7 +102,6 @@ integer, pointer.**
 
 #### Logical Instructions
 
-
 #### Shift and Rotate Instructions
 
 #### Bit and Byte Instructions
@@ -112,6 +111,5 @@ integer, pointer.**
 #### String Instructions
 
 ## Index
-
 
 <div align="right"><a href="#copyright"><img src="../img/functional_specifications/back.png" width="35px"></a></div>
