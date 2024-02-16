@@ -37,6 +37,7 @@ ___
   - [Before you read](#before-you-read)
 - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
   - [Assembler overview](#assembler-overview)
+    - [Registers](#registers)
   - [Assembler Directives](#assembler-directives)
 - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
   - [General Purpose Instructions](#general-purpose-instructions)
@@ -61,6 +62,19 @@ The ALGORISK Assembly documentation is aimed at every user of our Assembler. It 
 ## Chapter 1: Overview of the ALGORISK Assembler
 
 ### Assembler overview
+
+#### Registers
+
+The ALGORISK Assembly possesses multiple registers which can be grouped into 3 categories.
+
+- Integer registers: from r1 to r16.
+- Floating registers: from r17 to32.
+- Special registers: 
+  - r0: A constant register set to 0.
+  - pc (program counter): Holds the address in memory of the next instruction to be fetched.
+  - ir (instruction register): Holds the current instruction being executed.
+  - csr (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. They are hidden from the user.
+
 
 ### Assembler Directives
 
