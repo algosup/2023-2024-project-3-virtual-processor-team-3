@@ -181,6 +181,7 @@ Each function, whatever its purpose, shall have at least one corresponding unit 
 
 ## 2.4 Iteration Testing
 
+
 Iterative development refers to the method which consists in dividing a project into smaller parts when one is finished, we either iterate over it to enhance it or implement it and pass to the next one.
 
 The purpose of iterative testing is to complete iterative development by testing at the end of each "Iteration".
