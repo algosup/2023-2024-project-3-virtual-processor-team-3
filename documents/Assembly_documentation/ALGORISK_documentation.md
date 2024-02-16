@@ -26,6 +26,7 @@ ___
     - [Shift Instructions](#shift-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [Conditional Instructions](#conditional-instructions)
+    - [Control transfer Instructions](#control-transfer-instructions-1)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -70,6 +71,7 @@ ___
     - [Shift Instructions](#shift-instructions)
     - [Control Transfer Instructions](#control-transfer-instructions)
     - [Conditional Instructions](#conditional-instructions)
+    - [Control transfer Instructions](#control-transfer-instructions-1)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -169,6 +171,19 @@ auipc
 | **ilti?** | Is Less Than Immediate? | Compares the signed value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```ilti? rd, r1, immediate``` |
 | **iltu?** | Is Less Than Unsigned?	| Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0	| ```iltu? rd, r1, r2``` |
 | **iltui?** | Is Less Than Unsigned Immediate?	| Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0	| ```iltui? rd, r1, immediate``` |
+
+#### Control transfer Instructions
+
+| ALGORISK instuctions |Expanding| Description| Example |
+| ---| --- | --- | --- |
+| **jie** | Jump If Equal	| Jumps to a label if two registers are equal	| ```jie r1, r2, label``` |
+| **jine** | Jump If Not Equal | Jumps to a label if two registers are not equal	| ```jine r1, r2, label``` |
+| **jige** | Jump If Greater or Equal	| Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register	| ```jige r1, r2, label``` |
+| **jigeu** | Jump If Greater or Equal Unsigned	| Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register	| ```jigeu r1, r2, label``` |
+| **jile** | Jump If Less or Equal	| Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register	| ```jile r1, r2, label``` |
+| **jileu** | Jump If Less or Equal Unsigned	| Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register	| ```jileu r1, r2, label``` |
+| **jal** | Jump And Link	| Jumps to a label and stores the return address in a register	| ```jal rd, label``` |
+| **jalr** | Jump And Link Register	| Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register	 | ```jalr rd, r1, offset``` |
 
 #### Special Instructions
 
