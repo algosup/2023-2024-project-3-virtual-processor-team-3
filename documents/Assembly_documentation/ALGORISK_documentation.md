@@ -38,7 +38,7 @@ ___
 - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
   - [Assembler overview](#assembler-overview)
     - [Registers](#registers)
-  - [Assembler Directives](#assembler-directives)
+  - [Assembler Sections](#assembler-sections)
 - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
   - [General Purpose Instructions](#general-purpose-instructions)
     - [Data Transfer Instructions](#data-transfer-instructions)
@@ -75,7 +75,11 @@ The ALGORISK Assembly possesses multiple registers which can be grouped into 3 c
   - csr (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. They are hidden from the user.
 
 
-### Assembler Directives
+### Assembler Sections
+
+Sections differentiates the variables set by the users from the actual code of the program.
+
+ALGORISK possesses 2 sections:
 
 .data
 .code
