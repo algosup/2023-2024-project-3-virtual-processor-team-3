@@ -14,10 +14,10 @@ We've been focusing on another project that was given to us in Git class.
 
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
-| Processor development   | Malo, Quentin    |    70%           | 70%  | 01/24/2024     |
-| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 01/24/2024    |
-| Test Plan               | Arthur           |    85%           | 85%     |  01/11/2024 |
-| Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 01/05/2024  |
+| Processor development   | Malo, Quentin    |    70%           | 70%  | 24/01/2024     |
+| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 24/01/2024    |
+| Test Plan               | Arthur           |    85%           | 85%     |  17/01/2024 |
+| Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 12/01/2024  |
 
 ### Cheat Sheet
 
@@ -31,8 +31,8 @@ We've been focusing on another project that was given to us in Git class.
 
 | Task  | Member(s) Assigned | Start Date | End Date |
 | :---: | :----------------: | :--------: | :------: |
-| Test Cases | Arthur        | 02/01/2024 |  02/09/2024|
-| Technical Specifications Review | Thibaud | 02/05/2024 | 02/09/2024 |
+| Test Cases | Arthur        | 01/02/2024 |  09/02/2024|
+| Technical Specifications Review | Thibaud | 05/02/2024 | 09/02/2024 |
 
 ### <u>Team meeting</u>
 

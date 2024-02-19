@@ -13,12 +13,12 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 |           Task            | Member Assigned | Progression | End Of Week objective | Start Date |
 | :-----------------------: | :-------------: | :---------: | :-------------------: | :--------: |
-|  Technical specification  |    Aurélien     |     50%     |          25%          | 01/17/2024 |
-| Functional specification  |     Quentin     |     70%     |          80%          | 01/17/2024 |
-|         Test Plan         |     Arthur      |     25%     |          20%          | 01/11/2024 |
-| Creation of the processor |      Malo       |     40%     |          30%          | 01/24/2024 |
-| Creation of the assembler |     Mathis      |     50%     |          30%          | 01/24/2024 |
-|   Update of weekly KPIs   |     Thibaud     |     80%     |          90%          | 01/26/2024 |
+|  Technical specification  |    Aurélien     |     50%     |          25%          | 17/01/2024 |
+| Functional specification  |     Quentin     |     70%     |          80%          | 17/01/2024 |
+|         Test Plan         |     Arthur      |     25%     |          20%          | 11/01/2024 |
+| Creation of the processor |      Malo       |     40%     |          30%          | 24/01/2024 |
+| Creation of the assembler |     Mathis      |     50%     |          30%          | 24/01/2024 |
+|   Update of weekly KPIs   |     Thibaud     |     80%     |          90%          | 26/01/2024 |
 
 ### Cheat Sheet
 
@@ -32,13 +32,13 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 |                 Task                  | Member(s) Assigned | Start Date |  End Date  |
 | :-----------------------------------: | :----------------: | :--------: | :--------: |
-|            Development WBS            |       Mathis       | 01/17/2024 | 01/23/2024 |
-| Defining Last Details Of The Assembly |     Whole Team     | 01/22/2024 | 01/23/2024 |
-|    Described the Interpreter goal     |        Malo        | 01/22/2024 | 01/22/2024 |
-|       Risk Mitigation Document        |      Thibaud       | 01/24/2024 | 01/25/2024 |
-|          KPI Initialization           |      Thibaud       | 01/24/2024 | 01/26/2024 |
-|          1st assembly files           |   Malo & Mathis    | 01/25/2024 | 01/25/2024 |
-|      Creation of personas - Func      |       Mathis       | 01/26/2024 | 01/26/2024 |
+|            Development WBS            |       Mathis       | 17/01/2024 | 23/01/2024 |
+| Defining Last Details Of The Assembly |     Whole Team     | 22/01/2024 | 23/01/2024 |
+|    Described the Interpreter goal     |        Malo        | 22/01/2024 | 22/01/2024 |
+|       Risk Mitigation Document        |      Thibaud       | 24/01/2024 | 25/01/2024 |
+|          KPI Initialization           |      Thibaud       | 24/01/2024 | 26/01/2024 |
+|          1st assembly files           |   Malo & Mathis    | 25/01/2024 | 25/01/2024 |
+|      Creation of personas - Func      |       Mathis       | 26/01/2024 | 26/01/2024 |
 
 ### <u>Team meeting</u>
 
