@@ -249,7 +249,7 @@ void execute(cpu_t* cpu)
             {
                 if (cpu->r[cpu->arg1] == cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
@@ -260,7 +260,7 @@ void execute(cpu_t* cpu)
             {
                 if (cpu->r[cpu->arg1] != cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
@@ -271,7 +271,7 @@ void execute(cpu_t* cpu)
             {
                 if (cpu->r[cpu->arg1] >= cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
@@ -282,7 +282,7 @@ void execute(cpu_t* cpu)
             {
                 if ((uint)cpu->r[cpu->arg1] >= (uint)cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
@@ -293,7 +293,7 @@ void execute(cpu_t* cpu)
             {
                 if (cpu->r[cpu->arg1] <= cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
@@ -304,7 +304,7 @@ void execute(cpu_t* cpu)
             {
                 if ((uint)cpu->r[cpu->arg1] <= (uint)cpu->r[cpu->arg2])
                 {
-                    cpu->pc = cpu->immediate;
+                    cpu->pc += cpu->immediate;
                 }
                 else
                 {
