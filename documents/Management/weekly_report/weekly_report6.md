@@ -7,7 +7,7 @@
 
 ### <u> Introduction </u>
 
-This week marks the 6th week of the Virutal Processor project. We are getting closer and closer to the final deadline. This week, we had fourteen hours of project available to us. Moreover, the Test Plan was due for the 16th of February.
+This week marks the 6th week of the Virtual Processor project. We are getting closer and closer to the final deadline. This week, we had fourteen hours of projects available to us. Moreover, the Test Plan was due on the 16th of February.
 
 ### <u> Ongoing Tasks</u>
 
@@ -22,7 +22,7 @@ This week marks the 6th week of the Virutal Processor project. We are getting cl
 
 | Percentage | 0%                           | 0% < 10%                                                                                         | 10% < 75%                                           | 75% < 90%                       | 90% < 99%                       | 100%                           |
 | ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------- | ------------------------------- | ------------------------------ |
-| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates, and  details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
+| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates and details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
 
 <br>
 
@@ -35,13 +35,13 @@ This week marks the 6th week of the Virutal Processor project. We are getting cl
 
 ### <u>Team meeting</u>
 
-The team first gathered on monday the 12th of january 2024, after briefly discussing the various progress made during the weekend, the team quickly got back to work on the various task that were dispatched. We agreed on starting to create the Assembly documentation during the week. Moreover, the development team started to implement various features.
-On friday the 16th, no meeting was "held" as we had to release the Test Plan, however, during the afternoon, we still had small talks about the week and about the next few weeks.
+The team first gathered on Monday the 12th of February 2024. After briefly discussing the various progress made during the weekend, the team quickly got back to work on the various tasks that were dispatched. We agreed to start to create the Assembly documentation during the week. Moreover, the development team started to implement various features.
+On Friday the 16th, no meeting was "held" as we had to release the Test Plan, however, during the afternoon, we still had small talks about the week and the next few weeks.
 
 ### <u>Week feedback</u>
 
-The team is positive about the progress on the project and we expect to be respect deadlines, however, we're finding out that some nice to have features we would have liked to add to our product will most likely be present in the final product, as we are starting to get low on available hours. Moreover, we will need to prepare the oral presentation which will occupy most of our time during the next weeks.
-We will most likely check all the requirements, but we will most likely not being able to have a fully working products, nice to have wise.
+The team is positive about the progress of the project and we expect to respect deadlines. However, we're finding out that some nice-to-have features we would have liked to add to our product will most likely be present in the final product, as we are starting to get low on available hours. Moreover, we will need to prepare the oral presentation which will occupy most of our time during the coming weeks.
+We will most likely check all the requirements, but we will most likely not be able to have a fully working product, with nice-to-have features.
 
 ### <u>Next week planning </u>
 
