@@ -13,6 +13,12 @@
 void fetch(cpu_t* cpu);
 void execute(cpu_t* cpu);
 
+/** This function initialises a new cpu in the memory.
+*It loads the binary code in the virtual memory allocated to the cpu, and initialises all the registers at 0.
+* @param mem: the binary code, 
+* @param maxmem: max size of the memory
+* @result cpu_t *cpu: the cpu created
+*/
 cpu_t* new_cpu(uint *mem, int maxmem)
 {
     cpu_t* cpu = malloc(sizeof(cpu_t));
@@ -27,11 +33,19 @@ cpu_t* new_cpu(uint *mem, int maxmem)
     return cpu;
 }
 
+/** This function free the memory that was allocated to the cpu.
+* @param cpu: cpu_t* cpu: current created cpu
+* @result: None
+*/
 void free_cpu(cpu_t* cpu)
 {
     free(cpu);
 }
 
+/** This function executes the code stored in the memory of the cpu.
+* @param cpu: cpu_t* cpu: current created cpu
+* @result: None
+*/
 void run_cpu(cpu_t* cpu)
 {
     while (cpu->pc/4 < cpu->max_mem)
@@ -41,11 +55,21 @@ void run_cpu(cpu_t* cpu)
     }
 }
 
+/** This function takes the last 7 bits of the current 32 bits of code.
+*The last 7 bits determines which type of operation will be executed.
+* @param cpu: cpu_t* cpu: current created cpu
+* @result: None
+*/
 void fetch(cpu_t* cpu)
 {
     cpu->instruction = (cpu->mem[cpu->pc/4] << 25) >> 25;
 }
 
+/** This function executes the current line of binary code.
+* It checks the operation type, load the different arguments and does the operation required.
+* @param cpu: cpu_t* cpu: current created cpu
+* @result: None
+*/
 void execute(cpu_t* cpu)
 {
     switch(cpu->instruction)
