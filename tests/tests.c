@@ -3,12 +3,14 @@
 void sumInt(void);
 void fibonacci(void);
 void factorial(void);
+void power(void);
 
 int main(void)
 {
     sumInt();
     fibonacci();
     factorial();
+    power();
     return 0;
 }
 
@@ -70,5 +72,25 @@ void factorial(void){
     cpu_t *cpu = new_cpu(mem, maxmem);
     run_cpu(cpu);
     printf("Factorial: %d\n", cpu->r[1]);
+    free_cpu(cpu);
+}
+
+void power(void)
+{
+    uint mem[]=
+    {
+        0B00000000011000000000000010010011, // addi x1, x0, 6
+        0B00000000001100000000000100010011, // addi x2, x0, 3
+        0B00000000000100000000000110010011, // addi x3, x0, 1
+        //
+        0B00000010001100001000000110110011, // mul x3, x3, x1
+        0B11111111111100010000000100010011, // addi x2, x2, -1
+        0B00000000001000000101011001100011, // jine x3, x0, 12
+    };
+
+    int maxmem = sizeof(mem)/sizeof(mem[0]);
+    cpu_t *cpu = new_cpu(mem, maxmem);
+    run_cpu(cpu);
+    printf("Power: %d\n", cpu->r[3]);
     free_cpu(cpu);
 }
