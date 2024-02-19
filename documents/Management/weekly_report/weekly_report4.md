@@ -17,10 +17,10 @@ This document will show the weekly progress made on the project, on various task
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
 | Technical Specification Review | Arthur, Thibaud, Quentin     |    60%     | 0%   | 02/02/2024    |
-| Test Plan                      | Arthur                       |    80%     | 50%  | 01/11/2024    |
-| Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
-| Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
-| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 01/24/2024    |
+| Test Plan                      | Arthur                       |    80%     | 50%  | 11/01/2024    |
+| Test Cases                     | Arthur                       |    70%     | 80%  | 20/01/2024    |
+| Processor development          | Malo, Quentin                |    75%     | 70%  | 24/01/2024    |
+| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 24/01/2024    |
 
 ### Cheat Sheet
 
@@ -34,13 +34,13 @@ This document will show the weekly progress made on the project, on various task
 
 | Task  | Member(s) Assigned | Start Date | End Date |
 | :---: | :----------------: | :--------: | :------: |
-| Functional Specifications  |  Quentin   |    01/17/2024        |  01/30/2024       |
-| Functional Specification review  |   Arthur, Thibaud, Aurélien |   01/29/2024      |  01/30/2024        |
-| Functional Specification submition  |  Quentin, Aurélien, Thibaud |   01/30/2024   |  01/30/2024        |
-| Creation of a cheat sheet with Assembly instruction  | Mathis  |  02/01/2024        | 02/02/2024 |
-| Management Communication Plan    | Thibaud                      | 02/01/2024           | 02/02/2024    |
+| Functional Specifications  |  Quentin   |    17/01/2024        |  30/01/2024       |
+| Functional Specification review  |   Arthur, Thibaud, Aurélien |   29/01/2024      |  30/01/2024        |
+| Functional Specification submition  |  Quentin, Aurélien, Thibaud |   30/01/2024   |  30/01/2024        |
+| Creation of a cheat sheet with Assembly instruction  | Mathis  |  01/02/2024        | 02/02/2024 |
+| Management Communication Plan    | Thibaud                      | 01/02/2024           | 02/02/2024    |
 | Update of weekly KPIs    |   Thibaud  |  02/02/2024    |   02/02/2024    |
-| Technical Specifications |  Aurélien  |  01/17/2024          |  02/02/2024        |
+| Technical Specifications |  Aurélien  |  17/01/2024          |  02/02/2024        |
 
 ### <u>Team meeting</u>
 

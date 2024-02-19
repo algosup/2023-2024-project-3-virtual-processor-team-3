@@ -15,7 +15,7 @@ Thank you!
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 1</summary>
 
-## Week 1
+## Weekly Report N°1  
 
 ### <u> Introduction </u>
 
@@ -25,10 +25,10 @@ This week starts off the beginning of the Virtual Processor project, we've recei
 
 |           Task           | Member Assigned  | Progression | End Of Week objective | Start Date |
 | :----------------------: | :--------------: | :---------: | :-------------------: | :--------: |
-|        Learning C        | All team members |     40%     |          50%          | 01/08/2024 |
-|     Project Charter      |     Thibaud      |     10%     |          60%          | 01/12/2024 |
-| Functional specification |     Quentin      |     20%     |          20%          | 01/11/2024 |
-|        Test Plan         |      Arthur      |     10%     |          10%          | 01/11/2024 |
+|        Learning C        | All team members |     40%     |          50%          | 08/01/2024 |
+|     Project Charter      |     Thibaud      |     10%     |          60%          | 12/01/2024 |
+| Functional specification |     Quentin      |     20%     |          20%          | 11/01/2024 |
+|        Test Plan         |      Arthur      |     10%     |          10%          | 11/01/2024 |
 
 ### Cheat Sheet
 
@@ -40,8 +40,8 @@ This week starts off the beginning of the Virtual Processor project, we've recei
 
 |          Task           | Member Assigned | Start Date |  End Date  |
 | :---------------------: | :-------------: | :--------: | :--------: |
-| Github Repository setup |    Aurélien     | 01/11/2024 | 01/11/2024 |
-|   1st Meeting report    |     Thibaud     | 01/10/2024 | 01/10/2024 |
+| Github Repository setup |    Aurélien     | 11/01/2024 | 11/01/2024 |
+|   1st Meeting report    |     Thibaud     | 10/01/2024 | 10/01/2024 |
 
 ### <u>Team meeting</u>
 
@@ -77,7 +77,7 @@ Next week's priorities are:
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 2</summary>
 
-## Week 2
+## Weekly Report N°2
 
 ### <u> Introduction </u>
 
@@ -87,10 +87,10 @@ This week was once more ruled by learning the C language which is necessary for 
 
 |           Task           | Member Assigned |  Progression   | End Of Week objective | Start Date |
 | :----------------------: | :-------------: | :------------: | :-------------------: | :--------: |
-|     Development WBS      |     Mathis      | Pending review |    Pending review     | 01/17/2024 |
-| Technical specification  |    Aurélien     |      10%       |          10%          | 01/17/2024 |
-| Functional specification |     Quentin     |      25%       |          25%          | 01/17/2024 |
-|        Test Plan         |     Arthur      | No Progression |           \           | 01/11/2024 |
+|     Development WBS      |     Mathis      | Pending review |    Pending review     | 17/01/2024 |
+| Technical specification  |    Aurélien     |      10%       |          10%          | 17/01/2024 |
+| Functional specification |     Quentin     |      25%       |          25%          | 17/01/2024 |
+|        Test Plan         |     Arthur      | No Progression |           \           | 11/01/2024 |
 
 ### Cheat Sheet
 
@@ -102,8 +102,8 @@ This week was once more ruled by learning the C language which is necessary for 
 
 |        Task         | Member(s) Assigned | Start Date |  End Date  |
 | :-----------------: | :----------------: | :--------: | :--------: |
-| Learning C Language |     Whole team     | 01/11/2024 | 01/19/2024 |
-|   Project Charter   |      Thibaud       | 12/01/2024 | 01/21/2024 |
+| Learning C Language |     Whole team     | 11/01/2024 | 19/01/2024 |
+|   Project Charter   |      Thibaud       | 12/01/2024 | 21/01/2024 |
 
 ### <u>Team meeting</u>
 
@@ -121,7 +121,7 @@ The 17th of January 2024, we gathered for the first during project time to have 
 
 This week didn't mark any great advancement document writing-wise, but gathering to take all these decisions was necessary. We are sure to all have the same scope for the project. We still have yet to decide on all the specifications for the project, but this will be done shortly.
 
-### <u>Next week planning</u>
+### <u>Next week planning </u>
 
 * Initial meeting on Monday the 22nd
 * Functional specification near finalization
@@ -137,7 +137,7 @@ This week didn't mark any great advancement document writing-wise, but gathering
 <details>
 <summary style="font-size:1.2em; font-weight:bold;">Week 3</summary>
 
-## Week 3
+## Weekly Report N°3
 
 ### <u> Introduction </u>
 
@@ -147,12 +147,12 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 |           Task            | Member Assigned | Progression | End Of Week objective | Start Date |
 | :-----------------------: | :-------------: | :---------: | :-------------------: | :--------: |
-|  Technical specification  |    Aurélien     |     50%     |          25%          | 01/17/2024 |
-| Functional specification  |     Quentin     |     70%     |          80%          | 01/17/2024 |
-|         Test Plan         |     Arthur      |     25%     |          20%          | 01/11/2024 |
-| Creation of the processor |      Malo       |     40%     |          30%          | 01/24/2024 |
-| Creation of the assembler |     Mathis      |     50%     |          30%          | 01/24/2024 |
-|   Update of weekly KPIs   |     Thibaud     |     80%     |          90%          | 01/26/2024 |
+|  Technical specification  |    Aurélien     |     50%     |          25%          | 17/01/2024 |
+| Functional specification  |     Quentin     |     70%     |          80%          | 17/01/2024 |
+|         Test Plan         |     Arthur      |     25%     |          20%          | 11/01/2024 |
+| Creation of the processor |      Malo       |     40%     |          30%          | 24/01/2024 |
+| Creation of the assembler |     Mathis      |     50%     |          30%          | 24/01/2024 |
+|   Update of weekly KPIs   |     Thibaud     |     80%     |          90%          | 26/01/2024 |
 
 ### Cheat Sheet
 
@@ -166,13 +166,13 @@ Third week of the Virtual Processor project, for ALGOSUP. This week was ruled by
 
 |                 Task                  | Member(s) Assigned | Start Date |  End Date  |
 | :-----------------------------------: | :----------------: | :--------: | :--------: |
-|            Development WBS            |       Mathis       | 01/17/2024 | 01/23/2024 |
-| Defining Last Details Of The Assembly |     Whole Team     | 01/22/2024 | 01/23/2024 |
-|    Described the Interpreter goal     |        Malo        | 01/22/2024 | 01/22/2024 |
-|       Risk Mitigation Document        |      Thibaud       | 01/24/2024 | 01/25/2024 |
-|          KPI Initialization           |      Thibaud       | 01/24/2024 | 01/26/2024 |
-|          1st assembly files           |   Malo & Mathis    | 01/25/2024 | 01/25/2024 |
-|      Creation of personas - Func      |       Mathis       | 01/26/2024 | 01/26/2024 |
+|            Development WBS            |       Mathis       | 17/01/2024 | 23/01/2024 |
+| Defining Last Details Of The Assembly |     Whole Team     | 22/01/2024 | 23/01/2024 |
+|    Described the Interpreter goal     |        Malo        | 22/01/2024 | 22/01/2024 |
+|       Risk Mitigation Document        |      Thibaud       | 24/01/2024 | 25/01/2024 |
+|          KPI Initialization           |      Thibaud       | 24/01/2024 | 26/01/2024 |
+|          1st assembly files           |   Malo & Mathis    | 25/01/2024 | 25/01/2024 |
+|      Creation of personas - Func      |       Mathis       | 26/01/2024 | 26/01/2024 |
 
 ### <u>Team meeting</u>
 
@@ -219,10 +219,10 @@ This document will show the weekly progress made on the project, on various task
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
 | Technical Specification Review | Arthur, Thibaud, Quentin     |    60%     | 0%   | 02/02/2024    |
-| Test Plan                      | Arthur                       |    80%     | 50%  | 01/11/2024    |
-| Test Cases                     | Arthur                       |    70%     | 80%  | 02/01/2024    |
-| Processor development          | Malo, Quentin                |    75%     | 70%  | 01/24/2024    |
-| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 01/24/2024    |
+| Test Plan                      | Arthur                       |    80%     | 50%  | 11/01/2024    |
+| Test Cases                     | Arthur                       |    70%     | 80%  | 20/01/2024    |
+| Processor development          | Malo, Quentin                |    75%     | 70%  | 24/01/2024    |
+| Assembler development          | Mathis, Quentin              |    75%      | 70%  | 24/01/2024    |
 
 ### Cheat Sheet
 
@@ -236,13 +236,13 @@ This document will show the weekly progress made on the project, on various task
 
 | Task  | Member(s) Assigned | Start Date | End Date |
 | :---: | :----------------: | :--------: | :------: |
-| Functional Specifications  |  Quentin   |    01/17/2024        |  01/30/2024       |
-| Functional Specification review  |   Arthur, Thibaud, Aurélien |   01/29/2024      |  01/30/2024        |
-| Functional Specification submition  |  Quentin, Aurélien, Thibaud |   01/30/2024   |  01/30/2024        |
-| Creation of a cheat sheet with Assembly instruction  | Mathis  |  02/01/2024        | 02/02/2024 |
-| Management Communication Plan    | Thibaud                      | 02/01/2024           | 02/02/2024    |
+| Functional Specifications  |  Quentin   |    17/01/2024        |  30/01/2024       |
+| Functional Specification review  |   Arthur, Thibaud, Aurélien |   29/01/2024      |  30/01/2024        |
+| Functional Specification submition  |  Quentin, Aurélien, Thibaud |   30/01/2024   |  30/01/2024        |
+| Creation of a cheat sheet with Assembly instruction  | Mathis  |  01/02/2024        | 02/02/2024 |
+| Management Communication Plan    | Thibaud                      | 01/02/2024           | 02/02/2024    |
 | Update of weekly KPIs    |   Thibaud  |  02/02/2024    |   02/02/2024    |
-| Technical Specifications |  Aurélien  |  01/17/2024          |  02/02/2024        |
+| Technical Specifications |  Aurélien  |  17/01/2024          |  02/02/2024        |
 
 ### <u>Team meeting</u>
 
@@ -280,8 +280,6 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 * 60% completion for the Assembler development
 * Start the development of the debugger
 
-Note: this document is subject to change.
-
 </details>
 
 <details>
@@ -298,10 +296,10 @@ We've been focusing on another project that was given to us in Git class.
 
 | Task  | Member Assigned | Progression | End Of Week objective | Start Date |
 | :---: | :-------------: | :---------: | :-------------------: | :--------: |
-| Processor development   | Malo, Quentin    |    70%           | 70%  | 01/24/2024     |
-| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 01/24/2024    |
-| Test Plan               | Arthur           |    85%           | 85%     |  01/11/2024 |
-| Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 01/05/2024  |
+| Processor development   | Malo, Quentin    |    70%           | 70%  | 24/01/2024     |
+| Assembler development   | Mathis, Quentin  |    75%           | 80%  | 24/01/2024    |
+| Test Plan               | Arthur           |    85%           | 85%     |  17/01/2024 |
+| Debugger development    | Quentin, Aurélien, Malo, Mathis     | 5%    |   10% | 12/01/2024  |
 
 ### Cheat Sheet
 
@@ -315,8 +313,8 @@ We've been focusing on another project that was given to us in Git class.
 
 | Task  | Member(s) Assigned | Start Date | End Date |
 | :---: | :----------------: | :--------: | :------: |
-| Test Cases | Arthur        | 02/01/2024 |  02/09/2024|
-| Technical Specifications Review | Thibaud | 02/05/2024 | 02/09/2024 |
+| Test Cases | Arthur        | 01/02/2024 |  09/02/2024|
+| Technical Specifications Review | Thibaud | 05/02/2024 | 09/02/2024 |
 
 ### <u>Team meeting</u>
 
@@ -345,6 +343,56 @@ For a more detailed breakdown, please refer to the Gant chart: [Link](https://gi
 <summary style="font-size:1.2em; font-weight:bold;">Week 6</summary>
 
 ## Week 6
+
+## Weekly Report N°6
+
+### <u> Introduction </u>
+
+This week marks the 6th week of the Virutal Processor project. We are getting closer and closer to the final deadline. This week, we had fourteen hours of project available to us. Moreover, the Test Plan was due for the 16th of February.
+
+### <u> Ongoing Tasks</u>
+
+| Task  | Member Assigned | Progression | End Of Week objective | Start Date |
+| :---: | :-------------: | :---------: | :-------------------: | :--------: |
+| Processor development       |   Malo, Quentin              |    90%         |          100%            | 24/01/2024       |
+| Assembler development      |  Mathis, Quentin                |      90%       |    100%                   | 24/01/2024           |
+| Debugger development     |    Quentin, Aurélien, Malo, Mathis             |     30%          |          15%             |    12/01/2024        |
+| Assembly documentation      |Thibaud, Aurélien                 |             |                       |   14/02/2024          |
+
+### Cheat Sheet
+
+| Percentage | 0%                           | 0% < 10%                                                                                         | 10% < 75%                                           | 75% < 90%                       | 90% < 99%                       | 100%                           |
+| ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------- | ------------------------------- | ------------------------------- | ------------------------------ |
+| Meaning    | The task hasn't been started | The basics of the task have been begun, with no details. Could either be templates, and  details | The task progresses with a steady advancement flow. | The task is approaching review. | The task is pending for review. | The task is done and included. |
+
+<br>
+
+### <u>Finished Tasks</u>
+
+| Task  | Member(s) Assigned | Start Date | End Date |
+| :---: | :----------------: | :--------: | :------: |
+| Test Plan | Arthur         | 17/01/2024 | 19/02/2024 |
+| Test Plan Review | Thibaud | 19/02/2024 | 19/02/2024 |
+
+### <u>Team meeting</u>
+
+The team first gathered on monday the 12th of january 2024, after briefly discussing the various progress made during the weekend, the team quickly got back to work on the various task that were dispatched. We agreed on starting to create the Assembly documentation during the week. Moreover, the development team started to implement various features.
+On friday the 16th, no meeting was "held" as we had to release the Test Plan, however, during the afternoon, we still had small talks about the week and about the next few weeks.
+
+### <u>Week feedback</u>
+
+The team is positive about the progress on the project and we expect to be respect deadlines, however, we're finding out that some nice to have features we would have liked to add to our product will most likely be present in the final product, as we are starting to get low on available hours. Moreover, we will need to prepare the oral presentation which will occupy most of our time during the next weeks.
+We will most likely check all the requirements, but we will most likely not being able to have a fully working products, nice to have wise.
+
+### <u>Next week planning </u>
+
+For a more detailed breakdown, please refer to the Gant chart: [Link](https://github.com/users/Biohazardyee/projects/2/views/2))
+
+* Near the finalization of the processor and the assembly
+* Try to have a small working debugger
+* Start working on the oral presentation
+* Quality check the whole product
+* Finalize the assembly documentation
 
 </details>
 
