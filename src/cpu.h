@@ -268,7 +268,11 @@ void execute(cpu_t* cpu)
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27;
             cpu->arg2 = (cpu->mem[cpu->pc/4] << 7) >> 27;
-            cpu->immediate = ((cpu->mem[cpu->pc/4] << 20) >> 28)*2 + ((cpu->mem[cpu->pc/4] << 1) >> 26)*32 + ((cpu->mem[cpu->pc/4] << 24) >> 31)*2048 + (cpu->mem[cpu->pc/4] >> 31)*4096;
+            cpu->immediate = ((cpu->mem[cpu->pc/4] << 20) >> 28)*2 + 
+                                ((cpu->mem[cpu->pc/4] << 1) >> 26)*32 + 
+                                ((cpu->mem[cpu->pc/4] << 24) >> 31)*2048 + 
+                                (cpu->mem[cpu->pc/4] >> 31)*4096;
+
             if (cpu->func3 == 1) // jie
             {
                 if (cpu->r[cpu->arg1] == cpu->r[cpu->arg2])
@@ -339,6 +343,13 @@ void execute(cpu_t* cpu)
         case JALR:
             break;
         case JAL:
+            cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
+            cpu->immediate = ((cpu->mem[cpu->pc/4] << 7) >> 28)*2 + 
+                                ((cpu->mem[cpu->pc/4] << 1) >> 26)*32 + 
+                                ((cpu->mem[cpu->pc/4] << 11) >> 31)*2048 + 
+                                ((cpu->mem[cpu->pc/4] << 12) >> 24)*4096 + 
+                                (cpu->mem[cpu->pc/4] >> 31)* pow(2, 20);
+            cpu->r[cpu->destination] = cpu->immediate;
             break;
         case SYSTEM:
             break;
