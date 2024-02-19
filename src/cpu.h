@@ -79,7 +79,7 @@ void execute(cpu_t* cpu)
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27; // address to take from
             cpu->immediate = ((int)cpu->mem[cpu->pc/4] >> 20); // offset from this address
-            if (cpu->func3 == 1) // lb
+            if (cpu->func3 == 0) // lb
             {
                 if (cpu->mem[cpu->arg1 + cpu->immediate] >> 7 == 0)
                 {
@@ -91,7 +91,7 @@ void execute(cpu_t* cpu)
                     cpu->r[cpu->destination] = (cpu->r[cpu->destination] << 24) >> 24;
                 }
             }
-            else if (cpu->func3 == 0B10) // lh
+            else if (cpu->func3 == 0B1) // lh
             {
                 if (cpu->mem[cpu->arg1 + cpu->immediate] >> 15 == 0)
                 {
@@ -103,7 +103,7 @@ void execute(cpu_t* cpu)
                     cpu->r[cpu->destination] = (cpu->r[cpu->destination] << 16) >> 16;
                 }
             }
-            else if (cpu->func3 == 0B11 || cpu->func3 == 0B100 || cpu->func3 == 0B101) // lw || lbu || lhu
+            else if (cpu->func3 == 0B10 || cpu->func3 == 0B11 || cpu->func3 == 0B100) // lw || lbu || lhu
             {
                 cpu->r[cpu->destination] = cpu->mem[cpu->r[cpu->arg1]/4 + cpu->immediate/4];
             }
