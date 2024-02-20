@@ -40,7 +40,7 @@ ___
     - [Registers](#registers)
   - [Assembler Sections](#assembler-sections)
     - [Data section](#data-section)
-    - [Code section](#code-section)
+    - [Code Section](#code-section)
 - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
   - [General Purpose Instructions](#general-purpose-instructions)
     - [Data Transfer Instructions](#data-transfer-instructions)
@@ -48,7 +48,7 @@ ___
     - [Logical Instructions](#logical-instructions)
     - [Shift Instructions](#shift-instructions)
     - [Conditional Instructions](#conditional-instructions)
-    - [Control transfer Instructions](#control-transfer-instructions)
+    - [Control Transfer Instructions](#control-transfer-instructions)
     - [Special Instructions](#special-instructions)
 - [Index](#index)
 
@@ -69,16 +69,15 @@ The ALGORISK Assembly documentation is aimed at every user of our Assembler. It 
 The ALGORISK Assembly possesses multiple registers which can be grouped into 3 categories.
 
 - Integer registers: from r1 to r16.
-- Floating registers: from r17 to32.
+- Floating registers: from r17 to 32.
 - Special registers:
   - r0: A constant register set to 0.
   - pc (program counter): Holds the address in memory of the next instruction to be fetched.
-  - ir (instruction register): Holds the current instruction being executed.
-  - csr (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. They are hidden from the user.
+  - ir (instruction register): Holds the current instruction being executed.CSR (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. They are hidden from the user.
 
 ### Assembler Sections
 
-Sections differentiates the variables set by the users from the actual code of the program.
+Sections differentiate the variables set by the users from the actual code of the program.
 
 ALGORISK possesses 2 sections:
 
@@ -117,7 +116,7 @@ It's important to note that there are no explicitly unsigned types. The signedne
 For instance, when loading or storing data using specific instructions, the signedness is inferred from the type of instruction being used (signed and unsigned instructions will be explained in the following part). \
 Always consider the context and the specific requirements of the instruction when working with different data types in ALGORISK assembly.
 
-#### Code section
+#### Code Section
 
 Code section: Contains the program's instructions. \
 The code section is delimited by the .code directive. The declaration of a constant or a variable will be done like this:
@@ -201,7 +200,7 @@ The logical instructions perform basic logical operations on their operands.
 | **iltu?** | Is Less Than Unsigned? | Compares the unsigned values of two registers, stores 1 if the first register is less than the second register, otherwise stores 0 | ```iltu? rd, r1, r2``` |
 | **iltui?** | Is Less Than Unsigned Immediate? | Compares the unsigned value of a register with an immediate, stores 1 if the register is less than the immediate, otherwise stores 0 | ```iltui? rd, r1, immediate``` |
 
-#### Control transfer Instructions
+#### Control Transfer Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
