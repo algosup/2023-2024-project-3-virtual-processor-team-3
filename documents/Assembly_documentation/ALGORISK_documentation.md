@@ -39,6 +39,8 @@ ___
   - [Assembler overview](#assembler-overview)
     - [Registers](#registers)
   - [Assembler Sections](#assembler-sections)
+    - [Data section](#data-section)
+    - [Code section](#code-section)
 - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
   - [General Purpose Instructions](#general-purpose-instructions)
     - [Data Transfer Instructions](#data-transfer-instructions)
@@ -68,12 +70,11 @@ The ALGORISK Assembly possesses multiple registers which can be grouped into 3 c
 
 - Integer registers: from r1 to r16.
 - Floating registers: from r17 to32.
-- Special registers: 
+- Special registers:
   - r0: A constant register set to 0.
   - pc (program counter): Holds the address in memory of the next instruction to be fetched.
   - ir (instruction register): Holds the current instruction being executed.
   - csr (Control and status register): Holds the processor's configurations, it contains possible extensions of the instruction set, the information of the constructor, the architecture, and the implementation. They are hidden from the user.
-
 
 ### Assembler Sections
 
@@ -81,8 +82,47 @@ Sections differentiates the variables set by the users from the actual code of t
 
 ALGORISK possesses 2 sections:
 
+#### Data section
+
+Data section: Contains the program's data, such as variables and constants. \
+The data section is determined by the .data directive and the declaration of a constant or a variable will be done like this:
+```
 .data
-.code
+    myVariable: .type value
+The different types of data will be:
+```
+
+.byte: 8-bit signed integer \
+.half: 16-bit signed integer \
+.word: 32-bit signed integer \
+.float: 32-bit floating-point number \
+.string: null-terminated string \
+.alloc: allocate the number of bytes specified by the following integer in memory. \
+To declare arrays, you need to specify both the data type and the values for each element. 
+
+Examples:
+```
+.data
+    myByte: .byte 255 // max value for a byte
+    myHalf: .half 32767 // max value for a half
+    myWord: .word 2147483647 // max value for a word
+    myFloat: .float 3.402823466e+38 // max value for a float
+    myString: .string "Hello, ALGORISK users!" // the max length depends on the available space in memory
+    myAlloc: .alloc // the max length depends on the maximum contiguous free space in memory
+
+    myArray: .word 1, 2, 3, 4, 5 // an array of 5 words
+```
+
+It's important to note that there are no explicitly unsigned types. The signedness of the data is often determined by the context in which it is used. \
+For instance, when loading or storing data using specific instructions, the signedness is inferred from the type of instruction being used (signed and unsigned instructions will be explained in the following part). \
+Always consider the context and the specific requirements of the instruction when working with different data types in ALGORISK assembly.
+
+#### Code section
+
+Code section: Contains the program's instructions. \
+The code section is delimited by the .code directive. The declaration of a constant or a variable will be done like this:
+
+
 
 ## Chapter 2: Instruction Set
 
