@@ -121,9 +121,12 @@ Always consider the context and the specific requirements of the instruction whe
 Code section: Contains the program's instructions. \
 The code section is delimited by the .code directive. The declaration of a constant or a variable will be done like this:
 
+where:
+- rd means register destination, the register where the result will be stored.
+- the number of parameters and their type may vary depending on the instruction.
 ```
 .code 
-    [instruction] rd, parameter1, parameter2 (if needed)
+    [instruction] rd, parameter1, parameter2
 ```
 
 Examples:
@@ -147,10 +150,9 @@ In this documentation, you'll find registers which are defined as:
 - r2 = Register number two
 
 #### Data Transfer Instructions
-
 |ALGORISK instuction|Expanding|Description|Example|
 |---|---|---|---|
-|**lb**| Load Byte |Loads a signed byte from memory into a register, the address in memory must be specified as an operand| ``` lb rd, address ```|
+|<span id="lb">**lb**</span>| Load Byte |Loads a signed byte from memory into a register, the address in memory must be specified as an operand| ``` lb rd, address ```|
 |**lbu**| Load Byte Unsigned| Loads an unsigned byte from memory into a register, the address in memory must be specified as an operand| ``` lbu rd, address ```|
 |**lh**| Load Halfword| Loads a signed halfword from memory into a register, the address in memory must be specified as an operand | ``` lh rd, address ```|
 |**lhu**| Load Halfword Unsigned| Loads an unsigned halfword from memory into a register, the address in memory must be specified as an operand | ``` lhu rd, address ```|
