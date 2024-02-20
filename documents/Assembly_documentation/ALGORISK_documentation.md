@@ -164,7 +164,7 @@ In this documentation, you'll find registers which are defined as:
 |<span id="lui">**lui**</span>| Load Upper Immediate | Loads an immediate value into the upper 20 bits of a register, the lower 12 bits are set to 0 | ``` lui rd, immediate ```|
 |<span id="sb">**sb**</span>| Store Byte | Stores the lower 8 bits of a register into memory, the address in memory must be specified as an operand | ``` sb rd, address ```|
 |<span id="sh">**sh**</span>| Store Halfword | Stores the lower 16 bits of a register into memory, the address in memory must be specified as an operand | ``` sh rd, address ```|
-|<span id="sw">**sw**<span id="lb">| Store Word | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | ``` sw rd, address ```|
+|<span id="sw">**sw**</span>| Store Word | Stores the lower 32 bits of a register into memory, the address in memory must be specified as an operand | ``` sw rd, address ```|
 
 #### Binary Arithmetic Instructions
 
@@ -219,22 +219,22 @@ The logical instructions perform basic logical operations on their operands.
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| <span id="jie">**jie** | Jump If Equal | Jumps to a label if two registers are equal | ```jie r1, r2, label``` |
-| **jine** | Jump If Not Equal | Jumps to a label if two registers are not equal | ```jine r1, r2, label``` |
-| **jige** | Jump If Greater or Equal | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | ```jige r1, r2, label``` |
-| **jigeu** | Jump If Greater or Equal Unsigned | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | ```jigeu r1, r2, label``` |
-| **jile** | Jump If Less or Equal | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | ```jile r1, r2, label``` |
-| **jileu** | Jump If Less or Equal Unsigned | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | ```jileu r1, r2, label``` |
-| **jal** | Jump And Link | Jumps to a label and stores the return address in a register | ```jal rd, label``` |
-| **jalr** | Jump And Link Register | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register  | ```jalr rd, r1, offset``` |
-| **auipc** | Add Upper Immediate to PC | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0  | ```auipc rd, immediate``` |
+| <span id="jie">**jie**</span> | Jump If Equal | Jumps to a label if two registers are equal | ```jie r1, r2, label``` |
+| <span id="jine">**jine**</span> | Jump If Not Equal | Jumps to a label if two registers are not equal | ```jine r1, r2, label``` |
+| <span id="jige">**jige**</span> | Jump If Greater or Equal | Jumps to a label if the signed value of the first register is greater than or equal to the signed value of the second register | ```jige r1, r2, label``` |
+| <span id="jigue">**jigeu**</span> | Jump If Greater or Equal Unsigned | Jumps to a label if the unsigned value of the first register is greater than or equal to the unsigned value of the second register | ```jigeu r1, r2, label``` |
+| <span id="jile">**jile**</span> | Jump If Less or Equal | Jumps to a label if the signed value of the first register is less than or equal to the signed value of the second register | ```jile r1, r2, label``` |
+| <span id="jileu">**jileu**</span> | Jump If Less or Equal Unsigned | Jumps to a label if the unsigned value of the first register is less than or equal to the unsigned value of the second register | ```jileu r1, r2, label``` |
+| <span id="jal">**jal**</span> | Jump And Link | Jumps to a label and stores the return address in a register | ```jal rd, label``` |
+| <span id="jalr">**jalr**</span> | Jump And Link Register | Adds an offset to a register and jumps to the address stored in the register, stores the return address in a register  | ```jalr rd, r1, offset``` |
+| <span id="auipc">**auipc**</span> | Add Upper Immediate to PC | Adds an immediate value to the upper 20 bits of the program counter, the lower 12 bits are set to 0  | ```auipc rd, immediate``` |
 
 #### Special Instructions
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| **syscall** | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)  | ```syscall``` |
-| **break** | - | Generates a breakpoint exception, which can be used for debugging | ```break``` |
+| <span id="syscall">**syscall**</span> | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)  | ```syscall``` |
+| <span id="break">**break**</span> | - | Generates a breakpoint exception, which can be used for debugging | ```break``` |
 
 ## Index
 
