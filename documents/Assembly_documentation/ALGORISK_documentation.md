@@ -24,7 +24,7 @@ The software is provided "as is", without warranty of any kind, express or impli
 
 ___
 
-![](../img/logo-white.png)
+![image](img/logo_algosup.png)
 
 ___
 
