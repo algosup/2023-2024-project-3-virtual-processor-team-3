@@ -93,7 +93,8 @@ ___
       -[jalr](#jalr) 
       -[auipc](#auipc) 
     - [Special Instructions](#special-instructions)
-      -[syscall]() 
+      -[syscall](#syscall) 
+      -[break](#break) 
 - [Index](#index)
 
 ## I. Introduction
