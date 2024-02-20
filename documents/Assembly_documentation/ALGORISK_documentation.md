@@ -34,12 +34,12 @@ ___
 - [Copyright](#copyright)
 - [Content](#content)
 - [I. Introduction](#i-introduction)
-  - [Before you read](#before-you-read)
+  - [Before You Read](#before-you-read)
 - [Chapter 1: Overview of the ALGORISK Assembler](#chapter-1-overview-of-the-algorisk-assembler)
-  - [Assembler overview](#assembler-overview)
+  - [Assembler Overview](#assembler-overview)
     - [Registers](#registers)
   - [Assembler Sections](#assembler-sections)
-    - [Data section](#data-section)
+    - [Data Section](#data-section)
     - [Code Section](#code-section)
 - [Chapter 2: Instruction Set](#chapter-2-instruction-set)
   - [General Purpose Instructions](#general-purpose-instructions)
@@ -54,7 +54,7 @@ ___
 
 ## I. Introduction
 
-### Before you read
+### Before You Read
 
 **Who should use this documentation?**
 
@@ -62,7 +62,7 @@ The ALGORISK Assembly documentation is aimed at every user of our Assembler. It 
 
 ## Chapter 1: Overview of the ALGORISK Assembler
 
-### Assembler overview
+### Assembler Overview
 
 #### Registers
 
@@ -81,7 +81,7 @@ Sections differentiate the variables set by the users from the actual code of th
 
 ALGORISK possesses 2 sections:
 
-#### Data section
+#### Data Section
 
 Data section: Contains the program's data, such as variables and constants. \
 The data section is determined by the .data directive and the declaration of a constant or a variable will be done like this:
