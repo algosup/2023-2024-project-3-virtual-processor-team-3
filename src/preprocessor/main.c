@@ -1,26 +1,31 @@
 #include "preprocessor.h"
 
-int main(int argc, char *argv[])
-{
-    checkArgs(argc, argv); // Check if arguments are correct
-    FILE *asmFile;
+int main(int argc, char *argv[]) {
+    // Check if command-line arguments are correct
+    checkArgs(argc, argv);
 
-    if (asmFile = fopen(argv[2], "r")) // If file not found, return error
-    {
-        sectionNotFound(asmFile);  // Check if there are .data or .code sections
-        incorrectSection(asmFile); // Check if there are incorrect sections
-        isComment(asmFile);        // Remove comments
-        fclose(asmFile);
+    // Open the assembly file
+    FILE *asmFile = fopen(argv[2], "r");
+    if (!asmFile) {
+        errorsHandler(0, 0, " "); // File not found error
+    }
 
-        FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "r");
-        writeData(noCommentsFile); // Create data file
-        writeCode(noCommentsFile); // Create code file
-        fclose(noCommentsFile);
+    // Process the assembly file
+    sectionNotFound(asmFile);  // Check for .data or .code sections
+    incorrectSection(asmFile); // Check for incorrect sections
+    isComment(asmFile);        // Remove comments
+    fclose(asmFile);
+
+    // Open the file with no comments for further processing
+    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "r");
+    if (!noCommentsFile) {
+        errorsHandler(0, 0, " "); // File not found error
     }
-    else
-    {
-        errorsHandler(0, 0, " ");
-    }
+
+    // Create separate files for data and code sections
+    writeData(noCommentsFile); // Create data file
+    writeCode(noCommentsFile); // Create code file
+    remove("./temp_files/noComments.txt"); // Remove the file with no comments
 
     return 0;
 }
