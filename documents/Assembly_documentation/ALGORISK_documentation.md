@@ -88,16 +88,16 @@ The data section is determined by the .data directive and the declaration of a c
 ```
 .data
     myVariable: .type value
-The different types of data will be:
 ```
-
-.byte: 8-bit signed integer \
-.half: 16-bit signed integer \
-.word: 32-bit signed integer \
-.float: 32-bit floating-point number \
-.string: null-terminated string \
-.alloc: allocate the number of bytes specified by the following integer in memory. \
-To declare arrays, you need to specify both the data type and the values for each element. 
+The different types of data will be: \
+- `.byte`: 8-bit signed integer
+- `.half`: 16-bit signed integer
+- `.word`: 32-bit signed integer
+- `.float`: 32-bit floating-point number
+- `.string`: null-terminated string
+- `.alloc`: allocate the number of bytes specified by the following integer in memory.following integer in memory. \
+  
+To declare arrays, you need to specify both the data type and the values for each element.
 
 Examples:
 ```
@@ -121,7 +121,16 @@ Always consider the context and the specific requirements of the instruction whe
 Code section: Contains the program's instructions. \
 The code section is delimited by the .code directive. The declaration of a constant or a variable will be done like this:
 
+```
+.code 
+    [instruction] rd, parameter1, parameter2 (if needed)
+```
 
+Examples:
+```
+.code 
+    add r3, r1, r2
+```
 
 ## Chapter 2: Instruction Set
 
