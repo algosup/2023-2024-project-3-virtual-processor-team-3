@@ -4,7 +4,7 @@
 <h1 align="center"> ALGORISK Documentation </h1>
 
 <p align="center">
-Created by: Thibaud MARLIER <br> Creation Date: 09/02/2024 <br> Last update: 16/02/2024
+Created by: Thibaud MARLIER <br> Creation Date: 09/02/2024 <br> Last update: 20/02/2024
 </p>
 
 ___
@@ -130,11 +130,13 @@ ALGORISK possesses 2 sections:
 
 Data section: Contains the program's data, such as variables and constants. \
 The data section is determined by the .data directive and the declaration of a constant or a variable will be done like this:
+
 ```
 .data
     myVariable: .type value
 ```
-The different types of data will be: 
+
+The different types of data will be:
 
 - `.byte`: 8-bit signed integer
 - `.half`: 16-bit signed integer
@@ -146,6 +148,7 @@ The different types of data will be:
 To declare arrays, you need to specify both the data type and the values for each element.
 
 Examples:
+
 ```
 .data
     myByte: .byte 255 // max value for a byte
@@ -178,6 +181,7 @@ where:
 ```
 
 Examples:
+
 ```
 .code 
     add r3, r1, r2
@@ -237,7 +241,7 @@ The logical instructions perform basic logical operations on their operands.
 | <span id="andi">**andi**</span> | - |Performs a bitwise AND operation on the values of a register and an immediate and stores the result in a register | ```andi rd, r1,immediate``` |
 | <span id="or">**or**</span> | - |  Performs a bitwise OR operation on the values of two registers and stores the result in a register | ```or rd, r1, r2```         |
 | <span id="ori">**ori**</span> | Or immediate | Performs a bitwise OR operation on the values of a register and an immediate and stores the result in a register  | ```ori rd, r1, immediate```  |
-| <span id="xor">**xor**</span>  | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2 ```         |
+| <span id="xor">**xor**</span>  | Exclusive or|Performs a bitwise XOR operation on the values of two registers and stores the result in a register | ```xor rd, r1, r2```         |
 | <span id="xori">**xori**</span>  | Exclusive or immediate |Performs a bitwise XOR operation on the values of a register and an immediate and stores the result in a register | ```xori rd, r1, immediate``` |
 
 #### Shift Instructions
