@@ -1,22 +1,8 @@
 #ifndef PREPROCESSOR_H
 #define PREPROCESSOR_H
 
+#include "general.h"
 #include "errors.h"
-
-
-/**
- * This functions checks if a line is empty or not.
- * @param line (char pointer): A string representing a line.
- * @result The line if it contains anything or nothing if there is nothing but a line feed.
-*/
-char *removeBlanks(char *line)
-{
-    if (strcmp(line, "\n") == 0)
-    {
-        return NULL;
-    }
-    return line;
-}
 
 /**
  * This functions creates a new file named data.txt.
@@ -27,7 +13,7 @@ void writeData(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *dataFile = fopen("./temp_files/data.txt", "w");
+    FILE *dataFile = fopen("./data.txt", "w");
 
     while (fgets(line, sizeof(line), file))
     {
@@ -49,7 +35,6 @@ void writeData(FILE *file)
     fclose(dataFile);
 }
 
-
 /**
  * This function creates a new text file named code.txt
  * @param file (File pointer): A pointer to an assembly file.
@@ -59,7 +44,7 @@ void writeCode(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *codeFile = fopen("./temp_files/code.txt", "w"); // Open in append mode
+    FILE *codeFile = fopen("./code.txt", "w"); // Open in append mode
 
     while (fgets(line, sizeof(line), file))
     {
@@ -92,7 +77,7 @@ void isComment(FILE *asm_file)
 {
     rewind(asm_file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *noCommentsFile = fopen("./temp_files/noComments.txt", "w"); // Open in append mode
+    FILE *noCommentsFile = fopen("./noComments.txt", "w"); // Open in append mode
 
     while (fgets(line, sizeof(line), asm_file))
     {
@@ -114,5 +99,34 @@ void isComment(FILE *asm_file)
     fclose(noCommentsFile); // Close the file after writing
 }
 
+void preprocessing(char *file)
+{
+
+    // Open the assembly file
+    FILE *asmFile = fopen(file, "r");
+    if (!asmFile)
+    {
+        errorsHandler(0, 0, " "); // File not found error
+    }
+
+    // Process the assembly file
+    sectionNotFound(asmFile);  // Check for .data or .code sections
+    incorrectSection(asmFile); // Check for incorrect sections
+    isComment(asmFile);        // Remove comments
+    fclose(asmFile);
+
+    // Open the file with no comments for further processing
+    FILE *noCommentsFile = fopen("./noComments.txt", "r");
+    if (!noCommentsFile)
+    {
+        errorsHandler(0, 0, " "); // File not found error
+    }
+
+    // Create separate files for data and code sections
+    writeData(noCommentsFile);             // Create data file
+    writeCode(noCommentsFile);             // Create code file
+    fclose(noCommentsFile);
+    remove("./noComments.txt"); // Remove the file with no comments
+}
 
 #endif

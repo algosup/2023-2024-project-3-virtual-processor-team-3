@@ -1,18 +1,12 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include "preprocessor.h"
-
 #define byte unsigned char
 #define u64 unsigned long long
 #define i64 long long
 #define f64 double
 
+#include "str_manipulation.h"
 /**
  *This function prints an error and exit the program depending of the error.
  *@param errorNumber(int): An int representing which error has been found.
@@ -49,28 +43,6 @@ void errorsHandler(int errorNumber, int LineNumber, char *Line)
 }
 
 /**
- * This function goes through the arguments and search for errors.
- * @param argc (int): The number of arguments called in the command line.
- * @param argv (char array pointer): An array of all the arguments.
- * @result If there is no errors, does nothing, if there is an error, call the error handler.
- */
-void checkArgs(int argc, char *argv[])
-{
-    if (argc < 3)
-    {
-        errorsHandler(1, 0, " ");
-    }
-    if (strcmp(argv[1], "gorasm") != 0 && strcmp(argv[1], "gras") != 0)
-    {
-        errorsHandler(2, 0, " ");
-    }
-    if (argc > 3)
-    {
-        errorsHandler(3, 0, " ");
-    }
-}
-
-/**
  * This functions checks if there is a section .data or .code.
  * @param asm_file(FILE pointer): A pointer to an assembly file.
  * @result If there is no .data or .code section in the assembly file, return an error.
@@ -94,23 +66,6 @@ void sectionNotFound(FILE *asm_file)
     rewind(asm_file);
 }
 
-/**
- * This functions returns the position of the first character other than spaces.
- * @param line(char pointer): A pointer to a char.
- * @result The index of the first character other than a space.
- */
-char *suppressIndentation(char *line)
-{
-    // Find the index of the first non-whitespace character
-    int index = 0;
-    while (line[index] == ' ' || line[index] == '\t')
-    {
-        index++;
-    }
-
-    char *noIntendLine = &line[index];
-    return noIntendLine;
-}
 
 void incorrectSection(FILE *asm_file)
 {
