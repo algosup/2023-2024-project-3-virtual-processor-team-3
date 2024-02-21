@@ -6,9 +6,9 @@
 
 int main(int argc, char const *argv[])
 {
-    if (argc < 3)
+    if (argc < 2)
     {
-        printf("Usage: %s <file> <register>\n", argv[0]);
+        printf("Usage: %s <file>\n", argv[0]);
         return 1;
     }
     FILE *file = fopen(argv[1], "rb");
@@ -39,7 +39,6 @@ int main(int argc, char const *argv[])
 
     cpu_t *cpu = new_cpu(mem, count);
     run_cpu(cpu);
-    printf("Result: %d\n", cpu->r[(int)strtoul(argv[2], NULL, 10)]);
     free_cpu(cpu);
 
     return 0;

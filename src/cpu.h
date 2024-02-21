@@ -263,6 +263,7 @@ void execute(cpu_t* cpu)
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->immediate = (cpu->mem[cpu->pc/4] >> 12) * pow(2, 12);
             cpu->r[cpu->destination] = cpu->immediate;
+            cpu->pc += 4;
             break;
         case BRANCH:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
@@ -352,6 +353,15 @@ void execute(cpu_t* cpu)
             cpu->r[cpu->destination] = cpu->immediate;
             break;
         case SYSTEM:
+            if (cpu->r[31] == 0B0)
+            {
+                printf("%d", cpu->r[30]);
+            }
+            else if (cpu->r[31] == 0B1)
+            {
+                printf("%c", cpu->r[30]);
+            }
+            cpu->pc += 4;
             break;
         default:
             cpu->pc += 4;
