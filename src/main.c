@@ -1,42 +1,46 @@
-#include "cpu.h"
+#include "general.h"
+#include "preprocessor.h"
+#include "assembler.h"
+#include "processor.h"
 
-int main(int argc, char **argv) 
+int main(int argc, char *argv[])
 {
-    f64 memint[]=
+
+    // Check if command-line arguments are correct
+    int argument = checkArgs(argc, argv);
+    char *bin;
+
+    // Depending on the argument, call either the assembler, the processor or both of them
+    switch (argument)
     {
-        ADDI, R1, R1, 3,
-        PRT, R1,
-        BREAK,
-        0, 0, 0
-    };
+    case 1:
+        preprocessing(argv[2]); // Call the preprocessor
+        assembling(argv[2]);    // Call the assembler TO DO: CHANGE THE FUNCTION CALL
 
-    // f64 memflt[]=
-    // {
-    //     LIF, F0, 4.25,
-    //     LIF, F1, 5.33,
-    //     ADDF, F2, F1, F0,
-    //     SUBF, F3, F2, F1,
-    //     MULF, F4, F2, F3,
-    //     DIVF, F5, F4, F3,
-    //     PRTF, F2,
-    //     PRTF, F3,
-    //     PRTF, F4,
-    //     PRTF, F5,
-    //     STF, 40, F5,
-    //     LDF, F6, 40,
-    //     PRTF, F6,
-    //     STOP,
-    //     0, 0, 0
-    // };
+        // Remove all temporary files
+        remove("./data.txt");
+        remove("./code.txt");
 
-    int memint_size = sizeof(memint) / sizeof(f64);
-    // int memflt_size = sizeof(memflt) / sizeof(f64);
+        printf("Preprocessing done");
+        break;
+    case 2:
+        processing(argv[2]); // Call the processor TO DO: CHANGE THE FUNCTION CALL
+        break;
+    case 3:
+        preprocessing(argv[2]); // Call the preprocessor
+        assembling(argv[2]); // Call the assembler TO DO: CHANGE THE FUNCTION CALL
 
-    cpu_t *cpu = new_cpu(memint, memint_size);
+        // Remove all temporary files
+        remove("./data.txt");
+        remove("./code.txt");
 
-    run_cpu(cpu);
-
-    cpu_free(cpu);
+        bin = strtok(argv[2], ".");
+        bin = strcat(bin, ".bin");
+        processing(bin); // Call the processor TO DO: CHANGE THE FUNCTION CALL
+        break;
+    default:
+        break;
+    }
 
     return 0;
 }
