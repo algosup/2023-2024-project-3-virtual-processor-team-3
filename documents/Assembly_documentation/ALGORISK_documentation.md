@@ -281,7 +281,7 @@ The logical instructions perform basic logical operations on their operands.
 
 | ALGORISK instuctions |Expanding| Description| Example |
 | ---| --- | --- | --- |
-| <span id="syscall">**syscall**</span> | System Call | This transfers control to the operating system, and the system call handler performs the necessary actions (the syscall instruction does not take any operands)  | ```syscall``` |
+| <span id="syscall">**syscall**</span> | System Call | Depending on what's inside register 31, it will print the register 30 either as an integer if register 31 is equal to 0, or a character if register 31 is equal to 1.   | ```syscall``` |
 | <span id="break">**break**</span> | - | Generates a breakpoint exception, which can be used for debugging | ```break``` |
 
 ## Index
