@@ -14,9 +14,13 @@
 uint extractNumber(const char *str) {
     uint number = 0;
     int i = 0;
+    int toNegate = 0;
     
     // Skip non-digit characters
     while (str[i] && !isdigit(str[i])) {
+        if (str[i] == '-') {
+            toNegate = 1;
+        }
         i++;
     }
     
@@ -25,7 +29,9 @@ uint extractNumber(const char *str) {
         number = number * 10 + (str[i] - '0');
         i++;
     }
-    
+    if (toNegate == 1) {
+        number = -number;
+    }
     return number;
 }
 
