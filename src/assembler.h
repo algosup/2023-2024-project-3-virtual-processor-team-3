@@ -269,7 +269,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B001 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 19: // jine
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -280,7 +280,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 20: // jige
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -291,7 +291,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B11 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 21: // jigeu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -302,7 +302,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B111 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 22: // jile
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -313,7 +313,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B10 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 23: // jileu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -324,7 +324,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
+                        bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Dest << 20 | Arg1 << 15 | 0B110 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 24: // lui
                         if (lineDest == NULL || lineArg1 == NULL)
