@@ -26,7 +26,7 @@ int checkArgs(int argc, char *argv[])
     {
         return 1;
     }
-    else if (strcmp(argv[1], "gorproc") == 0)
+    else if (strcmp(argv[1], "goproc") == 0)
     {
         return 2;
     }

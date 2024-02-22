@@ -99,6 +99,12 @@ void isComment(FILE *asm_file)
     fclose(noCommentsFile); // Close the file after writing
 }
 
+
+/**
+ * This function executes the preprocessing on a given file.
+ * @param file (char pointer): A .gras file containing ALGORISK assembly.
+ * @result Creates two different temporary files needed for the assembler.
+*/
 void preprocessing(char *file)
 {
 
