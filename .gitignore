@@ -7,5 +7,5 @@ src/assembler/.DS_Store
 
 
 *.exe
+*.bin
 .vscode/
-
