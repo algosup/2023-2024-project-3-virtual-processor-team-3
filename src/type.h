@@ -48,7 +48,7 @@ char *opcode[] = {
     // OP
     "add", "sub", "sll", "srl", "sra", "xor", "or", "and", "ilt?", "iltu?",
     // OP-IMM
-    "addi", "slli", "srli", "xori", "ori", "andi", "ilti?", "iltiu?"
+    "addi", "slli", "srli", "xori", "ori", "andi", "ilti?", "iltiu?",
     // BRANCH
     "jie", "jine", "jige", "jigeu", "jile", "jileu",
     // LUI
