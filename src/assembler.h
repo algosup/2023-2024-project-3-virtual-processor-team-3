@@ -173,7 +173,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 11: // slli
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -184,7 +184,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B1 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 12: // srli
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -195,7 +195,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B101 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 13: // xori
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -206,7 +206,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B100 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 14: // ori
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -217,7 +217,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B110 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 15: // andi
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -228,7 +228,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B111 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 16: // ilti?
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -239,7 +239,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B010 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 17: // iltiu?
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -250,7 +250,7 @@ void assemble(FILE *file)
                         bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B011 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
                         break;
                     case 18: // jie
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -261,7 +261,7 @@ void assemble(FILE *file)
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 19: // jine
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -272,7 +272,7 @@ void assemble(FILE *file)
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 20: // jige
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -283,7 +283,7 @@ void assemble(FILE *file)
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 21: // jigeu
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -294,7 +294,7 @@ void assemble(FILE *file)
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 22: // jile
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -305,7 +305,7 @@ void assemble(FILE *file)
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
                     case 23: // jileu
-                    if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
                             printf("Error: Invalid number of arguments\n");
                             return;
@@ -315,6 +315,120 @@ void assemble(FILE *file)
                         Arg2 = extractNumber(lineArg2);
                         bits = ((Arg2 >> 12) & 0x1) << 31 | ((Arg2 >> 5) & 0x3F) << 25 | Arg1 << 20 | Dest << 15 | 0B101 << 12 | ((Arg2 >> 1) & 0xF) << 8 | ((Arg2 >> 11) & 0x1) << 7 | 0B1100011;
                         break;
+                    case 24: // lui
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 12 | Dest << 7 | 0B0110111;
+                        break;
+                    case 25: // auipc
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 12 | Dest << 7 | 0B0010111;
+                        break;
+                    case 26: // jal
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = ((Arg1 >> 20) & 0x1) << 31 | ((Arg1 >> 1) & 0x3FF) << 21 | ((Arg1 >> 11) & 0x1) << 20 | ((Arg1 >> 12) & 0xFF) << 12 | Dest << 7 | 0B1101111;
+                        break;
+                    case 27: // lb
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 28: // lh
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 29: // lw
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 30: // lbu
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 31: // lhu
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 32: // sb
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 33: // sh
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 34: // sw
+                        if (lineDest == NULL || lineArg1 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        bits = Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0000011;
+                        break;
+                    case 35: // syscall 
+                        bits = 0B1110011;
+                        break;
+                    
                 }
             }
         }
