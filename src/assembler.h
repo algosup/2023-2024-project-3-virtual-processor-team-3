@@ -258,6 +258,8 @@ void assemble(FILE *file)
                         Arg2 = extractNumber(lineArg2);
                         bits = Arg2 << 20 | Arg1 << 15 | 0B011 << 12 | Dest << 7 | 0B010011;
                         break;
+
+                    // JUMP TO FIX
                     case 18: // jie
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
