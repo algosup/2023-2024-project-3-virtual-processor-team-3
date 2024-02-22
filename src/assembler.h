@@ -29,6 +29,15 @@ uint extractNumber(const char *str) {
     return number;
 }
 
+void printBits(FILE *file, uint number) {
+    uint mask = 1 << (BITS - 1);
+    for (int i = 0; i < BITS; i++) {
+        int bit = (number & mask) ? 1 : 0;
+        fprintf(file, "%d", bit);
+        mask >>= 1;
+    }
+}
+
 void assemble(FILE *file)
 {
     char line[BITS + 1];
@@ -516,13 +525,11 @@ void assemble(FILE *file)
                         Arg2 = extractNumber(lineArg2);
                         bits = 0B111 << 25 | Arg2 << 20 | Arg1 << 15 | 0B110 << 12 | Dest << 7 | 0B0110011;
                         break;
-                    default:
-                        printf("Error: Invalid opcode\n");
-                        return;
                 }
+                break;
             }
         }
-        fwrite(&bits, sizeof(uint), 1, out);
+        printBits(out, bits);
         bits = 0;
     }
 }

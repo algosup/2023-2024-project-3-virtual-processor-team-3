@@ -62,7 +62,7 @@ char *opcode[] = {
     // STORE
     "sb", "sh", "sw",
     // SYSCALL
-    "syscall",
+    "syscall\n",
     // OP-mul
     "mul", "mulh", "mulhsu", "mulhu", "div", "divu", "rem", "remu"
 };
