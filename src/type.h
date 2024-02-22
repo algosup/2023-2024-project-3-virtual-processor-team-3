@@ -4,6 +4,8 @@
 #define uint unsigned int
 #define ull unsigned long long
 #define ll long long
+#define MAXMEM 1024
+#define BITS 32
 
 enum BaseOpcode
 {
@@ -41,3 +43,26 @@ typedef struct cpu
 }cpu_t;
 
 #endif
+
+char *opcode[] = {
+    // OP
+    "add", "sub", "sll", "srl", "sra", "xor", "or", "and", "ilt?", "iltu?",
+    // OP-IMM
+    "addi", "slli", "srli", "xori", "ori", "andi", "ilti?", "iltiu?"
+    // BRANCH
+    "jie", "jine", "jige", "jigeu", "jile", "jileu",
+    // LUI
+    "lui",
+    // AUIPC
+    "auipc",
+    // JAL
+    "jal",
+    // LOAD
+    "lb", "lh", "lw", "lbu", "lhu",
+    // STORE
+    "sb", "sh", "sw",
+    // SYSCALL
+    "syscall",
+    // OP-mul
+    "mul", "mulh", "mulhsu", "mulhu", "div", "divu", "rem", "remu"
+};

@@ -1,9 +1,6 @@
 #include "cpu.h"
 #include <ctype.h>
 
-#define MAXMEM 1024
-#define BITS 32
-
 int main(int argc, char const *argv[])
 {
     if (argc < 2)
