@@ -22,15 +22,15 @@ char *suppressIndentation(char *line)
 }
 
 /**
- * This functions checks if a line is empty or not.
+ * This functions turns every characters in a string into lower cases characters.
  * @param line (char pointer): A string representing a line.
- * @result The line if it contains anything or nothing if there is nothing but a line feed.
+ * @result The input string with uppercase characters changed into lowercase.
  */
 char *removeBlanks(char *line)
 {
-    if (strcmp(line, "\n") == 0)
+    for (char *character = line; *character; character++)
     {
-        return NULL;
+        *character = tolower(*character); 
     }
     return line;
 }
