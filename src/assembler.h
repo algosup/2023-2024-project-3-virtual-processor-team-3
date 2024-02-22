@@ -34,7 +34,7 @@ void assemble(FILE *file)
     char line[BITS + 1];
     uint bits = 0;
 
-    FILE *out = fopen("out.gras", "wb");
+    FILE *out = fopen("out.txt", "w");
 
     while (fgets(line, sizeof(line), file)) {
         // split the line in two at the first space
@@ -60,7 +60,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0110011;
                         break; 
                     case 1: // sub
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -71,7 +71,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = 0B100000 * pow (2, 25) + Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + Dest * pow(2, 7) + 0B0110011;
+                        bits = 0B100000 << 25 | Arg2 << 20 | Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 2: // sll
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -82,7 +82,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B1 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B001 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 3: // srl
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -93,7 +93,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B101 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B101 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 4: // sra
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -104,7 +104,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = 0B100000 * pow (2, 25) + Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B101 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = 0B100000 << 25 | Arg2 << 20 | Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 5: // xor
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -115,7 +115,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B100 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B100 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 6: // or
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -126,7 +126,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B110 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B110 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 7: // and
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -137,7 +137,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B111 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B111 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 8: // ilt?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -148,7 +148,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B010 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B010 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 9: // iltu?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -159,7 +159,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B011 * pow (2, 12) + Dest * pow(2, 7) + 0B0110011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B011 << 12 | Dest << 7 | 0B0110011;
                         break;
                     case 10: // addi
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -170,7 +170,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 11: // slli
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -181,7 +181,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B1 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B001 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 12: // srli
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -192,7 +192,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B101 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B101 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 13: // xori
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -203,7 +203,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B100 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B100 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 14: // ori
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -214,7 +214,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B110 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B110 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 15: // andi
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -225,7 +225,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B111 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B111 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 16: // ilti?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -236,7 +236,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B010 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B010 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 17: // iltiu?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -247,7 +247,7 @@ void assemble(FILE *file)
                         Dest = extractNumber(lineDest);
                         Arg1 = extractNumber(lineArg1);
                         Arg2 = extractNumber(lineArg2);
-                        bits = Arg2 * pow(2, 20) + Arg1 * pow(2, 15) + 0B011 * pow(2, 12) + Dest * pow(2, 7) + 0B0010011;
+                        bits = Arg2 << 20 | Arg1 << 15 | 0B011 << 12 | Dest << 7 | 0B010011;
                         break;
                     case 18: // jie
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
@@ -428,13 +428,101 @@ void assemble(FILE *file)
                     case 35: // syscall 
                         bits = 0B1110011;
                         break;
-                    
+                    case 36: // mul
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B1 << 25 | Arg2 << 20 | Arg1 << 15 | 0B000 << 12 | Dest << 7 | 0B0110011;
+                        break; 
+                    case 37: // mulh
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B1 << 25 | Arg2 << 20 | Arg1 << 15 | 0B001 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 38: // mulhsu
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B10 << 25 | Arg2 << 20 | Arg1 << 15 | 0B001 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 39: // mulhu
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B11 << 25 | Arg2 << 20 | Arg1 << 15 | 0B001 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 40: // div
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B100 << 25 | Arg2 << 20 | Arg1 << 15 | 0B100 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 41: // divu
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B101 << 25 | Arg2 << 20 | Arg1 << 15 | 0B100 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 42: // rem
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B110 << 25 | Arg2 << 20 | Arg1 << 15 | 0B110 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    case 43: // remu
+                        if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
+                        {
+                            printf("Error: Invalid number of arguments\n");
+                            return;
+                        }
+                        Dest = extractNumber(lineDest);
+                        Arg1 = extractNumber(lineArg1);
+                        Arg2 = extractNumber(lineArg2);
+                        bits = 0B111 << 25 | Arg2 << 20 | Arg1 << 15 | 0B110 << 12 | Dest << 7 | 0B0110011;
+                        break;
+                    default:
+                        printf("Error: Invalid opcode\n");
+                        return;
                 }
             }
         }
-        // write the bits to the file
-        //fwrite(&bits, sizeof(uint), 1, out);
-        printf("%d\n", bits);
+        fwrite(&bits, sizeof(uint), 1, out);
         bits = 0;
     }
 }
