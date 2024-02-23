@@ -1,0 +1,9 @@
+.data
+
+.code
+addi x1, x0, 39
+addi x2, x0, 256
+sw x2, x1, 0
+lw x3, x2, 0
+add x30, x3, x0
+syscall
