@@ -8,14 +8,14 @@ int main(int argc, char *argv[])
 
     // Check if command-line arguments are correct
     int argument = checkArgs(argc, argv);
-    char *bin;
+    char *grml;
 
     // Depending on the argument, call either the assembler, the processor or both of them
     switch (argument)
     {
     case 1:
         preprocessing(argv[2]); // Call the preprocessor
-        assembling();    // Call the assembler
+        assembling(argv[2]);    // Call the assembler
 
         // Remove all temporary files
         remove("./data.txt");
@@ -28,13 +28,15 @@ int main(int argc, char *argv[])
         break;
     case 3:
         preprocessing(argv[2]); // Call the preprocessor
-        assembling(); // Call the assembler 
+        assembling(argv[2]); // Call the assembler 
 
         // Remove all temporary files
         remove("./data.txt");
         remove("./code.txt");
 
-        processing("out.grml"); // Call the processor 
+        grml = strtok(argv[2], ".");
+        grml = strcat(grml, ".grml");
+        processing(grml); // Call the processor 
         break;
     default:
         break;

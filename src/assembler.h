@@ -1,7 +1,6 @@
 #ifndef ASSEMBLER_H
 #define ASSEMBLER_H
 
-
 #include "general.h"
 #include "type.h"
 
@@ -45,13 +44,17 @@ void printBits(FILE *file, uint number)
     }
 }
 
-void assemble(FILE *file)
+void assemble(FILE *file, char *outName)
 {
     char line[BITS + 1];
     uint bits = 0;
     int line_nb = 0;
 
-    FILE *out = fopen("out.grml", "w");
+    
+    char *grml = strtok(outName, ".");
+    grml = strcat(grml, ".grml");
+
+    FILE *out = fopen(grml, "w");
 
     while (fgets(line, sizeof(line), file))
     {
@@ -550,10 +553,10 @@ void assemble(FILE *file)
         printBits(out, bits);
         bits = 0;
     }
-        fclose(out);
+    fclose(out);
 }
 
-void assembling()
+void assembling(char *out)
 {
 
     FILE *file = fopen("code.txt", "r");
@@ -563,7 +566,7 @@ void assembling()
         errorsHandler(0, 0, " "); // File not found error
     }
 
-    assemble(file);
+    assemble(file, out);
     fclose(file);
     return;
 }
