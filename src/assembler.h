@@ -48,10 +48,12 @@ void assemble(FILE *file)
 {
     char line[BITS + 1];
     uint bits = 0;
+    int line_nb = 0;
 
     FILE *out = fopen("out.grml", "w");
 
     while (fgets(line, sizeof(line), file)) {
+        line_nb++;
         // split the line in two at the first space
         char *lineOpcode = strtok(line, " ");
         char *lineDest = strtok(NULL, " ");
@@ -535,6 +537,11 @@ void assemble(FILE *file)
                         break;
                 }
                 break;
+            }
+            if (i == sizeof(opcode)/sizeof(opcode[0]) - 1)
+            {
+                printf("Error: Invalid opcode at line %d\n", line_nb);
+                return;
             }
         }
         printBits(out, bits);
