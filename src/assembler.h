@@ -59,7 +59,7 @@ void assemble(FILE *file)
         char *lineDest = strtok(NULL, " ");
         char *lineArg1 = strtok(NULL, " ");
         char *lineArg2 = strtok(NULL, " ");
-        uint Dest, Arg1, Arg2;
+        uint Dest, Arg1, Arg2 = 0;
         // check if the opcode is valid
         for (int i = 0; i < sizeof(opcode)/sizeof(opcode[0]); i++)
         {
@@ -71,7 +71,7 @@ void assemble(FILE *file)
                     case 0: // add 
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -82,7 +82,7 @@ void assemble(FILE *file)
                     case 1: // sub
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -93,7 +93,7 @@ void assemble(FILE *file)
                     case 2: // sll
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -104,7 +104,7 @@ void assemble(FILE *file)
                     case 3: // srl
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -115,7 +115,7 @@ void assemble(FILE *file)
                     case 4: // sra
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -126,7 +126,7 @@ void assemble(FILE *file)
                     case 5: // xor
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -137,7 +137,7 @@ void assemble(FILE *file)
                     case 6: // or
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -148,7 +148,7 @@ void assemble(FILE *file)
                     case 7: // and
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -159,7 +159,7 @@ void assemble(FILE *file)
                     case 8: // ilt?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -170,7 +170,7 @@ void assemble(FILE *file)
                     case 9: // iltu?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -181,7 +181,7 @@ void assemble(FILE *file)
                     case 10: // addi
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -192,7 +192,7 @@ void assemble(FILE *file)
                     case 11: // slli
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -203,7 +203,7 @@ void assemble(FILE *file)
                     case 12: // srli
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -214,7 +214,7 @@ void assemble(FILE *file)
                     case 13: // xori
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -225,7 +225,7 @@ void assemble(FILE *file)
                     case 14: // ori
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -236,7 +236,7 @@ void assemble(FILE *file)
                     case 15: // andi
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -247,7 +247,7 @@ void assemble(FILE *file)
                     case 16: // ilti?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -258,7 +258,7 @@ void assemble(FILE *file)
                     case 17: // iltiu?
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -271,7 +271,7 @@ void assemble(FILE *file)
                     case 18: // jie
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -282,7 +282,7 @@ void assemble(FILE *file)
                     case 19: // jine
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -293,7 +293,7 @@ void assemble(FILE *file)
                     case 20: // jige
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -304,7 +304,7 @@ void assemble(FILE *file)
                     case 21: // jigeu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -315,7 +315,7 @@ void assemble(FILE *file)
                     case 22: // jile
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -326,7 +326,7 @@ void assemble(FILE *file)
                     case 23: // jileu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -337,7 +337,7 @@ void assemble(FILE *file)
                     case 24: // lui
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -347,7 +347,7 @@ void assemble(FILE *file)
                     case 25: // auipc
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -357,7 +357,7 @@ void assemble(FILE *file)
                     case 26: // jal
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -367,7 +367,7 @@ void assemble(FILE *file)
                     case 27: // lb
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -377,7 +377,7 @@ void assemble(FILE *file)
                     case 28: // lh
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -387,7 +387,7 @@ void assemble(FILE *file)
                     case 29: // lw
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -397,7 +397,7 @@ void assemble(FILE *file)
                     case 30: // lbu
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -407,7 +407,7 @@ void assemble(FILE *file)
                     case 31: // lhu
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -417,7 +417,7 @@ void assemble(FILE *file)
                     case 32: // sb
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -427,7 +427,7 @@ void assemble(FILE *file)
                     case 33: // sh
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -437,7 +437,7 @@ void assemble(FILE *file)
                     case 34: // sw
                         if (lineDest == NULL || lineArg1 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -450,7 +450,7 @@ void assemble(FILE *file)
                     case 36: // mul
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -461,7 +461,7 @@ void assemble(FILE *file)
                     case 37: // mulh
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -472,7 +472,7 @@ void assemble(FILE *file)
                     case 38: // mulhsu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -483,7 +483,7 @@ void assemble(FILE *file)
                     case 39: // mulhu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -494,7 +494,7 @@ void assemble(FILE *file)
                     case 40: // div
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -505,7 +505,7 @@ void assemble(FILE *file)
                     case 41: // divu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -516,7 +516,7 @@ void assemble(FILE *file)
                     case 42: // rem
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
@@ -527,7 +527,7 @@ void assemble(FILE *file)
                     case 43: // remu
                         if (lineDest == NULL || lineArg1 == NULL || lineArg2 == NULL)
                         {
-                            printf("Error: Invalid number of arguments\n");
+                            printf("Error: Invalid number of arguments at line %d\n", line_nb);
                             return;
                         }
                         Dest = extractNumber(lineDest);
