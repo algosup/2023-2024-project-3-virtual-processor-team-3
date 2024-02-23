@@ -37,4 +37,4 @@ This command will execute the binary of a .grml file.
 ./main.exe gorisk [your file name].txt
 ```
 
-This command execute the two previous commands into one.
+This command executes the two previous commands into one.
