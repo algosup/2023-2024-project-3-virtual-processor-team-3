@@ -11,4 +11,5 @@ src/assembler/.DS_Store
 .vscode/
 
 *.gras
+*.grml
 *.txt

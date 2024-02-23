@@ -49,7 +49,7 @@ void assemble(FILE *file)
     char line[BITS + 1];
     uint bits = 0;
 
-    FILE *out = fopen("out.txt", "w");
+    FILE *out = fopen("out.grml", "w");
 
     while (fgets(line, sizeof(line), file)) {
         // split the line in two at the first space
