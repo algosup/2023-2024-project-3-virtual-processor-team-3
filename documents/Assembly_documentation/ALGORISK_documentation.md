@@ -284,6 +284,4 @@ The logical instructions perform basic logical operations on their operands.
 | <span id="syscall">**syscall**</span> | System Call | Depending on what's inside register 31, it will print the register 30 either as an integer if register 31 is equal to 0, or a character if register 31 is equal to 1.   | ```syscall``` |
 | <span id="break">**break**</span> | - | Generates a breakpoint exception, which can be used for debugging | ```break``` |
 
-## Index
-
 <div align="right"><a href="#copyright"><img src="../img/functional_specifications/back.png" width="35px"></a></div>
