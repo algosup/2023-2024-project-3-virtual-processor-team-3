@@ -243,19 +243,19 @@ void execute(cpu_t* cpu)
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B100) // div
             {
-                cpu->r[cpu->destination] = cpu->r[cpu->arg1] / cpu->r[cpu->arg2];
+                cpu->r[cpu->destination] = (int)(cpu->r[cpu->arg1] / cpu->r[cpu->arg2]);
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B101) // divu
             {
-                cpu->r[cpu->destination] = (uint)cpu->r[cpu->arg1] / (uint)cpu->r[cpu->arg2];
+                cpu->r[cpu->destination] = (int)((uint)cpu->r[cpu->arg1] / (uint)cpu->r[cpu->arg2]);
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B110) //rem
             {
-                cpu->r[cpu->destination] = cpu->r[cpu->arg1] % cpu->r[cpu->arg2];
+                cpu->r[cpu->destination] = (int)(cpu->r[cpu->arg1] % cpu->r[cpu->arg2]);
             }
             else if (cpu->func7 == 0B1 && cpu->func3 == 0B111) // remu
             {
-                cpu->r[cpu->destination] = (uint)cpu->r[cpu->arg1] % (uint)cpu->r[cpu->arg2];
+                cpu->r[cpu->destination] = (int)((uint)cpu->r[cpu->arg1] % (uint)cpu->r[cpu->arg2]);
             }
             cpu->pc += 4;
             break;
