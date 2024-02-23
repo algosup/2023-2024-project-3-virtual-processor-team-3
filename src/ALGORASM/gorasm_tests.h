@@ -1,5 +1,5 @@
 #include "test-framework/unity.h"
-#include "assembler.h"
+#include "gorasm.c"
 #include "test-framework/unity_internals.h"
 
 void setUp(void)
