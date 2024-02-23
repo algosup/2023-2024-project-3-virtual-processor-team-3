@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <math.h>
 
 #include "errors.h"
 
