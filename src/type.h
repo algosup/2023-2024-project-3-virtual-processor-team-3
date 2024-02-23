@@ -40,9 +40,7 @@ typedef struct cpu
     uint arg1;
     uint arg2;
     int immediate;
-}cpu_t;
-
-#endif
+} cpu_t;
 
 char *opcode[] = {
     // OP
@@ -64,5 +62,5 @@ char *opcode[] = {
     // SYSCALL
     "syscall\n",
     // OP-mul
-    "mul", "mulh", "mulhsu", "mulhu", "div", "divu", "rem", "remu"
-};
+    "mul", "mulh", "mulhsu", "mulhu", "div", "divu", "rem", "remu"};
+#endif

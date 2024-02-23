@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     {
     case 1:
         preprocessing(argv[2]); // Call the preprocessor
-        assembling(argv[2]);    // Call the assembler TO DO: CHANGE THE FUNCTION CALL
+        assembling();    // Call the assembler
 
         // Remove all temporary files
         remove("./data.txt");
@@ -24,19 +24,17 @@ int main(int argc, char *argv[])
         printf("Preprocessing done");
         break;
     case 2:
-        processing(argv[2]); // Call the processor TO DO: CHANGE THE FUNCTION CALL
+        processing(argv[2]); // Call the processor 
         break;
     case 3:
         preprocessing(argv[2]); // Call the preprocessor
-        assembling(argv[2]); // Call the assembler TO DO: CHANGE THE FUNCTION CALL
+        assembling(); // Call the assembler 
 
         // Remove all temporary files
         remove("./data.txt");
         remove("./code.txt");
 
-        bin = strtok(argv[2], ".");
-        bin = strcat(bin, ".bin");
-        processing(bin); // Call the processor TO DO: CHANGE THE FUNCTION CALL
+        processing("out.grml"); // Call the processor 
         break;
     default:
         break;
