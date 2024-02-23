@@ -13,3 +13,28 @@
 ## Overview
 
 This project is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language to run instructions on it. Moreover, we have to develop a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
+
+## How to use
+
+To use our virtual processor you can choose between 3 different commands:
+
+
+```
+./main.exe gorasm [your file name].txt
+```
+Your file should contain ALGORISK assembly, else it may return an error.
+
+This command will assemble the ALGORISK assembly into a .grml file, containing the binary of your program.
+
+```
+./main.exe goproc [your file name].grml
+```
+
+This command will execute the binary of a .grml file.
+
+
+```
+./main.exe gorisk [your file name].txt
+```
+
+This command executes the two previous commands into one.
