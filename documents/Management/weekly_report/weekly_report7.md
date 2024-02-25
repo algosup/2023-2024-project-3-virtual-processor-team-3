@@ -7,7 +7,7 @@
 
 ### <u> Introduction </u>
 
-This week, despite being the last week of project is the last week of development for the Virtual Processor. Meaning that by the end of the week, we need to release our final product. Meaning that both our Assembler and Processor have to be finished, refurbished and ensure that an user can use our product.
+This week, despite being the last week of the project is the last week of development for the Virtual Processor. Meaning that by the end of the week, we need to release our final product. This means that both our Assembler and Processor have to be finished, refurbished and to ensure that a user can use our product.
 
 ### <u> Ongoing Tasks</u>
 
@@ -36,20 +36,20 @@ This week, despite being the last week of project is the last week of developmen
 
 ### <u>Team meeting</u>
 
-The team gathered for the first time on Monday the 19th in the afternoon, we've discussed the progress made during the weekend and discussed about the last steps that will be taken during the last week of development, we decided to stop focusing on building a debugger to focus on a more reliable and convenient product.
-Moreover, we decided not to do a meeting on friday as the team was rushing to release the product as some non-ideal event occured leading us to lose time (this will be detailed in the week feedback).
+The team gathered for the first time on Monday the 19th in the afternoon, we've discussed the progress made during the weekend and the last steps that will be taken during the last week of development, we decided to stop focusing on building a debugger to focus on a more reliable and convenient product.
+Moreover, we decided not to do a meeting on Friday as the team was rushing to release the product as some non-ideal event occurred leading us to lose time (this will be detailed in the week's feedback).
 
 ### <u>Week feedback</u>
 
-The week went smoothly. However, Mathis was sick nearly during the whole week and it has highly impacted the development of the assembler. However, after a meeting, he told us that he could ensure the release of the assembler for friday. As a matter of fact, this wasn't ensured. We decided to take actions and decided to create a backup assembler ( rushed one) on thursday. Malo has done a wonderful job by providing such a great assembler in such a low time frame. We are still awaiting for Mathis Assembler to be given to the team, to then implement it into the final product. It will be the next step of our product and will mark the first update. We expected to have it for friday, however on sunday. Westill don't have any news from Mathis' assembler.
+The week went smoothly. However, Mathis was sick for nearly the whole week and it has highly impacted the development of the assembler. However, after a meeting, he told us that he could ensure the release of the assembler on Friday. This wasn't ensured. We decided to take action and decided to create a backup assembler ( rushed one) on Thursday. Malo has done a wonderful job by providing such a great assembler in such a short time frame. We are still waiting for Mathis Assembler to be given to the team, to then implement it into the final product. It will be the next step of our product and will mark the first update. We expected to have it for Friday, however on Sunday. We still don't have any news from Mathis' assembler.
 
-We are saddened to not being able to use a refurbished assembler by the time of the release of the product, but the worse has been managed and by now, we have a working product. It isn't as effective as planned but its working.
+We are saddened to not being able to use a refurbished assembler by the time of the release of the product, but the worst has been managed and by now, we have a working product. It isn't as effective as planned but it's working.
 
 ### <u>Next week planning </u>
 
-Next week will not have a huge impact project wise as we will mainly focus on preparing for the final presentation of the project and the product.
+Next week will not have a huge impact project-wise as we will mainly focus on preparing for the final presentation of the project and the product.
 
-Next week tasks:
+Next week's tasks:
 
 - Prepare the final oral exam
 - Update the product with the right assembler instead of the back up one
