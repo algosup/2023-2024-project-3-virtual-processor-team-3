@@ -14,10 +14,17 @@
 
 This project is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language to run instructions on it. Moreover, we have to develop a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
 
-## How to use
+## What Is ALGORASM
 
-To use our virtual processor you can choose between 3 different commands:
+## What Is ALGORISK
 
+## How To Install
+
+## How To Use
+
+To **code in ALGORASM** feel free to check the documentation here: [Instruction Set Manual](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Assembly_documentation/ALGORISK_documentation.pdf)
+
+To **use our virtual processor** you can choose between 3 different commands:
 
 ```
 ./main.exe gorasm [your file name].txt
@@ -38,3 +45,5 @@ This command will execute the binary of a .grml file.
 ```
 
 This command executes the two previous commands into one.
+
+## License
