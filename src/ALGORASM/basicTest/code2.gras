@@ -1,0 +1,3 @@
+jump:
+    jie r1, r2, jump
+    jie r1, r2, jump

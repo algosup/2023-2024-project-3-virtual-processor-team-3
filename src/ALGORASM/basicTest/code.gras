@@ -1,0 +1,81 @@
+begin:
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    lui r1, 4096         // Setup base address in r1
+    auipc r2, 0          // Add upper immediate to PC, store in r2 for later use
+
+    // Arithmetic and Logical Operations
+    addi r1, r1, 256     // Add immediate to r1
+    add r3, r1, r2       // Add r1 and r2, result in r3
+    sub r4, r3, r1       // Subtract r1 from r3, result in r4
+
+    and r5, r3, r4       // Logical AND between r3 and r4
+    andi r5, r5, 255     // AND immediate with r5
+    or r6, r3, r4        // Logical OR
+    ori r6, r6, 255      // OR immediate
+
+    xor r7, r3, r4       // Logical XOR
+    xori r7, r7, 255     // XOR immediate
+    sll r8, r3, r1       // Shift left logical
+    slli r8, r8, 2       // Shift left logical immediate
+
+    srl r9, r3, r1       // Shift right logical
+    srli r9, r9, 2       // Shift right logical immediate
+    sra r10, r3, r1      // Shift right arithmetic
+    srai r10, r10, 2     // Shift right arithmetic immediate
+
+    // Conditional Branches using dummy labels for demonstration
+    ilt? r11, r3, r4     // Is less than
+    ilti? r11, r3, 100   // Is less than immediate
+    iltu? r12, r3, r4    // Is less than unsigned
+    iltui? r12, r3, 100  // Is less than unsigned immediate
+
+    // Control flow
+    jie r3, r4, nearLabel    // Jump if equal
+    jine r3, r4, nearLabel   // Jump if not equal
+    jige r3, r4, nearLabel   // Jump if greater or equal
+    jigeu r3, r4, nearLabel  // Jump if greater or equal unsigned
+    jile r3, r4, nearLabel   // Jump if less or equal
+    jileu r3, r4, nearLabel  // Jump if less or equal unsigned
+    jal r14, print_loop          // Jump and link to 'print_loop'
+    jalr r15, r2, 0          // Jump and link register
+
+    // Memory operations
+    lb r16, (r1)         // Load byte
+    lh r17, (r1)         // Load halfword
+    lw r18, (r1)         // Load word
+    lbu r19, (r1)        // Load byte unsigned
+    lhu r20, (r1)        // Load halfword unsigned
+    sb r16, (r1)         // Store byte
+    sh r17, (r1)         // Store halfword
+    sw r18, (r1)         // Store word
+
+nearLabel:
+    addi r1, r1, 1       // Dummy operation to have a label
+
+print_loop:
+    lbu r3, (r1)        // Load a byte of the content pointed to by r1
+    jie r3, r0, done  // If r3 is equal to 0, jump to 'done'
+    sb r3, (r2)         // Store the byte in r3 into the address pointed to by r2
+    addi r1, r1, 1      // Increment r1 by one byte
+    jal r0, print_loop // Unconditionally jump to the beginning of the loop
+done:
+    jal r0, .         // Infinite loop to halt execution

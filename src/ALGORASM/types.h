@@ -1,62 +1,4 @@
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ GLOBAL TYPES DEFINITIONS ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Operand Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        // The struct representing the "arguments" and "values" of lines of assembly
-        typedef struct {
-            char operandType; // 'D' for direct, 'I' for indirect
-            char operandValue[MAX_MNEMO_LENGTH]; // To hold the operand value
-        } Operand_t;
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Line Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        // The Tokenised lines of assembly, contain mnemonics (unique identifier) and operands 
-        typedef struct {
-            char type;
-            char mnemonic[MAX_MNEMO_LENGTH];
-            int operandCount;
-            Operand_t operands[MAX_OPRD_COUNT];
-        } Line_t;
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Section Type Enum⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        /* DEPRECATED
-        // Defining the type of section that is being parsed
-        typedef enum { // TODO: Not needed anymore
-            DATA,
-            CODE
-        } SectionType_t;
-        */
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Section Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        /* DEPRECATED
-        // A collection of lines organised into a section.
-        typedef struct {
-            // SectionType_t; 
-            Line_t instrLines[256]; // Change to fit the 3k memory model
-            size_t lineCount;
-        } Section_t;
-        */
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Data Section Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        // A collection of contiguous bytes for storing all the variables, to be be assembled with the code section afterwards
-        typedef struct {
-            uint8_t bytes[MAX_DATA_MEMORY];
-            int bytesCount;
-        } DataSection_t;
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Label Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        /* DEPRECATED
-        typedef struct Label {
-            char name[MAX_MNEMO_LENGTH]; 
-            uint32_t address; 
-        } Label_t;
-        */
-
-    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Symbol Table Node Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        // A node of the symbol table, for address resolution
-        typedef struct SymbolTableNode {
-            char label[MAX_MNEMO_LENGTH];
-            int address;
-            struct SymbolTableNode *next;
-        } SymbolTableNode_t;
-
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Mnemonics⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Basically, the list of all allowed instructions
         typedef enum {
@@ -96,9 +38,112 @@
             LHU,
             SB,
             SH,
-            SW
+            SW,
+            ERR
         }InstructionName_t;
 
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Registers⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Operand Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // The struct representing the "arguments" and "values" of lines of assembly
+        /*
+        typedef struct {
+            InstructionArgumentType_t operandType;
+            
+        } Operand_t;
+        */
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // The Tokenised lines of assembly, contain mnemonics (unique identifier) and operands 
+        typedef struct {
+            InstructionName_t name;
+            long long int operands[MAX_OPRD_COUNT];
+            int operandCount;
+            char *needsResolve;
+        } Instruction_t;
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Data Section Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // A collection of contiguous bytes for storing all the variables, to be be assembled with the code section afterwards
+        typedef struct {
+            uint8_t bytes[MAX_DATA_MEMORY];
+            int bytesCount;
+        } DataSection_t;
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Unresolved Instructions Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // A collection of all the found instructions, waiting to be resolved and encoded
+        typedef struct {
+            Instruction_t instructions[MAX_INSTR_COUNT];
+            int count;
+        } UnresolvedInstructions_t;
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Resolved Instructions Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+         // The resolved instructions, ready for encoding
+        typedef struct {
+            Instruction_t *instructions[MAX_INSTR_COUNT];
+            int count;
+        } ResolvedInstructions_t;
+
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Symbol Table Node Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // A node of the symbol table, for address resolution
+        typedef struct SymbolTableNode {
+            char label[MAX_MNEMO_LENGTH];
+            int address;
+            struct SymbolTableNode *next;
+        } SymbolTableNode_t;
+
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Mnemonic Map Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // Map string mnemonics to their enum counterparts
+        typedef struct {
+            char *name;
+            InstructionName_t value;
+        } MnemonicMap_t;
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Mnemonic Mapping⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // This map ddefines the mapping of all mnemonic string to their enum counterparts
+        MnemonicMap_t mnemonicMap[] = {
+            // str,      enum
+            {"add",     ADD},
+            {"addi",    ADDI},
+            {"sub",     SUB},
+            {"and",     AND},
+            {"andi",    ANDI},
+            {"or",      OR},
+            {"ori",     ORI},
+            {"xor",     XOR},
+            {"xori",    XORI},
+            {"sll",     SLL},
+            {"slli",    SLLI},
+            {"srl",     SRL},
+            {"srli",    SRLI},
+            {"sra",     SRA},
+            {"srai",    SRAI},
+            {"ilt?",    ILT},
+            {"ilti?",   ILTI},
+            {"iltu?",   ILTU},
+            {"iltui?",  ILTUI},
+            {"jie",     JIE},
+            {"jine",    JINE},
+            {"jige",    JIGE},
+            {"jigeu",   JIGEU},
+            {"jile",    JILE},
+            {"jileu",   JILEU},
+            {"lui",     LUI},
+            {"auipc",   AUIPC},
+            {"jal",     JAL},
+            {"jalr",    JALR},
+            {"lb",      LB},
+            {"lh",      LH},
+            {"lw",      LW},
+            {"lbu",     LBU},
+            {"lhu",     LHU},
+            {"sb",      SB},
+            {"sh",      SH},
+            {"sw",      SW}
+        };
+
+ 
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Mapping Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // This struct defines the format of an assembly instruction
         typedef struct {
@@ -159,7 +204,6 @@
             REG,
             IMM,
             LBL,
-            OFS,
             ADR
         }InstructionArgumentType_t;
 
@@ -168,18 +212,19 @@
         typedef struct {
             InstructionName_t instrName; 
             InstructionArgumentType_t types[MAX_OPRD_COUNT]; 
-            int InstructionArgumentsCount;
+            int instructionArgumentsCount;
 
         }InstructionArguments_t;
 
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Operands Check⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // This table is used to check if the right number and types of operands are provided when summoning an instruction
-        InstructionArguments_t instructionCheckTable[] = {
+        InstructionArguments_t const instructionCheckTable[] = {
         //  Instr.       Operand(s)    Count
             {ADD,   {REG, REG, REG},    3 },
             {ADDI,  {REG, REG, IMM},    3 },
             {SUB,   {REG, REG, REG},    3 },
             {AND,   {REG, REG, REG},    3 },
+            {ANDI,  {REG, REG, IMM},    3 },
             {OR,    {REG, REG, REG},    3 },
             {ORI,   {REG, REG, IMM},    3 },
             {XOR,   {REG, REG, REG},    3 },
@@ -187,7 +232,7 @@
             {SLL,   {REG, REG, REG},    3 },
             {SLLI,  {REG, REG, IMM},    3 },
             {SRL,   {REG, REG, REG},    3 },
-            {SLLI,  {REG, REG, IMM},    3 },
+            {SRLI,  {REG, REG, IMM},    3 },
             {SRA,   {REG, REG, REG},    3 },
             {SRAI,  {REG, REG, IMM},    3 },
             {ILT,   {REG, REG, REG},    3 },
@@ -203,7 +248,7 @@
             {LUI,   {REG, IMM},         2 },
             {AUIPC, {REG, IMM},         2 },
             {JAL,   {REG, LBL},         2 },
-            {JALR,  {REG, REG, OFS},    3 },
+            {JALR,  {REG, REG, IMM},    3 },
             {LB,    {REG, ADR},         2 },
             {LH,    {REG, ADR},         2 },
             {LW,    {REG, ADR},         2 },

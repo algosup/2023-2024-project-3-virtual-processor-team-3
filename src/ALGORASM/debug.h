@@ -10,9 +10,9 @@
 
 // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Print the data section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
     void printDataSection(const DataSection_t *dataSection) {
-        printf("🤖 - Entering printDataSection... bytesCount = %d\n", dataSection->bytesCount); // Debugging line
+        printf("🤖 - Entering printDataSection... bytesCount = %d\n", dataSection->bytesCount);
         for (int i = 0; i < dataSection->bytesCount; i++) {
-            printf("🤖 - Printing byte %d: ", i);
+            printf("    byte %d: ", i);
             printByteInBinary(dataSection->bytes[i]);
             printf("\n");
         }

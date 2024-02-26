@@ -2,7 +2,7 @@
 
 // tip: don't hesitate to collapse/uncollapse the comment headers to make the code structure more obvious.
 
-// ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PARSE LINE ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
+// ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PARSE DATA LINE ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // Function designed to parse the Data section
     int ParseLineData(char *line, DataSection_t *dataSection, SymbolTableNode_t **head) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Syntax Checking Preparation⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
@@ -16,7 +16,6 @@
 
             int lineNum = dataSection->bytesCount;
 
-        
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Syntax Checking⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Check if the line starts with a letter
@@ -30,6 +29,21 @@
 
                     // Take that label and check that it doesn't exceed max label length
                     if (token != NULL && strlen(token) <= MAX_MNEMO_LENGTH - 1) {
+
+                        
+                        // ++++++++ UNTESTED ++++++++++
+                        // Check each character of the label
+                        for (int i = 0; i < (int)(strlen(token)); i++) {
+                            char c = token[i];
+
+                            // Check if use the characters allowed for labels
+                            if (!(isalpha((unsigned char)c) || isdigit((unsigned char)c) || c == '_' || c == '-')) {
+
+                                // If not, return error
+                                printf(" ⚠️  Invalid character '%c' in label \"%s\" , line %d. Allowed characters (A-Z, a-z, 0-9 _ - )\n", c, token, lineNum);
+                                return 1;
+                            }
+                        }
 
                         // If it doesn't, copy it to the label variable for further checking
                         strcpy(label, token);
@@ -79,37 +93,20 @@
                                     }
 
                                     // If it matches, proceed with the directive-specific logic
-                                    if (isDirectiveFound) {
-
-                                        // +++++++++ DEBUG +++++++++++++
-                                        if (DBG == 1){
-                                            printf("🤖 - ✅ Directive '%s' recognized, line %d\n", directiveName, lineNum+1);
-                                        }
-                                        
-                                        
+                                    if (isDirectiveFound) {                                        
 
                                         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Directive-specific logic⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
                                             // ❑ .byte Directive ❑
                                                 if (strcmp(directiveName, "byte") == 0) {
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - ✅ Byte logic started\n");
-                                                    }
 
                                                     // Create a new variable (for consistency and readability) for syntax chacking
                                                     // This pointer will start after the directive
                                                     char *valuesStart = directiveCheck+1;
-                                                    
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - directiveName: %s\n", directiveName);
-                                                        printf("🤖 - directiveCheck: %s\n", directiveCheck);
-                                                    }
 
                                                     // Skip whitespaces after the directive
                                                     while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
 
-                                                    // Tokenize the string for comma separated values
+                                                    // tokenise the string for comma separated values
                                                     char *byteValueStr = strtok(valuesStart, ",");
 
                                                     // We can handle a maximum of 512 values
@@ -139,7 +136,7 @@
 
                                                         // Check if it is in bounds and an integer
                                                         if (!isValidByteInt(trimmedByteValueStr, &byteValue)) {
-                                                            printf("⚠️ Invalid byte value '%s' (must be an integer within [-128, 255]) (line %d), at position %d in array declaration\n", byteValueStr, lineNum, byteCount);
+                                                            printf("⚠️  Invalid byte value '%s' (must be an integer within [-128, 255]) (line %d), at position %d in array declaration\n", byteValueStr, lineNum, byteCount);
                                                             return 1;
                                                         }
 
@@ -153,25 +150,9 @@
                                                     // Once all values extracted, if there are any:
                                                     if (byteCount > 0 && byteCount <= MAX_BYTE_ARRAY_DECLR ) {
 
-                                                        // +++++++++++ DEBUG +++++++++++++++++++
-                                                        /*
-                                                        printf("✅ Parsed byte values: %d", byteCount);
-                                                        for (int i = 0; i < byteCount; i++) {
-                                                            printf("\n %d", byteValues[i]);
-                                                        }
-                                                        printf("\n (line %d)\n", lineNum); 
-                                                        */
-
                                                         // Check if there is enough Memory Left for writing all the values
                                                         // Compare if available memory is smaller than what is attempted to be written
                                                         if (MAX_DATA_MEMORY - dataSection->bytesCount >= byteCount){
-
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Enough Memory Left! \n");
-                                                                printf("🤖 - MemoryLeft: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount);
-                                                                printf("🤖 - MemoryLeftAfterWrite: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount - byteCount);
-                                                            }
 
                                                             // Hurray, we can finally write it to memory!
 
@@ -188,29 +169,24 @@
                                                             // Create an entry for that label at the current address in the lookup table
                                                             insertNode(head, label, lineNum);
 
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Successfully Written to memory \n");
-                                                            }
-                                                            
                                                             return 0;
 
                                                         } 
                                                         // Otherwise, not enough memory left, throw an error:
                                                         else {
-                                                            printf("⚠️ Not enough memory left for byte declaration! Need %d, Have %d\n", byteCount, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                                            printf("⚠️  Not enough memory left for byte declaration! Need %d, Have %d\n", byteCount, MAX_DATA_MEMORY - dataSection->bytesCount);
                                                             return 1;
                                                         }
                                                     } 
                                                     // Otherwise, if there are too many values
                                                     else if (byteCount > MAX_BYTE_ARRAY_DECLR ){
-                                                        printf("⚠️ Too many byte values found in declaration (must be <= 512) (line %d)\n", lineNum);
+                                                        printf("⚠️  Too many byte values found in declaration (must be <= 512) (line %d)\n", lineNum);
                                                         return 1;
 
                                                     }
                                                     // Otherwise, if there are none, return error:
                                                     else {
-                                                        printf("⚠️ No valid byte values found (line %d)\n", lineNum);
+                                                        printf("⚠️  No valid byte values found (line %d)\n", lineNum);
                                                         return 1;
                                                     }
                                                 }   
@@ -219,25 +195,15 @@
 
                                             // ❑ .half Directive ❑
                                                 if (strcmp(directiveName, "half") == 0) {
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - ✅ Half logic started\n");
-                                                    }
 
                                                     // Create a new variable (for consistency and readability) for syntax chacking
                                                     // This pointer will start after the directive
                                                     char *valuesStart = directiveCheck+1;
-                                                    
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - directiveName: %s\n", directiveName);
-                                                        printf("🤖 - directiveCheck: %s\n", directiveCheck);
-                                                    }
 
                                                     // Skip whitespaces after the directive
                                                     while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
 
-                                                    // Tokenize the string for comma separated values
+                                                    // tokenise the string for comma separated values
                                                     char *halfValueStr = strtok(valuesStart, ",");
 
                                                     // We can handle a maximum of 256 values
@@ -267,7 +233,7 @@
 
                                                         // Check if it is in bounds and an integer
                                                         if (!isValidHalfInt(trimmedHalfValueStr, &halfValue)) {
-                                                            printf("⚠️ Invalid half value '%s' (must be an integer within [-32768, 65535]) (line %d), at position %d in array declaration\n", halfValueStr, lineNum, halfCount);
+                                                            printf("⚠️  Invalid half value '%s' (must be an integer within [-32768, 65535]) (line %d), at position %d in array declaration\n", halfValueStr, lineNum, halfCount);
                                                             return 1;
                                                         }
 
@@ -279,27 +245,11 @@
                                                     }
 
                                                     // Once all values extracted, if there are any:
-                                                    if (halfCount > 0 && halfCount <= MAX_HALF_ARRAY_DECLR ) {
-
-                                                        // +++++++++++ DEBUG +++++++++++++++++++
-                                                        /*
-                                                        printf("✅ Parsed half values: %d", halfCount);
-                                                        for (int i = 0; i < halfCount; i++) {
-                                                            printf("\n %d", halfValues[i]);
-                                                        }
-                                                        printf("\n (line %d)\n", lineNum); 
-                                                        */
+                                                    if (halfCount > 0 && halfCount <= MAX_HALF_ARRAY_DECLR ) {                                                        
 
                                                         // Check if there is enough Memory Left for writing all the values
                                                         // Compare if available memory is smaller than what is attempted to be written
                                                         if (MAX_DATA_MEMORY - dataSection->bytesCount >= halfCount * 2){
-
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Enough Memory Left! \n");
-                                                                printf("🤖 - MemoryLeft: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount);
-                                                                printf("🤖 - MemoryLeftAfterWrite: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount - halfCount*2);
-                                                            }
 
                                                             // Hurray, we can finally write it to memory!
 
@@ -315,30 +265,25 @@
 
                                                             // Create an entry for that label at the current address in the lookup table
                                                             insertNode(head, label, lineNum);
-
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Successfully Written to memory \n");
-                                                            }
                                                             
                                                             return 0;
 
                                                         } 
                                                         // Otherwise, not enough memory left, throw an error:
                                                         else {
-                                                            printf("⚠️ Not enough memory left for half declaration! Need %d, Have %d\n", halfCount*2, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                                            printf("⚠️  Not enough memory left for half declaration! Need %d, Have %d\n", halfCount*2, MAX_DATA_MEMORY - dataSection->bytesCount);
                                                             return 1;
                                                         }
                                                     } 
                                                     // Otherwise, if there are too many values
                                                     else if (halfCount > MAX_HALF_ARRAY_DECLR ){
-                                                        printf("⚠️ Too many half values found in declaration (must be <= 256) (line %d)\n", lineNum);
+                                                        printf("⚠️  Too many half values found in declaration (must be <= 256) (line %d)\n", lineNum);
                                                         return 1;
 
                                                     }
                                                     // Otherwise, if there are none, return error:
                                                     else {
-                                                        printf("⚠️ No valid half values found (line %d)\n", lineNum);
+                                                        printf("⚠️  No valid half values found (line %d)\n", lineNum);
                                                         return 1;
                                                     }
                                                 }
@@ -347,25 +292,15 @@
 
                                             // ❑ .word Directive ❑
                                                 if (strcmp(directiveName, "word") == 0) {
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - ✅ Word logic started\n");
-                                                    }
                                                     
                                                     // Create a new variable (for consistency and readability) for syntax chacking
                                                     // This pointer will start after the directive
                                                     char *valuesStart = directiveCheck+1;
-                                                    
-                                                    // +++++++++ DEBUG +++++++++++++
-                                                    if (DBG == 1){
-                                                        printf("🤖 - directiveName: %s\n", directiveName);
-                                                        printf("🤖 - directiveCheck: %s\n", directiveCheck);
-                                                    }
 
                                                     // Skip whitespaces after the directive
                                                     while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
 
-                                                    // Tokenize the string for comma separated values
+                                                    // tokenise the string for comma separated values
                                                     char *wordValueStr = strtok(valuesStart, ",");
 
                                                     // We can handle a maximum of 128 values
@@ -395,7 +330,7 @@
 
                                                         // Check if it is in bounds and an integer
                                                         if (!isValidWordInt(trimmedWordValueStr, &wordValue)) {
-                                                            printf("⚠️ Invalid word value '%s' (must be an integer within [-2,147,483,648, 4294967295]) (line %d), at position %d in array declaration\n", wordValueStr, lineNum, wordCount);
+                                                            printf("⚠️  Invalid word value '%s' (must be an integer within [-2,147,483,648, 4294967295]) (line %d), at position %d in array declaration\n", wordValueStr, lineNum, wordCount);
                                                             return 1;
                                                         }
 
@@ -409,25 +344,9 @@
                                                     // Once all values extracted, if there are any:
                                                     if (wordCount > 0 && wordCount <= MAX_WORD_ARRAY_DECLR ) {
 
-                                                        // +++++++++++ DEBUG +++++++++++++++++++
-                                                        /*
-                                                        printf("✅ Parsed word values: %d", wordCount);
-                                                        for (int i = 0; i < wordCount; i++) {
-                                                            printf("\n %d", wordValues[i]);
-                                                        }
-                                                        printf("\n (line %d)\n", lineNum); 
-                                                        */
-
                                                         // Check if there is enough Memory Left for writing all the values
                                                         // Compare if available memory is smaller than what is attempted to be written
                                                         if (MAX_DATA_MEMORY - dataSection->bytesCount >= wordCount * 4){
-
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Enough Memory Left! \n");
-                                                                printf("🤖 - MemoryLeft: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount);
-                                                                printf("🤖 - MemoryLeftAfterWrite: %d\n",MAX_DATA_MEMORY - dataSection->bytesCount - wordCount*4);
-                                                            }
 
                                                             // Hurray, we can finally write it to memory!
 
@@ -444,30 +363,25 @@
 
                                                             // Create an entry for that label at the current address in the lookup table
                                                             insertNode(head, label, lineNum);
-
-                                                            // +++++++++++++ DEBUG +++++++++++++
-                                                            if (DBG == 1){
-                                                                printf("🤖 - Successfully Written to memory \n");
-                                                            }
                                                             
                                                             return 0;
 
                                                         } 
                                                         // Otherwise, not enough memory left, throw an error:
                                                         else {
-                                                            printf("⚠️ Not enough memory left for word declaration! Need %d, Have %d\n", wordCount*4, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                                            printf("⚠️  Not enough memory left for word declaration! Need %d, Have %d\n", wordCount*4, MAX_DATA_MEMORY - dataSection->bytesCount);
                                                             return 1;
                                                         }
                                                     } 
                                                     // Otherwise, if there are too many values
                                                     else if (wordCount > MAX_WORD_ARRAY_DECLR ){
-                                                        printf("⚠️ Too many word values found in declaration (must be <= 128) (line %d)\n", lineNum);
+                                                        printf("⚠️  Too many word values found in declaration (must be <= 128) (line %d)\n", lineNum);
                                                         return 1;
 
                                                     }
                                                     // Otherwise, if there are none, return error:
                                                     else {
-                                                        printf("⚠️ No valid word values found (line %d)\n", lineNum);
+                                                        printf("⚠️  No valid word values found (line %d)\n", lineNum);
                                                         return 1;
                                                     }
                                                 }
@@ -490,7 +404,7 @@
                                                     if (numBytesStr == endPtr || *endPtr != '\0' || allocSize < 0 || allocSize > MAX_DATA_MEMORY) {
 
                                                         // Then fail
-                                                        printf("⚠️ Invalid allocation size '%s' (must be a non-negative integer and < 2048) (line %d)\n", numBytesStr, lineNum);
+                                                        printf("⚠️  Invalid allocation size '%s' (must be a non-negative integer and < 2048) (line %d)\n", numBytesStr, lineNum);
                                                         return 1;
                                                     }
 
@@ -507,14 +421,11 @@
                                                         // Create an entry for that label at the current address in the lookup table
                                                         insertNode(head, label, lineNum);
 
-                                                        if (DBG == 1) {
-                                                            printf("🤖 - Successfully Allocated %d bytes\n", numBytesToAlloc);
-                                                        }
                                                         return 0;
                                                     } 
                                                     // Otherwise, not enough memory left
                                                     else {
-                                                        printf("⚠️ Not enough memory left for allocation! Requested %d bytes, but only %d bytes available.\n", numBytesToAlloc, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                                        printf("⚠️  Not enough memory left for allocation! Requested %d bytes, but only %d bytes available.\n", numBytesToAlloc, MAX_DATA_MEMORY - dataSection->bytesCount);
                                                         return 1;
                                                     }
                                                 }
@@ -531,7 +442,7 @@
 
                                                     // Check if string starts with a quote 
                                                     if (*stringValueStart != '"') {
-                                                        printf("⚠️ String must start with a quote (line %d)\n", lineNum);
+                                                        printf("⚠️  String must start with a quote (line %d)\n", lineNum);
                                                         return 1;
                                                     }
 
@@ -543,7 +454,7 @@
 
                                                     // If none found, throw error
                                                     if (!stringValueEnd) {
-                                                        printf("⚠️ String must end with a quote (line %d)\n", lineNum);
+                                                        printf("⚠️  String must end with a quote (line %d)\n", lineNum);
                                                         return 1;
                                                     }
 
@@ -553,14 +464,14 @@
 
                                                     // Ensure there are no extra characters after the last quote (except for whitespaces which are now trimmed)
                                                     if (*lineEnd != '\0') {
-                                                        printf("⚠️ Extra characters found outside of string quotes (line %d)\n", lineNum);
+                                                        printf("⚠️  Extra characters found outside of string quotes (line %d)\n", lineNum);
                                                         return 1;
                                                     }
 
                                                     // Check if there's enough memory to store the string and the null terminator
                                                     int stringLength = stringValueEnd - stringValueStart;
                                                     if (MAX_DATA_MEMORY - dataSection->bytesCount < stringLength + 1) {
-                                                        printf("⚠️ Not enough memory to store the string (line %d)\n", lineNum);
+                                                        printf("⚠️  Not enough memory to store the string (line %d)\n", lineNum);
                                                         return 1;
                                                     }
 
@@ -571,7 +482,7 @@
                                                         if (!isascii(stringValueStart[i])) {
 
                                                             // If they aren't, fail
-                                                            printf("⚠️ String contains non-ASCII characters (line %d)\n", lineNum);
+                                                            printf("⚠️  String contains non-ASCII characters (line %d)\n", lineNum);
                                                             return 1;
                                                         }
 
@@ -585,46 +496,43 @@
                                                     // Create an entry for that label at the current address in the lookup table
                                                     insertNode(head, label, lineNum);
 
-                                                    if (DBG == 1) {
-                                                        printf("🤖 - Successfully stored ASCII string in memory\n");
-                                                    }
                                                     return 0;
                                                 }
                                     }
                                     // If there is no match, return an error
                                     else {
                                         // Directive does not match any known directives
-                                        printf("⚠️ Directive '%s' isn't recognised, line %d\n", directiveName, lineNum);
+                                        printf("⚠️  Directive '%s' isn't recognised, line %d\n", directiveName, lineNum);
                                         return 1;
                                     }
                             } 
                             // Otherwise, the line is missing a dot
                             else {
-                                printf("⚠️ Missing '.' for directive after label name (line %d)\n", lineNum);
+                                printf("⚠️  Missing '.' for directive after label name (line %d)\n", lineNum);
                                 return 1;
                             }
                         } 
                         // Otherwise, the label has already been declared
                         else {
-                            printf("⚠️ Label name (%s) has already been declared in data section (line %d)\n", label, lineNum);
+                            printf("⚠️  Label name (%s) has already been declared in data section (line %d)\n", label, lineNum);
                             return 1;
                         }
                     } 
                     // Otherwise, the label exceeds the max length
                     else {
-                        printf("⚠️ Label name exceeds 49 characters, please rename it to a shorter name (line %d)\n", lineNum);
+                        printf("⚠️  Label name exceeds 49 characters, please rename it to a shorter name (line %d)\n", lineNum);
                         return 1;
                     }
                 }
                 // Otherwise, declaration is missing the colon operator
                 else {
-                    printf("⚠️ Missing ':' after Label Declaration (line %d)\n", lineNum);
+                    printf("⚠️  Missing ':' after Label Declaration (line %d)\n", lineNum);
                     return 1;
                 }
             } 
             // Otherwise, the label name doesn't start with a letter
             else {
-                printf("⚠️ The label name must start with a letter (line %d)\n", lineNum);
+                printf("⚠️  The label name must start with a letter (line %d)\n", lineNum);
                 return 1;
             }        
             return 0;
@@ -632,6 +540,1313 @@
 
 
 
-/*
-// ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PARSE CODE ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
-*/
+
+// ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PARSE CODE LINE⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
+    // Function designed to the the first pass on the unresolved code section.
+    int ParseLineCode (char *line, SymbolTableNode_t **head, SymbolTableNode_t **head2, UnresolvedInstructions_t *unresolvedInstructions){
+
+        // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Discarding Comments⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+            
+            // Skip leading whitespace characters
+            int i = 0, j = 0;
+            while (line[i] == ' ' || line[i] == '\t') {
+                i++;
+            }
+
+            // Shift text to the beginning of the line
+            if (i > 0) {
+                while (line[i]) {
+                    line[j++] = line[i++];
+                }
+                line[j] = '\0'; // Null-terminate the shifted string
+            }
+
+            // Find the start of a comment, if present, and truncate it
+            char *commentStart = strstr(line, "//");
+            if (commentStart) {
+
+                // Cut off the comment part
+                *commentStart = '\0'; 
+            }
+
+            // Check if the line is empty after removing comments and trimming whitespace
+            if (strlen(line) == 0) {
+
+                // If the line is empty, skip the printing process and continue with next line
+                return 0; 
+            }        
+
+
+        // Set address to current line number in array of unresolved (yet) instructions
+        int currentAddress = unresolvedInstructions->count;
+
+        // Check if the line starts with a letter
+        if (isalpha(line[0])) {
+
+            // Create a copy of the passed line, for deeper checks
+            char lineCopy[MAX_CHAR_PER_LINE_AMNT]; 
+            strcpy(lineCopy, line);      
+
+            // Variables for tokenisation
+            char *token;
+            char label[MAX_MNEMO_LENGTH];
+
+            // If it does, check for the presence of a colon, in which case it is a label
+            if (strchr(lineCopy, ':') != NULL) {
+
+                // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Handling Labels⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+                    // IMRPOVEMENTS : Reduce the nesting of checks for improved readability
+                    
+                    // If there is one, extract the label up to the colon
+                    token = strtok(line, ":");
+
+
+                    // Take that label and check that it doesn't exceed max label length
+                    if (token != NULL && strlen(token) <= MAX_MNEMO_LENGTH - 1) {
+
+                        // Check each character of the label
+                        for (int i = 0; i < (int)(strlen(token)); i++) {
+                            char c = token[i];
+
+                            // Check if use the characters allowed for labels
+                            if (!(isalpha((unsigned char)c) || isdigit((unsigned char)c) || c == '_' || c == '-')) {
+
+                                // If not, return error
+                                printf(" ⚠️  Invalid character '%c' in label \"%s\" , line %d. Allowed characters (A-Z, a-z, 0-9 _ - )\n", c, token, currentAddress);
+                                return 1;
+                            }
+                        }
+
+                        // If it is of correct length and contains only valid characters, procees
+                        strcpy(label, token);
+
+                        // Check if it has already been declared in the symbol tables
+                        if (!(isLabelExists(head2, label) || isLabelExists(head, label))) {
+
+                            // If it hasn't, Add it to the code symbol table
+                            insertNode(head2, label, currentAddress*32);
+
+                            // Move on to the next line
+                            return 0;
+
+
+                        }
+
+                        // Otherwise, the label has already been declared
+                        else {
+                            printf("⚠️  Label name (%s) has already been declared in a symbol table (line %d)\n", label, currentAddress);
+                            return 1;
+                        }
+                    }
+
+                    // Otherwise, the label exceeds the max length
+                    else {
+                        printf("⚠️  Label: %s exceeds 49 characters, please rename it to a shorter name (line %d)\n", token, currentAddress);
+                        return 1;
+                    }
+            }
+
+
+                // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Handling Instructions⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+                    // Otherwise, it is an instruction
+                    else {
+                        // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Preparation⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+
+                            // Instantiate an instruction
+                            Instruction_t instruction;
+
+                            // Init the structure with zeros
+                            memset(&instruction, 0, sizeof(Instruction_t));
+
+
+                            // +++++++++ DEBUG +++++++++
+                            /*
+                            if (DBG) {
+                                printf("\n");
+                                // usleep(250000);
+                                printf("%s\n", line);
+                            }
+                            */
+
+                            // Make a copy of the line for further processing
+                            char lineCopy[MAX_CHAR_PER_LINE_AMNT];
+                            strcpy(lineCopy, line); 
+
+                            // tokenise the instruction
+                            // Array to hold pointers to the tokens
+                            char *tokens[MAX_TOKENS];
+                            int tokenCount = 0;
+
+                            // Use strtok to tokenise the string
+                            char *token = strtok(lineCopy, " ,");
+
+                            // Keep tokenising
+                            while (token != NULL && tokenCount < MAX_TOKENS) {
+
+                                // Store the Token,
+                                tokens[tokenCount++] = token;
+
+                                // Get the next one
+                                token = strtok(NULL, " ,");
+                            }
+
+                        // Match First token to known instructions to see if it exists
+                        InstructionName_t instructionName = findMnemonic(tokens[0]);
+
+                        // If matching function returned ERR, it means instruction wasn't found, in which case, throw an error
+                        if (instructionName == ERR){
+                            printf(" ⚠️  Instruction (%s) isn't specified. \n", tokens[0]);
+                            return 1;
+                        }
+
+                        // +++++++++ DEBUG +++++++++
+                        // if (DBG) {
+                        //     // // usleep(250000);
+                        //     for (int i = 0; i < tokenCount; i++) {
+                        //         printf("    Token %d: %s\n", i, tokens[i]);
+                        //     }
+                        // }
+
+
+                        int exception = 0;
+                        int isInstructionNotValidated = 0;
+                        int isInstructionNotBuilt = 0;
+                        // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Specific Logic⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+
+                            switch(instructionName) {
+                            // ❑ ADD ❑
+                                case ADD: {
+                                    
+                                    // Check if the tokens match what we are supposed to have
+                                    isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 0, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 0, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ADDI ❑
+                                case ADDI: {
+                                    
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 1, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 1, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SUB ❑
+                                case SUB: {
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 2, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 2, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ AND ❑
+                                case AND: {
+                                    // Handle AND
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 3, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 3, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ANDI ❑
+                                case ANDI: {
+                                    // Handle ANDI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 4, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 4, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ OR ❑
+                                case OR: {
+                                    // Handle OR
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 5, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 5, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+                                    
+                                    break;
+                                }
+                            // ❑ ORI ❑
+                                case ORI: {
+                                    // Handle ORI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 6, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 6, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ XOR ❑
+                                case XOR: {
+                                    // Handle XOR
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 7, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 7, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+                                    
+                                    break;
+                                }
+                            // ❑ XORI ❑
+                                case XORI: {
+                                    // Handle XORI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 8, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 8, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SLL ❑
+                                case SLL: {
+                                    // Handle SLL
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 9, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 9, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SLLI ❑
+                                case SLLI: {
+                                    // Handle SLLI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 10, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 10, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SRL ❑
+                                case SRL: {
+                                    // Handle SRL
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 11, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 11, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SRLI ❑
+                                case SRLI: {
+                                    // Handle SRLI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 12, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 12, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SRA ❑
+                                case SRA: {
+                                    // Handle SRA
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 13, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 13, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SRAI ❑
+                                case SRAI: {
+                                    // Handle SRAI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 14, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 14, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ILT ❑
+                                case ILT: {
+                                    // Handle ILT
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 15, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 15, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ILTI ❑
+                                case ILTI: {
+                                    // Handle ILTI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 16, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 16, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ILTU ❑
+                                case ILTU: {
+                                    // Handle ILTU
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 17, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 17, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ ILTUI ❑
+                                case ILTUI: {
+                                    // Handle ILTUI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 18, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 18, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JIE ❑
+                                case JIE: {
+                                    // Handle JIE
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 19, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 19, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // printf("❗️🤖 - Needs Resolved: %s\n", unresolvedInstructions->instructions[currentAddress].needsResolve);
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JINE ❑
+                                case JINE: {
+                                    // Handle JINE
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 20, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 20, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JIGE ❑
+                                case JIGE: {
+                                    // Handle JIGE
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 21, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 21, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JIGEU ❑
+                                case JIGEU: {
+                                    // Handle JIGEU
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 22, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 22, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JILE ❑
+                                case JILE: {
+                                    // Handle JILE
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 23, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 23, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JILEU ❑
+                                case JILEU: {
+                                    // Handle JILEU
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 24, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens,24, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LUI ❑
+                                case LUI: {
+                                    // Handle LUI
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 25, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 25, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ AUIPC ❑
+                                case AUIPC: {
+                                    // Handle AUIPC
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 26, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 26, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JAL ❑
+                                case JAL: {
+                                    // Handle JAL
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 27, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 27, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ JALR ❑
+                                case JALR: {
+                                    // Handle JALR
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 28, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 28, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LB ❑
+                                case LB: {
+                                    // Handle LB
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 29, currentAddress);
+
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 29, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LH ❑
+                                case LH: {
+                                    // Handle LH
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 30, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 30, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LW ❑
+                                case LW: {
+                                    // Handle LW
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 31, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 31, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LBU ❑
+                                case LBU: {
+                                    // Handle LBU
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 32, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 32, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ LHU ❑
+                                case LHU: {
+                                    // Handle LHU
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 33, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 33, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SB ❑
+                                case SB: {
+                                    // Handle SB
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 34, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 34, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SH ❑
+                                case SH: {
+                                    // Handle SH
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 35, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 35, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                            // ❑ SW ❑
+                                case SW: {
+                                    // Handle SW
+
+                                    // Check if the tokens match what we are supposed to have
+                                    int isInstructionNotValidated = isValidInstruction(tokens, tokenCount, 36, currentAddress);
+
+                                    // Break if exception caught or instruction invalid
+                                    if (isInstructionNotValidated){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 36, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Otherwise, we can add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+
+                                    break;
+                                }
+                                default:
+                                    // o.O?
+                                    break;
+                            }
+
+                        // Halt execution if exception caught
+                        if (exception){
+                            return 1;
+                        }
+
+                        // If no error...
+                        return 0;
+
+                    }
+
+
+            
+            }
+        // Otherwise, the Label/Instruction name doesn't start with a letter
+        else {
+            printf("⚠️  Label/Instruction name must start with a letter (line %d)\n", currentAddress);
+            return 1;
+        }     
+
+        // So far so good...   
+        return 0;
+    }

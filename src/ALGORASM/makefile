@@ -41,21 +41,46 @@
 # 	@$(CC) $(CFLAGS) test-framework/unity.c ./*.c -o tests.out $(LIBS)
 
 
+# Version 2 makefile (base)
+
+# CC = gcc
+# CFLAGS = -Wall -Wextra -std=c99
+# TARGET = gorasm
+# SRC = gorasm.c
+
+# .PHONY: all clean
+
+# all: $(TARGET)
+
+# $(TARGET): $(SRC)
+# 	$(CC) $(CFLAGS) -o $@ $<
+
+# run: $(TARGET)
+# 	./$(TARGET)
+
+# clean:
+# 	rm -f $(TARGET)
+
+# Version 3 makefile (base+sanitize)
+
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
+SANITIZEFLAGS = -fsanitize=address -fno-omit-frame-pointer -g
 TARGET = gorasm
 SRC = gorasm.c
 
-.PHONY: all clean
+.PHONY: all clean sanitize
 
 all: $(TARGET)
 
 $(TARGET): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $<
 
+sanitize: $(SRC)
+	$(CC) $(CFLAGS) $(SANITIZEFLAGS) -o $(TARGET) $<
+
 run: $(TARGET)
 	./$(TARGET)
 
 clean:
 	rm -f $(TARGET)
-
