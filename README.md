@@ -15,9 +15,11 @@
 This project is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language to run instructions on it. Moreover, we have to develop a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
 
 
+
+
 ## What Is ALGORISK
 
-ALGORISK is our processor, it stands for ALGOSUP RISK, the risk refers to RISC V from which we got inspired to create our processor. 
+ALGORISK is our processor, it stands for ALGOSUP RISK, the risk refers to RISC V from which we got inspired to create our processor.
 
 ## What Is ALGORASM
 
@@ -26,6 +28,13 @@ ALGORASM is our assembly language, it stands for ALGORISK  assembly. The files w
 Processing a text file written in ALGORASM or a .gras file will create a new file named as the previous one but with the .grml extension.
 
 ## How To Install
+
+Firstly, you'll need to install GCC (if not done yet): [Download GCC now](https://gcc.gnu.org) ! \
+Follow the instructions to download gcc on the website.
+
+- Then, check out our latest release: [Latest release here](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/tags)
+- Download the source code. You'll find everything you need, documentation, code, etc... Feel free to familiarize yourself with the files.
+- And voila! You're all set for a fresh start with ALGORASM and ALGORISK.
 
 ## How To Use
 
