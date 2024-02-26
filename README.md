@@ -14,9 +14,16 @@
 
 This project is an ALGOSUP project, driven by the students. This project aims to create a Virtual Processor along with an Assembly language to run instructions on it. Moreover, we have to develop a built-in debugger. All of that, using plain and portable C language (only standard libraries are allowed).
 
-## What Is ALGORASM
 
 ## What Is ALGORISK
+
+ALGORISK is our processor, it stands for ALGOSUP RISK, the risk refers to RISC V from which we got inspired to create our processor. 
+
+## What Is ALGORASM
+
+ALGORASM is our assembly language, it stands for ALGORISK  assembly. The files written in ALGORASM are either text files or .gras files, which means gorisk assembly.
+
+Processing a text file written in ALGORASM or a .gras file will create a new file named as the previous one but with the .grml extension.
 
 ## How To Install
 
