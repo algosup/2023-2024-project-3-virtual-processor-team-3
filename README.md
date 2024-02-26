@@ -63,3 +63,9 @@ This command will execute the binary of a .grml file.
 This command executes the two previous commands into one.
 
 ## License
+
+This project is under the [MIT License](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/LICENSE)
+
+Copyright (c) 2024 ALGOSUP
+
+![image](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Assembly_documentation/img/logo_algosup.png?raw=true)
