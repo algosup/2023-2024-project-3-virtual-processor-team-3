@@ -40,7 +40,7 @@ int checkArgs(int argc, char *argv[])
     {
         errorsHandler(2, 0, " ");
     }
-    if (argc > 3)
+    if (argc > 4)
     {
         errorsHandler(3, 0, " ");
     }

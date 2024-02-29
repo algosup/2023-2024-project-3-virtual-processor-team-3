@@ -1,3 +1,5 @@
+#ifndef ENCODER_H
+#define ENCODER_H
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PREPARING IMMEDIATES ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Sign Extension⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Sign-extends a value to 32 bits from a specified bit width
@@ -383,3 +385,4 @@
             // Otherwise, succeed
             return 0;
         }
+#endif

@@ -1,3 +1,5 @@
+#ifndef SYMBOLS_H
+#define SYMBOLS_H
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ SYMBOL TABLE ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // Using a linked list to implement a simple symbol table
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Create Node⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
@@ -182,3 +184,4 @@
 
 
 
+#endif

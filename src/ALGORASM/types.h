@@ -1,3 +1,6 @@
+#ifndef GORASM_TYPES_H
+#define GORASM_TYPES_H
+
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ GLOBAL TYPES DEFINITIONS ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Instruction Mnemonics⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Basically, the list of all allowed instructions
@@ -270,3 +273,4 @@
             {SW,     {REG, ADR},         2 },
             {SYSCALL,{},                 0 },
         };
+#endif

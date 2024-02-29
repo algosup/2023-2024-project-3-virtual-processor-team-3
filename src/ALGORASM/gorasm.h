@@ -1,3 +1,6 @@
+#ifndef GORASM_H
+#define GORASM_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,3 +31,4 @@
 #include "symbols.h"
 #include "lineParser.h"
 #include "encoder.h"
+#endif

@@ -1,3 +1,5 @@
+#ifndef ASSEMBLER_H
+#define ASSEMBLER_H
 // DEBUG VARS
 // Various debugging info
 #define DBG 1
@@ -8,7 +10,7 @@
 #include "gorasm.h"
 
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ MAIN ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
-    int assembling(void) {
+    int assembling(char *file, int debugFlag) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱File Management⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // File handlers for the data and code files
             FILE *fileData;
@@ -434,3 +436,4 @@
             printf("✅ ALGORASM Executed Succesfully!\n");
             return EXIT_SUCCESS;
 }
+#endif

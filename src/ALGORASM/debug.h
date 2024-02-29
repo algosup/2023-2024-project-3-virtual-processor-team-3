@@ -1,3 +1,5 @@
+#ifndef DEBUG_H
+#define DEBUG_H
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ Debug Utilities ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Print Binary⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Helper function to print the binary representation of a number
@@ -10,9 +12,9 @@
     
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Print Byte in Binary for printing Memory⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Helper function to print a byte in binary
-        void printByteInBinary(uint8_t byte) {
+        void printByteInBinary(uint8_t bytes) {
             for (int i = 7; i >= 0; i--) {
-                putchar((byte & (1 << i)) ? '1' : '0');
+                putchar((bytes & (1 << i)) ? '1' : '0');
             }
         }
 
@@ -217,3 +219,4 @@
         }
 
 
+#endif

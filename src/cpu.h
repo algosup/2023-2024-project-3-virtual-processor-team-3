@@ -74,7 +74,7 @@ void execute(cpu_t* cpu)
 {
     switch(cpu->instruction)
     {
-        case LOAD:
+        case LOAD_BIN:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27; // address to take from
@@ -109,7 +109,7 @@ void execute(cpu_t* cpu)
             }
             cpu->pc += 4;
             break;
-        case OP_IMM:
+        case OP_IMM_BIN:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27;
@@ -152,12 +152,12 @@ void execute(cpu_t* cpu)
             }
             cpu->pc += 4;
             break;
-        case AUIPC:
+        case AUIPC_BIN:
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->immediate = (cpu->mem[cpu->pc/4] >> 12) * pow(2, 12);
             cpu->pc = (((cpu->pc + cpu->immediate) >> 12 )<< 12);
             break;
-        case STORE:
+        case STORE_BIN:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27; // in this register, there is the address where you want to store
             cpu->arg2 = (cpu->mem[cpu->pc/4] << 7) >> 27; // which register to store
@@ -176,7 +176,7 @@ void execute(cpu_t* cpu)
             }
             cpu->pc += 4;
             break;
-        case OP:
+        case OP_BIN:
             cpu->func7 = cpu->mem[cpu->pc/4] >> 25;
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
@@ -259,13 +259,13 @@ void execute(cpu_t* cpu)
             }
             cpu->pc += 4;
             break;
-        case LUI:
+        case LUI_BIN:
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->immediate = (cpu->mem[cpu->pc/4] >> 12) * pow(2, 12);
             cpu->r[cpu->destination] = cpu->immediate;
             cpu->pc += 4;
             break;
-        case BRANCH:
+        case BRANCH_BIN:
             cpu->func3 = (cpu->mem[cpu->pc/4] << 17) >> 29;
             cpu->arg1 = (cpu->mem[cpu->pc/4] << 12) >> 27;
             cpu->arg2 = (cpu->mem[cpu->pc/4] << 7) >> 27;
@@ -341,9 +341,9 @@ void execute(cpu_t* cpu)
                 }
             }
             break;
-        case JALR:
+        case JALR_BIN:
             break;
-        case JAL:
+        case JAL_BIN:
             cpu->destination = (cpu->mem[cpu->pc/4] << 20) >> 27;
             cpu->immediate = ((cpu->mem[cpu->pc/4] << 7) >> 28)*2 + 
                                 ((cpu->mem[cpu->pc/4] << 1) >> 26)*32 + 
@@ -352,7 +352,7 @@ void execute(cpu_t* cpu)
                                 (cpu->mem[cpu->pc/4] >> 31)* pow(2, 20);
             cpu->r[cpu->destination] = cpu->immediate;
             break;
-        case SYSTEM:
+        case SYSTEM_BIN:
             if (cpu->r[31] == 0B0)
             {
                 printf("%d", cpu->r[30]);

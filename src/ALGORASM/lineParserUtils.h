@@ -1,3 +1,5 @@
+#ifndef LINE_PARSER_UTILS_H
+#define LINE_PARSER_UTILS_H
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ Data Line Parser Utilities ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Validate Byte input⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // Check if the string is a valid "byte" integer within bounds
@@ -464,3 +466,4 @@
 
 
 
+#endif
