@@ -1,38 +1,66 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdint.h>
+#ifndef TYPE_H
+#define TYPE_H
 
-#define byte unsigned char
-#define u64 unsigned long long
-#define i64 long long
-#define f64 double
+#define uint unsigned int
+#define ull unsigned long long
+#define ll long long
+#define MAXMEM 1024
+#define BITS 32
 
-enum registers
+enum BaseOpcode
 {
-    R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, RA, RB, RC, RD, RE, RF,
-    F0, F1, F2, F3, F4, F5, F6, F7, F8, F9, FA, FB, FC, FD, FE, FF,
+    LOAD = 0B0000011,
+    OP_IMM = 0B0010011,
+    AUIPC = 0B0010111,
+    STORE = 0B0100011,
+    OP = 0B0110011,
+    LUI = 0B0110111,
+    BRANCH = 0B1100011,
+    JALR = 0B1100111,
+    JAL = 0B1101111,
+    SYSTEM = 0B1110011,
 };
 
-enum opcode
+typedef struct cpu
 {
-    LII, LIF,
-    ADD, SUB, MUL, DIV,
-    ADDF, SUBF, MULF, DIVF,
-    PRT, PRTF
-};
+    // Memory
+    uint *mem;
+    int max_mem;
 
-typedef struct
-{
-    f64 *mem;
-    i64 max_mem;
+    // Registers
+    int pc;
+    int sp;
+    int r[32];
 
-    i64 pc;
-    i64 r[16];
-    f64 fr[16];
-
-    i64 inst;
-    i64 dest;
-    f64 arg1;
-    i64 arg2;
+    // alu
+    uint instruction;
+    uint func7;
+    uint func3;
+    uint destination;
+    uint arg1;
+    uint arg2;
+    int immediate;
 } cpu_t;
+
+char *opcode[] = {
+    // OP
+    "add", "sub", "sll", "srl", "sra", "xor", "or", "and", "ilt?", "iltu?",
+    // OP-IMM
+    "addi", "slli", "srli", "xori", "ori", "andi", "ilti?", "iltiu?",
+    // BRANCH
+    "jie", "jine", "jige", "jigeu", "jile", "jileu",
+    // LUI
+    "lui",
+    // AUIPC
+    "auipc",
+    // JAL
+    "jal",
+    // LOAD
+    "lb", "lh", "lw", "lbu", "lhu",
+    // STORE
+    "sb", "sh", "sw",
+    // SYSCALL
+    "syscall\n",
+    // OP-mul
+    "mul", "mulh", "mulhsu", "mulhu", "div", "divu", "rem", "remu"};
+#endif
