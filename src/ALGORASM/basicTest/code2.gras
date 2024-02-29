@@ -1,3 +1,29 @@
-jump:
-    jie r1, r2, jump
-    jie r1, r2, jump
+// jump:
+    // add r1, r1, r1
+    // addi r1, r1, 1
+    // sb r2, 1
+    // jie r1, r2, stump
+// stump:
+    // jie r2, r3, dump
+// dump:
+    // jigeu r2, r3, mump
+    // lui r2, 4096
+// mump:
+    // jal r2, dump
+// addi r1, r0, 4
+// addi r2, r0, 5
+// addi r3, r0, 496
+// add r1, r1, r2
+// sw r1, (r3)
+// lw r14, (r3)
+// jie r12, r13, 4
+// syscall
+
+addi r1, r0, 1
+addi r2, r0, 10
+addi r3, r0, 1
+loop:
+add r1, r1, r2
+sub r2, r2, r3
+jine r2, r3, loop
+lui r10, 2000000

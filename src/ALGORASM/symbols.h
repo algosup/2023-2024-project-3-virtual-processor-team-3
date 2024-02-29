@@ -130,7 +130,7 @@
         void mergeTables(SymbolTableNode_t *head, SymbolTableNode_t **head2, int shift) {
             
             // Calculate the increment value
-            int increment = shift * 32; 
+            int increment = shift * 32; // CHANGED FROM 32
 
             // Find the last node of head2
             SymbolTableNode_t *current = *head2;

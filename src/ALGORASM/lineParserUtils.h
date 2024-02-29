@@ -164,35 +164,69 @@
             // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Is operand a valid address?⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
                 // Checks if operands are valid addresses (for load & store instructions)
                 int isValidAddress(char *token, const int currentIndex, const int instructionID, const int currentAddress) {
-                    // Check for presence of opening parenthesis
-                    if (token[0] != '(') {
-                        printf(" ⚠️  Found %c instead of '(' character in argument %d, of the '%s' instruction, line %d\n", token[0], currentIndex, mnemonicMap[instructionID].name, currentAddress);
+                    // This code is for indirect addressing, which has not yet been implemented in the processor
+                        // Check for presence of opening parenthesis
+                        if (token[0] != '(') {
+                            printf(" ⚠️  Found %c instead of '(' character in argument %d, of the '%s' instruction, line %d\n", token[0], currentIndex, mnemonicMap[instructionID].name, currentAddress);
+                            return 1;
+                        }
+
+                        // Check for closing parenthesis at the end
+                        int len = strlen(token);
+                        if (token[len - 1] != ')') {
+                            printf(" ⚠️  Missing closing ')' in argument %d, of the '%s' instruction, line %d\n", currentIndex, mnemonicMap[instructionID].name, currentAddress);
+                            return 1;
+                        }
+
+                        // Create a new token without parentheses
+                        char tokenCopy[len - 1];
+                        strncpy(tokenCopy, token + 1, len - 2); 
+
+                        // Null-terminate the string
+                        tokenCopy[len - 2] = '\0'; 
+
+                        // Check if the register is valid by calling isValidRegister
+                        if (isValidRegister(tokenCopy, currentIndex, instructionID, currentAddress)) {
+                            printf(" ⚠️  Invalid register %s in argument %d of line %d\n", tokenCopy, currentIndex, currentAddress);
+                            return 1;
+                        }
+
+                        // No problem found
+                        return 0;
+
+                    /*
+                    // This code is exactly the same as immediates
+                    char *end;
+
+                    // To detect overflow or underflow
+                    errno = 0; 
+
+                    // Convert string to uint32_t to check for 32-bit overflow/underflow
+                    long long value = strtoll(token, &end, 10);
+
+
+                    // Check conversion was successful and no extra characters were found
+                    if (end == token || *end != '\0' || errno == ERANGE) {
+
+                        // Throw an error if overflow or error
+                        printf(" ⚠️  Immediate value interpretation of \"%s\" failed in argument %d of %s instruction, line %u\n", token, currentIndex, mnemonicMap[instructionID].name, currentAddress);
                         return 1;
                     }
 
-                    // Check for closing parenthesis at the end
-                    int len = strlen(token);
-                    if (token[len - 1] != ')') {
-                        printf(" ⚠️  Missing closing ')' in argument %d, of the '%s' instruction, line %d\n", currentIndex, mnemonicMap[instructionID].name, currentAddress);
-                        return 1;
-                    }
+                    // Check if the value fits in a 32-bit integer
+                    if (value < -2147483648 || value > 4294967295) {
 
-                    // Create a new token without parentheses
-                    char tokenCopy[len - 1];
-                    strncpy(tokenCopy, token + 1, len - 2); 
-
-                    // Null-terminate the string
-                    tokenCopy[len - 2] = '\0'; 
-
-                    // Check if the register is valid by calling isValidRegister
-                    if (isValidRegister(tokenCopy, currentIndex, instructionID, currentAddress)) {
-                        printf(" ⚠️  Invalid register %s in argument %d of line %d\n", tokenCopy, currentIndex, currentAddress);
+                        // Throw an error if out of bounds
+                        printf(" ⚠️  Immediate number: %lld is not a valid number (must be < -2147483648 and > 4294967295), argument %d of %s instruction, line %u\n",value ,currentIndex, mnemonicMap[instructionID].name, currentAddress);
                         return 1;
                     }
 
                     // No problem found
                     return 0;
+                    */
+                    
                 }
+
 
 
 
@@ -359,21 +393,41 @@
 
                     // ❑ ADDRESS OPERANDS ❑
                         else if (instructionCheckTable[instructionID].types[i-1] == ADR) {
-
-                            // Check if sscanf successfully read one item
-                            if (sscanf(tokens[i], "(r%d)", &reg)) {
+                            // This code is for indirect addressing, which has not yet been implemented in the processor
+                                // Check if sscanf successfully read one item
+                                if (sscanf(tokens[i], "(r%d)", &reg)) {
+                                    
+                                    // Write register number as an int
+                                    instruction->operands[i-1] = reg;
+                                }
                                 
-                                // Write register number as an int
-                                instruction->operands[i-1] = reg;
+                                // Otherwise, throw an error
+                                else {
+                                    printf(" ⚠️  Unexpected string conversion failure of \"%s\" into a valid address, for instruction %s, operand %d, line %d \n", tokens[i], mnemonicMap[instructionID].name, i, currentAddress);
+                                    exception = 1;
+                                }
+
+                                return 0;
+
+                            /*
+                            // This code is exactly the same as immediates
+                            char *endPtr;
+                            long long value = strtoll(tokens[i], &endPtr, 10);
+
+                            // If conversion works
+                            if (endPtr != tokens[i]) {
+
+                                // Save the immediate or address to the current instruction
+                                instruction->operands[i-1] = value;
                             }
-                            
-                            // Otherwise, throw an error
+
+                            // Otherwise, if it fails
                             else {
-                                printf(" ⚠️  Unexpected string conversion failure of \"%s\" into a valid register number, for instruction %s, operand %d, line %d \n", tokens[i], mnemonicMap[instructionID].name, i, currentAddress);
+                                printf(" ⚠️  Unexpected string conversion failure of \"%s\" into a valid address, for instruction %s, operand %d, line %d \n", tokens[i], mnemonicMap[instructionID].name, i, currentAddress);
                                 exception = 1;
                             }
+                            */
 
-                            return 0;
                         }
 
                     // ❑ IMMEDIATE OPERANDS ❑

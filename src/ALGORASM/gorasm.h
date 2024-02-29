@@ -27,4 +27,4 @@
 #include "debug.h"
 #include "symbols.h"
 #include "lineParser.h"
-// #include "encoder.h"
+#include "encoder.h"

@@ -30,8 +30,6 @@
                     // Take that label and check that it doesn't exceed max label length
                     if (token != NULL && strlen(token) <= MAX_MNEMO_LENGTH - 1) {
 
-                        
-                        // ++++++++ UNTESTED ++++++++++
                         // Check each character of the label
                         for (int i = 0; i < (int)(strlen(token)); i++) {
                             char c = token[i];
@@ -375,7 +373,7 @@
                                                     } 
                                                     // Otherwise, if there are too many values
                                                     else if (wordCount > MAX_WORD_ARRAY_DECLR ){
-                                                        printf("⚠️  Too many word values found in declaration (must be <= 128) (line %d)\n", lineNum);
+                                                        printf("⚠️  Too many word values found in word declaration (must be <= 128) (line %d)\n", lineNum);
                                                         return 1;
 
                                                     }
@@ -624,7 +622,7 @@
                         if (!(isLabelExists(head2, label) || isLabelExists(head, label))) {
 
                             // If it hasn't, Add it to the code symbol table
-                            insertNode(head2, label, currentAddress*32);
+                            insertNode(head2, label, currentAddress*4); // USED TO BE CURRENT ADDRESS *32
 
                             // Move on to the next line
                             return 0;

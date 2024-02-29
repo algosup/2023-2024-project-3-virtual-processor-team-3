@@ -39,6 +39,7 @@
             SB,
             SH,
             SW,
+            SYSCALL,
             ERR
         }InstructionName_t;
 
@@ -68,6 +69,14 @@
             uint8_t bytes[MAX_DATA_MEMORY];
             int bytesCount;
         } DataSection_t;
+
+    // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Memory Section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+        // The struct holding the final memory bytes ready for outputting (this time, dynamically allocated)
+        typedef struct {
+            uint8_t* bytes;
+            int bytesCount;   
+        } MemorySection_t;
+
 
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Unresolved Instructions Struct⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
         // A collection of all the found instructions, waiting to be resolved and encoded
@@ -140,7 +149,8 @@
             {"lhu",     LHU},
             {"sb",      SB},
             {"sh",      SH},
-            {"sw",      SW}
+            {"sw",      SW},
+            {"syscall",      SYSCALL}
         };
 
  
@@ -187,14 +197,15 @@
             { AUIPC,  0b10111,    'U',        0,          0},
             { JAL,    0b1101111,  'J',        0,          0},
             { JALR,   0b1100111,  'I',        0,          0},
-            { LB,     0b11,       'I',        0b000,      0},
-            { LH,     0b11,       'I',        0b001,      0},
-            { LW,     0b11,       'I',        0b010,      0},
+            { LB,     0b11,       'I',        0b001,      0},
+            { LH,     0b11,       'I',        0b010,      0},
+            { LW,     0b11,       'I',        0b011,      0},
             { LBU,    0b11,       'I',        0b100,      0},
             { LHU,    0b11,       'I',        0b101,      0},
-            { SB,     0b100011,   'S',        0b000,      0},
-            { SH,     0b100011,   'S',        0b001,      0},
-            { SW,     0b100011,   'S',        0b010,      0}
+            { SB,     0b100011,   'S',        0b001,      0},
+            { SH,     0b100011,   'S',        0b010,      0},
+            { SW,     0b100011,   'S',        0b011,      0},
+            { SYSCALL,0b1110011,  'I',        0    ,      0},
         };
 
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ SYNTAX TABLES ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
@@ -220,41 +231,42 @@
         // This table is used to check if the right number and types of operands are provided when summoning an instruction
         InstructionArguments_t const instructionCheckTable[] = {
         //  Instr.       Operand(s)    Count
-            {ADD,   {REG, REG, REG},    3 },
-            {ADDI,  {REG, REG, IMM},    3 },
-            {SUB,   {REG, REG, REG},    3 },
-            {AND,   {REG, REG, REG},    3 },
-            {ANDI,  {REG, REG, IMM},    3 },
-            {OR,    {REG, REG, REG},    3 },
-            {ORI,   {REG, REG, IMM},    3 },
-            {XOR,   {REG, REG, REG},    3 },
-            {XORI,  {REG, REG, IMM},    3 },
-            {SLL,   {REG, REG, REG},    3 },
-            {SLLI,  {REG, REG, IMM},    3 },
-            {SRL,   {REG, REG, REG},    3 },
-            {SRLI,  {REG, REG, IMM},    3 },
-            {SRA,   {REG, REG, REG},    3 },
-            {SRAI,  {REG, REG, IMM},    3 },
-            {ILT,   {REG, REG, REG},    3 },
-            {ILTI,  {REG, REG, IMM},    3 },
-            {ILTU,  {REG, REG, REG},    3 },
-            {ILTUI, {REG, REG, IMM},    3 },
-            {JIE,   {REG, REG, LBL},    3 },
-            {JINE,  {REG, REG, LBL},    3 },
-            {JIGE,  {REG, REG, LBL},    3 },
-            {JIGEU, {REG, REG, LBL},    3 },
-            {JILE,  {REG, REG, LBL},    3 },
-            {JILEU, {REG, REG, LBL},    3 },
-            {LUI,   {REG, IMM},         2 },
-            {AUIPC, {REG, IMM},         2 },
-            {JAL,   {REG, LBL},         2 },
-            {JALR,  {REG, REG, IMM},    3 },
-            {LB,    {REG, ADR},         2 },
-            {LH,    {REG, ADR},         2 },
-            {LW,    {REG, ADR},         2 },
-            {LBU,   {REG, ADR},         2 },
-            {LHU,   {REG, ADR},         2 },
-            {SB,    {REG, ADR},         2 },
-            {SH,    {REG, ADR},         2 },
-            {SW,    {REG, ADR},         2 }
+            {ADD,    {REG, REG, REG},    3 },
+            {ADDI,   {REG, REG, IMM},    3 },
+            {SUB,    {REG, REG, REG},    3 },
+            {AND,    {REG, REG, REG},    3 },
+            {ANDI,   {REG, REG, IMM},    3 },
+            {OR,     {REG, REG, REG},    3 },
+            {ORI,    {REG, REG, IMM},    3 },
+            {XOR,    {REG, REG, REG},    3 },
+            {XORI,   {REG, REG, IMM},    3 },
+            {SLL,    {REG, REG, REG},    3 },
+            {SLLI,   {REG, REG, IMM},    3 },
+            {SRL,    {REG, REG, REG},    3 },
+            {SRLI,   {REG, REG, IMM},    3 },
+            {SRA,    {REG, REG, REG},    3 },
+            {SRAI,   {REG, REG, IMM},    3 },
+            {ILT,    {REG, REG, REG},    3 },
+            {ILTI,   {REG, REG, IMM},    3 },
+            {ILTU,   {REG, REG, REG},    3 },
+            {ILTUI,  {REG, REG, IMM},    3 },
+            {JIE,    {REG, REG, LBL},    3 },
+            {JINE,   {REG, REG, LBL},    3 },
+            {JIGE,   {REG, REG, LBL},    3 },
+            {JIGEU,  {REG, REG, LBL},    3 },
+            {JILE,   {REG, REG, LBL},    3 },
+            {JILEU,  {REG, REG, LBL},    3 },
+            {LUI,    {REG, IMM},         2 },
+            {AUIPC,  {REG, IMM},         2 },
+            {JAL,    {REG, LBL},         2 },
+            {JALR,   {REG, REG, IMM},    3 },
+            {LB,     {REG, ADR},         2 },
+            {LH,     {REG, ADR},         2 },
+            {LW,     {REG, ADR},         2 },
+            {LBU,    {REG, ADR},         2 },
+            {LHU,    {REG, ADR},         2 },
+            {SB,     {REG, ADR},         2 },
+            {SH,     {REG, ADR},         2 },
+            {SW,     {REG, ADR},         2 },
+            {SYSCALL,{},                 0 },
         };
