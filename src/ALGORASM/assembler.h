@@ -8,7 +8,7 @@
 #include "gorasm.h"
 
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ MAIN ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
-    int main(void) {
+    int assembling(void) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱File Management⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // File handlers for the data and code files
             FILE *fileData;
@@ -20,14 +20,14 @@
 
 
             // Open the data file
-            fileData = fopen("basicTest/data.gras", "r");
+            fileData = fopen("./data.gras", "r");
             if (!fileData) {
                 perror("Error opening the data file (data.gras)");
                 return EXIT_FAILURE;
             }
 
             // Open the code file
-            fileCode = fopen("basicTest/code2.gras", "r");
+            fileCode = fopen("./code.gras", "r");
             if (!fileCode) {
                 perror("Error opening the code file (data.code)");
                 return EXIT_FAILURE;

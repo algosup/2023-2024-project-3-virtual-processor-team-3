@@ -5,7 +5,7 @@
 #include "errors.h"
 
 /**
- * This functions creates a new file named data.txt.
+ * This functions creates a new file named data.gras.
  * @param file(FILE pointer): A pointer to an assembly file.
  * @result Create a new file with all lines in the data section without it's comments.
  */
@@ -13,7 +13,7 @@ void writeData(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *dataFile = fopen("./data.txt", "w");
+    FILE *dataFile = fopen("./data.gras", "w");
 
     while (fgets(line, sizeof(line), file))
     {
@@ -36,7 +36,7 @@ void writeData(FILE *file)
 }
 
 /**
- * This function creates a new text file named code.txt
+ * This function creates a new text file named code.gras
  * @param file (File pointer): A pointer to an assembly file.
  * @result A new temporary file which contains all lines present in the section code, without comments.
  */
@@ -44,7 +44,7 @@ void writeCode(FILE *file)
 {
     rewind(file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *codeFile = fopen("./code.txt", "w"); // Open in append mode
+    FILE *codeFile = fopen("./code.gras", "w"); // Open in append mode
 
     while (fgets(line, sizeof(line), file))
     {
@@ -77,7 +77,7 @@ void isComment(FILE *asm_file)
 {
     rewind(asm_file); // Move the file pointer to the beginning of the file
     char line[100];
-    FILE *noCommentsFile = fopen("./noComments.txt", "w"); // Open in append mode
+    FILE *noCommentsFile = fopen("./noComments.gras", "w"); // Open in append mode
 
     while (fgets(line, sizeof(line), asm_file))
     {
@@ -122,7 +122,7 @@ void preprocessing(char *file)
     fclose(asmFile);
 
     // Open the file with no comments for further processing
-    FILE *noCommentsFile = fopen("./noComments.txt", "r");
+    FILE *noCommentsFile = fopen("./noComments.gras", "r");
     if (!noCommentsFile)
     {
         errorsHandler(0, 0, " "); // File not found error
@@ -132,7 +132,7 @@ void preprocessing(char *file)
     writeData(noCommentsFile);             // Create data file
     writeCode(noCommentsFile);             // Create code file
     fclose(noCommentsFile);
-    remove("./noComments.txt"); // Remove the file with no comments
+    remove("./noComments.gras"); // Remove the file with no comments
 }
 
 #endif

@@ -1,6 +1,6 @@
 #include "general.h"
 #include "preprocessor.h"
-#include "assembler.h"
+#include "./ALGORASM/assembler.h"
 #include "processor.h"
 
 int main(int argc, char *argv[])
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     {
     case 1:
         preprocessing(argv[2]); // Call the preprocessor
-        assembling(argv[2]);    // Call the assembler
+        assembling();    // Call the assembler
 
         // Remove all temporary files
         remove("./data.txt");
