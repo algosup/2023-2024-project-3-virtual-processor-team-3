@@ -1,6 +1,9 @@
-
-.DS_Store
-
-*.exe
 .vscode/
 .DS_Store
+=======
+*.bin
+.vscode/
+
+*.gras
+*.grml
+*.txt

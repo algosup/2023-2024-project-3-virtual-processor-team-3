@@ -1,38 +1,46 @@
-#include "cpu.h"
+#include "general.h"
+#include "preprocessor.h"
+#include "assembler.h"
+#include "processor.h"
 
-int main(int argc, char **argv) 
+int main(int argc, char *argv[])
 {
-    f64 mem[]=
+
+    // Check if command-line arguments are correct
+    int argument = checkArgs(argc, argv);
+    char *grml;
+
+    // Depending on the argument, call either the assembler, the processor or both of them
+    switch (argument)
     {
-        LII, R0, 3,
-        LII, R1, 4,
-        ADD, R2, R1, R0,
-        SUB, R3, R2, R1,
-        MUL, R4, R2, R3,
-        DIV, R5, R4, R3,
-        PRT, R2,
-        PRT, R3,
-        PRT, R4,
-        PRT, R5,
-        LIF, F0, 4.25,
-        LIF, F1, 5.33,
-        ADDF, F2, F1, F0,
-        SUBF, F3, F2, F1,
-        MULF, F4, F2, F3,
-        DIVF, F5, F4, F3,
-        PRTF, F2,
-        PRTF, F3,
-        PRTF, F4,
-        PRTF, F5,
-    };
+    case 1:
+        preprocessing(argv[2]); // Call the preprocessor
+        assembling(argv[2]);    // Call the assembler
 
-    int mem_size = sizeof(mem) / sizeof(f64) - 1;
+        // Remove all temporary files
+        remove("./data.txt");
+        remove("./code.txt");
 
-    cpu_t *cpu = new_cpu(mem, mem_size);
+        printf("Preprocessing done");
+        break;
+    case 2:
+        processing(argv[2]); // Call the processor 
+        break;
+    case 3:
+        preprocessing(argv[2]); // Call the preprocessor
+        assembling(argv[2]); // Call the assembler 
 
-    run_cpu(cpu);
+        // Remove all temporary files
+        remove("./data.txt");
+        remove("./code.txt");
 
-    cpu_free(cpu);
+        grml = strtok(argv[2], ".");
+        grml = strcat(grml, ".grml");
+        processing(grml); // Call the processor 
+        break;
+    default:
+        break;
+    }
 
     return 0;
 }
