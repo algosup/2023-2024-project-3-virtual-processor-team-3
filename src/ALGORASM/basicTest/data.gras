@@ -1,5 +1,6 @@
+object: .alloc 300
 smallByte: .byte 1, 2
-object: .alloc 2003
+test: .word 4294967295, 4294967295
 bytes: .byte -128, 255, -128, 255
 halves: .half -32768, 65535, -32768 , 65535, -32768
 words: .word -2147483648, 4294967295, -2147483648, 4294967295

@@ -137,7 +137,7 @@
             if (memSection->bytes == NULL) {
 
                 // Handle error
-                printf(" ⚠️  Failed to allocate memory for out memory block");
+                printf(" ⚠️  Failed to allocate memory for our memory block");
                 return 1;
             }
 
@@ -168,18 +168,26 @@
         void appendData(MemorySection_t* memSection, const DataSection_t* dataSection) {
             if (!memSection || !dataSection) return; // Check for NULL pointers
 
-            // Allocate memory for the dynamic array
-            memSection->bytes = (uint8_t*)malloc(dataSection->bytesCount * sizeof(uint8_t));
-            if (memSection->bytes == NULL) {
+            // Calculate new size
+            int newSize = memSection->bytesCount + dataSection->bytesCount;
+
+            // Reallocate memory for the combined size of code and data sections
+            uint8_t* newMemory = realloc(memSection->bytes, newSize * sizeof(uint8_t));
+            if (newMemory == NULL) {
                 // Handle memory allocation failure
-                memSection->bytesCount = 0;
+                printf(" ⚠️  Failed to allocate additional memory for data section");
                 return;
             }
+            memSection->bytes = newMemory;
 
-            // Copy data from DataSection_t to MemorySection_t
-            memcpy(memSection->bytes, dataSection->bytes, dataSection->bytesCount);
-            memSection->bytesCount = dataSection->bytesCount;
+            // Copy data from DataSection_t to the end of MemorySection_t
+            memcpy(memSection->bytes + memSection->bytesCount, dataSection->bytes, dataSection->bytesCount);
+
+            // Update bytesCount to reflect the new size
+            memSection->bytesCount = newSize;
         }
+
+
 
         void appendInstructionToMemory(MemorySection_t* memorySection, uint32_t encodedInstruction) {
             if (memorySection == NULL) {
@@ -208,10 +216,7 @@
             memorySection->bytes[offset + 3] = encodedInstruction & 0xFF;
         }
 
-
-
-
-        // Example function to set bytes based on resolvedInstructions count
+        // Populates the output bytes with the resolved instructions
         int populateMemoryWithCode(MemorySection_t* memorySection, int totalByteSize, ResolvedInstructions_t *resolvedInstructions) {
             if (memorySection == NULL || totalByteSize <= 0) return 1;
 
@@ -236,8 +241,6 @@
             int32_t funct7 = 0;
             int32_t imm = 0;
 
-            uint32_t encodedInstruction = 0;
-
 
             // Iterate over the resolved Instructions and encode them using their specific encoding functions
             int exception = 0;
@@ -251,7 +254,6 @@
 
                     // Fetch the required data for encoding
                     opcode = instructionMap[resolvedInstructions->instructions[i]->name].opcode;
-                    printf("\nopcode: %d\n", opcode);
                     rd = resolvedInstructions->instructions[i]->operands[0];
                     funct3 = instructionMap[resolvedInstructions->instructions[i]->name].funct3;
                     rs1 = resolvedInstructions->instructions[i]->operands[1];
@@ -266,6 +268,19 @@
                         printEncodedRType(encodedInstruction);
                         printf("\n");
                     }
+
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
+
                 }
 
                 // If the format is I:
@@ -285,7 +300,27 @@
                         printf("Encoded I-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedIType(encodedInstruction);
                         printf("\n");
+                        usleep(200000);
                     }
+
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Ensure there's enough space in the memory section
+                    if (bytePos + 4 > memorySection->bytesCount) {
+                        printf("Error: Not enough space in the memory section for the instruction\n");
+                        exception = 1;
+                        break;  // Exit the loop if there's an error
+                    }
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
                 }
                 
                 // If the format is S:
@@ -306,7 +341,27 @@
                         printf("Encoded S-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedSType(encodedInstruction);
                         printf("\n");
+                        usleep(200000);
                     }
+
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Ensure there's enough space in the memory section
+                    if (bytePos + 4 > memorySection->bytesCount) {
+                        printf("Error: Not enough space in the memory section for the instruction\n");
+                        exception = 1;
+                        break;  // Exit the loop if there's an error
+                    }
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
                 }
                 
                 // If the format is B:
@@ -325,8 +380,28 @@
                     if (DBG){
                         printf("Encoded B-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedBType(encodedInstruction);
-
+                        printf("\n");
+                        usleep(200000);
                     }
+
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Ensure there's enough space in the memory section
+                    if (bytePos + 4 > memorySection->bytesCount) {
+                        printf("Error: Not enough space in the memory section for the instruction\n");
+                        exception = 1;
+                        break;  // Exit the loop if there's an error
+                    }
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
                 }
                 
                 // If the format is U:
@@ -343,7 +418,28 @@
                     if (DBG){
                         printf("Encoded U-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedUType(encodedInstruction);
+                        printf("\n");
+                        usleep(200000); 
                     }
+
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Ensure there's enough space in the memory section
+                    if (bytePos + 4 > memorySection->bytesCount) {
+                        printf("Error: Not enough space in the memory section for the instruction\n");
+                        exception = 1;
+                        break;  // Exit the loop if there's an error
+                    }
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
                 }
                 
                 // If the format is J:
@@ -364,9 +460,28 @@
                     if (DBG){
                         printf("Encoded J-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedJType(encodedInstruction);
+                        printf("\n");
+                        usleep(200000);
                     }
 
-                    // Add it to the memory section
+                    // TEMP CODE TO ADD IT TO MEMORY SECTION
+                    // Calculate the starting byte position for this instruction in the memory section
+                    int bytePos = i * 4;  // Assuming each instruction is 4 bytes
+
+                    // Ensure there's enough space in the memory section
+                    if (bytePos + 4 > memorySection->bytesCount) {
+                        printf("Error: Not enough space in the memory section for the instruction\n");
+                        exception = 1;
+                        break;  // Exit the loop if there's an error
+                    }
+
+                    // Extract and store each byte of the instruction
+                    // For little-endian order
+                    memorySection->bytes[bytePos] = encodedInstruction & 0xFF; // Least significant byte
+                    memorySection->bytes[bytePos + 1] = (encodedInstruction >> 8) & 0xFF;
+                    memorySection->bytes[bytePos + 2] = (encodedInstruction >> 16) & 0xFF;
+                    memorySection->bytes[bytePos + 3] = (encodedInstruction >> 24) & 0xFF; // Most significant byte
+                    memorySection->bytesCount += 4;
                    
                 }
 

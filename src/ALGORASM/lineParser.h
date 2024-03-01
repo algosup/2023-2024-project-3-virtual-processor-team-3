@@ -1821,6 +1821,25 @@
 
                                     break;
                                 }
+                            // ❑ SYSCALL ❑
+                                case SYSCALL: {
+                                    // Handle SYSCALL
+
+                                    // If Instruction is valid, however, add it to the list of unresolved instructions
+                                    isInstructionNotBuilt = buildInstructions(tokens, 37, currentAddress, &instruction);
+
+                                    // Break if exception caught or instruction build failed
+                                    if (isInstructionNotBuilt){
+                                        exception = 1;
+                                        break;
+                                    }
+
+                                    // Add it to the unresolved instructions list!
+                                    unresolvedInstructions->instructions[currentAddress] = instruction;
+
+                                    // Increment the count of instructions (and current address subsequently)
+                                    unresolvedInstructions->count++;
+                                }
                                 default:
                                     // o.O?
                                     break;

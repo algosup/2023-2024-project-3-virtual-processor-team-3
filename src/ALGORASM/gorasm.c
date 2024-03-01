@@ -2,7 +2,7 @@
 // Various debugging info
 #define DBG 1
 // Print Memory Bytes
-#define DBG_PRINT_MEMORY_BYTES 0
+#define DBG_PRINT_MEMORY_BYTES 1
 #define DBG_PRINT_MEMORY_WORDS 0
 
 #include "gorasm.h"
@@ -92,24 +92,25 @@
                 if (DBG_PRINT_MEMORY_BYTES){
 
                     // Print The binary output of the memory
-                    printDataSection(&dataSection);
+                    // printDataSection(&dataSection);
                 }
                 if (DBG){
-                    // usleep(900000);
+                    usleep(900000);
                     printf("✅ 🤖 < Data Section has been fully Parsed! Here are the labels I found !)\n\n");
-                    // usleep(900000);
+                    usleep(900000);
 
                     SymbolTableNode_t *dbgNode = head;
                     while (dbgNode != NULL) {
-                        // usleep(200000);
+                        usleep(200000);
                         printf("    Label:\"%s\" is at relative Address: %d\n", dbgNode->label, dbgNode->address);
                         dbgNode = dbgNode->next; // Move to the next node
                     }
                 }
 
                 if (DBG){
-                    printf("Data Section Bytes Count: %d\n", dataSection.bytesCount);
-                    printf("Data section fully parsed!\n");
+                    usleep(900000);
+                    printf("\nData Section Bytes Count: %d\n\n", dataSection.bytesCount);
+                    usleep(200000);
                     printf("====================================\n");
                 }
             
@@ -159,10 +160,14 @@
 
             // +++++++++++ DEBUG +++++++++++++
                 if (DBG) {
-                    printf("Unresolved Instructions Count: %d\n", unresolvedInstructions.count);
+                    usleep(900000);
+                    printf("✅ 🤖 < Code section fully parsed!)\n");
+                    printf("\n");
+                    printf("Unresolved Instructions Count: %d\n\n\n", unresolvedInstructions.count);
+                    usleep(900000);
                     for (int i = 0; i < unresolvedInstructions.count; ++i) {
                         Instruction_t *instr = &unresolvedInstructions.instructions[i];
-                        printf("Instruction %d: %s\n", i + 1, findMnemonicReverse(instr->name));
+                        printf("\nInstruction %d: %s\n", i + 1, findMnemonicReverse(instr->name));
                         printf("\tOperand Count: %d\n", instr->operandCount);
                         printf("\tOperands: ");
 
@@ -172,9 +177,10 @@
 
                         printf("\n");
                         printf("\tNeeds Resolve: %s\n", instr->needsResolve);
+                        usleep(200000);
                     }
                 }
-
+                /*
                 if (DBG){
                     SymbolTableNode_t *dbgNode2 = head2;
                     while (dbgNode2 != NULL) {
@@ -182,22 +188,28 @@
                         dbgNode2 = dbgNode2->next; // Move to the next node
                     }
                 }
+                */
 
                 if (DBG){
-                    printf("Code section fully parsed!\n");
+                    usleep(200000);
+                    printf("\n\n");
                     printf("====================================\n");
+                    usleep(900000);
+                    printf("✅ 🤖 < Instructions all resolved!)\n\n");
                 }
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Program Assembly: Address resolution⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Combine code and data sections to get final layout
             mergeTables(head, &head2, unresolvedInstructions.count);
 
+            /*
             SymbolTableNode_t *dbgNode = head2;
             while (dbgNode != NULL) {
-                // usleep(200000);
+                usleep(200000);
                 printf("    Label:\"%s\" is at absolute Address: %d\n", dbgNode->label, dbgNode->address);
                 dbgNode = dbgNode->next; // Move to the next node
             }
+            */
 
             // Initialise the resolved instructions list
             ResolvedInstructions_t resolvedInstructions = {0};
@@ -296,17 +308,21 @@
             // ++++++++++++ DEBUG +++++++++++++++
                 if (DBG) {
                     for (int k = 0; k < resolvedInstructions.count; k++){
-                        printf("==========================\n");
-                        printf("ResolvedInstructions: %s\n", findMnemonicReverse(resolvedInstructions.instructions[k]->name));
+                        usleep(200000);
+                        printf("\nResolved Instructions: %s\n", findMnemonicReverse(resolvedInstructions.instructions[k]->name));
                         printf("\tOperand Count: %d\n", resolvedInstructions.instructions[k]->operandCount);
                         printf("\tOperands: ");
 
                         for (int l = 0; l < resolvedInstructions.instructions[k]->operandCount; ++l) {
                             printf("%lld ", resolvedInstructions.instructions[k]->operands[l]);
                         }
-
-                        printf("\nk: %d\n", k);
+                        printf("\n");
                     }
+                    usleep(200000);
+                    printf("\n\n");
+                    printf("====================================\n");
+                    usleep(900000);
+                    printf("✅ 🤖 < Instructions are being encoded!)\n\n");
                 }
 
             // Halt the program if error
@@ -359,7 +375,7 @@
 
             int code2memResult = populateMemoryWithCode(&memorySection, totalByteSize, &resolvedInstructions);
             
-            // appendData(&memorySection, &dataSection);
+            appendData(&memorySection, &dataSection);
             
             
             // Iterate over bytes 
@@ -405,6 +421,11 @@
             }
 
 
+            if (DBG){
+                // printDataSection(&dataSection);
+            }
+
+
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Closing Sequence⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Freeing the symbol table
             freeList(head2);
@@ -431,6 +452,8 @@
             // Close the fileCode
             fclose(fileCode);
 
+            usleep(900000);
+            printf("\n\n");
             printf("✅ ALGORASM Executed Succesfully!\n");
             return EXIT_SUCCESS;
 }

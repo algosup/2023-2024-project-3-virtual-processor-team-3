@@ -19,6 +19,8 @@
 // jie r12, r13, 4
 // syscall
 
+
+
 addi r1, r0, 1
 addi r2, r0, 10
 addi r3, r0, 1
@@ -27,3 +29,4 @@ add r1, r1, r2
 sub r2, r2, r3
 jine r2, r3, loop
 lui r10, 2000000
+syscall

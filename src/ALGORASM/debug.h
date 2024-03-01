@@ -40,14 +40,19 @@
     }
 
 // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Print the memory section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-    void printMemorySection(const MemorySection_t *memorySection) {
-        printf("🤖 - Entering printMemorySection... bytesCount = %d\n", memorySection->bytesCount);
-        for (int i = 0; i < memorySection->bytesCount; i++) {
-            printf("    byte %d: ", i);
-            printByteInBinary(memorySection->bytes[i]);
-            printf("\n");
+    void printMemorySection(MemorySection_t* memSection) {
+        if (!memSection) return; // Check for NULL pointer
+
+        printf("Memory Section (%d bytes):\n", memSection->bytesCount);
+        for (int i = 0; i < memSection->bytesCount; ++i) {
+            usleep(5000);
+            printf("%02X ", memSection->bytes[i]);
+            if ((i + 1) % 16 == 0) // Print 16 bytes per line
+                printf("\n");
         }
+        printf("\n"); // New line after printing the memory section
     }
+
 
 // ◊⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛: ⎩°⁍ PRINT ENCODED TYPES ⁌°⎭ :⏛⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯=⎯⏛◊
     // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Print R-type⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
