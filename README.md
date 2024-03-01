@@ -36,9 +36,9 @@ Follow the instructions to download gcc on the website.
 - Download the source code. You'll find everything you need, documentation, code, etc... Feel free to familiarize yourself with the files.
 - And voila! You're all set for a fresh start with ALGORASM and ALGORISK.
 
-## GitHub Extension
+## Visual Studio Code Extension
 
-By following the link down below, you'll get redirected to the "necessary" Visual Studio Code Extension for ALGORISK, this is a set of tools for you, from snippets to syntax highlighting. \
+By following the link down below, you'll get redirected to the necessary Visual Studio Code Extension for ALGORISK, this is a set of tools for you, from snippets to syntax highlighting. \
 You'll find everything you need to code with our Assembly. \
 [Link to the extension](https://marketplace.visualstudio.com/items?itemName=ALGORISKTEAM.algorisk-language-support)
 
