@@ -36,6 +36,12 @@ Follow the instructions to download gcc on the website.
 - Download the source code. You'll find everything you need, documentation, code, etc... Feel free to familiarize yourself with the files.
 - And voila! You're all set for a fresh start with ALGORASM and ALGORISK.
 
+## Visual Studio Code Extension
+
+By following the link down below, you'll get redirected to the necessary Visual Studio Code Extension for ALGORISK, this is a set of tools for you, from snippets to syntax highlighting. \
+You'll find everything you need to code with our Assembly. \
+[Link to the extension](https://marketplace.visualstudio.com/items?itemName=ALGORISKTEAM.algorisk-language-support)
+
 ## How To Use
 
 To **code in ALGORASM** feel free to check the documentation here: [Instruction Set Manual](https://github.com/algosup/2023-2024-project-3-virtual-processor-team-3/blob/main/documents/Assembly_documentation/ALGORISK_documentation.pdf)
