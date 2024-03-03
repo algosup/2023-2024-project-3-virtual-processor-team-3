@@ -7,7 +7,7 @@
     int ParseLineData(char *line, DataSection_t *dataSection, SymbolTableNode_t **head) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Syntax Checking Preparation⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Create a copy of the passed line, for deeper checks
-            char lineCopy[MAX_CHAR_PER_LINE_AMNT]; // TODO: Change this to a global variable
+            char lineCopy[MAX_CHAR_PER_LINE_AMNT];
             strcpy(lineCopy, line);      
 
             // Variables for tokenisation
@@ -661,7 +661,7 @@
                             /*
                             if (DBG) {
                                 printf("\n");
-                                // usleep(250000);
+                                // // usleep(250000);
                                 printf("%s\n", line);
                             }
                             */
@@ -699,7 +699,7 @@
 
                         // +++++++++ DEBUG +++++++++
                         // if (DBG) {
-                        //     // // usleep(250000);
+                        //     // // // usleep(250000);
                         //     for (int i = 0; i < tokenCount; i++) {
                         //         printf("    Token %d: %s\n", i, tokens[i]);
                         //     }

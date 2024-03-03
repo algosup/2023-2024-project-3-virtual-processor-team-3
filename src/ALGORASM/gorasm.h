@@ -20,10 +20,11 @@
 #define MAX_INSTR_COUNT 64
 #define MAX_PROGRAM_MEMORY 4096
 
-#define PRINT_WELCOME_DBG printf("🎉 🤖 < Welcome to ALGORASM, debugger mode!)\n\n"); // usleep(2000000); printf("🤖 < I will start by extracting all the data from the data segment!)\n\n"); // usleep(2000000);
+#define PRINT_WELCOME_DBG printf("🎉 🤖 < Welcome to ALGORASM, debugger mode!)\n\n"); // // usleep(2000000); printf("🤖 < I will start by extracting all the data from the data segment!)\n\n"); // // usleep(2000000);
 
 // #include "ui.h"
 #include "types.h"
+#include "preprocessor.h"
 #include "debug.h"
 #include "symbols.h"
 #include "lineParser.h"

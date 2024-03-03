@@ -11,42 +11,91 @@
     int main(void) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱File Management⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // File handlers for the data and code files
-            FILE *fileData;
-            FILE *fileCode;
+            FILE *file;
+
+            /* MERGING CODE AND DATA FILES
+                FILE *fileCode;
+            */
 
             // Section_t codeSection;
-            DataSection_t dataSection = {0};
-            UnresolvedInstructions_t unresolvedInstructions = {0};
+            // DataSection_t dataSection = {0};
+            // UnresolvedInstructions_t unresolvedInstructions = {0};
 
 
             // Open the data file
-            fileData = fopen("basicTest/data.gras", "r");
-            if (!fileData) {
-                perror("Error opening the data file (data.gras)");
+            file = fopen("basicTest/newtest.gras", "r");
+            if (!file) {
+                perror("Error opening the file (newtest.gras)");
                 return EXIT_FAILURE;
             }
 
-            // Open the code file
-            fileCode = fopen("basicTest/code2.gras", "r");
-            if (!fileCode) {
-                perror("Error opening the code file (data.code)");
-                return EXIT_FAILURE;
-            }
+            /* MERGING CODE AND DATA FILES
+                // Open the code file
+                fileCode = fopen("basicTest/newtest.gras", "r");
+                if (!fileCode) {
+                    perror("Error opening the code file (data.code)");
+                    return EXIT_FAILURE;
+                }
+            */
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Variables⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Buffer for reading lines from the file
-            char lineData[MAX_CHAR_PER_LINE_AMNT]; 
-            char lineCode[MAX_CHAR_PER_LINE_AMNT]; 
+            // char lineData[MAX_CHAR_PER_LINE_AMNT]; 
 
-            // SymbolTableInit
-            SymbolTableNode_t *head = NULL;
-            SymbolTableNode_t *head2 = NULL;
+            /* MERGING CODE AND DATA FILES
+                char lineCode[MAX_CHAR_PER_LINE_AMNT]; 
+                
+            */
 
+
+            // ++++++++++++++ BEGIN WORK IN PROGRESS +++++++++++++++++
+        // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Pre-Process⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+            //PRINT_WELCOME_DBG
+            // Make sure the last line of the file is an empty line
+
+
+            // TODO: Strip out the comments first
+
+
+            // Check if the file ends with an empty line
+            int emptyLineCheck = endsWithNonEmptyLine(file);
+
+            int foundCodeDirective = isCodeDirectiveNotPresent(file);
+
+            int duplicateCodeDirective = isCodeDirectiveNotUnique(file);
+            
+
+            // TODO: Once this is checked, check the file for a .code
+                // If .code is found, make sure it is followed by nothing else other than whitespaces, tabs or line returns
+                // If followed by nothing else than.... check if there aren't any other .code declarations elsewhere
+                // If there aren't any, proceed.
+                    // Try to find the data section. Make sure there aren't multiple .data declaration
+                        // If there is a data section && it's before code, return the lines that are between .data and .code
+                        // If there is a data section && its after code, return the lines that are between .data and the end of the file
+                    // If there is no data section, close the data section and move on
+                // If code is not found abort everything.
+                // If data section != NULL, start ParseLineData
+                // If code section != NULL, start ParseLineCode
+
+
+            // If any of the tests reported anything else than 0, halt execution.
+            if (emptyLineCheck || foundCodeDirective || duplicateCodeDirective) {
+                printf("🛑 Program Halted\n");
+
+                fclose(file);
+                return EXIT_FAILURE;
+
+            }
+
+            // ++++++++++++++ END WORK IN PROGRESS +++++++++++++++++
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Data Section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-            //PRINT_WELCOME_DBG
+        /* MERGING CODE AND DATA FILES
+            // SymbolTableInit
+            SymbolTableNode_t *head = NULL; // TODO: Move this in Data Section
+
             // For each line in the file:
-            while (fgets(lineData, sizeof(lineData), fileData)) {
+            while (fgets(lineData, sizeof(lineData), file)) {
 
 
                 // Start by removing newline character if present
@@ -62,18 +111,19 @@
 
 
                     // Clean up file
-                    fclose(fileData); 
+                    fclose(file); 
 
                     // Clean up code section too
                     fclose(fileCode);
+                        
 
                     // Clear dangling pointer
                     head = NULL;
-                    head2 = NULL;
+                    // head2 = NULL;
 
                     // #freeTheTables
                     freeList(head);
-                    freeList(head2);
+                    // freeList(head2);
 
                     // Free the label resolutions
                     for (int i = 0; i < unresolvedInstructions.count; ++i) {
@@ -95,29 +145,36 @@
                     // printDataSection(&dataSection);
                 }
                 if (DBG){
-                    usleep(900000);
+                    // usleep(900000);
                     printf("✅ 🤖 < Data Section has been fully Parsed! Here are the labels I found !)\n\n");
-                    usleep(900000);
+                    // usleep(900000);
 
                     SymbolTableNode_t *dbgNode = head;
                     while (dbgNode != NULL) {
-                        usleep(200000);
+                        // usleep(200000);
                         printf("    Label:\"%s\" is at relative Address: %d\n", dbgNode->label, dbgNode->address);
                         dbgNode = dbgNode->next; // Move to the next node
                     }
                 }
 
                 if (DBG){
-                    usleep(900000);
+                    // usleep(900000);
                     printf("\nData Section Bytes Count: %d\n\n", dataSection.bytesCount);
-                    usleep(200000);
+                    // usleep(200000);
                     printf("====================================\n");
                 }
+            
+        */
             
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Code Section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // The first pass will parse instructions into usable data, syntax check it, build a new symbol table with labels
             // For each line in the file:
+            /* MERGING CODE AND DATA FILES
+
+            // Symbol Table Init
+            SymbolTableNode_t *head2 = NULL; // TODO: Move this in Code Section
+
             while (fgets(lineCode, sizeof(lineCode), fileCode)) {
 
                 // Start by removing newline character if present
@@ -133,7 +190,7 @@
 
 
                     // Clean up file
-                    fclose(fileData); 
+                    fclose(file); 
 
                     // Clean up code section too
                     fclose(fileCode);
@@ -156,15 +213,17 @@
                     return EXIT_FAILURE;
                 }
             }
+            */
 
 
             // +++++++++++ DEBUG +++++++++++++
+                /*
                 if (DBG) {
-                    usleep(900000);
+                    // usleep(900000);
                     printf("✅ 🤖 < Code section fully parsed!)\n");
                     printf("\n");
                     printf("Unresolved Instructions Count: %d\n\n\n", unresolvedInstructions.count);
-                    usleep(900000);
+                    // usleep(900000);
                     for (int i = 0; i < unresolvedInstructions.count; ++i) {
                         Instruction_t *instr = &unresolvedInstructions.instructions[i];
                         printf("\nInstruction %d: %s\n", i + 1, findMnemonicReverse(instr->name));
@@ -177,10 +236,10 @@
 
                         printf("\n");
                         printf("\tNeeds Resolve: %s\n", instr->needsResolve);
-                        usleep(200000);
+                        // usleep(200000);
                     }
                 }
-                /*
+                
                 if (DBG){
                     SymbolTableNode_t *dbgNode2 = head2;
                     while (dbgNode2 != NULL) {
@@ -188,248 +247,236 @@
                         dbgNode2 = dbgNode2->next; // Move to the next node
                     }
                 }
-                */
+                
 
                 if (DBG){
-                    usleep(200000);
+                    // usleep(200000);
                     printf("\n\n");
                     printf("====================================\n");
-                    usleep(900000);
+                    // usleep(900000);
                     printf("✅ 🤖 < Instructions all resolved!)\n\n");
                 }
+                */
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Program Assembly: Address resolution⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-            // Combine code and data sections to get final layout
-            mergeTables(head, &head2, unresolvedInstructions.count);
+            /* MERGING CODE AND DATA FILES
+                // Combine code and data sections to get final layout
+                mergeTables(head, &head2, unresolvedInstructions.count);
 
-            /*
-            SymbolTableNode_t *dbgNode = head2;
-            while (dbgNode != NULL) {
-                usleep(200000);
-                printf("    Label:\"%s\" is at absolute Address: %d\n", dbgNode->label, dbgNode->address);
-                dbgNode = dbgNode->next; // Move to the next node
-            }
-            */
+                // Initialise the resolved instructions list
+                ResolvedInstructions_t resolvedInstructions = {0};
+                int exception = 0;
 
-            // Initialise the resolved instructions list
-            ResolvedInstructions_t resolvedInstructions = {0};
-            int exception = 0;
+                // Resolve addresses from there. For each unresolved instruction, do:
+                for (int i = 0; i < unresolvedInstructions.count; i++){
 
-            // Resolve addresses from there. For each unresolved instruction, do:
-            for (int i = 0; i < unresolvedInstructions.count; i++){
+                    // Init a new instruction
+                    resolvedInstructions.instructions[i] = calloc(1, sizeof(Instruction_t));
 
-                // Init a new instruction
-                resolvedInstructions.instructions[i] = calloc(1, sizeof(Instruction_t));
-
-                // In case of an allocation failure:
-                if (!resolvedInstructions.instructions[i]) {
-                    
-                    exception = 1;
-                    break;
-                }
-
-                // ❑ No resolution ❑
-                    // If doesn't need resolution, just copy it over
-                    if (unresolvedInstructions.instructions[i].needsResolve == NULL){
-
-                        // Set the value of the new instruction to the value of the old one
-                        *(resolvedInstructions.instructions[i]) = unresolvedInstructions.instructions[i];
-
-                        // Increment the count
-                        resolvedInstructions.count++;
-                    }
-
-                // ❑ Address to resolve ❑
-                    // If there is indeed a label to resolve:
-                    else if (unresolvedInstructions.instructions[i].needsResolve != NULL) {
+                    // In case of an allocation failure:
+                    if (!resolvedInstructions.instructions[i]) {
                         
-                        // Copy the instruction first
-                        *(resolvedInstructions.instructions[i]) = unresolvedInstructions.instructions[i];
+                        exception = 1;
+                        break;
+                    }
 
-                        // Fetch the instruction name for easier checks
-                        InstructionName_t currentInstructionName = resolvedInstructions.instructions[i]->name;
+                    // ❑ No resolution ❑
+                        // If doesn't need resolution, just copy it over
+                        if (unresolvedInstructions.instructions[i].needsResolve == NULL){
 
-                        // Find its address from the lookup table
-                        int address = resolveAddress(head2, unresolvedInstructions.instructions[i].needsResolve);
-                        if (address != -1){
-
-                            // Iterate over all operands to find the ones that are supposed to be labels
-                            for (int j = 0; j < resolvedInstructions.instructions[i]->operandCount; j++){
-
-                                // Fetch its rules, if we find the label:
-                                if (instructionCheckTable[currentInstructionName].types[j] == LBL){
-
-                                    // Set the current operand being checked to the new address
-                                    resolvedInstructions.instructions[i]->operands[j] = address;
-                                }
-                            }
+                            // Set the value of the new instruction to the value of the old one
+                            *(resolvedInstructions.instructions[i]) = unresolvedInstructions.instructions[i];
 
                             // Increment the count
                             resolvedInstructions.count++;
-
                         }
 
-                        // The famous '.' operator
-                        else if (strcmp(unresolvedInstructions.instructions[i].needsResolve, ".") == 0) {
+                    // ❑ Address to resolve ❑
+                        // If there is indeed a label to resolve:
+                        else if (unresolvedInstructions.instructions[i].needsResolve != NULL) {
+                            
+                            // Copy the instruction first
+                            *(resolvedInstructions.instructions[i]) = unresolvedInstructions.instructions[i];
 
-                            address = i * 32;
+                            // Fetch the instruction name for easier checks
+                            InstructionName_t currentInstructionName = resolvedInstructions.instructions[i]->name;
 
-                            // Iterate over all operands to find the ones that are supposed to be labels
-                            for (int j = 0; j < resolvedInstructions.instructions[i]->operandCount; j++){
+                            // Find its address from the lookup table
+                            int address = resolveAddress(head2, unresolvedInstructions.instructions[i].needsResolve);
+                            if (address != -1){
 
-                                // Fetch its rules, if we find the label:
-                                if (instructionCheckTable[currentInstructionName].types[j] == LBL){
+                                // Iterate over all operands to find the ones that are supposed to be labels
+                                for (int j = 0; j < resolvedInstructions.instructions[i]->operandCount; j++){
 
-                                    // Set the current operand being checked to the new address
-                                    resolvedInstructions.instructions[i]->operands[j] = address;
+                                    // Fetch its rules, if we find the label:
+                                    if (instructionCheckTable[currentInstructionName].types[j] == LBL){
+
+                                        // Set the current operand being checked to the new address
+                                        resolvedInstructions.instructions[i]->operands[j] = address;
+                                    }
                                 }
+
+                                // Increment the count
+                                resolvedInstructions.count++;
+
                             }
 
-                            // Increment the count
-                            resolvedInstructions.count++;
+                            // The famous '.' operator
+                            else if (strcmp(unresolvedInstructions.instructions[i].needsResolve, ".") == 0) {
 
+                                address = i * 32;
+
+                                // Iterate over all operands to find the ones that are supposed to be labels
+                                for (int j = 0; j < resolvedInstructions.instructions[i]->operandCount; j++){
+
+                                    // Fetch its rules, if we find the label:
+                                    if (instructionCheckTable[currentInstructionName].types[j] == LBL){
+
+                                        // Set the current operand being checked to the new address
+                                        resolvedInstructions.instructions[i]->operands[j] = address;
+                                    }
+                                }
+
+                                // Increment the count
+                                resolvedInstructions.count++;
+
+                            }
+
+                            // Otherwise address resolution failed
+                            else {
+                                printf(" ⚠️  Address resolution error, could not find label \"%s\" in instruction \"%s\", line ????\n", unresolvedInstructions.instructions[i].needsResolve, findMnemonicReverse(unresolvedInstructions.instructions[i].name));
+                                exception = 1;
+                                break;
+                            }
                         }
 
-                        // Otherwise address resolution failed
-                        else {
-                            printf(" ⚠️  Address resolution error, could not find label \"%s\" in instruction \"%s\", line ????\n", unresolvedInstructions.instructions[i].needsResolve, findMnemonicReverse(unresolvedInstructions.instructions[i].name));
-                            exception = 1;
-                            break;
+                    // Otherwise fail address resolution
+                    else {
+                        exception = 1;
+                        break;
+                    }
+                }
+
+                // ++++++++++++ DEBUG +++++++++++++++
+                    if (DBG) {
+                        for (int k = 0; k < resolvedInstructions.count; k++){
+                            // usleep(200000);
+                            printf("\nResolved Instructions: %s\n", findMnemonicReverse(resolvedInstructions.instructions[k]->name));
+                            printf("\tOperand Count: %d\n", resolvedInstructions.instructions[k]->operandCount);
+                            printf("\tOperands: ");
+
+                            for (int l = 0; l < resolvedInstructions.instructions[k]->operandCount; ++l) {
+                                printf("%lld ", resolvedInstructions.instructions[k]->operands[l]);
+                            }
+                            printf("\n");
                         }
+                        // usleep(200000);
+                        printf("\n\n");
+                        printf("====================================\n");
+                        // usleep(900000);
+                        printf("✅ 🤖 < Instructions are being encoded!)\n\n");
                     }
 
-                // Otherwise fail address resolution
-                else {
-                    exception = 1;
-                    break;
-                }
-            }
+                // Halt the program if error
+                if (exception){
+                    printf(" 🛑 Program Halted\n");
 
-            // ++++++++++++ DEBUG +++++++++++++++
-                if (DBG) {
-                    for (int k = 0; k < resolvedInstructions.count; k++){
-                        usleep(200000);
-                        printf("\nResolved Instructions: %s\n", findMnemonicReverse(resolvedInstructions.instructions[k]->name));
-                        printf("\tOperand Count: %d\n", resolvedInstructions.instructions[k]->operandCount);
-                        printf("\tOperands: ");
+                    // Clean up file
+                    fclose(file); 
 
-                        for (int l = 0; l < resolvedInstructions.instructions[k]->operandCount; ++l) {
-                            printf("%lld ", resolvedInstructions.instructions[k]->operands[l]);
-                        }
-                        printf("\n");
+                    // Clean up code section too
+                    fclose(fileCode);
+
+                    // Clear dangling pointer
+                    head = NULL;
+                    head2 = NULL;
+
+                    // #freeTheTables
+                    freeList(head);
+                    freeList(head2);
+
+                    // Free the label resolutions
+                    for (int i = 0; i < unresolvedInstructions.count; ++i) {
+                        free(unresolvedInstructions.instructions[i].needsResolve);
+                        unresolvedInstructions.instructions[i].needsResolve = NULL; // Avoid dangling pointer
                     }
-                    usleep(200000);
-                    printf("\n\n");
-                    printf("====================================\n");
-                    usleep(900000);
-                    printf("✅ 🤖 < Instructions are being encoded!)\n\n");
+
+                    // Free the resolved instructions
+                    for (int i = 0; i < resolvedInstructions.count; i++) {
+                        free(resolvedInstructions.instructions[i]); // Free each allocated Instruction_t
+                    }
+
+                    // pretty self-explanatory
+                    return EXIT_FAILURE;
                 }
-
-            // Halt the program if error
-            if (exception){
-                printf(" 🛑 Program Halted\n");
-
-                // Clean up file
-                fclose(fileData); 
-
-                // Clean up code section too
-                fclose(fileCode);
-
-                // Clear dangling pointer
-                head = NULL;
-                head2 = NULL;
-
-                // #freeTheTables
-                freeList(head);
-                freeList(head2);
-
-                // Free the label resolutions
-                for (int i = 0; i < unresolvedInstructions.count; ++i) {
-                    free(unresolvedInstructions.instructions[i].needsResolve);
-                    unresolvedInstructions.instructions[i].needsResolve = NULL; // Avoid dangling pointer
-                }
-
-                // Free the resolved instructions
-                for (int i = 0; i < resolvedInstructions.count; i++) {
-                    free(resolvedInstructions.instructions[i]); // Free each allocated Instruction_t
-                }
-
-                // pretty self-explanatory
-                return EXIT_FAILURE;
-            }
+            */
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Program Assembly: Encoding⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
+            /* MERGING CODE AND DATA FILES
+                // Init the final memory section
+                MemorySection_t memorySection;
+                size_t totalByteSize = resolvedInstructions.count*4 + dataSection.bytesCount;
+                int memInit = initMemorySection(&memorySection, totalByteSize);
 
-            // Init the final memory section
-            MemorySection_t memorySection;
-            size_t totalByteSize = resolvedInstructions.count*4 + dataSection.bytesCount;
-            int memInit = initMemorySection(&memorySection, totalByteSize);
+                // Add Code to memory
+                int code2memResult = populateMemoryWithCode(&memorySection, totalByteSize, &resolvedInstructions);
+                
+                // Add Data section to the end of it
+                appendData(&memorySection, &dataSection);
+                
+                
+                // Iterate over bytes 
+                if (DBG_PRINT_MEMORY_BYTES){
+                    printMemorySection(&memorySection);
+                }
 
-           
-            /*
-            typedef struct {
-                uint8_t bytes[MAX_DATA_MEMORY];
-                int bytesCount;
-             } DataSection_t;
+                // Catch error
+                if (memInit || code2memResult){
+                    printf(" 🛑 Program Halted\n");
+
+                    // Clean up file
+                    fclose(file); 
+
+                    // Clean up code section too
+                    fclose(fileCode);                    
+
+                    // Clear dangling pointer
+                    head = NULL;
+                    head2 = NULL;
+
+                    // #freeTheTables
+                    freeList(head);
+                    freeList(head2);
+
+                    // Free the label resolutions
+                    for (int i = 0; i < unresolvedInstructions.count; ++i) {
+                        free(unresolvedInstructions.instructions[i].needsResolve);
+                        unresolvedInstructions.instructions[i].needsResolve = NULL; // Avoid dangling pointer
+                    }
+
+                    // Free the resolved instructions
+                    for (int i = 0; i < resolvedInstructions.count; i++) {
+                        free(resolvedInstructions.instructions[i]); // Free each allocated Instruction_t
+                    }
+
+                    // pretty self-explanatory
+                    return EXIT_FAILURE;
+                }
+
+
+                if (DBG){
+                    // printDataSection(&dataSection);
+                }
             */
-
-            int code2memResult = populateMemoryWithCode(&memorySection, totalByteSize, &resolvedInstructions);
-            
-            appendData(&memorySection, &dataSection);
-            
-            
-            // Iterate over bytes 
-            if (DBG_PRINT_MEMORY_BYTES){
-                printMemorySection(&memorySection);
-            }
-            // printf("size of memory section: %lu", sizeof(*memorySection));
-
-
-
-
-
-            if (memInit || code2memResult){
-                printf(" 🛑 Program Halted\n");
-
-                // Clean up file
-                fclose(fileData); 
-
-                // Clean up code section too
-                fclose(fileCode);
-
-                // Clear dangling pointer
-                head = NULL;
-                head2 = NULL;
-
-                // #freeTheTables
-                freeList(head);
-                freeList(head2);
-
-                // Free the label resolutions
-                for (int i = 0; i < unresolvedInstructions.count; ++i) {
-                    free(unresolvedInstructions.instructions[i].needsResolve);
-                    unresolvedInstructions.instructions[i].needsResolve = NULL; // Avoid dangling pointer
-                }
-
-                // Free the resolved instructions
-                for (int i = 0; i < resolvedInstructions.count; i++) {
-                    free(resolvedInstructions.instructions[i]); // Free each allocated Instruction_t
-                }
-
-                // pretty self-explanatory
-                return EXIT_FAILURE;
-            }
-
-
-            if (DBG){
-                // printDataSection(&dataSection);
-            }
-
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Closing Sequence⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Freeing the symbol table
-            freeList(head2);
+            // freeList(head2);
 
+            //Temporary free
+            // freeList(head);
+
+            /* MERGING CODE AND DATA FILES
             // Free the label resolutions
             for (int i = 0; i < unresolvedInstructions.count; ++i) {
                 free(unresolvedInstructions.instructions[i].needsResolve);
@@ -440,19 +487,23 @@
             for (int i = 0; i < resolvedInstructions.count; i++) {
                 free(resolvedInstructions.instructions[i]);
             }
+            */
 
             // Clear dangling pointer
-            head = NULL;
-            head2 = NULL;
+            // head = NULL;
+            // head2 = NULL;
 
 
             // Close the fileData
-            fclose(fileData);
+            fclose(file);
 
-            // Close the fileCode
-            fclose(fileCode);
+            /* MERGING CODE AND DATA FILES
+                // Close the fileCode
+                fclose(fileCode);
+                
+            */
 
-            usleep(900000);
+            // usleep(900000);
             printf("\n\n");
             printf("✅ ALGORASM Executed Succesfully!\n");
             return EXIT_SUCCESS;

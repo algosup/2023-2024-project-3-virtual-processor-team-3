@@ -45,7 +45,7 @@
 
         printf("Memory Section (%d bytes):\n", memSection->bytesCount);
         for (int i = 0; i < memSection->bytesCount; ++i) {
-            usleep(5000);
+            // usleep(5000);
             printf("%02X ", memSection->bytes[i]);
             if ((i + 1) % 16 == 0) // Print 16 bytes per line
                 printf("\n");

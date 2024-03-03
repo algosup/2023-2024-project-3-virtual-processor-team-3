@@ -300,7 +300,7 @@
                         printf("Encoded I-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedIType(encodedInstruction);
                         printf("\n");
-                        usleep(200000);
+                        // usleep(200000);
                     }
 
                     // TEMP CODE TO ADD IT TO MEMORY SECTION
@@ -341,7 +341,7 @@
                         printf("Encoded S-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedSType(encodedInstruction);
                         printf("\n");
-                        usleep(200000);
+                        // usleep(200000);
                     }
 
                     // TEMP CODE TO ADD IT TO MEMORY SECTION
@@ -381,7 +381,7 @@
                         printf("Encoded B-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedBType(encodedInstruction);
                         printf("\n");
-                        usleep(200000);
+                        // usleep(200000);
                     }
 
                     // TEMP CODE TO ADD IT TO MEMORY SECTION
@@ -419,7 +419,7 @@
                         printf("Encoded U-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedUType(encodedInstruction);
                         printf("\n");
-                        usleep(200000); 
+                        // usleep(200000); 
                     }
 
                     // TEMP CODE TO ADD IT TO MEMORY SECTION
@@ -461,7 +461,7 @@
                         printf("Encoded J-type instruction \"%s\":", findMnemonicReverse(resolvedInstructions->instructions[i]->name));
                         printEncodedJType(encodedInstruction);
                         printf("\n");
-                        usleep(200000);
+                        // usleep(200000);
                     }
 
                     // TEMP CODE TO ADD IT TO MEMORY SECTION
