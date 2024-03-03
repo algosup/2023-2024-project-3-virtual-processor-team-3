@@ -40,10 +40,10 @@
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Variables⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Buffer for reading lines from the file
-            // char lineData[MAX_CHAR_PER_LINE_AMNT]; 
+            // char lineData[MAX_CHARS_PER_LINE]; 
 
             /* MERGING CODE AND DATA FILES
-                char lineCode[MAX_CHAR_PER_LINE_AMNT]; 
+                char lineCode[MAX_CHARS_PER_LINE]; 
                 
             */
 
@@ -51,18 +51,74 @@
             // ++++++++++++++ BEGIN WORK IN PROGRESS +++++++++++++++++
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Pre-Process⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             //PRINT_WELCOME_DBG
-            // Make sure the last line of the file is an empty line
+
+            // EXCEPTION: All the tests in the preprocessor will use zero as a failure value. (This is the opposite of what I do in the rest of the program)
+            // IMPROVEMENT: Minor modifications could lead to less duplicate code in preprocessor functions
+
+            // Check if a line exceeds the hard MAX_CHARS_PER_LINE limit (until I do something more dynamic)
+            int lineLengthCheck = isLineTooLong(file);
+
+            // Check if the file ends with an empty line (0 = failure)
+            int emptyLineCheck = endsWithEmptyLine(file);
+
+            // Check if the file contains the mandatory ".code" directive (0 = failure, > 0 = line number it was found at)
+            int foundCodeDirective = isCodeDirectivePresent(file);
+
+            // Check if it has only one ".code" declaration
+            int duplicateCodeDirective = isCodeDirectiveUnique(file);
+
+            // Check if the program has the (non mandatory) ".data" directive (0 = none, > 0 = line number it was found at)
+            int foundDataDirective = isDataDirectivePresent(file);
+
+            // Prepare for next check
+            int duplicateDataDirective = 1;
+
+            // This indicates at which line the sections end
+            int endOfDataSection = 0;
+            int endOfCodeSection = 0;
+
+            // If a data section has been found
+            if (foundDataDirective){
+
+                // Check for duplicate declaration (0 = failure)
+                duplicateDataDirective = isDataDirectiveUnique(file);
+
+                // If data section has been declared before code section:
+                if (foundDataDirective < foundCodeDirective){
+
+                    // The data section spans from ".data" until the ".code" declaration
+                    endOfDataSection = findDataSectionEnd(1, file);
+
+                    // The code section spans from ".code" until the end of the file
+                    endOfCodeSection = findCodeSectionEnd(2, file);
+
+                }
+
+                // Otherwise, data section has been declared after the code section
+                else {
+
+                    // In which case, it spans from data until the end of the file
+                    endOfDataSection = findDataSectionEnd(2, file);
+
+                    // The code section spans from ".code" until the ".data" declaration
+                    endOfCodeSection = findCodeSectionEnd(1, file);
+
+                }
+            }
+
+            // Otherwise, if no data section has been found
+            else {
+                endOfCodeSection = findCodeSectionEnd(2, file);
+            }
+
+            // Init end of code section
+
+            printf("Data found line: %d\n", foundDataDirective);
+            printf("Data end line: %d\n", endOfDataSection);
+            printf("Code found line: %d\n", foundCodeDirective);
+            printf("Code end line: %d\n", endOfCodeSection);
 
 
-            // TODO: Strip out the comments first
-
-
-            // Check if the file ends with an empty line
-            int emptyLineCheck = endsWithNonEmptyLine(file);
-
-            int foundCodeDirective = isCodeDirectiveNotPresent(file);
-
-            int duplicateCodeDirective = isCodeDirectiveNotUnique(file);
             
 
             // TODO: Once this is checked, check the file for a .code
@@ -77,15 +133,18 @@
                 // If data section != NULL, start ParseLineData
                 // If code section != NULL, start ParseLineCode
 
+                // I think how I'm going to return the line numbers is by indicating to parseLineData and parseLineCode the line they're gonna start and at which line to stop at and they're going to increment even when there's comments.
 
-            // If any of the tests reported anything else than 0, halt execution.
-            if (emptyLineCheck || foundCodeDirective || duplicateCodeDirective) {
+
+            // If any of the tests reported anything other than > 0, halt execution.
+            if (!emptyLineCheck || !foundCodeDirective || !duplicateCodeDirective || !duplicateDataDirective || !lineLengthCheck) {
                 printf("🛑 Program Halted\n");
 
                 fclose(file);
                 return EXIT_FAILURE;
 
             }
+
 
             // ++++++++++++++ END WORK IN PROGRESS +++++++++++++++++
 
@@ -494,7 +553,7 @@
             // head2 = NULL;
 
 
-            // Close the fileData
+            // Close the file
             fclose(file);
 
             /* MERGING CODE AND DATA FILES

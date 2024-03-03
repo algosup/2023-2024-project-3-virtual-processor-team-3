@@ -7,7 +7,7 @@
     int ParseLineData(char *line, DataSection_t *dataSection, SymbolTableNode_t **head) {
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Syntax Checking Preparation⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // Create a copy of the passed line, for deeper checks
-            char lineCopy[MAX_CHAR_PER_LINE_AMNT];
+            char lineCopy[MAX_CHARS_PER_LINE];
             strcpy(lineCopy, line);      
 
             // Variables for tokenisation
@@ -582,7 +582,7 @@
         if (isalpha(line[0])) {
 
             // Create a copy of the passed line, for deeper checks
-            char lineCopy[MAX_CHAR_PER_LINE_AMNT]; 
+            char lineCopy[MAX_CHARS_PER_LINE]; 
             strcpy(lineCopy, line);      
 
             // Variables for tokenisation
@@ -667,7 +667,7 @@
                             */
 
                             // Make a copy of the line for further processing
-                            char lineCopy[MAX_CHAR_PER_LINE_AMNT];
+                            char lineCopy[MAX_CHARS_PER_LINE];
                             strcpy(lineCopy, line); 
 
                             // tokenise the instruction
