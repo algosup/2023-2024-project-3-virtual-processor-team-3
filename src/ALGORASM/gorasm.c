@@ -13,47 +13,18 @@
             // File handlers for the data and code files
             FILE *file;
 
-            /* MERGING CODE AND DATA FILES
-                FILE *fileCode;
-            */
-
-            // Section_t codeSection;
-            // DataSection_t dataSection = {0};
-            // UnresolvedInstructions_t unresolvedInstructions = {0};
-
-
-            // Open the data file
+            // Open the file
             file = fopen("basicTest/newtest.gras", "r");
             if (!file) {
                 perror("Error opening the file (newtest.gras)");
                 return EXIT_FAILURE;
             }
 
-            /* MERGING CODE AND DATA FILES
-                // Open the code file
-                fileCode = fopen("basicTest/newtest.gras", "r");
-                if (!fileCode) {
-                    perror("Error opening the code file (data.code)");
-                    return EXIT_FAILURE;
-                }
-            */
-
-        // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Variables⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-            // Buffer for reading lines from the file
-            // char lineData[MAX_CHARS_PER_LINE]; 
-
-            /* MERGING CODE AND DATA FILES
-                char lineCode[MAX_CHARS_PER_LINE]; 
-                
-            */
-
-
-            // ++++++++++++++ BEGIN WORK IN PROGRESS +++++++++++++++++
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Pre-Process⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             //PRINT_WELCOME_DBG
 
             // EXCEPTION: All the tests in the preprocessor will use zero as a failure value. (This is the opposite of what I do in the rest of the program)
-            // IMPROVEMENT: Minor modifications could lead to less duplicate code in preprocessor functions
+            // FUTURE IMPROVEMENTS: Minor modifications could lead to less duplicate code in preprocessor functions
 
             // Check if a line exceeds the hard MAX_CHARS_PER_LINE limit (until I do something more dynamic)
             int lineLengthCheck = isLineTooLong(file);
@@ -63,6 +34,8 @@
 
             // Check if the file contains the mandatory ".code" directive (0 = failure, > 0 = line number it was found at)
             int foundCodeDirective = isCodeDirectivePresent(file);
+
+            printf("CODE BEGIN %d\n", foundCodeDirective);
 
             // Check if it has only one ".code" declaration
             int duplicateCodeDirective = isCodeDirectiveUnique(file);
@@ -77,8 +50,10 @@
             int endOfDataSection = 0;
             int endOfCodeSection = 0;
 
-            // If a data section has been found
+            // ❑ If there is a Data Section ❑
             if (foundDataDirective){
+
+                printf("DATA BEGIN %d\n", foundDataDirective);
 
                 // Check for duplicate declaration (0 = failure)
                 duplicateDataDirective = isDataDirectiveUnique(file);
@@ -91,7 +66,6 @@
 
                     // The code section spans from ".code" until the end of the file
                     endOfCodeSection = findCodeSectionEnd(2, file);
-
                 }
 
                 // Otherwise, data section has been declared after the code section
@@ -102,93 +76,94 @@
 
                     // The code section spans from ".code" until the ".data" declaration
                     endOfCodeSection = findCodeSectionEnd(1, file);
-
                 }
+
+                printf("CODE END %d\n", endOfCodeSection);
+                printf("DATA END %d\n", endOfDataSection);
             }
 
-            // Otherwise, if no data section has been found
+            // ❑ If there is no Data Section ❑
             else {
                 endOfCodeSection = findCodeSectionEnd(2, file);
-            }
 
-            // Init end of code section
-
-            printf("Data found line: %d\n", foundDataDirective);
-            printf("Data end line: %d\n", endOfDataSection);
-            printf("Code found line: %d\n", foundCodeDirective);
-            printf("Code end line: %d\n", endOfCodeSection);
-
-
-            
-
-            // TODO: Once this is checked, check the file for a .code
-                // If .code is found, make sure it is followed by nothing else other than whitespaces, tabs or line returns
-                // If followed by nothing else than.... check if there aren't any other .code declarations elsewhere
-                // If there aren't any, proceed.
-                    // Try to find the data section. Make sure there aren't multiple .data declaration
-                        // If there is a data section && it's before code, return the lines that are between .data and .code
-                        // If there is a data section && its after code, return the lines that are between .data and the end of the file
-                    // If there is no data section, close the data section and move on
-                // If code is not found abort everything.
-                // If data section != NULL, start ParseLineData
-                // If code section != NULL, start ParseLineCode
-
-                // I think how I'm going to return the line numbers is by indicating to parseLineData and parseLineCode the line they're gonna start and at which line to stop at and they're going to increment even when there's comments.
-
+                printf("CODE END %d\n", endOfCodeSection);
+            }            
 
             // If any of the tests reported anything other than > 0, halt execution.
             if (!emptyLineCheck || !foundCodeDirective || !duplicateCodeDirective || !duplicateDataDirective || !lineLengthCheck) {
                 printf("🛑 Program Halted\n");
 
+                // Close the file
                 fclose(file);
-                return EXIT_FAILURE;
 
+                // Return a failure
+                return EXIT_FAILURE;
             }
 
-
-            // ++++++++++++++ END WORK IN PROGRESS +++++++++++++++++
+            
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Data Section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
-        /* MERGING CODE AND DATA FILES
+        // ++++++++++++++ BEGIN WORK IN PROGRESS +++++++++++++++++
             // SymbolTableInit
-            SymbolTableNode_t *head = NULL; // TODO: Move this in Data Section
+            SymbolTableNode_t *head = NULL;
+
+            // Init the line buffer
+            char lineData[MAX_CHARS_PER_LINE];
+
+            // Init the dataSection
+            DataSection_t dataSection = {0};
+
+            // Init the line count
+            int currentLine = 0;
+
+            // Rewind the file pointer to the beginning of the file
+            rewind(file);
 
             // For each line in the file:
             while (fgets(lineData, sizeof(lineData), file)) {
 
+                // Lines are 1 based so start with line 1
+                currentLine++;
 
                 // Start by removing newline character if present
                 lineData[strcspn(lineData, "\n")] = 0;
 
+                // Skip the line if it is not a data line
+                if (currentLine > endOfDataSection || currentLine <= foundDataDirective){
+
+                    // Move on to the next line
+                    // printf("LINE SKIPPED: %d\n", currentLine);
+                    continue;
+                }
+
+                
+
+                // RESUME HERE AND IN LINE PARSER:
+                // I NEED TO UNNEST THE LOGIC OF DATA PARSING CAUSE IT IS HARD TO WORK WITH AND TO SECTIONIZE
+                // TO DO SO I MIGHT WANT TO EXCLUDE THE .CODE SECTION FOR NOW JUST SO THAT IT IS THE SAME AS THE GOOD OLD DAYS
+                // I NEED TO SKIP ALL THE LINES THAT ARE OUT OF BOUNDS THANKS TO THE PREVIOUSLY GOTTEN BOUNDS
+                // I NEED TO ADD COMMENT SKIPPING LOGIC TO DATA PARSING
+
+
+
+
+
                 // Parse the line into the final memory block, by giving it the line, 
                 // the memory section and the current symbol head
-                int result = ParseLineData(lineData, &dataSection, &head);
+                int result = ParseLineData(lineData, &dataSection, &head, &currentLine);
 
                 // Handle error 😢
                 if (result != 0) {
                     printf("🛑 Program Halted\n");
 
-
                     // Clean up file
-                    fclose(file); 
-
-                    // Clean up code section too
-                    fclose(fileCode);
-                        
+                    fclose(file);                         
 
                     // Clear dangling pointer
                     head = NULL;
-                    // head2 = NULL;
 
                     // #freeTheTables
                     freeList(head);
-                    // freeList(head2);
-
-                    // Free the label resolutions
-                    for (int i = 0; i < unresolvedInstructions.count; ++i) {
-                        free(unresolvedInstructions.instructions[i].needsResolve);
-                        unresolvedInstructions.instructions[i].needsResolve = NULL; // Avoid dangling pointer
-                    }
 
                     // pretty self-explanatory
                     return EXIT_FAILURE;
@@ -223,13 +198,15 @@
                     printf("====================================\n");
                 }
             
-        */
-            
+        // ++++++++++++++ END WORK IN PROGRESS +++++++++++++++++
 
         // ○⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎱Code Section⎰⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯○
             // The first pass will parse instructions into usable data, syntax check it, build a new symbol table with labels
             // For each line in the file:
             /* MERGING CODE AND DATA FILES
+
+            // Section_t codeSection; // PUT THIS IN CODE SECTION
+            // UnresolvedInstructions_t unresolvedInstructions = {0}; // PUT THIS IN CODE SECTIO
 
             // Symbol Table Init
             SymbolTableNode_t *head2 = NULL; // TODO: Move this in Code Section
