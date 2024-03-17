@@ -53,7 +53,7 @@
             if (!(isalpha(lineCopy[0]))) {
 
                 // Break if it doesn't
-                printf("⚠️  The label name must start with a letter (line %d)\n", *currentLine);
+                printf(" ⚠️  The label name must start with a letter (line %d)\n", *currentLine);
                 return 1;
             } 
                 
@@ -61,7 +61,7 @@
             if (!(strchr(lineCopy, ':') != NULL)) {
 
                 // Break if it is missing
-                printf("⚠️  Missing ':' after Label Declaration (line %d)\n", *currentLine);
+                printf(" ⚠️  Missing ':' after Label Declaration (line %d)\n", *currentLine);
                 return 1;
             }
 
@@ -72,7 +72,7 @@
             if (!(token != NULL && strlen(token) <= MAX_MNEMO_LENGTH - 1)) {
 
                 // Break if it does exceed the length limit
-                printf("⚠️  Label name exceeds 49 characters, please rename it to a shorter name (line %d)\n", *currentLine);
+                printf(" ⚠️  Label name exceeds 49 characters, please rename it to a shorter name (line %d)\n", *currentLine);
                 return 1;
             }
 
@@ -84,7 +84,7 @@
                 if (!(isalpha((unsigned char)c) || isdigit((unsigned char)c) || c == '_' || c == '-')) {
 
                     // If not, return error
-                    printf(" ⚠️  Invalid character '%c' in label \"%s\" , position %d, line %d. Allowed characters (A-Z, a-z, 0-9 _ - )\n", c, token, i, *currentLine);
+                    printf(" ⚠️  Invalid character '%c' in label \"%s\", line %d. Allowed characters (A-Z, a-z, 0-9 _ - )\n", c, token, *currentLine);
                     return 1;
                 }
             }
@@ -96,7 +96,7 @@
             if (isLabelExists(head, label)) {
 
                 // Break if it does already exist
-                printf("⚠️  Label name (%s) has already been declared in data section (line %d)\n", label, *currentLine);
+                printf(" ⚠️  Label name \"%s\", line %d, has already been declared in data section.\n", label, *currentLine);
                 return 1;
             }
                 
@@ -111,7 +111,7 @@
             if (*directiveCheck != '.') {
 
                 // In which case, break
-                printf("⚠️  Missing '.' for directive after label name (line %d)\n", *currentLine);
+                printf(" ⚠️  Missing '.' for directive after label name (line %d)\n", *currentLine);
                 return 1;
             }
 
@@ -125,7 +125,7 @@
 
             // Find the end of the directive name (space or end of string)
             while (*directiveCheck && !isspace(*directiveCheck)) {directiveCheck++;}
-
+            
             // Force null termination of sting
             *directiveCheck = '\0';
 
@@ -150,10 +150,19 @@
 
                         // Create a new variable (for consistency and readability) for syntax chacking
                         // This pointer will start after the directive
-                        char *valuesStart = directiveCheck+1;
+                        char *valuesStart = directiveCheck + 1;
 
+
+                        /* FUTURE IMROVEMENT: Checking for Empty Declerations
                         // Skip whitespaces after the directive
                         while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
+
+                        // Check if we've reached the end of the string without encountering any non-whitespace character (a.k.a empty declaration)
+                        if (*valuesStart == '\0') {
+                            printf(" ⚠️  No valid byte value found line %d in byte declaration.\nMust provide at least 1 byte value, in the range of (-128, 255)\n", *currentLine);
+                            return 1;
+                        }
+                        */
 
                         // tokenise the string for comma separated values
                         char *byteValueStr = strtok(valuesStart, ",");
@@ -185,7 +194,7 @@
 
                             // Check if it is in bounds and an integer
                             if (!isValidByteInt(trimmedByteValueStr, &byteValue)) {
-                                printf("⚠️  Invalid byte value '%s' (must be an integer within [-128, 255]) (line %d), at position %d in array declaration\n", byteValueStr, currentAddress, byteCount);
+                                printf(" ⚠️  Invalid byte value (%s), line %d, at position %d in array declaration\nMust be an integer in the range of (-128, 255)\n", byteValueStr, *currentLine, byteCount);
                                 return 1;
                             }
 
@@ -223,19 +232,21 @@
                             } 
                             // Otherwise, not enough memory left, throw an error:
                             else {
-                                printf("⚠️  Not enough memory left for byte declaration! Need %d, Have %d\n", byteCount, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                printf(" ⚠️  Not enough memory left for byte storage instruction line %d!\nNeed %d byte(s), Have %d byte(s)\n", *currentLine, byteCount, MAX_DATA_MEMORY - dataSection->bytesCount);
                                 return 1;
                             }
                         } 
+
                         // Otherwise, if there are too many values
                         else if (byteCount > MAX_BYTE_ARRAY_DECLR ){
-                            printf("⚠️  Too many byte values found in declaration (must be <= 512) (line %d)\n", currentAddress);
+                            printf(" ⚠️  Too many byte values (%d) found in byte declaration, line %d \nDeclared values must be fewer or equal to 512\n", byteCount, *currentLine);
                             return 1;
 
                         }
+
                         // Otherwise, if there are none, return error:
-                        else {
-                            printf("⚠️  No valid byte values found (line %d)\n", currentAddress);
+                        else if (byteCount == 0){
+                            printf(" ⚠️  No valid byte values found line %d in byte declaration.\nMust provide at least 1 byte value, in the range of (-128, 255)\n", *currentLine);
                             return 1;
                         }
                     }   
@@ -247,10 +258,18 @@
 
                         // Create a new variable (for consistency and readability) for syntax chacking
                         // This pointer will start after the directive
-                        char *valuesStart = directiveCheck+1;
+                        char *valuesStart = directiveCheck + 1;
 
+                        /* FUTURE IMROVEMENT: Checking for Empty Declerations
                         // Skip whitespaces after the directive
                         while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
+
+                        // Check if we've reached the end of the string without encountering any non-whitespace character (a.k.a empty declaration)
+                        if (*valuesStart == '\0') {
+                            printf(" ⚠️  No valid half value found line %d in half declaration.\nMust provide at least 1 byte value, in the range of (-32768, 65535)\n", *currentLine);
+                            return 1;
+                        }
+                        */
 
                         // tokenise the string for comma separated values
                         char *halfValueStr = strtok(valuesStart, ",");
@@ -282,7 +301,7 @@
 
                             // Check if it is in bounds and an integer
                             if (!isValidHalfInt(trimmedHalfValueStr, &halfValue)) {
-                                printf("⚠️  Invalid half value '%s' (must be an integer within [-32768, 65535]) (line %d), at position %d in array declaration\n", halfValueStr, currentAddress, halfCount);
+                                printf(" ⚠️  Invalid half value (%s), line %d, at position %d in array declaration\nMust be an integer in the range of (-32768, 65535)\n", halfValueStr, *currentLine, halfCount);
                                 return 1;
                             }
 
@@ -320,21 +339,25 @@
                             } 
                             // Otherwise, not enough memory left, throw an error:
                             else {
-                                printf("⚠️  Not enough memory left for half declaration! Need %d, Have %d\n", halfCount*2, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                printf(" ⚠️  Not enough memory left for half storage instruction line %d!\nNeed %d byte(s), Have %d byte(s)\n", *currentLine, halfCount*2, MAX_DATA_MEMORY - dataSection->bytesCount);
                                 return 1;
                             }
                         } 
-                        // Otherwise, if there are too many values
+
+                        // If it exceeds the max amount of values declared at once, return an error:
                         else if (halfCount > MAX_HALF_ARRAY_DECLR ){
-                            printf("⚠️  Too many half values found in declaration (must be <= 256) (line %d)\n", currentAddress);
+                            printf(" ⚠️  Too many half values (%d) found in half declaration, line %d \nDeclared values must be fewer or equal to 256\n", halfCount, *currentLine);
                             return 1;
 
                         }
+
+
                         // Otherwise, if there are none, return error:
-                        else {
-                            printf("⚠️  No valid half values found (line %d)\n", currentAddress);
+                        else if (halfCount == 0){
+                            printf(" ⚠️  No valid half value found line %d in half declaration.\nMust provide at least 1 half value, in the range of (-32768, 65535)\n", *currentLine);
                             return 1;
                         }
+
                     }
 
 
@@ -344,10 +367,18 @@
                         
                         // Create a new variable (for consistency and readability) for syntax chacking
                         // This pointer will start after the directive
-                        char *valuesStart = directiveCheck+1;
+                        char *valuesStart = directiveCheck + 1;
 
+                        /* FUTURE IMROVEMENT: Checking for Empty Declerations
                         // Skip whitespaces after the directive
                         while (*valuesStart && isspace((unsigned char)*valuesStart)) valuesStart++;
+
+                        // Check if we've reached the end of the string without encountering any non-whitespace character (a.k.a empty declaration)
+                        if (*valuesStart == '\0') {
+                            printf(" ⚠️  No valid word value found line %d in word declaration.\nMust provide at least 1 word value, in the range of (-2147483648, 4294967295)\n", *currentLine);
+                            return 1;
+                        }
+                        */
 
                         // tokenise the string for comma separated values
                         char *wordValueStr = strtok(valuesStart, ",");
@@ -379,7 +410,7 @@
 
                             // Check if it is in bounds and an integer
                             if (!isValidWordInt(trimmedWordValueStr, &wordValue)) {
-                                printf("⚠️  Invalid word value '%s' (must be an integer within [-2,147,483,648, 4294967295]) (line %d), at position %d in array declaration\n", wordValueStr, currentAddress, wordCount);
+                                printf(" ⚠️  Invalid word value (%s), line %d, at position %d in array declaration\nMust be an integer in the range of (-2147483648, 4294967295)\n", wordValueStr, *currentLine, wordCount);
                                 return 1;
                             }
 
@@ -416,21 +447,24 @@
                                 return 0;
 
                             } 
+
                             // Otherwise, not enough memory left, throw an error:
                             else {
-                                printf("⚠️  Not enough memory left for word declaration! Need %d, Have %d\n", wordCount*4, MAX_DATA_MEMORY - dataSection->bytesCount);
+                                printf(" ⚠️  Not enough memory left for word storage instruction line %d!\nNeed %d byte(s), Have %d byte(s)\n", *currentLine, wordCount*4, MAX_DATA_MEMORY - dataSection->bytesCount);
                                 return 1;
                             }
                         } 
-                        // Otherwise, if there are too many values
-                        else if (wordCount > MAX_WORD_ARRAY_DECLR ){
-                            printf("⚠️  Too many word values found in word declaration (must be <= 128) (line %d)\n", currentAddress);
+
+                        // If it exceeds the max amount of values declared at once, return an error:
+                        else if (wordCount > MAX_WORD_ARRAY_DECLR){
+                            printf(" ⚠️  Too many word values (%d) found in word declaration, line %d \nDeclared values must be fewer or equal to 128\n", wordCount, *currentLine);
                             return 1;
 
                         }
+
                         // Otherwise, if there are none, return error:
-                        else {
-                            printf("⚠️  No valid word values found (line %d)\n", currentAddress);
+                        else if (wordCount == 0){
+                            printf(" ⚠️  No valid word value found line %d in word declaration.\nMust provide at least 1 word value, in the range of (-2147483648, 4294967295)\n", *currentLine);
                             return 1;
                         }
                     }
@@ -440,7 +474,7 @@
                     if (strcmp(directiveName, "alloc") == 0) {
 
                         // Point to the start of the number of bytes to allocate
-                        char *numBytesStr = directiveCheck + 1; 
+                        char *numBytesStr = directiveCheck+1;
 
                         // Variable for the amount of bytes to allocate
                         int numBytesToAlloc;
@@ -453,13 +487,12 @@
                         if (numBytesStr == endPtr || *endPtr != '\0' || allocSize < 0 || allocSize > MAX_DATA_MEMORY) {
 
                             // Then fail
-                            printf("⚠️  Invalid allocation size '%s' (must be a non-negative integer and < 2048) (line %d)\n", numBytesStr, currentAddress);
+                            printf(" ⚠️  Invalid allocation size '%s' found line %d in alloc declaration.\nMust provide one positive integer, inferior to 2048\n", numBytesStr, *currentLine);
                             return 1;
                         }
 
                         // Otherwise, get that value from the previous conversion
                         numBytesToAlloc = (int)allocSize;
-
 
                         // Check if there is enough memory left for allocation
                         if (MAX_DATA_MEMORY - dataSection->bytesCount >= numBytesToAlloc) {
@@ -472,9 +505,10 @@
 
                             return 0;
                         } 
+
                         // Otherwise, not enough memory left
                         else {
-                            printf("⚠️  Not enough memory left for allocation! Requested %d bytes, but only %d bytes available.\n", numBytesToAlloc, MAX_DATA_MEMORY - dataSection->bytesCount);
+                            printf(" ⚠️  Not enough memory left for allocation!\nNeed %d byte(s), have %d byte(s).\n", numBytesToAlloc, MAX_DATA_MEMORY - dataSection->bytesCount);
                             return 1;
                         }
                     }
@@ -491,7 +525,7 @@
 
                         // Check if string starts with a quote 
                         if (*stringValueStart != '"') {
-                            printf("⚠️  String must start with a quote (line %d)\n", currentAddress);
+                            printf(" ⚠️ Couldn't find the starting quote character in string declaration, line %d.\nA string must start with a quote.\n", *currentLine);
                             return 1;
                         }
 
@@ -503,7 +537,7 @@
 
                         // If none found, throw error
                         if (!stringValueEnd) {
-                            printf("⚠️  String must end with a quote (line %d)\n", currentAddress);
+                            printf(" ⚠️  Couldn't find ending quote character in string declaration, line %d.\nA string must end with a quote.\n", *currentLine);
                             return 1;
                         }
 
@@ -513,14 +547,14 @@
 
                         // Ensure there are no extra characters after the last quote (except for whitespaces which are now trimmed)
                         if (*lineEnd != '\0') {
-                            printf("⚠️  Extra characters found outside of string quotes (line %d)\n", currentAddress);
+                            printf(" ⚠️  Extra characters found outside of string quotes, line %d)\nString literal must be the last element of the line.", *currentLine);
                             return 1;
                         }
 
                         // Check if there's enough memory to store the string and the null terminator
                         int stringLength = stringValueEnd - stringValueStart;
                         if (MAX_DATA_MEMORY - dataSection->bytesCount < stringLength + 1) {
-                            printf("⚠️  Not enough memory to store the string (line %d)\n", currentAddress);
+                            printf(" ⚠️  Not enough memory to store the string, line %d\nNeed: %d byte(s), Have: %d byte(s)\n", *currentLine, stringLength+1, MAX_DATA_MEMORY - dataSection->bytesCount);
                             return 1;
                         }
 
@@ -531,7 +565,7 @@
                             if (!isascii(stringValueStart[i])) {
 
                                 // If they aren't, fail
-                                printf("⚠️  String contains non-ASCII characters (line %d)\n", currentAddress);
+                                printf("⚠️  String contains non-ASCII characters, line %d\nString literals must contain ASCII characters only.", currentAddress);
                                 return 1;
                             }
 

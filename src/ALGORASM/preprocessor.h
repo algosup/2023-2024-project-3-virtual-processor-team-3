@@ -30,7 +30,7 @@
                     }
 
                     // Report the exact number of extra characters
-                    printf(" ⚠️  Line %d exceeds the %d character limit by %d character(s).\nPlease split it into multiple declarations.\n", lineNumber, MAX_CHARS_PER_LINE, charCount+1);
+                    printf(" ⚠️  Line %d exceeds the %d character per-line limit by %d character(s).\nPlease split it into multiple declarations.\n", lineNumber, MAX_CHARS_PER_LINE, charCount+1);
                     errorFound = 1; // Mark that an error was found
                 }
             }

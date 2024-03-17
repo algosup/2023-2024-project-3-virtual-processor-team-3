@@ -91,7 +91,7 @@
 
             // If any of the tests reported anything other than > 0, halt execution.
             if (!emptyLineCheck || !foundCodeDirective || !duplicateCodeDirective || !duplicateDataDirective || !lineLengthCheck) {
-                printf("🛑 Program Halted\n");
+                printf("\n🛑 Program Halted\n");
 
                 // Close the file
                 fclose(file);
@@ -154,7 +154,7 @@
 
                 // Handle error 😢
                 if (result != 0) {
-                    printf("🛑 Program Halted\n");
+                    printf("\n🛑 Program Halted\n");
 
                     // Clean up file
                     fclose(file);                         
